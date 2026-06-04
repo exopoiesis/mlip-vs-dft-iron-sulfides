@@ -1,0 +1,133 @@
+# TM-Spec v0.3 artefact: MACE-MP-0 + CHGNet cross-mineral benchmark vs DFT
+# Four distinct foundation-MLIP failure modes identified.
+# PASS (benchmark completed, failures documented and paper-quotable).
+# id: tm.fes.mlip_vs_dft.benchmark.2026-06-04
+
+spec: tm-spec/0.3
+kind: MLIPBenchmark
+id: tm.fes.mlip_vs_dft.benchmark.2026-06-04
+schema_url: https://exopoiesis.github.io/tm-spec/0.3.json
+
+# -- 1. STRUCTURE ---------------------------------------------------------
+structure:
+  formula: FeS2               # representative; benchmark spans FeS2/FeS/Fe3S4 family
+  composition:
+    solid: "FeS2/FeS/Fe3S4 family"
+  space_group: { number: 205, symbol: Pa-3 }
+  pbc: [true, true, true]
+
+# -- 2. MAGNETIC STATE ----------------------------------------------------
+magnetic:
+  state: NM
+  collinear: true
+  magmoms_uB: {}
+  surrogate_warning: "per-mineral varies: NM (pyrite/mackinawite), ferri (greigite), PM-itinerant (marcasite)"
+
+# -- 3. CALCULATION (multi-backend MLIP) ----------------------------------
+calculation:
+  method: MLIP
+  backends:
+    - name: MACE-MP-0
+      variant: medium
+      version: "0.3.x"
+      foundation: true
+      fine_tuned: false
+    - name: CHGNet
+      variant: v0.3.0
+      foundation: true
+      fine_tuned: false
+
+# -- 4. BENCHMARK SETUP ---------------------------------------------------
+benchmark_setup:
+  reference:
+    method: "plane-wave DFT (PBE U=0)"
+    code: QuantumESPRESSO
+    system: "Fe-S V-anchored proton migration, this work"
+  test_systems:
+    - id: pyr_vs2_96at
+      system: "pyrite FeS2 96-atom V_S2 persulfide hop"
+      DFT_Ea_meV: 94.6
+    - id: pyr_vfe_96at
+      system: "pyrite FeS2 96-atom V_Fe S-H lateral hop (Dimer result)"
+      DFT_Ea_meV: 268
+    - id: greig_vfe_56at
+      system: "greigite Fe3S4 56-atom V_Fe oct S-H symmetric hop"
+      DFT_Ea_meV: 1860
+    - id: pent_vfe
+      system: "pentlandite (Fe,Ni)9S8 V_Fe cubane pocket S-H hop"
+      DFT_Ea_meV: null
+  test_observables:
+    - "barrier Ea (eV)"
+    - "saddle topology / band shape"
+    - "endpoint topology preservation"
+
+# -- 5. METRICS -----------------------------------------------------------
+metrics:
+  abs_diff_saddle_eV:
+    MACE_vs_DFT_pyrVS2: 0.095
+    CHGNet_vs_DFT_pyrVS2: 0.067
+  frac_correct_kind:
+    note: "CHGNet magnitude-only magmom (Jiang/Xu PNAS 2025); initialized magmoms do not change CHGNet energy (mackinawite control: 0.0 pp shift)"
+  Ea_correlation_R2:
+    note: "not computable -- structural collapse on 2/4 systems precludes global R2"
+
+# -- 6. RESULTS -----------------------------------------------------------
+results:
+  per_backend:
+    MACE-MP-0:
+      pyrite_VS2_meV: 0
+      pyrite_VS2_note: "flat PES, correct endpoint topology but barrier = 0"
+      pyrite_VFe_meV: 182
+      greigite_note: "unphysical ~1e10 eV intermediate energies"
+      pentlandite_note: "cubane [Fe4S4] 3+3 structural collapse"
+      paper_quotable: true
+    CHGNet-v0.3.0:
+      pyrite_VS2_meV: 27.6
+      pyrite_VS2_note: "wrong band topology; spurious -24 meV sub-endpoint wells; saddle 3.4x below DFT"
+      pyrite_VFe_meV: 223
+      greigite_note: "non-convergent for vacancy configs"
+      pentlandite_note: "cubane collapse"
+      paper_quotable: true
+  verdict:
+    qualitative: >
+      Four distinct foundation-MLIP failure modes: (1) zero-shot flat/wrong-topology PES
+      (pyrite V_S2); (2) [Fe4S4] cubane structural-motif collapse (pentlandite);
+      (3) unphysical/non-convergent on inverse-spinel (greigite);
+      (4) false-positive band-collapse warning (marcasite).
+      Where both converge (pyrite V_Fe) they underbind DFT 1.2-1.5x.
+    usable_as: "topology-screening only, not quantitative barriers"
+    DFT_reference_pyrite_VS2_meV: 94.6
+    DFT_reference_pyrite_VFe_meV: 268
+  status: PASS
+  paper_quotable: true
+  validated_by: [chemist@opus, physicist@opus]
+  notes: >
+    Benchmark establishes DFT as required for quantitative barriers in Fe-S minerals.
+    MLIP-only screening viable for endpoint geometry and qualitative path topology
+    but not for paper-grade Ea. Both backends tested on gomer RTX 4070
+    (infra-mace-neb:latest); results cross-checked. Mackinawite nspin control
+    confirms CHGNet energy insensitive to initialized magmoms (0.0 meV shift).
+
+# -- 7. SANITY GATES ------------------------------------------------------
+sanity:
+  - id: G15_dual_backend
+    rule: ">=2 MLIP backends compared"
+    observed: "MACE-MP-0 + CHGNet-v0.3.0"
+    pass: true
+  - id: G06_ascii_safe
+    rule: "no em-dash or non-ASCII in YAML (ASCII-only container safe)"
+    pass: true
+
+# -- 8. PROVENANCE --------------------------------------------------------
+provenance:
+  date: "2026-06-04"
+  author: igor@exopoiesis.space
+  literature: [Batatia2023_MACE, Deng2023_CHGNet, Jiang2025_CHGNet_magmom]
+  compute:
+    host: gomer-local
+    gpu: RTX 4070 12 GB
+    cost_usd: 0.0
+    walltime_h: 6.0
+  hash:
+    inputs:  sha256:placeholder_mlip_bench_inputs
+    outputs: sha256:placeholder_mlip_bench_outputs

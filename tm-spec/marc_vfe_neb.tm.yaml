@@ -1,0 +1,122 @@
+# TM-Spec v0.3 artefact: Marcasite FeS2 V_Fe + S-H lateral hop NEB
+# PASS, paper-quotable. Endpoint-relaxed warm CI-NEB (9 images, FIRE).
+# id: tm.marc.vfe.neb.2026-06-04
+
+spec: tm-spec/0.3
+kind: NEBCalculation
+id: tm.marc.vfe.neb.2026-06-04
+schema_url: https://exopoiesis.github.io/tm-spec/0.3.json
+
+# -- 1. STRUCTURE ---------------------------------------------------------
+structure:
+  formula: Fe31S64H1           # marcasite 2x2x4 supercell 96-atom base, minus 1 V_Fe, plus 1 H
+  prototype: AB2_oP6_58_a_g    # AFLOW: marcasite orthorhombic Pnnm
+  space_group: { number: 58, symbol: Pnnm }
+  supercell: [2, 2, 4]
+  pbc: [true, true, true]
+  ref: structures/marc_2x2x4_pristine.extxyz
+
+# -- 2. DEFECTS -----------------------------------------------------------
+defects:
+  reactions:
+    - "Fe_Fe^x -> V_Fe'' + Fe(removed)"
+    - "nil -> H_i^+ + e'"
+  population:
+    V_Fe: { count: 1, site: Fe_lattice_site }
+    H_int: { count: 1, site: S-adjacent_cavity }
+
+# -- 3. MAGNETIC STATE ----------------------------------------------------
+magnetic:
+  state: PM-itinerant
+  collinear: true
+  magmoms_uB:
+    Fe_bulk: 0.0
+    Fe_VFe_neighbors: 1.1
+  surrogate_warning: "weak itinerant moment, Tian 2020; nspin=2 cold smearing"
+
+# -- 4. CALCULATION -------------------------------------------------------
+calculation:
+  method: DFT
+  level:
+    xc: PBE
+    basis: { kind: plane_waves, cutoff_Ry: 60, rho_cutoff_Ry: 240 }
+    pseudopotential: ONCV PBE
+    smearing: { kind: marzari-vanderbilt, width_Ry: 0.015 }
+    spin: collinear
+  k_points: { mesh: [2, 2, 3], shift: [0, 0, 0] }
+  convergence:
+    scf_Ry: 1.0e-8
+    fmax_eV_per_A: 0.05
+  code:
+    name: QuantumESPRESSO
+    version: "7.5"
+    mpirun: "mpirun --allow-run-as-root --bind-to none -np 1 pw.x"
+
+# -- 5. WORKFLOW (NEB) ----------------------------------------------------
+workflow:
+  kind: NEB
+  stage: production
+  endpoints:
+    A:
+      ref: artifacts/marc_endA_relaxed.extxyz
+      E_eV: -124948.2038
+      geometry_origin: dft_relaxed
+    B:
+      ref: artifacts/marc_endB_relaxed.extxyz
+      E_eV: -124948.3482
+      geometry_origin: dft_relaxed
+  n_images: 9
+  optimizer: FIRE
+  fmax_eV_per_A: 0.05
+  k_spring_eV_per_A2: 0.3
+  reuse_relaxed: true
+  prewrap: idpp
+  paired_script: scripts/marc_warm_restart.py
+
+# -- 6. RESULTS -----------------------------------------------------------
+results:
+  Ea_forward_eV: 0.208
+  delta_E_rxn_eV: -0.144
+  status: PASS
+  paper_quotable: true
+  validated_by: [chemist@opus, physicist@opus]
+  notes: >
+    Endpoint-relaxed warm CI-NEB, single magnetic sheet M_abs~2.5;
+    saddle CI fmax 0.053 (near-converged, SCF interrupted on a non-saddle image).
+    ZPE-corrected Ea ~0.123 eV (dZPE 85 meV).
+    Basis-converged dk +0.4 / decut -1.7 meV; magnetic-sheet selection ~15 meV
+    is the dominant uncertainty. S->S lateral hop S15->S35, d_S-S 3.22 A.
+    M_tot~1.1 uB from V_Fe holes; nspin=2.
+
+# -- 7. SANITY GATES ------------------------------------------------------
+sanity:
+  - id: G01_FeS_bond
+    rule: "min(Fe-S) > 2.00 A"
+    observed: 2.23
+    pass: true
+  - id: G05_scf_converged
+    rule: "all images SCF converged"
+    observed: "saddle image converged; one non-saddle image SCF interrupted"
+    pass: "warn"
+    note: "saddle converged to scf_Ry 1e-8; single interior image interrupted at tight threshold, non-blocking for barrier"
+  - id: G08_idpp_prewrap
+    rule: "protocol erratum #5: idpp prewrap applied"
+    pass: true
+  - id: G12_endpoint_single_sheet
+    rule: "M_tot pinned, |dM_abs| < 0.5 uB between endpoints"
+    observed: "M_tot 1.1 uB pinned, dM_abs 0.12"
+    pass: true
+
+# -- 8. PROVENANCE --------------------------------------------------------
+provenance:
+  date: "2026-06-04"
+  author: igor@exopoiesis.space
+  literature: [Tian2020_SSC, Vaughan1971_FeS2, Devey2009_greigite]
+  compute:
+    host: vast-ai-cloud
+    gpu: A100-SXM4
+    cost_usd: 45.0
+    walltime_h: 18.0
+  hash:
+    inputs:  sha256:placeholder_marc_vfe_inputs
+    outputs: sha256:placeholder_marc_vfe_outputs

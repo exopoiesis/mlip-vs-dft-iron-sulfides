@@ -1,0 +1,87 @@
+# TM-Spec v0.3 artefact: Pentlandite (pure-Fe Fe72S64 model) V_Fe + S-H -- ENDPOINTS ONLY
+# PRELIMINARY: production V_Fe + S-H NEB DEFERRED to a companion magnetic-framework study (nspin=2).
+# Paper #1 uses pentlandite ONLY for two foundation-MLIP STRUCTURAL-MOTIF failures (cubane + V_S
+# collapse), NOT for a DFT barrier. Earlier V_S+H values (MLIP 1.43 eV; ABACUS 0.55 eV) are NOT
+# reliable migration barriers under the corrected V_Fe + S-H methodology.
+
+spec: tm-spec/0.3
+kind: NEBCalculation
+id: tm.pent.vfe.neb.2026-06-04
+schema_url: https://exopoiesis.github.io/tm-spec/0.3.json
+
+# -- 1. STRUCTURE --
+structure:
+  formula: Fe71S64H1                  # pure-Fe Fe72S64 model, minus 1 V_Fe, plus 1 H = 136 atoms
+  space_group: { number: 225, symbol: "Fm-3m" }
+  cell: { a: 10.07 Angstrom }         # a_conv pure-Fe model (natural (Fe,Ni)9S8 a=10.044)
+  supercell: [2, 2, 2]                # primitive x 2x2x2 = 136 atoms (8 f.u.)
+  pbc: [true, true, true]
+  geometry_origin: dft_relaxed
+
+# -- 3. MAGNETIC --
+magnetic:
+  state: NM                           # nspin=1 paramagnetic surrogate (Paper #1 unified protocol)
+  collinear: true
+  magmoms_uB: {}
+  surrogate_warning: "Pentlandite is Pauli-paramagnetic with no long-range order (Knop 1976); nspin=1 used as a paramagnetic surrogate. The V_Fe + S-H migration barrier requires nspin=2 and is developed in a companion magnetic-framework study."
+
+# -- 6. CALCULATION --
+calculation:
+  method: DFT
+  level:
+    xc: PBE
+    basis: { kind: plane_waves, cutoff_Ry: 60, rho_cutoff_Ry: 240 }
+    pseudopotential: "ONCV PBE"
+    smearing: { kind: gaussian, width_Ry: 0.01 }    # metallic / itinerant
+    spin: none
+  k_points: { mesh: [2, 2, 2], shift: [0, 0, 0] }
+  convergence: { scf_Ry: 1.0e-8, fmax_eV_per_A: 0.05 }
+  code: { name: QuantumESPRESSO, version: "7.5" }
+
+# -- 7. WORKFLOW (NEB endpoints prepared; production band deferred) --
+workflow:
+  kind: NEB
+  stage: smoke
+  n_images: null                       # production NEB not run (deferred, nspin=2 companion study)
+  optimizer: FIRE
+  prewrap: idpp
+  endpoints:
+    A: { ref: ../data/structures/pentlandite_endA.extxyz, geometry_origin: dft_relaxed }
+    B: { ref: ../data/structures/pentlandite_endB.extxyz, geometry_origin: dft_relaxed }
+
+# -- 8. RESULTS --
+results:
+  Ea_forward_eV: null                  # NO barrier in Paper #1 (deferred to companion nspin=2 study)
+  status: PRELIMINARY
+  paper_quotable: false
+  validated_by: [chemist@opus, physicist@opus]
+  notes: |
+    Production V_Fe + S-H NEB DEFERRED to a companion magnetic-framework study: it requires a
+    spin-polarized (nspin=2) protocol that does not fit Paper #1's unified nspin=1 paramagnetic
+    surrogate. DFT-relaxed endpoints are provided here. Paper #1's pentlandite contributions are
+    TWO foundation-MLIP STRUCTURAL-MOTIF failures, independent of the V_Fe barrier value:
+    (1) V_S + H Fe-cluster collapse -- endpoint A == endpoint B, sub-ueV invalid NEB (same as mackinawite);
+    (2) [Fe4S4] cubane vs octahedral-Fe collapse -- under V_Fe relaxation the 4-coord cubane Fe vacancy
+        collapses to a 3+3 distortion several eV above the symmetric DFT minimum (not flagged by force
+        convergence); the octahedral 4b Fe site does NOT show this failure.
+    Earlier V_S + H values are NOT reliable migration barriers under the corrected methodology:
+    foundation-MLIP 1.43 eV (2x2x2) and ABACUS LCAO 0.55 eV (unpublished) are artifacts of the broken pathway.
+
+# -- 9. SANITY GATES --
+sanity:
+  - { id: G09_geometry_origin, rule: "endpoints dft_relaxed (energies comparable)", observed: "both dft_relaxed", pass: true }
+  - { id: G10_vfe_barrier_deferred, rule: "V_Fe + S-H NEB requires nspin=2 -> deferred to companion study", observed: "production NEB not run", pass: "skip" }
+  - { id: G17_cubane_motif_preserved, rule: "[Fe4S4] cubane preserved under V_Fe relaxation (MLIP)", observed: "MLIP 3+3 collapse several eV above DFT minimum", pass: false }
+
+# -- 10. PROVENANCE --
+provenance:
+  date: 2026-06-04
+  author: igor@exopoiesis.space
+  literature: [Knop1976, Tsukimura1992, Vaughan2006]
+  compute:
+    host: vast.ai
+    gpu: A100
+    cost_usd: 0.0
+  hash:
+    inputs: "sha256:placeholder_to_be_computed"
+    outputs: "sha256:placeholder_to_be_computed"

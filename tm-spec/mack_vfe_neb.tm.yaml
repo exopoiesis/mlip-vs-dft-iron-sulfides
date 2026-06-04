@@ -1,0 +1,108 @@
+# TM-Spec v0.3 artefact: Mackinawite FeS V_Fe + S-H lateral hop NEB
+# PASS, paper-quotable. ZPE-corrected effectively barrierless.
+# id: tm.mack.vfe.neb.2026-06-04
+
+spec: tm-spec/0.3
+kind: NEBCalculation
+id: tm.mack.vfe.neb.2026-06-04
+schema_url: https://exopoiesis.github.io/tm-spec/0.3.json
+
+# -- 1. STRUCTURE ---------------------------------------------------------
+structure:
+  formula: Fe35S36H1           # mackinawite 3x3x2 supercell 72-atom base, minus 1 V_Fe, plus 1 H
+  prototype: AB_tP4_129_a_c    # AFLOW: mackinawite tetragonal P4/nmm
+  space_group: { number: 129, symbol: P4/nmm }
+  supercell: [3, 3, 2]
+  pbc: [true, true, true]
+  ref: structures/mack_3x3x2_pristine.extxyz
+
+# -- 2. DEFECTS -----------------------------------------------------------
+defects:
+  reactions:
+    - "Fe_Fe^x -> V_Fe'' + Fe(removed)"
+    - "nil -> H_i^+ + e'"
+  population:
+    V_Fe: { count: 1 }
+    H_int: { count: 1, site: S-lateral_cavity }
+
+# -- 3. MAGNETIC STATE ----------------------------------------------------
+magnetic:
+  state: NM
+  collinear: true
+  magmoms_uB: {}
+  surrogate_warning: "PM-itinerant proxy; seeded moment collapses -> nspin=1"
+
+# -- 4. CALCULATION -------------------------------------------------------
+calculation:
+  method: DFT
+  level:
+    xc: PBE
+    basis: { kind: plane_waves, cutoff_Ry: 60, rho_cutoff_Ry: 240 }
+    pseudopotential: ONCV PBE
+    smearing: { kind: gaussian, width_Ry: 0.005 }
+    spin: none
+  k_points: { mesh: [2, 2, 2], shift: [0, 0, 0] }
+  convergence:
+    scf_Ry: 1.0e-8
+    fmax_eV_per_A: 0.05
+  code:
+    name: QuantumESPRESSO
+    version: "7.5"
+    mpirun: "mpirun --allow-run-as-root --bind-to none -np 1 pw.x"
+
+# -- 5. WORKFLOW (NEB) ----------------------------------------------------
+workflow:
+  kind: NEB
+  stage: production
+  endpoints:
+    A:
+      ref: artifacts/mack_endA_relaxed.extxyz
+      geometry_origin: dft_relaxed
+    B:
+      ref: artifacts/mack_endB_relaxed.extxyz
+      geometry_origin: dft_relaxed
+  n_images: 9
+  optimizer: FIRE
+  fmax_eV_per_A: 0.05
+  k_spring_eV_per_A2: 0.3
+  reuse_relaxed: true
+  prewrap: idpp
+  paired_script: scripts/neb_canonical_mack_72at_qe_VFe.py
+
+# -- 6. RESULTS -----------------------------------------------------------
+results:
+  Ea_forward_eV: 0.043
+  status: PASS
+  paper_quotable: true
+  validated_by: [chemist@opus, physicist@opus]
+  notes: >
+    ZPE-corrected effectively barrierless (~0 within +-15 meV; dZPE -66 meV).
+    Fast V_Fe-anchored S-H hop. nspin=1: seeded moment collapses to zero
+    confirming non-magnetic ground state (PM-itinerant proxy valid at nspin=1).
+
+# -- 7. SANITY GATES ------------------------------------------------------
+sanity:
+  - id: G01_FeS_bond
+    rule: "min(Fe-S) > 2.00 A"
+    observed: 2.27
+    pass: true
+  - id: G05_scf_converged
+    rule: "all images SCF converged"
+    pass: true
+  - id: G08_idpp_prewrap
+    rule: "protocol erratum #5: idpp prewrap applied"
+    pass: true
+
+# -- 8. PROVENANCE --------------------------------------------------------
+provenance:
+  date: "2026-06-04"
+  author: igor@exopoiesis.space
+  literature: [Vaughan1971_FeS2, Lennie1995_mack, Rickard2006_FeS]
+  compute:
+    host: vast-ai-cloud
+    gpu: A100-SXM4
+    cost_usd: 12.0
+    walltime_h: 5.0
+  hash:
+    inputs:  sha256:placeholder_mack_vfe_inputs
+    outputs: sha256:placeholder_mack_vfe_outputs

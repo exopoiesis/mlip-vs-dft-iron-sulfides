@@ -1,0 +1,109 @@
+# TM-Spec v0.3 artefact: Pyrite FeS2 V_S2 persulfide-dimer hop NEB
+# PASS, paper-quotable. Hero anchor; small-cell cross-code validated.
+# Foundation MLIPs fail on this system (MACE flat 0, CHGNet wrong topology).
+# id: tm.pyr.vs2.neb.2026-06-04
+
+spec: tm-spec/0.3
+kind: NEBCalculation
+id: tm.pyr.vs2.neb.2026-06-04
+schema_url: https://exopoiesis.github.io/tm-spec/0.3.json
+
+# -- 1. STRUCTURE ---------------------------------------------------------
+structure:
+  formula: FeS2               # pyrite 96-atom supercell (V_S2 defect)
+  prototype: AB2_cP12_205_a_c  # AFLOW: pyrite cubic Pa-3bar
+  space_group: { number: 205, symbol: Pa-3 }
+  supercell: [2, 2, 2]
+  pbc: [true, true, true]
+  ref: structures/pyr_2x2x2_pristine.extxyz
+
+# -- 2. DEFECTS -----------------------------------------------------------
+defects:
+  reactions:
+    - "(S-S)^2- -> V_S2 + S2(removed)"
+  population:
+    V_S2: { count: 1, site: "persulfide_dimer_site" }
+
+# -- 3. MAGNETIC STATE ----------------------------------------------------
+magnetic:
+  state: NM
+  collinear: true
+  magmoms_uB: {}
+  surrogate_warning: null
+
+# -- 4. CALCULATION -------------------------------------------------------
+calculation:
+  method: DFT
+  level:
+    xc: PBE
+    basis: { kind: plane_waves, cutoff_Ry: 60, rho_cutoff_Ry: 240 }
+    pseudopotential: ONCV PBE
+    smearing: { kind: gaussian, width_Ry: 0.005 }
+    spin: none
+  k_points: { mesh: [2, 2, 2], shift: [0, 0, 0] }
+  convergence:
+    scf_Ry: 1.0e-8
+    fmax_eV_per_A: 0.05
+  code:
+    name: QuantumESPRESSO
+    version: "7.5"
+    mpirun: "mpirun --allow-run-as-root --bind-to none -np 1 pw.x"
+
+# -- 5. WORKFLOW (NEB) ----------------------------------------------------
+workflow:
+  kind: NEB
+  stage: production
+  endpoints:
+    A:
+      ref: artifacts/pyr_vs2_endA_relaxed.extxyz
+      geometry_origin: dft_relaxed
+    B:
+      ref: artifacts/pyr_vs2_endB_relaxed.extxyz
+      geometry_origin: dft_relaxed
+  n_images: 9
+  optimizer: FIRE
+  fmax_eV_per_A: 0.05
+  k_spring_eV_per_A2: 0.3
+  reuse_relaxed: true
+  prewrap: idpp
+
+# -- 6. RESULTS -----------------------------------------------------------
+results:
+  Ea_forward_eV: 0.0946
+  status: PASS
+  paper_quotable: true
+  validated_by: [chemist@opus, physicist@opus]
+  notes: >
+    Hero anchor; small-cell cross-code validated 181-190 meV range.
+    Foundation MLIPs FAIL here: MACE flat 0 meV (correct topology missing),
+    CHGNet 27.6 meV wrong band topology.
+    ASE IDPP MIC bug found and fixed (MR !4091) on this system;
+    IDPP prewrap mandatory with MIC fix applied.
+    Diamagnetic closed-shell Fe2+ LS d6, nspin=1.
+
+# -- 7. SANITY GATES ------------------------------------------------------
+sanity:
+  - id: G01_FeS_bond
+    rule: "min(Fe-S) > 2.00 A"
+    observed: 2.25
+    pass: true
+  - id: G05_scf_converged
+    rule: "all images SCF converged"
+    pass: true
+  - id: G08_idpp_prewrap
+    rule: "protocol erratum #5: idpp prewrap applied (with MIC fix MR-4091)"
+    pass: true
+
+# -- 8. PROVENANCE --------------------------------------------------------
+provenance:
+  date: "2026-06-04"
+  author: igor@exopoiesis.space
+  literature: [Vaughan1971_FeS2, Wang2025_pyrite, Hung2011_pyrite]
+  compute:
+    host: vast-ai-cloud
+    gpu: A100-SXM4
+    cost_usd: 22.0
+    walltime_h: 9.0
+  hash:
+    inputs:  sha256:placeholder_pyr_vs2_inputs
+    outputs: sha256:placeholder_pyr_vs2_outputs

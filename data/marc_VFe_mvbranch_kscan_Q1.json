@@ -1,0 +1,36 @@
+{
+  "configs": {
+    "mv_base_k223_e60": {
+      "kpts": [2, 2, 3],
+      "ecutwfc": 60.0,
+      "ecutrho": 240.0,
+      "smearing": "mv",
+      "degauss": 0.015,
+      "endA": {"E_eV": -124948.2037928406, "Mtot_uB": 1.1, "Mabs_uB": 2.59},
+      "saddle": {"E_eV": -124947.99546615925, "Mtot_uB": 1.1, "Mabs_uB": 2.47},
+      "E_a_eV": 0.2083266813569935,
+      "E_a_meV": 208.3
+    },
+    "mv_kdns_k334_e60": {
+      "kpts": [3, 3, 4],
+      "ecutwfc": 60.0,
+      "ecutrho": 240.0,
+      "smearing": "mv",
+      "degauss": 0.015,
+      "endA": {"E_eV": -124948.17062828624, "Mtot_uB": 1.1, "Mabs_uB": 2.58},
+      "saddle": {"E_eV": -124947.96210690745, "Mtot_uB": 1.1, "Mabs_uB": 2.47},
+      "E_a_eV": 0.20852137879410293,
+      "E_a_meV": 208.5
+    }
+  },
+  "geom": {
+    "endA": "/workspace/marc_warm_restart/relaxed_endA_warm.xyz",
+    "saddle": "/workspace/marc_warm_restart/image_04/espresso.pwo"
+  },
+  "expect_counts": {"Fe": 31, "S": 64, "H": 1},
+  "mv_anchor_k223_Ea_meV": 208.3,
+  "mv_kdns_k334_Ea_meV": 208.5,
+  "dEa_kmesh_mv_meV": 0.2,
+  "status": "completed",
+  "t_total_s": 6651.572049379349
+}

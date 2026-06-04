@@ -1,0 +1,116 @@
+# TM-Spec v0.3 artefact: Pyrite FeS2 V_Fe S-H lateral hop NEB -- BAND FAILURE
+# FAIL: band-CI-NEB failed across 5 independent attempts (degenerate ridge).
+# RESOLUTION: ASE-Dimer converged to Ea=0.268 eV (267.7 meV electronic).
+# id: tm.pyr.vfe.bandneb_fail.2026-05-31
+
+spec: tm-spec/0.3
+kind: NEBCalculation
+id: tm.pyr.vfe.bandneb_fail.2026-05-31
+schema_url: https://exopoiesis.github.io/tm-spec/0.3.json
+
+# -- 1. STRUCTURE ---------------------------------------------------------
+structure:
+  formula: FeS2               # pyrite Pa-3bar 96-atom supercell; V_Fe + 1 H
+  prototype: AB2_cP12_205_a_c  # AFLOW: pyrite cubic Pa-3bar
+  space_group: { number: 205, symbol: Pa-3 }
+  supercell: [2, 2, 2]
+  pbc: [true, true, true]
+  ref: structures/pyr_2x2x2_pristine.extxyz
+
+# -- 2. DEFECTS -----------------------------------------------------------
+defects:
+  reactions:
+    - "Fe_Fe^x -> V_Fe'' + Fe(removed)"
+    - "nil -> H_i^+ + e'"
+  population:
+    V_Fe: { count: 1, site: "4a_cubic" }
+    H_int: { count: 1, site: "S-lateral_cavity" }
+
+# -- 3. MAGNETIC STATE ----------------------------------------------------
+magnetic:
+  state: NM
+  collinear: true
+  magmoms_uB: {}
+  surrogate_warning: null
+
+# -- 4. CALCULATION -------------------------------------------------------
+calculation:
+  method: DFT
+  level:
+    xc: PBE
+    basis: { kind: plane_waves, cutoff_Ry: 60, rho_cutoff_Ry: 240 }
+    pseudopotential: ONCV PBE
+    smearing: { kind: gaussian, width_Ry: 0.005 }
+    spin: none
+  k_points: { mesh: [2, 2, 2], shift: [0, 0, 0] }
+  convergence:
+    scf_Ry: 1.0e-8
+    fmax_eV_per_A: 0.05
+  code:
+    name: QuantumESPRESSO
+    version: "7.5"
+    mpirun: "mpirun --allow-run-as-root --bind-to none -np 1 pw.x"
+
+# -- 5. WORKFLOW (NEB) ----------------------------------------------------
+workflow:
+  kind: NEB
+  stage: production
+  endpoints:
+    A:
+      ref: artifacts/pyr_vfe_endA_relaxed.extxyz
+      geometry_origin: dft_relaxed
+    B:
+      ref: artifacts/pyr_vfe_endB_relaxed.extxyz
+      geometry_origin: dft_relaxed
+  n_images: 9
+  optimizer: FIRE
+  fmax_eV_per_A: 0.05
+  k_spring_eV_per_A2: 0.3
+  reuse_relaxed: true
+  prewrap: idpp
+
+# -- 6. RESULTS -----------------------------------------------------------
+results:
+  Ea_forward_eV: null
+  status: FAIL
+  paper_quotable: false
+  notes: >
+    Band-CI-NEB FAILED across 5 independent attempts (k_spring 0.3-3.0;
+    FIRE/ode/LBFGS; plain->CI): migrating H rolls off the symmetric S_i<->S_k
+    ridge onto adjacent cavity S at the m-3bar degenerate vacancy ->
+    band energy frozen (degenerate-manifold signature), 12 digits identical
+    across 22+ LBFGS iters.
+    d_S-S 3.83 A; V_Fe at 4a site, m-3bar point symmetry creates degenerate
+    transition manifold (not crystal system, but vacancy-site point group).
+    RESOLUTION: unconstrained ASE-Dimer (min-mode) search converged
+    (fmax 0.0165) to Ea=0.268 eV (267.7 meV electronic;
+    ZPE-corrected ~0.173 eV; index-1 TS verified, 841.9i cm-1).
+    MLIP endpoints sane; path broken (MACE 182 meV, CHGNet 223 meV on endpoints).
+    Lesson: vacancy-site point group (m-3bar), not crystal system,
+    governs band-NEB stability.
+
+# -- 7. SANITY GATES ------------------------------------------------------
+sanity:
+  - id: G05_scf_converged
+    rule: "all images SCF converged"
+    observed: "endpoints converged; NEB band SCF converged per-step"
+    pass: true
+  - id: G11_neb_path_nondegenerate
+    rule: "band energy not frozen across iters (degenerate-manifold check)"
+    observed: "band energy frozen 12 digits, 22+ iters; degenerate ridge at m-3bar vacancy"
+    pass: false
+    note: "frozen 12 digits, degenerate ridge. Switched to ASE-Dimer which succeeded."
+
+# -- 8. PROVENANCE --------------------------------------------------------
+provenance:
+  date: "2026-05-31"
+  author: igor@exopoiesis.space
+  literature: [Vaughan1971_FeS2, Henkelman2000_CI-NEB, Sheppard2011_NEB_review]
+  compute:
+    host: vast-ai-cloud
+    gpu: A100-SXM4
+    cost_usd: 18.0
+    walltime_h: 25.0
+  hash:
+    inputs:  sha256:placeholder_pyr_vfe_fail_inputs
+    outputs: sha256:placeholder_pyr_vfe_fail_outputs

@@ -36,7 +36,18 @@ zpe/       partial-Hessian zero-point frequency drivers (saddle + endpoint)
 mlip/      MACE-MP-0 / CHGNet topology-scan, NEB-probe, and band-correlation drivers
 figures/   figure-generation scripts (Table 1 / ZPE trend / barrier landscape / band correlation)
 data/      harvested result JSON (the numbers behind every table and figure)
+data/structures/  complete DFT NEB bands + relaxed endpoints/saddles as extended-XYZ (energy+forces)
+tm-spec/   TM-Spec v0.3 declarative records of each result (machine-readable + format examples)
 ```
+
+**Reusable structure data.** `data/structures/` ships the *complete* DFT NEB bands (all images, with energies
+and forces) plus relaxed endpoints and saddle geometries as extended-XYZ — the kind of complete iron-sulfide
+defect-migration reference that is otherwise hard to find. Useful as MLIP training/benchmark reference data,
+NEB-method test cases, or starting geometries for further Fe–S defect studies. See `data/structures/README.md`.
+
+**TM-Spec records.** `tm-spec/` holds [TM-Spec v0.3](https://github.com/exopoiesis/tm-spec) declarative records
+of every result (successes *and* failures), both as a validate-able provenance trail and as worked examples of
+the format. See `tm-spec/README.md`.
 
 ## Methods (summary)
 
