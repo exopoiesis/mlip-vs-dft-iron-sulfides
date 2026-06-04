@@ -1,0 +1,154 @@
+{
+  "endpoints": {
+    "endA": {
+      "1": {
+        "U": 1.0,
+        "startingpot": "atomic",
+        "E_eV": -88076.25465789858,
+        "Mtot_uB": -23.9,
+        "Mabs_uB": 79.14,
+        "final_scf_accuracy_Ry": 0.00012483,
+        "hubbard_in_pwi": true,
+        "hubbard_energy_count": 19,
+        "hubbard_ok": true,
+        "converged": true
+      },
+      "2": {
+        "U": 2.0,
+        "startingpot": "file",
+        "E_eV": -88063.95656983307,
+        "Mtot_uB": -23.9,
+        "Mabs_uB": 82.28,
+        "final_scf_accuracy_Ry": 0.00027034,
+        "hubbard_in_pwi": true,
+        "hubbard_energy_count": 63,
+        "hubbard_ok": true,
+        "converged": true
+      },
+      "3": {
+        "U": 3.0,
+        "startingpot": "file",
+        "E_eV": -88053.14751862519,
+        "Mtot_uB": -23.9,
+        "Mabs_uB": 84.52,
+        "final_scf_accuracy_Ry": 0.00024217,
+        "hubbard_in_pwi": true,
+        "hubbard_energy_count": 38,
+        "hubbard_ok": true,
+        "converged": true
+      }
+    },
+    "saddle": {
+      "1": {
+        "U": 1.0,
+        "startingpot": "atomic",
+        "E_eV": -88074.43992104854,
+        "Mtot_uB": -23.9,
+        "Mabs_uB": 79.42,
+        "final_scf_accuracy_Ry": 0.00016104,
+        "hubbard_in_pwi": true,
+        "hubbard_energy_count": 20,
+        "hubbard_ok": true,
+        "converged": true
+      },
+      "2": {
+        "U": 2.0,
+        "startingpot": "file",
+        "E_eV": -88062.15107600985,
+        "Mtot_uB": -23.9,
+        "Mabs_uB": 82.71,
+        "final_scf_accuracy_Ry": 0.00020701,
+        "hubbard_in_pwi": true,
+        "hubbard_energy_count": 22,
+        "hubbard_ok": true,
+        "converged": true
+      },
+      "3": {
+        "U": 3.0,
+        "startingpot": "file",
+        "E_eV": -88051.66928999317,
+        "Mtot_uB": -23.9,
+        "Mabs_uB": 85.36,
+        "final_scf_accuracy_Ry": 0.00022062,
+        "hubbard_in_pwi": true,
+        "hubbard_energy_count": 14,
+        "hubbard_ok": true,
+        "converged": true
+      }
+    },
+    "endB": {
+      "1": {
+        "U": 1.0,
+        "startingpot": "atomic",
+        "E_eV": -88076.25468660658,
+        "Mtot_uB": -23.9,
+        "Mabs_uB": 79.14,
+        "final_scf_accuracy_Ry": 0.00012497,
+        "hubbard_in_pwi": true,
+        "hubbard_energy_count": 19,
+        "hubbard_ok": true,
+        "converged": true
+      },
+      "2": {
+        "U": 2.0,
+        "startingpot": "file",
+        "E_eV": -88063.95477347357,
+        "Mtot_uB": -23.9,
+        "Mabs_uB": 82.26,
+        "final_scf_accuracy_Ry": 0.00025251,
+        "hubbard_in_pwi": true,
+        "hubbard_energy_count": 31,
+        "hubbard_ok": true,
+        "converged": true
+      },
+      "3": {
+        "U": 3.0,
+        "startingpot": "file",
+        "E_eV": -88053.14702092898,
+        "Mtot_uB": -23.9,
+        "Mabs_uB": 84.55,
+        "final_scf_accuracy_Ry": 0.0002951,
+        "hubbard_in_pwi": true,
+        "hubbard_energy_count": 25,
+        "hubbard_ok": true,
+        "converged": true
+      }
+    }
+  },
+  "U_chain": [
+    1.0,
+    2.0,
+    3.0
+  ],
+  "recipe": {
+    "warm_start": true,
+    "conv_thr": 0.0003,
+    "tot_magnetization_pin": -23.9,
+    "degauss": 0.02,
+    "mixing_beta": 0.1,
+    "mixing_ndim": 16,
+    "diago_full_acc": false,
+    "kpts": [
+      2,
+      2,
+      2
+    ],
+    "ecutwfc": 80.0
+  },
+  "barriers_by_U": {
+    "1": {
+      "E_a_meV": 1814.7,
+      "E_rxn_meV": -0.0
+    },
+    "2": {
+      "E_a_meV": 1805.5,
+      "E_rxn_meV": 1.8
+    },
+    "3": {
+      "E_a_meV": 1478.2,
+      "E_rxn_meV": 0.5
+    }
+  },
+  "status": "completed",
+  "t_total_s": 4808.602427244186
+}

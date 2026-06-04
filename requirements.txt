@@ -1,0 +1,13 @@
+# Core (figure scripts + geometry handling + DFT drivers)
+ase>=3.23
+numpy
+matplotlib
+
+# Foundation MLIPs (for mlip/ drivers) -- install per their own instructions:
+#   mace-torch      (MACE-MP-0 medium)   https://github.com/ACEsuit/mace
+#   chgnet          (CHGNet-v0.3.0)      https://github.com/CederGroupHub/chgnet
+#
+# DFT (for scripts/ drivers) is EXTERNAL:
+#   Quantum ESPRESSO 7.5 (pw.x, GPU build) on PATH, invoked via mpirun.
+#   ONCV PBE norm-conserving pseudopotentials for Fe, S, H (QE/PseudoDojo),
+#   mapped as Fe.upf / S.upf / H.upf under $ESPRESSO_PSEUDO.

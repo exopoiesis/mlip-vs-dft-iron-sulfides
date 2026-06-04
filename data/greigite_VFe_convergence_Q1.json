@@ -1,0 +1,147 @@
+{
+  "configs": {
+    "u0_base_k222_e80": {
+      "kpts": [
+        2,
+        2,
+        2
+      ],
+      "ecutwfc": 80.0,
+      "ecutrho": 320.0,
+      "U_eff": 0.0,
+      "points": {
+        "endA": {
+          "E_eV": -88090.57202629677,
+          "Mtot_uB": -23.9,
+          "Mabs_uB": 74.27,
+          "hubbard_ok": null
+        },
+        "saddle": {
+          "E_eV": -88088.73229946419,
+          "Mtot_uB": -23.9,
+          "Mabs_uB": 74.64,
+          "hubbard_ok": null
+        },
+        "endB": {
+          "E_eV": -88090.57203690922,
+          "Mtot_uB": -23.9,
+          "Mabs_uB": 74.27,
+          "hubbard_ok": null
+        }
+      },
+      "E_a_eV": 1.83972683257889,
+      "E_a_meV": 1839.7,
+      "E_rxn_eV": -1.0612449841573834e-05
+    },
+    "u0_kdns_k333_e80": {
+      "kpts": [
+        3,
+        3,
+        3
+      ],
+      "ecutwfc": 80.0,
+      "ecutrho": 320.0,
+      "U_eff": 0.0,
+      "points": {
+        "endA": {
+          "E_eV": -88090.62756282644,
+          "Mtot_uB": -23.9,
+          "Mabs_uB": 74.26,
+          "hubbard_ok": null
+        },
+        "saddle": {
+          "E_eV": -88088.78790892038,
+          "Mtot_uB": -23.9,
+          "Mabs_uB": 74.65,
+          "hubbard_ok": null
+        }
+      },
+      "E_a_eV": 1.8396539060631767,
+      "E_a_meV": 1839.7,
+      "E_rxn_eV": null
+    },
+    "u0_ecut_k222_e100": {
+      "kpts": [
+        2,
+        2,
+        2
+      ],
+      "ecutwfc": 100.0,
+      "ecutrho": 400.0,
+      "U_eff": 0.0,
+      "points": {
+        "endA": {
+          "E_eV": -88091.04046319505,
+          "Mtot_uB": -23.9,
+          "Mabs_uB": 74.26,
+          "hubbard_ok": null
+        },
+        "saddle": {
+          "E_eV": -88089.2004526838,
+          "Mtot_uB": -23.9,
+          "Mabs_uB": 74.63,
+          "hubbard_ok": null
+        }
+      },
+      "E_a_eV": 1.8400105112523306,
+      "E_a_meV": 1840.0,
+      "E_rxn_eV": null
+    },
+    "u1_k222_e80": {
+      "kpts": [
+        2,
+        2,
+        2
+      ],
+      "ecutwfc": 80.0,
+      "ecutrho": 320.0,
+      "U_eff": 1.0,
+      "points": {
+        "endA": {
+          "E_eV": -88076.25729767494,
+          "Mtot_uB": -23.9,
+          "Mabs_uB": 79.14,
+          "hubbard_ok": true,
+          "hubbard_in_pwi": true,
+          "hubbard_energy_count": 34
+        },
+        "saddle": {
+          "E_eV": -88074.4427064058,
+          "Mtot_uB": -23.9,
+          "Mabs_uB": 79.44,
+          "hubbard_ok": true,
+          "hubbard_in_pwi": true,
+          "hubbard_energy_count": 32
+        },
+        "endB": {
+          "E_eV": -88076.25733250551,
+          "Mtot_uB": -23.9,
+          "Mabs_uB": 79.14,
+          "hubbard_ok": true,
+          "hubbard_in_pwi": true,
+          "hubbard_energy_count": 35
+        }
+      },
+      "E_a_eV": 1.8145912691397825,
+      "E_a_meV": 1814.6,
+      "E_rxn_eV": -3.4830576623789966e-05
+    }
+  },
+  "geom_dir": "/workspace/greig_geom",
+  "expect_counts": {
+    "Fe": 23,
+    "S": 32,
+    "H": 1
+  },
+  "recipe": {
+    "smearing": "mv",
+    "degauss": 0.02,
+    "mixing_beta": 0.1,
+    "mixing_ndim": 16,
+    "diago_full_acc": false,
+    "conv_thr": 1e-06,
+    "tot_magnetization_pin": -23.9,
+    "ferri_init": "Fe_tet+5/Fe_oct-4",
+    "nspin": 2
+  }
+}

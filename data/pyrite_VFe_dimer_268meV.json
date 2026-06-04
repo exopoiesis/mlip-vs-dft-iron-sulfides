@@ -1,0 +1,61 @@
+{
+  "tool": "dimer_pyr_96at_qe_VFe_v6",
+  "method": "dimer",
+  "calc": {
+    "nspin": 1,
+    "ecutwfc": 60.0,
+    "ecutrho": 480.0,
+    "smearing": "gaussian",
+    "degauss": 0.01,
+    "kpts": [
+      2,
+      2,
+      2
+    ],
+    "conv_thr": 1e-10,
+    "U": 0
+  },
+  "fmax_target": 0.03,
+  "fmax_final": 0.016481756620703232,
+  "converged": true,
+  "e_endA_ref_eV": -124947.94173,
+  "seed": "chemical_RC",
+  "proximity_gate": {
+    "d_HSi": 1.6831416521807097,
+    "d_HSk": 1.6267447902675163,
+    "asym": 0.056396861913193375,
+    "nearest_nonH": "S71",
+    "nearest_d": 1.6267447902675163,
+    "barrier_meV": 267.6747748046182,
+    "nearest_S": [
+      [
+        1.627,
+        71
+      ],
+      [
+        1.683,
+        18
+      ],
+      [
+        2.598,
+        53
+      ]
+    ],
+    "offpath_S": [
+      [
+        2.598,
+        53
+      ],
+      [
+        2.636,
+        45
+      ]
+    ],
+    "third_S_d": 2.598,
+    "mu_bridge_warn": false,
+    "symmetric_ok": true,
+    "anchor_ok": true,
+    "verdict": "DIRECT_TRANSFER_OK"
+  },
+  "note": "Unconstrained v6 saddle-search. Barrier = E_saddle - E_endA (v5 ref). Paper-grade requires follow-up: DFT-extended freq (index-1+ZPE) at THIS saddle + endpoint-freq (dZPE#) + nspin=2 control."
+}

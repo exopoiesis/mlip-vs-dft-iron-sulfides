@@ -1,0 +1,111 @@
+{
+  "configs": {
+    "mv_base_k223_e60": {
+      "kpts": [
+        2,
+        2,
+        3
+      ],
+      "ecutwfc": 60.0,
+      "ecutrho": 240.0,
+      "smearing": "mv",
+      "degauss": 0.015,
+      "endA": {
+        "E_eV": -124948.2037928406,
+        "Mtot_uB": 1.1,
+        "Mabs_uB": 2.59
+      },
+      "saddle": {
+        "E_eV": -124947.99546615925,
+        "Mtot_uB": 1.1,
+        "Mabs_uB": 2.47
+      },
+      "E_a_eV": 0.2083266813569935,
+      "E_a_meV": 208.3
+    },
+    "gauss_base_k223_e60": {
+      "kpts": [
+        2,
+        2,
+        3
+      ],
+      "ecutwfc": 60.0,
+      "ecutrho": 240.0,
+      "smearing": "gaussian",
+      "degauss": 0.01,
+      "endA": {
+        "E_eV": -124948.30916307417,
+        "Mtot_uB": 1.1,
+        "Mabs_uB": 1.5
+      },
+      "saddle": {
+        "E_eV": -124948.11639368522,
+        "Mtot_uB": 1.1,
+        "Mabs_uB": 1.49
+      },
+      "E_a_eV": 0.1927693889447255,
+      "E_a_meV": 192.8
+    },
+    "gauss_kdns_k334_e60": {
+      "kpts": [
+        3,
+        3,
+        4
+      ],
+      "ecutwfc": 60.0,
+      "ecutrho": 240.0,
+      "smearing": "gaussian",
+      "degauss": 0.01,
+      "endA": {
+        "E_eV": -124948.27533524232,
+        "Mtot_uB": 1.1,
+        "Mabs_uB": 1.48
+      },
+      "saddle": {
+        "E_eV": -124948.08208992625,
+        "Mtot_uB": 1.1,
+        "Mabs_uB": 1.47
+      },
+      "E_a_eV": 0.193245316069806,
+      "E_a_meV": 193.2
+    },
+    "gauss_ecut_k223_e80": {
+      "kpts": [
+        2,
+        2,
+        3
+      ],
+      "ecutwfc": 80.0,
+      "ecutrho": 320.0,
+      "smearing": "gaussian",
+      "degauss": 0.01,
+      "endA": {
+        "E_eV": -125009.67189983305,
+        "Mtot_uB": 1.1,
+        "Mabs_uB": 1.51
+      },
+      "saddle": {
+        "E_eV": -125009.48083210798,
+        "Mtot_uB": 1.1,
+        "Mabs_uB": 1.5
+      },
+      "E_a_eV": 0.1910677250707522,
+      "E_a_meV": 191.1
+    }
+  },
+  "geom": {
+    "endA": "/workspace/marc_warm_restart/relaxed_endA_warm.xyz",
+    "saddle": "/workspace/marc_warm_restart/image_04/espresso.pwo"
+  },
+  "expect_counts": {
+    "Fe": 31,
+    "S": 64,
+    "H": 1
+  },
+  "anchor_mv_Ea_meV": 208.3,
+  "dEa_smearing_meV": -15.5,
+  "dEa_kmesh_meV": 0.4,
+  "dEa_ecut_meV": -1.7,
+  "status": "completed",
+  "t_total_s": 6913.907432556152
+}

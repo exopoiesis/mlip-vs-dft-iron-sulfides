@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the accompanying paper."
+title: "Where Foundation Machine-Learning Potentials Fail for Iron-Sulfide Defect Kinetics: Four Failure Modes and a DFT Benchmark of Vacancy-Anchored Hydrogen Migration in Pyrite, Marcasite, Mackinawite, and Greigite"
+authors:
+  - family-names: Morozov
+    given-names: "Igor N."
+    orcid: "https://orcid.org/0009-0007-3863-1747"
+    affiliation: "Independent Researcher, Ukraine"
+    email: igor@exopoiesis.space
+year: 2026
+repository-code: "https://github.com/exopoiesis/mlip-vs-dft-iron-sulfides"
+url: "https://exopoiesis.space"
+license: MIT
+keywords:
+  - foundation machine-learning potentials
+  - MACE-MP-0
+  - CHGNet
+  - DFT benchmark
+  - NEB
+  - iron sulfides
+  - proton migration
+  - vacancy-anchored hopping
+  - zero-point energy
+  - transition-metal sulfides

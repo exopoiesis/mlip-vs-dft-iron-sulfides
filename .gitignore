@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.pyo
+# raw DFT dumps (multi-GB, regenerable)
+*.save/
+*.wfc*
+*.hub
+tmp/
+*.UPF
+*.upf
+# large trajectories / outputs
+*.traj
+espresso.pwo
+espresso.pwi
+*.log
+.DS_Store

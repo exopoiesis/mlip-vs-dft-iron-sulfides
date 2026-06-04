@@ -1,0 +1,34 @@
+{
+  "status": "completed",
+  "E_a_warm_eV": 0.2081589231529506,
+  "E_endA_eV": -124948.2037928406,
+  "E_endB_eV": -124948.34823508392,
+  "band_energies_eV": [
+    -124948.2037928406,
+    -124948.05248217187,
+    null,
+    -124948.0992431663,
+    -124947.99563391745,
+    -124948.12662366893,
+    -124948.26497464396,
+    -124948.33308106425,
+    -124948.34823508392
+  ],
+  "n_images": 9,
+  "k_spring": 0.3,
+  "kpts": [
+    2,
+    2,
+    3
+  ],
+  "ecutwfc": 60.0,
+  "mixing": "local-TF",
+  "mixing_beta": 0.2,
+  "smearing": "mv",
+  "degauss": 0.015,
+  "conv_thr": 1e-08,
+  "mag_init": "uniform_yang",
+  "magmom_per_fe": 0.065,
+  "tot_magnetization_pin": 1.1,
+  "t_total_s": 34541.283631801605
+}
