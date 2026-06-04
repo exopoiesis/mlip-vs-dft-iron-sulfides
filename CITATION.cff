@@ -10,6 +10,7 @@ authors:
 year: 2026
 repository-code: "https://github.com/exopoiesis/mlip-vs-dft-iron-sulfides"
 url: "https://exopoiesis.space"
+doi: "10.5281/zenodo.20540264"
 license: MIT
 keywords:
   - foundation machine-learning potentials

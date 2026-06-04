@@ -79,7 +79,7 @@ paper's tables and figures.
 
 ## Citing
 
-See `CITATION.cff`. Archived release: Zenodo DOI `10.5281/zenodo.XXXXXXX` (minted on submission).
+See `CITATION.cff`. Archived release (v1.0): Zenodo DOI [10.5281/zenodo.20540264](https://doi.org/10.5281/zenodo.20540264).
 
 ## License
 
