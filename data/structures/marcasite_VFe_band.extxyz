@@ -1,5 +1,5 @@
 96
-Lattice="8.886 0.0 0.0 0.0 10.85 0.0 0.0 0.0 13.548" Properties=species:S:1:pos:R:3:initial_magmoms:R:1:forces:R:3 spacegroup="P n n m" unit_cell=primitive nspins=2 nkpts=8 fermi_level=12.476 natoms=96 mineral=marcasite rc=0.0 image_index=0 U_eV=0.0 nspin=2 source_file=results/dft_datasets/2026-06-03/marc_warm_neb_W2/prod_essentials/neb_warm.traj method=PBE_U0_ONCV energy=-124948.2037928406 pbc="T T T"
+Lattice="8.886 0.0 0.0 0.0 10.85 0.0 0.0 0.0 13.548" Properties=species:S:1:pos:R:3:initial_magmoms:R:1:forces:R:3 meta_spacegroup="P n n m" meta_unit_cell=primitive meta_nspins=2 meta_nkpts=8 meta_fermi_level_eV=12.476 meta_mineral=marcasite meta_rc=0.0 meta_image_index=0 meta_U_eV=0.0 meta_nspin=2 meta_source_file=results/dft_datasets/2026-06-03/marc_warm_neb_W2/prod_essentials/neb_warm.traj meta_method=PBE_U0_ONCV energy=-124948.2037928406 pbc="T T T"
 Fe       0.00026987       0.00060586      -0.00000514       0.06500000       0.00162751       0.00848284       0.00002134
 Fe       2.22724986       2.71565083       1.69098266       0.06500000       0.00547979      -0.00853761      -0.00703042
 S        0.92651418       2.03276012      -0.00000514       0.00000000      -0.00182780       0.00468686       0.00003291
@@ -97,7 +97,7 @@ S        5.74138085      10.17048758      11.85562537       0.00000000       0.0
 S        7.58275013       6.11102164      11.85517229       0.00000000       0.01416781       0.00286498      -0.00473109
 H        4.02417647       4.50068707       6.77405054       0.00000000       0.00212322      -0.01195769      -0.00011827
 96
-Lattice="8.886 0.0 0.0 0.0 10.85 0.0 0.0 0.0 13.548" Properties=species:S:1:pos:R:3:initial_magmoms:R:1:forces:R:3 spacegroup="P n n m" unit_cell=primitive nspins=2 nkpts=8 fermi_level=12.476 natoms=96 mineral=marcasite rc=0.125 image_index=1 U_eV=0.0 nspin=2 source_file=results/dft_datasets/2026-06-03/marc_warm_neb_W2/prod_essentials/neb_warm.traj method=PBE_U0_ONCV energy=-124948.05248217187 pbc="T T T"
+Lattice="8.886 0.0 0.0 0.0 10.85 0.0 0.0 0.0 13.548" Properties=species:S:1:pos:R:3:initial_magmoms:R:1:forces:R:3 meta_spacegroup="P n n m" meta_unit_cell=primitive meta_nspins=2 meta_nkpts=8 meta_fermi_level_eV=12.476 meta_mineral=marcasite meta_rc=0.125 meta_image_index=1 meta_U_eV=0.0 meta_nspin=2 meta_source_file=results/dft_datasets/2026-06-03/marc_warm_neb_W2/prod_essentials/neb_warm.traj meta_method=PBE_U0_ONCV meta_energy_unreliable=T meta_energy_note="Energy inconsistent with the stored forces and with the geometry. dE/ds from forces = +0.134 eV/A, from energies = +0.685; the d(S-H) stretch from image 0 is only 0.0040 A, harmonically <=10 meV, against the 151.3 meV recorded. Substituting the force-consistent value (~30 meV) gives dE/ds = 0.136 vs 0.134 from forces. The barrier (208.2 meV = image 4 - image 0) is NOT affected; per-image analyses are." energy=-124948.05248217187 pbc="T T T"
 Fe       0.00247376       0.00478464      -0.00174713       0.06500000      -0.00608452      -0.00697335      -0.00011699
 Fe       2.23049096       2.71763926       1.68818604       0.06500000      -0.00517357       0.01767505       0.01711249
 S        0.93076619       2.03693794      -0.00252986       0.00000000       0.01357311       0.00660799       0.00054585
@@ -195,7 +195,7 @@ S        5.74353302      10.17540629      11.85373742       0.00000000      -0.0
 S        7.58544440       6.11618394      11.85359299       0.00000000      -0.01350318       0.00976685      -0.00676637
 H        3.84834467       4.59120791       6.70754799       0.00000000       0.11273028      -0.05803108       0.06296015
 96
-Lattice="8.886 0.0 0.0 0.0 10.85 0.0 0.0 0.0 13.548" Properties=species:S:1:pos:R:3:initial_magmoms:R:1:forces:R:3 spacegroup="P n n m" unit_cell=primitive nspins=2 nkpts=8 fermi_level=12.476 natoms=96 mineral=marcasite rc=0.25 image_index=2 U_eV=0.0 nspin=2 source_file=results/dft_datasets/2026-06-03/marc_warm_neb_W2/prod_essentials/neb_warm.traj method=PBE_U0_ONCV energy_stale_dyneb_skip=T note="energy_stale_dyneb_skip: image_02 has CRASH file, DyNEB skipped this image" energy=-124948.16182826075 pbc="T T T"
+Lattice="8.886 0.0 0.0 0.0 10.85 0.0 0.0 0.0 13.548" Properties=species:S:1:pos:R:3:initial_magmoms:R:1:forces:R:3 meta_spacegroup="P n n m" meta_unit_cell=primitive meta_nspins=2 meta_nkpts=8 meta_fermi_level_eV=12.476 meta_mineral=marcasite meta_rc=0.25 meta_image_index=2 meta_U_eV=0.0 meta_nspin=2 meta_source_file=results/dft_datasets/2026-06-03/marc_warm_neb_W2/prod_essentials/neb_warm.traj meta_method=PBE_U0_ONCV meta_note="energy_stale_dyneb_skip: image_02 has CRASH file, DyNEB skipped this image" meta_note_flag_history="The original deposit carried energy_stale_dyneb_skip here. Re-examination places the defect at image 1: a single bad E_1 corrupts both (E_1-E_0) and (E_2-E_1), which is why the inconsistency appeared to sit at image 2. Off-by-one in the flag transfer." energy=-124948.16182826075 pbc="T T T"
 Fe       0.00293523       0.00515350       0.00002907       0.06500000       0.00074073       0.00123053      -0.00109863
 Fe       2.23052689       2.71727646       1.68849257       0.06500000      -0.00288144       0.00141411      -0.00848027
 S        0.93083185       2.03729391      -0.00180921       0.00000000      -0.01665561      -0.00361831      -0.00044891
@@ -293,7 +293,7 @@ S        5.74348233      10.17703246      11.85515009       0.00000000       0.0
 S        7.58510108       6.11755719      11.85627357       0.00000000       0.00711167      -0.00772282       0.00336326
 H        3.76163576       4.64480544       6.61711573       0.00000000       0.13740490      -0.10187919       0.14453842
 96
-Lattice="8.886 0.0 0.0 0.0 10.85 0.0 0.0 0.0 13.548" Properties=species:S:1:pos:R:3:initial_magmoms:R:1:forces:R:3 spacegroup="P n n m" unit_cell=primitive nspins=2 nkpts=8 fermi_level=12.476 natoms=96 mineral=marcasite rc=0.375 image_index=3 U_eV=0.0 nspin=2 source_file=results/dft_datasets/2026-06-03/marc_warm_neb_W2/prod_essentials/neb_warm.traj method=PBE_U0_ONCV energy=-124948.0992431663 pbc="T T T"
+Lattice="8.886 0.0 0.0 0.0 10.85 0.0 0.0 0.0 13.548" Properties=species:S:1:pos:R:3:initial_magmoms:R:1:forces:R:3 meta_spacegroup="P n n m" meta_unit_cell=primitive meta_nspins=2 meta_nkpts=8 meta_fermi_level_eV=12.476 meta_mineral=marcasite meta_rc=0.375 meta_image_index=3 meta_U_eV=0.0 meta_nspin=2 meta_source_file=results/dft_datasets/2026-06-03/marc_warm_neb_W2/prod_essentials/neb_warm.traj meta_method=PBE_U0_ONCV energy=-124948.0992431663 pbc="T T T"
 Fe       0.00439334       0.00408418       0.00147221       0.06500000      -0.00402326      -0.00413151      -0.00250580
 Fe       2.23145822       2.71432897       1.68812794       0.06500000      -0.00624572       0.01176820       0.00442950
 S        0.93123526       2.03584214      -0.00162652       0.00000000      -0.00316426      -0.00219084      -0.00021134
@@ -391,7 +391,7 @@ S        5.74441076      10.17698785      11.85662052       0.00000000      -0.0
 S        7.58628890       6.11698901      11.85880019       0.00000000      -0.00498485       0.00075359      -0.00272923
 H        3.66554112       4.73357899       6.47147866       0.00000000       0.10659974      -0.24986289       0.24729539
 96
-Lattice="8.886 0.0 0.0 0.0 10.85 0.0 0.0 0.0 13.548" Properties=species:S:1:pos:R:3:initial_magmoms:R:1:forces:R:3 spacegroup="P n n m" unit_cell=primitive nspins=2 nkpts=8 fermi_level=12.476 natoms=96 mineral=marcasite rc=0.5 image_index=4 U_eV=0.0 nspin=2 source_file=results/dft_datasets/2026-06-03/marc_warm_neb_W2/prod_essentials/neb_warm.traj method=PBE_U0_ONCV energy=-124947.99563391745 pbc="T T T"
+Lattice="8.886 0.0 0.0 0.0 10.85 0.0 0.0 0.0 13.548" Properties=species:S:1:pos:R:3:initial_magmoms:R:1:forces:R:3 meta_spacegroup="P n n m" meta_unit_cell=primitive meta_nspins=2 meta_nkpts=8 meta_fermi_level_eV=12.476 meta_mineral=marcasite meta_rc=0.5 meta_image_index=4 meta_U_eV=0.0 meta_nspin=2 meta_source_file=results/dft_datasets/2026-06-03/marc_warm_neb_W2/prod_essentials/neb_warm.traj meta_method=PBE_U0_ONCV energy=-124947.99563391745 pbc="T T T"
 Fe       0.00507855       0.00237993       0.00287403       0.06500000      -0.00131975      -0.00355172      -0.00371087
 Fe       2.23212658       2.71133902       1.68920790       0.06500000      -0.00354195       0.00913410       0.00707645
 S        0.93201539       2.03432016      -0.00128301       0.00000000      -0.00366536      -0.00534867       0.00179206
@@ -489,7 +489,7 @@ S        5.74493119      10.17675545      11.85770407       0.00000000      -0.0
 S        7.58683670       6.11663465      11.85976712       0.00000000      -0.00219161      -0.00105647       0.00096416
 H        3.55859245       4.93260756       6.27724726       0.00000000      -0.01224231      -0.03995983       0.03177164
 96
-Lattice="8.886 0.0 0.0 0.0 10.85 0.0 0.0 0.0 13.548" Properties=species:S:1:pos:R:3:initial_magmoms:R:1:forces:R:3 spacegroup="P n n m" unit_cell=primitive nspins=2 nkpts=8 fermi_level=12.476 natoms=96 mineral=marcasite rc=0.625 image_index=5 U_eV=0.0 nspin=2 source_file=results/dft_datasets/2026-06-03/marc_warm_neb_W2/prod_essentials/neb_warm.traj method=PBE_U0_ONCV energy=-124948.12662366893 pbc="T T T"
+Lattice="8.886 0.0 0.0 0.0 10.85 0.0 0.0 0.0 13.548" Properties=species:S:1:pos:R:3:initial_magmoms:R:1:forces:R:3 meta_spacegroup="P n n m" meta_unit_cell=primitive meta_nspins=2 meta_nkpts=8 meta_fermi_level_eV=12.476 meta_mineral=marcasite meta_rc=0.625 meta_image_index=5 meta_U_eV=0.0 meta_nspin=2 meta_source_file=results/dft_datasets/2026-06-03/marc_warm_neb_W2/prod_essentials/neb_warm.traj meta_method=PBE_U0_ONCV energy=-124948.12662366893 pbc="T T T"
 Fe       0.00550906       0.00194647       0.00359192       0.06500000       0.00061758      -0.00362526      -0.00324448
 Fe       2.23236895       2.71039603       1.69171478       0.06500000      -0.00194015       0.00658408       0.01470671
 S        0.93242493       2.03396908      -0.00012920       0.00000000      -0.00313649      -0.00832909       0.00324088
@@ -587,7 +587,7 @@ S        5.74548304      10.17587118      11.85847749       0.00000000       0.0
 S        7.58736318       6.11571762      11.85931623       0.00000000       0.00125418      -0.00289712       0.00140716
 H        3.53036159       5.18858199       6.16534467       0.00000000      -0.09016884       0.62392575      -0.25769653
 96
-Lattice="8.886 0.0 0.0 0.0 10.85 0.0 0.0 0.0 13.548" Properties=species:S:1:pos:R:3:initial_magmoms:R:1:forces:R:3 spacegroup="P n n m" unit_cell=primitive nspins=2 nkpts=8 fermi_level=12.476 natoms=96 mineral=marcasite rc=0.75 image_index=6 U_eV=0.0 nspin=2 source_file=results/dft_datasets/2026-06-03/marc_warm_neb_W2/prod_essentials/neb_warm.traj method=PBE_U0_ONCV energy=-124948.26497464396 pbc="T T T"
+Lattice="8.886 0.0 0.0 0.0 10.85 0.0 0.0 0.0 13.548" Properties=species:S:1:pos:R:3:initial_magmoms:R:1:forces:R:3 meta_spacegroup="P n n m" meta_unit_cell=primitive meta_nspins=2 meta_nkpts=8 meta_fermi_level_eV=12.476 meta_mineral=marcasite meta_rc=0.75 meta_image_index=6 meta_U_eV=0.0 meta_nspin=2 meta_source_file=results/dft_datasets/2026-06-03/marc_warm_neb_W2/prod_essentials/neb_warm.traj meta_method=PBE_U0_ONCV energy=-124948.26497464396 pbc="T T T"
 Fe       0.00592105       0.00062417       0.00472443       0.06500000       0.00049057      -0.00393199      -0.00283978
 Fe       2.23247686       2.70900500       1.69498093       0.06500000      -0.00188719       0.00758218       0.01084337
 S        0.93266135       2.03256540       0.00189021       0.00000000      -0.00248549      -0.00991160       0.00216975
@@ -685,7 +685,7 @@ S        5.74600187      10.17343131      11.85986659       0.00000000       0.0
 S        7.58809811       6.11324741      11.85927818       0.00000000       0.00274337      -0.00386051       0.00078470
 H        3.53048565       5.40896545       6.13935915       0.00000000      -0.01961957       0.42305600      -0.01763597
 96
-Lattice="8.886 0.0 0.0 0.0 10.85 0.0 0.0 0.0 13.548" Properties=species:S:1:pos:R:3:initial_magmoms:R:1:forces:R:3 spacegroup="P n n m" unit_cell=primitive nspins=2 nkpts=8 fermi_level=12.476 natoms=96 mineral=marcasite rc=0.875 image_index=7 U_eV=0.0 nspin=2 source_file=results/dft_datasets/2026-06-03/marc_warm_neb_W2/prod_essentials/neb_warm.traj method=PBE_U0_ONCV energy=-124948.33308106425 pbc="T T T"
+Lattice="8.886 0.0 0.0 0.0 10.85 0.0 0.0 0.0 13.548" Properties=species:S:1:pos:R:3:initial_magmoms:R:1:forces:R:3 meta_spacegroup="P n n m" meta_unit_cell=primitive meta_nspins=2 meta_nkpts=8 meta_fermi_level_eV=12.476 meta_mineral=marcasite meta_rc=0.875 meta_image_index=7 meta_U_eV=0.0 meta_nspin=2 meta_source_file=results/dft_datasets/2026-06-03/marc_warm_neb_W2/prod_essentials/neb_warm.traj meta_method=PBE_U0_ONCV energy=-124948.33308106425 pbc="T T T"
 Fe       0.00690432      -0.00225534       0.00499978       0.06500000      -0.00161105      -0.00211705      -0.00288709
 Fe       2.23284718       2.70779635       1.69794932       0.06500000      -0.00288144       0.00901712       0.00626989
 S        0.93369410       2.02952943       0.00383247       0.00000000      -0.00409937      -0.00871553      -0.00011724
@@ -783,7 +783,7 @@ S        5.74730841      10.16837107      11.86031654       0.00000000      -0.0
 S        7.58953213       6.10833023      11.85880002       0.00000000       0.00172804      -0.00187511       0.00099322
 H        3.52187235       5.61026377       6.17263824       0.00000000       0.02758537       0.17609614       0.04355783
 96
-Lattice="8.886 0.0 0.0 0.0 10.85 0.0 0.0 0.0 13.548" Properties=species:S:1:pos:R:3:initial_magmoms:R:1:forces:R:3 spacegroup="P n n m" unit_cell=primitive nspins=2 nkpts=8 fermi_level=12.4119 natoms=96 mineral=marcasite rc=1.0 image_index=8 U_eV=0.0 nspin=2 source_file=results/dft_datasets/2026-06-03/marc_warm_neb_W2/prod_essentials/neb_warm.traj method=PBE_U0_ONCV energy=-124948.34823508392 pbc="T T T"
+Lattice="8.886 0.0 0.0 0.0 10.85 0.0 0.0 0.0 13.548" Properties=species:S:1:pos:R:3:initial_magmoms:R:1:forces:R:3 meta_spacegroup="P n n m" meta_unit_cell=primitive meta_nspins=2 meta_nkpts=8 meta_fermi_level_eV=12.4119 meta_mineral=marcasite meta_rc=1.0 meta_image_index=8 meta_U_eV=0.0 meta_nspin=2 meta_source_file=results/dft_datasets/2026-06-03/marc_warm_neb_W2/prod_essentials/neb_warm.traj meta_method=PBE_U0_ONCV energy=-124948.34823508392 pbc="T T T"
 Fe       0.00554172      -0.00017189      -0.00015497       0.06500000       0.00013035      -0.00022291      -0.00525456
 Fe       2.23231715       2.71241766       1.69423135       0.06500000      -0.00397698      -0.00183577       0.00064638
 S        0.93241885       2.03129858      -0.00026167       0.00000000      -0.00195455      -0.00226668      -0.00232608

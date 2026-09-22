@@ -6,20 +6,54 @@ correction), ONCV pseudopotentials, Quantum ESPRESSO 7.x.
 
 Units: energies in **eV**, forces in **eV/Å**, positions in **Å**.
 
-Per-frame info fields (in every extxyz):
-- `mineral` — mineral name
-- `rc` — reaction coordinate [0..1], endA=0, endB=1
-- `image_index` — NEB image index (0-based)
-- `U_eV` — Hubbard U (0.0 for all files here)
-- `nspin` — number of spin channels used in DFT
-- `source_file` — relative path to original source file
-- `method` — DFT functional or MLIP label
+Per-frame info fields (in every extxyz) — all provenance keys carry a `meta_` prefix:
+- `meta_mineral` — mineral name
+- `meta_rc` — reaction coordinate [0..1], endA=0, endB=1
+- `meta_image_index` — NEB image index (0-based)
+- `meta_U_eV` — Hubbard U (0.0 for all files here)
+- `meta_nspin` — number of spin channels used in DFT
+- `meta_source_file` — relative path to original source file
+- `meta_method` — DFT functional or MLIP label
+- plus per-file DFT settings (`meta_nspins`, `meta_nkpts`, `meta_nbands`, `meta_fermi_level`, …)
+
+`energy` (and, where present, `forces` in the `Properties` spec) keep their standard names so that
+ASE populates the calculator normally.
+
+> **Header-compatibility note (2026-09-14).** These files previously wrote DFT settings under bare
+> names — `nspins`, `nkpts`, `nbands`, `fermi_level`, `kpoint_weights`. Those collide with reserved
+> attribute names of ASE's `SinglePointDFTCalculator`: on read, ASE feeds them back as calculator
+> *properties* and raises `AssertionError: nspins` (and so on), so **12 of the 17 files could not be
+> opened with a plain `ase.io.read`**. The same failure aborted one of our own production NEB runs
+> (`neb_canonical_pyr_96at_qe_VFe_v5`, 2026-05-30) at the warm-start step. All provenance keys are now
+> prefixed with `meta_`, which cannot collide with any ASE property name. Only key *names* changed —
+> positions, forces, energies and every value are bit-identical to the previous release. Verified:
+> all 17 files load with `ase.io.read(path, index=":")` under ASE 3.23.0.
+
+```python
+from ase.io import read
+band = read("marcasite_VFe_band.extxyz", index=":")     # 9 images
+print(band[4].info["meta_rc"], band[4].get_potential_energy())
+```
 
 ---
 
 ## Files
 
 ### Marcasite (FeS₂, Pnnm)
+
+> ⚠️ **Image 1 carries an unreliable energy — corrected flag, 2026-09-22.**
+> The band is non-monotone before the saddle (0 → **151.3** → 42.0 → 104.5 → 208.2 meV) while its
+> geometry is smooth. Two independent checks indict **image 1**: dE/ds from the stored forces is
+> **+0.134** eV/Å against **+0.685** from the energies, and the d(S–H) stretch from image 0 is only
+> **0.0040 Å**, which is ≤10 meV harmonically, not 151.3. Substituting a force-consistent ~30 meV
+> gives dE/ds = 0.136 against 0.134 from forces.
+>
+> The original deposit flagged **image 2** (`energy_stale_dyneb_skip`). That was an off-by-one: one
+> bad E₁ corrupts both (E₁−E₀) and (E₂−E₁), which makes the inconsistency surface at image 2.
+> Frames now carry `meta_energy_unreliable` on image 1 and a history note on image 2.
+>
+> **The barrier (208.2 meV = image 4 − image 0) is unaffected.** Per-image analyses are: exclude
+> image 1.
 
 **`marcasite_VFe_band.extxyz`**
 - Mineral: marcasite (orthorhombic FeS₂, space group Pnnm)
@@ -44,17 +78,38 @@ Per-frame info fields (in every extxyz):
 
 ### Greigite (Fe₃S₄, Fd-3m)
 
-**`greigite_VFe_band.extxyz`**
-- Mineral: greigite (cubic, space group Fd-3m, inverse spinel)
-- Reaction: V_Fe iron-vacancy S→S proton hop, Fe₂₃S₃₂H₁ (56 atoms)
-- Method: PBE U=0, nspin=2 (ferrimagnetic), ONCV, kpts 2×2×2, QE 7.x
-- n_atoms per frame: 56
-- n_frames: 9
-- Barrier: **1860.7 meV** (symmetric band; endA ≈ endB energy)
-- Energies+forces: present for all frames
-- Note: symmetric band (endA ≈ endB within 0.1 meV); high barrier reflects
-  S→S hop geometry in the spinel V_Fe pocket
-- Source: `results/dft_datasets/2026-05-27/w2_greigite_full_neb/greig_neb_full_s150/neb.traj`
+> ### 🔴 RETRACTED 2026-09-15 — `greigite_VFe_band.extxyz` is not a barrier
+>
+> The path runs along a **trans axis** of the vacancy octahedron, so its midpoint is the vacant Fe
+> site itself: a special position where the force vanishes **by symmetry**. A band therefore
+> "converges" at any criterion, and the proton Hessian there carries **three imaginary modes** —
+> a third-order saddle. The quoted 1860.7 meV is the energy of an interstitial proton, not a
+> migration barrier.
+>
+> The file is **kept, not deleted**, because it may already have been cited; every frame now
+> carries `meta_RETRACTED=True` with the reason. **Do not use it.**
+>
+> **Superseded by `greigite_VFe_channel_band.extxyz` (235.97 meV).**
+
+**`greigite_VFe_channel_band.extxyz`** ⭐ current
+- Mineral: greigite (cubic, Fd-3m, inverse spinel)
+- Reaction: V_Fe(16d) + S–H hop along the octahedron edge facing the **empty 16c site**,
+  Fe₂₃S₃₂H₁ (56 atoms)
+- Method: PBE U=0, nspin=2 (ferrimagnetic A↑↓B), ONCV, kpts 2×2×2, ecutwfc 80 Ry, QE 7.5
+- n_frames: 9 · Barrier: **235.97 meV** · E_rxn ≈ 0 (endpoints symmetry-equivalent)
+- Saddle verified: exactly one imaginary mode, **829.6i cm⁻¹**, μ_eff 1.054 amu, measured in the
+  **full 168 DOF** (Lanczos on the mass-weighted Hessian), zero imaginary modes at the endpoint
+- Energies+forces present for all frames
+- Source: `results/dft_datasets/2026-09-21_greigite_two_stream/greig_channel/final_0*.xyz`
+
+**`greigite_VFe_cation_band.extxyz`**
+- Same cell and method; the octahedron edge **shared with an occupied Fe_oct**
+- Barrier: **566.83 meV** — contrast case, 2.40× the channel edge
+- The two bands start from the **same** endpoint (energies identical), so the 331 meV gap is a
+  pure path difference
+
+⚠️ Energies are **free energies F** (QE's `!` line, gaussian smearing 0.005 Ry). Rebuilding the
+barrier with the internal energy E = F+TS or the 0 K extrapolation gives 227.89 / 231.90 meV.
 
 **`greigite_endA.extxyz`** / **`greigite_endB.extxyz`**
 - DFT-relaxed ferrimagnetic endpoints (56 atoms each)
@@ -63,11 +118,21 @@ Per-frame info fields (in every extxyz):
 
 ---
 
-### Pyrite (FeS₂, Pa-3) — V_S2 dimer hop
+### Pyrite (FeS₂, Pa-3) — ⚠️ label corrected 2026-09-22
+
+> The filename says `VS2` and the old description said "S₂ dimer hop". **Both are wrong.**
+> The cell is **HFe₃₂S₆₃**: one sulfur removed, not a dimer — so this is **V_S**, not V_S₂.
+> And the hydrogen is **Fe-bound in all nine frames** (Fe71 → Fe37, d(H–Fe) 1.62–1.97 Å); the
+> nearest sulfur is never closer than **2.50 Å**. It is a **hydride hop**, not an S–H transfer.
+>
+> This was established in the 2026-09-14 revision audit; the correction had not reached this
+> deposit. **The barrier value is unaffected** — this file reproduces 94.59 meV. The filename is
+> kept for citation stability; `meta_reaction` now reads `V_S_Fe_bound_hydride_hop`.
 
 **`pyrite_VS2_band.extxyz`**
 - Mineral: pyrite (cubic, space group Pa-3)
-- Reaction: S₂ dimer vacancy hop (V_S2), FeS₂ 96 atoms, nspin=1 (non-magnetic)
+- Reaction: **V_S + Fe-bound hydride hop** (previously mislabelled "S₂ dimer hop, V_S2"),
+  HFe₃₂S₆₃, 96 atoms, nspin=1 (non-magnetic)
 - Method: PBE U=0, nspin=1, ONCV, kpts 2×2×2, QE 7.x
 - n_atoms per frame: 96
 - n_frames: 9
@@ -105,7 +170,10 @@ Per-frame info fields (in every extxyz):
 
 **`mackinawite_VFe_band.extxyz`**
 - Mineral: mackinawite (tetragonal, space group P4/nmm)
-- Reaction: V_Fe iron-vacancy S-H transfer, Fe₃₁S₄₀H₁ (72 atoms), nspin=1
+- Reaction: V_Fe iron-vacancy S-H transfer, **Fe₃₅S₃₆H₁** (72 atoms), nspin=1
+  <br>⚠️ corrected 2026-09-22 — previously written Fe₃₁S₄₀H₁. The atom count (72) is the same in
+  both, so a "how many atoms" check does not catch it; the composition read from the file is
+  35 Fe / 36 S / 1 H.
 - Method: PBE U=0, nspin=1, ONCV, QE 7.x
 - n_atoms per frame: 72
 - n_frames: 9

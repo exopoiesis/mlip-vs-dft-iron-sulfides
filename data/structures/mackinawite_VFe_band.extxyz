@@ -1,5 +1,5 @@
 72
-Lattice="11.022 0.0 0.0 0.0 11.022 0.0 0.0 0.0 10.066" Properties=species:S:1:pos:R:3:forces:R:3 spacegroup="P 4/n m m" unit_cell=conventional mineral=mackinawite rc=0.0 image_index=0 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-03/mack_vfe_w3_aborted_2026-05-03/neb_canonical_mack_72at_qe_VFe/neb.traj method=PBE_U0_ONCV vacancy_type=V_Fe_SH reaction=S_H_transfer energy=-130159.58896658814 pbc="T T T"
+Lattice="11.022 0.0 0.0 0.0 11.022 0.0 0.0 0.0 10.066" Properties=species:S:1:pos:R:3:forces:R:3 meta_spacegroup="P 4/n m m" meta_unit_cell=conventional meta_mineral=mackinawite meta_rc=0.0 meta_image_index=0 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-03/mack_vfe_w3_aborted_2026-05-03/neb_canonical_mack_72at_qe_VFe/neb.traj meta_method=PBE_U0_ONCV meta_vacancy_type=V_Fe_SH meta_reaction=S_H_transfer energy=-130159.58896658814 pbc="T T T"
 Fe       0.00000000       0.00281442       0.00914587       0.00000000       0.00076182       0.00007816
 Fe       1.83701823       1.83978590       0.00838302      -0.00029233      -0.00003060       0.00138248
 S        0.00000000       1.84015630       1.16662578       0.00000000      -0.00063763       0.00267652
@@ -73,7 +73,7 @@ S        7.35836784       9.19917837       6.19748976       0.00351161       0.0
 S        9.18425293       7.35156700       8.91548568      -0.00093974       0.00048234       0.00090117
 H        5.51100000       5.84689928       3.85817237       0.00000000      -0.01632676       0.00608863
 72
-Lattice="11.022 0.0 0.0 0.0 11.022 0.0 0.0 0.0 10.066" Properties=species:S:1:pos:R:3:forces:R:3 spacegroup="P 4/n m m" unit_cell=conventional mineral=mackinawite rc=0.125 image_index=1 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-03/mack_vfe_w3_aborted_2026-05-03/neb_canonical_mack_72at_qe_VFe/neb.traj method=PBE_U0_ONCV vacancy_type=V_Fe_SH reaction=S_H_transfer energy=-130159.58741077725 pbc="T T T"
+Lattice="11.022 0.0 0.0 0.0 11.022 0.0 0.0 0.0 10.066" Properties=species:S:1:pos:R:3:forces:R:3 meta_spacegroup="P 4/n m m" meta_unit_cell=conventional meta_mineral=mackinawite meta_rc=0.125 meta_image_index=1 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-03/mack_vfe_w3_aborted_2026-05-03/neb_canonical_mack_72at_qe_VFe/neb.traj meta_method=PBE_U0_ONCV meta_vacancy_type=V_Fe_SH meta_reaction=S_H_transfer energy=-130159.58741077725 pbc="T T T"
 Fe       0.00002900       0.00136829       0.00958217       0.00005734       0.00003471       0.00049751
 Fe       1.83723351       1.83827963       0.00910404      -0.00004011       0.00002391       0.00022883
 S        0.00002869       1.83847323       1.16726609       0.00009642       0.00010670       0.00052091
@@ -147,7 +147,7 @@ S        7.35380031       9.19353774       6.19260339       0.00344476       0.0
 S        9.18411694       7.35028110       8.91666851       0.00020209      -0.00000797       0.00056770
 H        5.52315909       5.78154879       3.87257945      -0.01215566       0.05038617       0.00202577
 72
-Lattice="11.022 0.0 0.0 0.0 11.022 0.0 0.0 0.0 10.066" Properties=species:S:1:pos:R:3:forces:R:3 spacegroup="P 4/n m m" unit_cell=conventional mineral=mackinawite rc=0.25 image_index=2 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-03/mack_vfe_w3_aborted_2026-05-03/neb_canonical_mack_72at_qe_VFe/neb.traj method=PBE_U0_ONCV vacancy_type=V_Fe_SH reaction=S_H_transfer energy=-130159.58359601336 pbc="T T T"
+Lattice="11.022 0.0 0.0 0.0 11.022 0.0 0.0 0.0 10.066" Properties=species:S:1:pos:R:3:forces:R:3 meta_spacegroup="P 4/n m m" meta_unit_cell=conventional meta_mineral=mackinawite meta_rc=0.25 meta_image_index=2 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-03/mack_vfe_w3_aborted_2026-05-03/neb_canonical_mack_72at_qe_VFe/neb.traj meta_method=PBE_U0_ONCV meta_vacancy_type=V_Fe_SH meta_reaction=S_H_transfer energy=-130159.58359601336 pbc="T T T"
 Fe       0.00008761       0.00055273       0.00941535       0.00012753      -0.00006942       0.00055562
 Fe       1.83736541       1.83745018       0.00911151       0.00005245      -0.00011981       0.00019103
 S        0.00010132       1.83756510       1.16720787       0.00014450       0.00002417       0.00064843
@@ -221,7 +221,7 @@ S        7.35206475       9.19185845       6.19075349       0.00379546       0.0
 S        9.18415702       7.34963629       8.91670191       0.00034453      -0.00020954       0.00067106
 H        5.52217329       5.74329208       3.89376181      -0.00995300       0.09162332      -0.00823421
 72
-Lattice="11.022 0.0 0.0 0.0 11.022 0.0 0.0 0.0 10.066" Properties=species:S:1:pos:R:3:forces:R:3 spacegroup="P 4/n m m" unit_cell=conventional mineral=mackinawite rc=0.375 image_index=3 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-03/mack_vfe_w3_aborted_2026-05-03/neb_canonical_mack_72at_qe_VFe/neb.traj method=PBE_U0_ONCV vacancy_type=V_Fe_SH reaction=S_H_transfer energy=-130159.57423611365 pbc="T T T"
+Lattice="11.022 0.0 0.0 0.0 11.022 0.0 0.0 0.0 10.066" Properties=species:S:1:pos:R:3:forces:R:3 meta_spacegroup="P 4/n m m" meta_unit_cell=conventional meta_mineral=mackinawite meta_rc=0.375 meta_image_index=3 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-03/mack_vfe_w3_aborted_2026-05-03/neb_canonical_mack_72at_qe_VFe/neb.traj meta_method=PBE_U0_ONCV meta_vacancy_type=V_Fe_SH meta_reaction=S_H_transfer energy=-130159.57423611365 pbc="T T T"
 Fe       0.00007611      -0.00004459       0.00935955       0.00011081      -0.00006891       0.00070834
 Fe       1.83747742       1.83682970       0.00933189      -0.00003471      -0.00017869       0.00030622
 S        0.00009225       1.83686669       1.16726882       0.00002494      -0.00003625       0.00084101
@@ -295,7 +295,7 @@ S        7.34986162       9.19051136       6.19009719      -0.00104387      -0.0
 S        9.18413756       7.34908503       8.91682341       0.00035661      -0.00014424       0.00084435
 H        5.51328728       5.68567097       3.91734278      -0.00067826       0.16795500      -0.01802755
 72
-Lattice="11.022 0.0 0.0 0.0 11.022 0.0 0.0 0.0 10.066" Properties=species:S:1:pos:R:3:forces:R:3 spacegroup="P 4/n m m" unit_cell=conventional mineral=mackinawite rc=0.5 image_index=4 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-03/mack_vfe_w3_aborted_2026-05-03/neb_canonical_mack_72at_qe_VFe/neb.traj method=PBE_U0_ONCV vacancy_type=V_Fe_SH reaction=S_H_transfer energy=-130159.54608648126 pbc="T T T"
+Lattice="11.022 0.0 0.0 0.0 11.022 0.0 0.0 0.0 10.066" Properties=species:S:1:pos:R:3:forces:R:3 meta_spacegroup="P 4/n m m" meta_unit_cell=conventional meta_mineral=mackinawite meta_rc=0.5 meta_image_index=4 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-03/mack_vfe_w3_aborted_2026-05-03/neb_canonical_mack_72at_qe_VFe/neb.traj meta_method=PBE_U0_ONCV meta_vacancy_type=V_Fe_SH meta_reaction=S_H_transfer energy=-130159.54608648126 pbc="T T T"
 Fe       0.00000048      -0.00078242       0.00937548      -0.00000257      -0.00006119       0.00078444
 Fe       1.83765888       1.83605861       0.00995857      -0.00006248      -0.00029336       0.00087289
 S       -0.00000037       1.83597830       1.16753102       0.00000231      -0.00029953       0.00145910
@@ -369,7 +369,7 @@ S        7.34629937       9.19033670       6.19090519      -0.00250734      -0.0
 S        9.18412204       7.34842518       8.91701912       0.00018075      -0.00003214       0.00094719
 H        5.51096954       5.50567975       3.93470626       0.00006556      -0.00410399      -0.01408322
 72
-Lattice="11.022 0.0 0.0 0.0 11.022 0.0 0.0 0.0 10.066" Properties=species:S:1:pos:R:3:forces:R:3 spacegroup="P 4/n m m" unit_cell=conventional mineral=mackinawite rc=0.625 image_index=5 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-03/mack_vfe_w3_aborted_2026-05-03/neb_canonical_mack_72at_qe_VFe/neb.traj method=PBE_U0_ONCV vacancy_type=V_Fe_SH reaction=S_H_transfer energy=-130159.57011685437 pbc="T T T"
+Lattice="11.022 0.0 0.0 0.0 11.022 0.0 0.0 0.0 10.066" Properties=species:S:1:pos:R:3:forces:R:3 meta_spacegroup="P 4/n m m" meta_unit_cell=conventional meta_mineral=mackinawite meta_rc=0.625 meta_image_index=5 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-03/mack_vfe_w3_aborted_2026-05-03/neb_canonical_mack_72at_qe_VFe/neb.traj meta_method=PBE_U0_ONCV meta_vacancy_type=V_Fe_SH meta_reaction=S_H_transfer energy=-130159.57011685437 pbc="T T T"
 Fe       0.00006112      -0.00069269       0.00933596       0.00006299      -0.00004525       0.00073636
 Fe       1.83771578       1.83619222       0.00999632       0.00011904      -0.00007610       0.00106392
 S        0.00006761       1.83611703       1.16751465       0.00003085      -0.00003240       0.00118734
@@ -443,7 +443,7 @@ S        7.35025751       9.19424900       6.19703558       0.00352344       0.0
 S        9.18425322       7.34836983       8.91657439       0.00027485      -0.00002005       0.00066617
 H        5.51146824       5.35345338       3.92503624       0.00115468      -0.17693175      -0.02106299
 72
-Lattice="11.022 0.0 0.0 0.0 11.022 0.0 0.0 0.0 10.066" Properties=species:S:1:pos:R:3:forces:R:3 spacegroup="P 4/n m m" unit_cell=conventional mineral=mackinawite rc=0.75 image_index=6 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-03/mack_vfe_w3_aborted_2026-05-03/neb_canonical_mack_72at_qe_VFe/neb.traj method=PBE_U0_ONCV vacancy_type=V_Fe_SH reaction=S_H_transfer energy=-130159.58250497293 pbc="T T T"
+Lattice="11.022 0.0 0.0 0.0 11.022 0.0 0.0 0.0 10.066" Properties=species:S:1:pos:R:3:forces:R:3 meta_spacegroup="P 4/n m m" meta_unit_cell=conventional meta_mineral=mackinawite meta_rc=0.75 meta_image_index=6 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-03/mack_vfe_w3_aborted_2026-05-03/neb_canonical_mack_72at_qe_VFe/neb.traj meta_method=PBE_U0_ONCV meta_vacancy_type=V_Fe_SH meta_reaction=S_H_transfer energy=-130159.58250497293 pbc="T T T"
 Fe       0.00007255      -0.00079563       0.00941816       0.00014552       0.00009307       0.00056307
 Fe       1.83766551       1.83613990       0.00996703       0.00005322      -0.00006196       0.00067440
 S        0.00007520       1.83609911       1.16754739       0.00010233       0.00004268       0.00067749
@@ -517,7 +517,7 @@ S        7.35226562       9.19567473       6.20081844       0.00324345       0.0
 S        9.18433480       7.34817750       8.91627226       0.00017921      -0.00007148       0.00050496
 H        5.51855098       5.28563723       3.90121885      -0.00617785      -0.09897487      -0.01278455
 72
-Lattice="11.022 0.0 0.0 0.0 11.022 0.0 0.0 0.0 10.066" Properties=species:S:1:pos:R:3:forces:R:3 spacegroup="P 4/n m m" unit_cell=conventional mineral=mackinawite rc=0.875 image_index=7 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-03/mack_vfe_w3_aborted_2026-05-03/neb_canonical_mack_72at_qe_VFe/neb.traj method=PBE_U0_ONCV vacancy_type=V_Fe_SH reaction=S_H_transfer energy=-130159.58740206962 pbc="T T T"
+Lattice="11.022 0.0 0.0 0.0 11.022 0.0 0.0 0.0 10.066" Properties=species:S:1:pos:R:3:forces:R:3 meta_spacegroup="P 4/n m m" meta_unit_cell=conventional meta_mineral=mackinawite meta_rc=0.875 meta_image_index=7 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-03/mack_vfe_w3_aborted_2026-05-03/neb_canonical_mack_72at_qe_VFe/neb.traj meta_method=PBE_U0_ONCV meta_vacancy_type=V_Fe_SH meta_reaction=S_H_transfer energy=-130159.58740206962 pbc="T T T"
 Fe       0.00002523      -0.00141186       0.00958678       0.00005605      -0.00004885       0.00049802
 Fe       1.83752775       1.83555690       0.00994566       0.00004397      -0.00009230       0.00046794
 S        0.00001918       1.83558842       1.16759667       0.00007790      -0.00011236       0.00059007
@@ -591,7 +591,7 @@ S        7.35278222       9.19416543       6.20365552       0.00173807       0.0
 S        9.18429133       7.34745834       8.91616065       0.00010490      -0.00013344       0.00043966
 H        5.52147546       5.24075746       3.87485734      -0.01043636      -0.05076232       0.00043914
 72
-Lattice="11.022 0.0 0.0 0.0 11.022 0.0 0.0 0.0 10.066" Properties=species:S:1:pos:R:3:forces:R:3 spacegroup="P 4/n m m" unit_cell=conventional mineral=mackinawite rc=1.0 image_index=8 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-03/mack_vfe_w3_aborted_2026-05-03/neb_canonical_mack_72at_qe_VFe/neb.traj method=PBE_U0_ONCV vacancy_type=V_Fe_SH reaction=S_H_transfer energy=-130159.5889746155 pbc="T T T"
+Lattice="11.022 0.0 0.0 0.0 11.022 0.0 0.0 0.0 10.066" Properties=species:S:1:pos:R:3:forces:R:3 meta_spacegroup="P 4/n m m" meta_unit_cell=conventional meta_mineral=mackinawite meta_rc=1.0 meta_image_index=8 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-03/mack_vfe_w3_aborted_2026-05-03/neb_canonical_mack_72at_qe_VFe/neb.traj meta_method=PBE_U0_ONCV meta_vacancy_type=V_Fe_SH meta_reaction=S_H_transfer energy=-130159.5889746155 pbc="T T T"
 Fe       0.00000000      -0.00281609       0.00914316       0.00000000      -0.00076542       0.00011493
 Fe       1.83745708       1.83433608       0.00886701      -0.00072017      -0.00169796       0.00150872
 S        0.00000000       1.83441661       1.16658400       0.00000000      -0.00144290       0.00306707

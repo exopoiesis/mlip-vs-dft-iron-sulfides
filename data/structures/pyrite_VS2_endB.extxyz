@@ -1,5 +1,5 @@
 96
-Lattice="10.832 0.0 0.0 0.0 10.832 0.0 0.0 0.0 10.832" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1:forces:R:3 spacegroup="P a -3" unit_cell=conventional nspins=1 nkpts=8 fermi_level=13.0028 natoms=96 mineral=pyrite rc=1.0 image_index=8 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-01/pyr_prod_neb_W3/prod_essentials/relaxed_endB.xyz method=PBE_U0_ONCV geometry=dft_relaxed vacancy_type=V_S2_dimer energy=-128055.54020097188 pbc="T T T"
+Lattice="10.832 0.0 0.0 0.0 10.832 0.0 0.0 0.0 10.832" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1:forces:R:3 meta_spacegroup="P a -3" meta_unit_cell=conventional meta_nspins=1 meta_nkpts=8 meta_fermi_level_eV=13.0028 meta_mineral=pyrite meta_rc=1.0 meta_image_index=8 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-01/pyr_prod_neb_W3/prod_essentials/relaxed_endB.xyz meta_method=PBE_U0_ONCV meta_geometry=dft_relaxed meta_vacancy_type=V_S2_dimer energy=-128055.54020097188 pbc="T T T"
 Fe      -0.00051324      -0.01542627       0.00070440        0       0.00007225      -0.00315372       0.02361173
 Fe       2.70789546      -0.01428291       2.71253842        0      -0.01238937      -0.00439376      -0.00241324
 Fe       0.00155068       2.69472857       2.70959768        0      -0.00870678      -0.01364176       0.00308250

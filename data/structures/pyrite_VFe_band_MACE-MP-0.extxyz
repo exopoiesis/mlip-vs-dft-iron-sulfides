@@ -1,5 +1,5 @@
 96
-Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1:forces:R:3 spacegroup="P a -3" unit_cell=conventional nspins=1 nkpts=8 fermi_level=12.8598 natoms=96 mineral=pyrite rc=0.0 image_index=0 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_mace.xyz method=MACE-MP-0 vacancy_type=V_Fe energy=-570.8830343423416 pbc="T T T"
+Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1:forces:R:3 meta_spacegroup="P a -3" meta_unit_cell=conventional meta_nspins=1 meta_nkpts=8 meta_fermi_level_eV=12.8598 meta_mineral=pyrite meta_rc=0.0 meta_image_index=0 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_mace.xyz meta_method=MACE-MP-0 meta_vacancy_type=V_Fe energy=-570.8830343423416 pbc="T T T"
 Fe       0.00062036       0.00073728      -0.00021130        0      -0.00433839      -0.00465296       0.00151284
 Fe       2.71003974       0.00295908       2.70619574        0       0.01172674      -0.01414028       0.01617144
 Fe       0.00341564       2.70673105       2.70682231        0      -0.01837599       0.02959412       0.00563238
@@ -97,7 +97,7 @@ S        7.49315024       6.05631337      10.20213333        1      -0.01339729 
 S        6.05872665      10.20231991       7.48959194        1       0.02591239       0.06388258      -0.00309610
 H        4.44406460       5.10741729       5.68611415        0      -0.31039711      -0.11440131       0.07142364
 96
-Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1:forces:R:3 spacegroup="P a -3" unit_cell=conventional nspins=1 nkpts=8 fermi_level=12.8598 natoms=96 mineral=pyrite rc=0.125 image_index=1 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_mace.xyz method=MACE-MP-0 vacancy_type=V_Fe energy=-570.9410235541822 pbc="T T T"
+Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1:forces:R:3 meta_spacegroup="P a -3" meta_unit_cell=conventional meta_nspins=1 meta_nkpts=8 meta_fermi_level_eV=12.8598 meta_mineral=pyrite meta_rc=0.125 meta_image_index=1 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_mace.xyz meta_method=MACE-MP-0 meta_vacancy_type=V_Fe energy=-570.9410235541822 pbc="T T T"
 Fe       0.00186428       0.00228695      -0.00184027        0       0.00115483      -0.00041730       0.00094689
 Fe       2.70830150      -0.00235195       2.70354854        0       0.00341599      -0.00250971      -0.00072635
 Fe       0.00078269       2.70846844       2.70640623        0      -0.00144563      -0.00138657      -0.00004659
@@ -195,7 +195,7 @@ S        7.49345568       6.06286681      10.22082485        1       0.00092255 
 S        6.06486250      10.22261686       7.49068892        1       0.00208656      -0.00294346      -0.00107167
 H        4.54634838       5.04713286       5.84631594        0      -0.04587239       0.01489941      -0.10114686
 96
-Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1:forces:R:3 spacegroup="P a -3" unit_cell=conventional nspins=1 nkpts=8 fermi_level=12.8598 natoms=96 mineral=pyrite rc=0.25 image_index=2 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_mace.xyz method=MACE-MP-0 vacancy_type=V_Fe energy=-570.9032141551581 pbc="T T T"
+Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1:forces:R:3 meta_spacegroup="P a -3" meta_unit_cell=conventional meta_nspins=1 meta_nkpts=8 meta_fermi_level_eV=12.8598 meta_mineral=pyrite meta_rc=0.25 meta_image_index=2 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_mace.xyz meta_method=MACE-MP-0 meta_vacancy_type=V_Fe energy=-570.9032141551581 pbc="T T T"
 Fe       0.00121813       0.00272809      -0.00233350        0       0.00284556       0.00031261       0.00053496
 Fe       2.70815723      -0.00083888       2.70331531        0       0.00518463      -0.00316016      -0.00170283
 Fe       0.00289931       2.70962913       2.70653382        0      -0.00040760      -0.00064857      -0.00108668
@@ -293,7 +293,7 @@ S        7.49362308       6.06366072      10.21844047        1       0.00381872 
 S        6.06465156      10.22192098       7.48997462        1       0.00348601      -0.00264389      -0.00175067
 H        4.64083436       4.98237516       6.04845960        0      -0.14950447       0.00660214      -0.17892900
 96
-Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1:forces:R:3 spacegroup="P a -3" unit_cell=conventional nspins=1 nkpts=8 fermi_level=12.8598 natoms=96 mineral=pyrite rc=0.375 image_index=3 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_mace.xyz method=MACE-MP-0 vacancy_type=V_Fe energy=-570.8009011213421 pbc="T T T"
+Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1:forces:R:3 meta_spacegroup="P a -3" meta_unit_cell=conventional meta_nspins=1 meta_nkpts=8 meta_fermi_level_eV=12.8598 meta_mineral=pyrite meta_rc=0.375 meta_image_index=3 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_mace.xyz meta_method=MACE-MP-0 meta_vacancy_type=V_Fe energy=-570.8009011213421 pbc="T T T"
 Fe      -0.00008519       0.00285524      -0.00275840        0       0.00230779       0.00083451      -0.00059808
 Fe       2.70753454      -0.00012984       2.70278532        0       0.00383202      -0.00301728      -0.00234221
 Fe       0.00253008       2.70991875       2.70505634        0       0.00088719       0.00102386      -0.00100011
@@ -391,7 +391,7 @@ S        7.49004191       6.06255013      10.21047823        1       0.00728319 
 S        6.06410147      10.22074117       7.48920410        1       0.00121632      -0.00096364      -0.00335850
 H        4.77147034       4.95057605       6.24046814        0      -0.51229320      -0.04476318      -0.32994418
 96
-Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1:forces:R:3 spacegroup="P a -3" unit_cell=conventional nspins=1 nkpts=8 fermi_level=12.8598 natoms=96 mineral=pyrite rc=0.5 image_index=4 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_mace.xyz method=MACE-MP-0 vacancy_type=V_Fe energy=-570.7013476580452 pbc="T T T"
+Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1:forces:R:3 meta_spacegroup="P a -3" meta_unit_cell=conventional meta_nspins=1 meta_nkpts=8 meta_fermi_level_eV=12.8598 meta_mineral=pyrite meta_rc=0.5 meta_image_index=4 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_mace.xyz meta_method=MACE-MP-0 meta_vacancy_type=V_Fe energy=-570.7013476580452 pbc="T T T"
 Fe      -0.00055233       0.00278446      -0.00289602        0       0.00102649       0.00070681      -0.00118979
 Fe       2.70734895       0.00001372       2.70247392        0       0.00290107      -0.00215729      -0.00347967
 Fe       0.00146773       2.70957534       2.70393138        0      -0.00178159       0.00024152      -0.00415442
@@ -489,7 +489,7 @@ S        7.48745800       6.06051112      10.20442619        1       0.00180095 
 S        6.06394158      10.21953965       7.48864202        1      -0.00007433      -0.00438845      -0.00546916
 H        4.93619068       4.96315391       6.35153170        0      -0.03649279      -0.01702476      -0.00075297
 96
-Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1:forces:R:3 spacegroup="P a -3" unit_cell=conventional nspins=1 nkpts=8 fermi_level=12.8598 natoms=96 mineral=pyrite rc=0.625 image_index=5 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_mace.xyz method=MACE-MP-0 vacancy_type=V_Fe energy=-570.7700557052135 pbc="T T T"
+Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1:forces:R:3 meta_spacegroup="P a -3" meta_unit_cell=conventional meta_nspins=1 meta_nkpts=8 meta_fermi_level_eV=12.8598 meta_mineral=pyrite meta_rc=0.625 meta_image_index=5 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_mace.xyz meta_method=MACE-MP-0 meta_vacancy_type=V_Fe energy=-570.7700557052135 pbc="T T T"
 Fe      -0.00077892       0.00270359      -0.00301006        0       0.00028445       0.00055541      -0.00160799
 Fe       2.70725334       0.00009622       2.70239334        0       0.00209310      -0.00151897      -0.00367855
 Fe       0.00041477       2.70906440       2.70312590        0      -0.00476602      -0.00123420      -0.00665264
@@ -587,7 +587,7 @@ S        7.48655059       6.05943211      10.20175225        1      -0.00083849 
 S        6.06349021      10.21843850       7.48816403        1      -0.00221955      -0.00751271      -0.00637303
 H        5.09711742       4.98670934       6.41964857        0       0.51558382       0.05958668       0.22696204
 96
-Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1:forces:R:3 spacegroup="P a -3" unit_cell=conventional nspins=1 nkpts=8 fermi_level=12.8598 natoms=96 mineral=pyrite rc=0.75 image_index=6 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_mace.xyz method=MACE-MP-0 vacancy_type=V_Fe energy=-570.8829376309451 pbc="T T T"
+Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1:forces:R:3 meta_spacegroup="P a -3" meta_unit_cell=conventional meta_nspins=1 meta_nkpts=8 meta_fermi_level_eV=12.8598 meta_mineral=pyrite meta_rc=0.75 meta_image_index=6 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_mace.xyz meta_method=MACE-MP-0 meta_vacancy_type=V_Fe energy=-570.8829376309451 pbc="T T T"
 Fe      -0.00144051       0.00232337      -0.00305441        0      -0.00103254       0.00013182      -0.00168409
 Fe       2.70680715      -0.00026324       2.70250673        0      -0.00037182      -0.00178105      -0.00301957
 Fe      -0.00229472       2.70791195       2.70197476        0      -0.00555103      -0.00104678      -0.00417347
@@ -685,7 +685,7 @@ S        7.48543115       6.06019731      10.20312031        1      -0.00092015 
 S        6.06199714      10.21573886       7.48737868        1      -0.00511311      -0.00734554      -0.00590390
 H        5.31953904       5.04772996       6.42809146        0       0.30948442       0.06593428       0.02890400
 96
-Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1:forces:R:3 spacegroup="P a -3" unit_cell=conventional nspins=1 nkpts=8 fermi_level=12.8598 natoms=96 mineral=pyrite rc=0.875 image_index=7 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_mace.xyz method=MACE-MP-0 vacancy_type=V_Fe energy=-570.9376942208511 pbc="T T T"
+Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1:forces:R:3 meta_spacegroup="P a -3" meta_unit_cell=conventional meta_nspins=1 meta_nkpts=8 meta_fermi_level_eV=12.8598 meta_mineral=pyrite meta_rc=0.875 meta_image_index=7 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_mace.xyz meta_method=MACE-MP-0 meta_vacancy_type=V_Fe energy=-570.9376942208511 pbc="T T T"
 Fe      -0.00179886       0.00181761      -0.00269086        0      -0.00098034      -0.00031153      -0.00059494
 Fe       2.70620629      -0.00087120       2.70302870        0      -0.00098266      -0.00214831      -0.00157183
 Fe      -0.00409157       2.70668429       2.70229224        0      -0.00370146      -0.00054216      -0.00061169
@@ -783,7 +783,7 @@ S        7.48683872       6.06260718      10.21017826        1      -0.00042120 
 S        6.06097229      10.21333424       7.48723871        1      -0.00401822      -0.00400974      -0.00359054
 H        5.53444555       5.11707033       6.39927164        0       0.14685606       0.04978365      -0.01208099
 96
-Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1:forces:R:3 spacegroup="P a -3" unit_cell=conventional nspins=1 nkpts=8 fermi_level=12.8598 natoms=96 mineral=pyrite rc=1.0 image_index=8 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_mace.xyz method=MACE-MP-0 vacancy_type=V_Fe energy=-570.8830345821639 pbc="T T T"
+Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1:forces:R:3 meta_spacegroup="P a -3" meta_unit_cell=conventional meta_nspins=1 meta_nkpts=8 meta_fermi_level_eV=12.8598 meta_mineral=pyrite meta_rc=1.0 meta_image_index=8 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_mace.xyz meta_method=MACE-MP-0 meta_vacancy_type=V_Fe energy=-570.8830345821639 pbc="T T T"
 Fe      -0.00073734       0.00021129      -0.00062028        0       0.00465355      -0.00151241       0.00433819
 Fe       2.70781202      -0.00054438       2.70417506        0       0.01001005       0.00873138       0.03631431
 Fe      -0.00087575       2.70564452       2.70575857        0       0.01222436       0.03264969       0.01244087

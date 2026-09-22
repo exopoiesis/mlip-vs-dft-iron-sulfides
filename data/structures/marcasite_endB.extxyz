@@ -1,5 +1,5 @@
 96
-Lattice="8.886 0.0 0.0 0.0 10.85 0.0 0.0 0.0 13.548" Properties=species:S:1:pos:R:3:initial_magmoms:R:1 spacegroup="P n n m" unit_cell=primitive nspins=2 nkpts=8 fermi_level=12.4119 natoms=96 mineral=marcasite rc=1.0 image_index=8 U_eV=0.0 nspin=2 source_file=results/dft_datasets/2026-06-03/marc_warm_neb_W2/prod_essentials/relaxed_endB_warm.xyz method=PBE_U0_ONCV geometry=dft_relaxed pbc="T T T"
+Lattice="8.886 0.0 0.0 0.0 10.85 0.0 0.0 0.0 13.548" Properties=species:S:1:pos:R:3:initial_magmoms:R:1 meta_spacegroup="P n n m" meta_unit_cell=primitive meta_nspins=2 meta_nkpts=8 meta_fermi_level_eV=12.4119 meta_mineral=marcasite meta_rc=1.0 meta_image_index=8 meta_U_eV=0.0 meta_nspin=2 meta_source_file=results/dft_datasets/2026-06-03/marc_warm_neb_W2/prod_essentials/relaxed_endB_warm.xyz meta_method=PBE_U0_ONCV meta_geometry=dft_relaxed pbc="T T T"
 Fe       0.00554172      -0.00017189      -0.00015497       0.06500000
 Fe       2.23231715       2.71241766       1.69423135       0.06500000
 S        0.93241885       2.03129858      -0.00026167       0.00000000

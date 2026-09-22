@@ -1,5 +1,5 @@
 96
-Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1 spacegroup="P a -3" unit_cell=conventional nspins=1 nkpts=8 fermi_level=12.8598 natoms=96 mineral=pyrite rc=0.0 image_index=0 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_chgnet.xyz method=CHGNet vacancy_type=V_Fe note="geometry_only: CHGNet MLIP energies not stored in source file (all frames show identical energy in source)" pbc="T T T"
+Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1 meta_spacegroup="P a -3" meta_unit_cell=conventional meta_nspins=1 meta_nkpts=8 meta_fermi_level_eV=12.8598 meta_mineral=pyrite meta_rc=0.0 meta_image_index=0 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_chgnet.xyz meta_method=CHGNet meta_vacancy_type=V_Fe meta_note="geometry_only: CHGNet MLIP energies not stored in source file (all frames show identical energy in source)" pbc="T T T"
 Fe       0.00062036       0.00073728      -0.00021130        0
 Fe       2.71003974       0.00295908       2.70619574        0
 Fe       0.00341564       2.70673105       2.70682231        0
@@ -97,7 +97,7 @@ S        7.49315024       6.05631337      10.20213333        1
 S        6.05872665      10.20231991       7.48959194        1
 H        4.44406460       5.10741729       5.68611415        0
 96
-Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1 spacegroup="P a -3" unit_cell=conventional nspins=1 nkpts=8 fermi_level=12.8598 natoms=96 mineral=pyrite rc=0.125 image_index=1 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_chgnet.xyz method=CHGNet vacancy_type=V_Fe note="geometry_only: CHGNet MLIP energies not stored in source file (all frames show identical energy in source)" pbc="T T T"
+Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1 meta_spacegroup="P a -3" meta_unit_cell=conventional meta_nspins=1 meta_nkpts=8 meta_fermi_level_eV=12.8598 meta_mineral=pyrite meta_rc=0.125 meta_image_index=1 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_chgnet.xyz meta_method=CHGNet meta_vacancy_type=V_Fe meta_note="geometry_only: CHGNet MLIP energies not stored in source file (all frames show identical energy in source)" pbc="T T T"
 Fe       0.00668243       0.00236508       0.00220159        0
 Fe       2.70785663      -0.00604391       2.70093279        0
 Fe       0.00394541       2.69592835       2.69718127        0
@@ -195,7 +195,7 @@ S        7.50277080       6.04699975      10.21469545        1
 S        6.04817922      10.20391242       7.49131960        1
 H        4.56076273       5.12489818       5.69719627        0
 96
-Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1 spacegroup="P a -3" unit_cell=conventional nspins=1 nkpts=8 fermi_level=12.8598 natoms=96 mineral=pyrite rc=0.25 image_index=2 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_chgnet.xyz method=CHGNet vacancy_type=V_Fe note="geometry_only: CHGNet MLIP energies not stored in source file (all frames show identical energy in source)" pbc="T T T"
+Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1 meta_spacegroup="P a -3" meta_unit_cell=conventional meta_nspins=1 meta_nkpts=8 meta_fermi_level_eV=12.8598 meta_mineral=pyrite meta_rc=0.25 meta_image_index=2 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_chgnet.xyz meta_method=CHGNet meta_vacancy_type=V_Fe meta_note="geometry_only: CHGNet MLIP energies not stored in source file (all frames show identical energy in source)" pbc="T T T"
 Fe       0.00375373       0.00232426       0.00012127        0
 Fe       2.71077225      -0.00870418       2.70102321        0
 Fe       0.00160032       2.69776155       2.69490176        0
@@ -293,7 +293,7 @@ S        7.49842257       6.05927045      10.20749423        1
 S        6.04580312      10.20880463       7.49189321        1
 H        4.64276349       5.06210114       5.92213058        0
 96
-Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1 spacegroup="P a -3" unit_cell=conventional nspins=1 nkpts=8 fermi_level=12.8598 natoms=96 mineral=pyrite rc=0.375 image_index=3 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_chgnet.xyz method=CHGNet vacancy_type=V_Fe note="geometry_only: CHGNet MLIP energies not stored in source file (all frames show identical energy in source)" pbc="T T T"
+Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1 meta_spacegroup="P a -3" meta_unit_cell=conventional meta_nspins=1 meta_nkpts=8 meta_fermi_level_eV=12.8598 meta_mineral=pyrite meta_rc=0.375 meta_image_index=3 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_chgnet.xyz meta_method=CHGNet meta_vacancy_type=V_Fe meta_note="geometry_only: CHGNet MLIP energies not stored in source file (all frames show identical energy in source)" pbc="T T T"
 Fe       0.00262721       0.00150304      -0.00143328        0
 Fe       2.71044525      -0.00939032       2.69993241        0
 Fe      -0.00041475       2.69834991       2.69393091        0
@@ -391,7 +391,7 @@ S        7.49042063       6.06109475      10.20168480        1
 S        6.04436813      10.21258562       7.49541452        1
 H        4.77977264       5.02071421       6.14948879        0
 96
-Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1 spacegroup="P a -3" unit_cell=conventional nspins=1 nkpts=8 fermi_level=12.8598 natoms=96 mineral=pyrite rc=0.5 image_index=4 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_chgnet.xyz method=CHGNet vacancy_type=V_Fe note="geometry_only: CHGNet MLIP energies not stored in source file (all frames show identical energy in source)" pbc="T T T"
+Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1 meta_spacegroup="P a -3" meta_unit_cell=conventional meta_nspins=1 meta_nkpts=8 meta_fermi_level_eV=12.8598 meta_mineral=pyrite meta_rc=0.5 meta_image_index=4 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_chgnet.xyz meta_method=CHGNet meta_vacancy_type=V_Fe meta_note="geometry_only: CHGNet MLIP energies not stored in source file (all frames show identical energy in source)" pbc="T T T"
 Fe       0.00201671       0.00158626      -0.00174997        0
 Fe       2.70945647      -0.01047247       2.69938446        0
 Fe      -0.00089521       2.69888219       2.69392950        0
@@ -489,7 +489,7 @@ S        7.48931056       6.06193451      10.19654905        1
 S        6.04436124      10.21479848       7.49477652        1
 H        4.98898838       4.98085136       6.26863473        0
 96
-Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1 spacegroup="P a -3" unit_cell=conventional nspins=1 nkpts=8 fermi_level=12.8598 natoms=96 mineral=pyrite rc=0.625 image_index=5 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_chgnet.xyz method=CHGNet vacancy_type=V_Fe note="geometry_only: CHGNet MLIP energies not stored in source file (all frames show identical energy in source)" pbc="T T T"
+Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1 meta_spacegroup="P a -3" meta_unit_cell=conventional meta_nspins=1 meta_nkpts=8 meta_fermi_level_eV=12.8598 meta_mineral=pyrite meta_rc=0.625 meta_image_index=5 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_chgnet.xyz meta_method=CHGNet meta_vacancy_type=V_Fe meta_note="geometry_only: CHGNet MLIP energies not stored in source file (all frames show identical energy in source)" pbc="T T T"
 Fe       0.00197477       0.00116322      -0.00224539        0
 Fe       2.70897314      -0.01015719       2.69931473        0
 Fe      -0.00213146       2.69817538       2.69330160        0
@@ -587,7 +587,7 @@ S        7.48479266       6.05934400      10.18934412        1
 S        6.04385472      10.21335223       7.49419636        1
 H        5.21583864       5.01001665       6.37377665        0
 96
-Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1 spacegroup="P a -3" unit_cell=conventional nspins=1 nkpts=8 fermi_level=12.8598 natoms=96 mineral=pyrite rc=0.75 image_index=6 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_chgnet.xyz method=CHGNet vacancy_type=V_Fe note="geometry_only: CHGNet MLIP energies not stored in source file (all frames show identical energy in source)" pbc="T T T"
+Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1 meta_spacegroup="P a -3" meta_unit_cell=conventional meta_nspins=1 meta_nkpts=8 meta_fermi_level_eV=12.8598 meta_mineral=pyrite meta_rc=0.75 meta_image_index=6 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_chgnet.xyz meta_method=CHGNet meta_vacancy_type=V_Fe meta_note="geometry_only: CHGNet MLIP energies not stored in source file (all frames show identical energy in source)" pbc="T T T"
 Fe       0.00122329      -0.00056456      -0.00341750        0
 Fe       2.70789119      -0.01012789       2.69767537        0
 Fe      -0.00289491       2.69679406       2.69277478        0
@@ -685,7 +685,7 @@ S        7.47887606       6.05396117      10.18723522        1
 S        6.04295034      10.21000775       7.49073251        1
 H        5.38769053       5.15042150       6.42654811        0
 96
-Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1 spacegroup="P a -3" unit_cell=conventional nspins=1 nkpts=8 fermi_level=12.8598 natoms=96 mineral=pyrite rc=0.875 image_index=7 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_chgnet.xyz method=CHGNet vacancy_type=V_Fe note="geometry_only: CHGNet MLIP energies not stored in source file (all frames show identical energy in source)" pbc="T T T"
+Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1 meta_spacegroup="P a -3" meta_unit_cell=conventional meta_nspins=1 meta_nkpts=8 meta_fermi_level_eV=12.8598 meta_mineral=pyrite meta_rc=0.875 meta_image_index=7 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_chgnet.xyz meta_method=CHGNet meta_vacancy_type=V_Fe meta_note="geometry_only: CHGNet MLIP energies not stored in source file (all frames show identical energy in source)" pbc="T T T"
 Fe      -0.00167205      -0.00155059      -0.00399832        0
 Fe       2.70109414      -0.00671457       2.69221581        0
 Fe      -0.00982428       2.69770498       2.69826311        0
@@ -783,7 +783,7 @@ S        7.48639014       6.04908504      10.19646594        1
 S        6.04284197      10.20525395       7.48510616        1
 H        5.59873096       5.27729235       6.45222124        0
 96
-Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1 spacegroup="P a -3" unit_cell=conventional nspins=1 nkpts=8 fermi_level=12.8598 natoms=96 mineral=pyrite rc=1.0 image_index=8 U_eV=0.0 nspin=1 source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_chgnet.xyz method=CHGNet vacancy_type=V_Fe note="geometry_only: CHGNet MLIP energies not stored in source file (all frames show identical energy in source)" pbc="T T T"
+Lattice="10.836 0.0 0.0 0.0 10.836 0.0 0.0 0.0 10.836" Properties=species:S:1:pos:R:3:spacegroup_kinds:I:1 meta_spacegroup="P a -3" meta_unit_cell=conventional meta_nspins=1 meta_nkpts=8 meta_fermi_level_eV=12.8598 meta_mineral=pyrite meta_rc=1.0 meta_image_index=8 meta_U_eV=0.0 meta_nspin=1 meta_source_file=results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_chgnet.xyz meta_method=CHGNet meta_vacancy_type=V_Fe meta_note="geometry_only: CHGNet MLIP energies not stored in source file (all frames show identical energy in source)" pbc="T T T"
 Fe      -0.00073734       0.00021129      -0.00062028        0
 Fe       2.70781202      -0.00054438       2.70417506        0
 Fe      -0.00087575       2.70564452       2.70575857        0
