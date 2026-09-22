@@ -2,7 +2,7 @@
 Figure S (SI §O) -- per-image foundation-MLIP vs DFT NEB band correlation.
 
 Stanford review Q5: shows WHAT TYPE of failure the foundation MLIPs exhibit
-along the canonical pyrite V_S2 H-hop path (9 images, symmetric, DFT saddle
+along the canonical pyrite V_S pocket Fe-to-Fe hydride-hop path (9 images, symmetric, DFT saddle
 img4 = 94.6 meV, QE PBE).
 
 Panels:

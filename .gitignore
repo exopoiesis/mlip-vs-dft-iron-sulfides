@@ -14,3 +14,8 @@ espresso.pwo
 espresso.pwi
 *.log
 .DS_Store
+
+# rendered figure outputs (regenerate with figures/*.py)
+figures/*.png
+figures/*.pdf
+figures/*.svg

@@ -1,0 +1,472 @@
+{
+  "mackinawite": {
+    "dft_profile_meV": [
+      0.0,
+      1.56,
+      5.37,
+      14.73,
+      42.88,
+      18.85,
+      6.46,
+      1.56,
+      -0.01
+    ],
+    "E_a_dft_meV": 42.88,
+    "saddle_image": 4,
+    "excluded_images": [],
+    "models": {
+      "GRACE-1L-OMAT": {
+        "E_a": 168.7,
+        "diff": 125.8,
+        "R": 0.985,
+        "rmse": 56.5,
+        "saddle_match": true,
+        "mirror": 14.68
+      },
+      "GRACE-2L-OAM": {
+        "E_a": 194.9,
+        "diff": 152.0,
+        "R": 0.987,
+        "rmse": 67.2,
+        "saddle_match": true,
+        "mirror": 17.39
+      },
+      "GRACE-2L-OMAT": {
+        "E_a": 141.0,
+        "diff": 98.1,
+        "R": 0.983,
+        "rmse": 45.4,
+        "saddle_match": true,
+        "mirror": 12.3
+      },
+      "chgnet": {
+        "E_a": 92.5,
+        "diff": 49.6,
+        "R": 0.876,
+        "rmse": 37.7,
+        "saddle_match": true,
+        "mirror": 9.36
+      },
+      "fairchem:uma-s-1p2@omat": {
+        "E_a": 92.0,
+        "diff": 49.1,
+        "R": 0.995,
+        "rmse": 21.5,
+        "saddle_match": true,
+        "mirror": 8.97
+      },
+      "mace:large": {
+        "E_a": 192.0,
+        "diff": 149.1,
+        "R": 0.973,
+        "rmse": 70.6,
+        "saddle_match": true,
+        "mirror": 15.62
+      },
+      "orb:orb_v2": {
+        "E_a": 166.9,
+        "diff": 124.0,
+        "R": 0.961,
+        "rmse": 64.4,
+        "saddle_match": true,
+        "mirror": 17.91
+      },
+      "orb:orb_v3_conservative_inf_omat": {
+        "E_a": 74.9,
+        "diff": 32.0,
+        "R": 0.981,
+        "rmse": 17.2,
+        "saddle_match": true,
+        "mirror": 5.67
+      },
+      "sevennet": {
+        "E_a": 414.2,
+        "diff": 371.3,
+        "R": 0.985,
+        "rmse": 162.0,
+        "saddle_match": true,
+        "mirror": 32.22
+      }
+    }
+  },
+  "pyrite_VS2": {
+    "dft_profile_meV": [
+      0.0,
+      15.11,
+      53.22,
+      84.87,
+      94.59,
+      70.19,
+      34.63,
+      9.14,
+      0.23
+    ],
+    "E_a_dft_meV": 94.59,
+    "saddle_image": 4,
+    "excluded_images": [],
+    "models": {
+      "GRACE-1L-OMAT": {
+        "E_a": 186.4,
+        "diff": 91.8,
+        "R": 0.993,
+        "rmse": 56.1,
+        "saddle_match": true,
+        "mirror": 58.62
+      },
+      "GRACE-2L-OAM": {
+        "E_a": 185.9,
+        "diff": 91.3,
+        "R": 0.987,
+        "rmse": 51.0,
+        "saddle_match": true,
+        "mirror": 68.81
+      },
+      "GRACE-2L-OMAT": {
+        "E_a": 163.1,
+        "diff": 68.5,
+        "R": 0.995,
+        "rmse": 43.0,
+        "saddle_match": true,
+        "mirror": 42.7
+      },
+      "chgnet": {
+        "E_a": 93.6,
+        "diff": -1.0,
+        "R": 0.96,
+        "rmse": 10.1,
+        "saddle_match": true,
+        "mirror": 34.18
+      },
+      "fairchem:uma-s-1p2@omat": {
+        "E_a": 131.4,
+        "diff": 36.9,
+        "R": 0.997,
+        "rmse": 24.3,
+        "saddle_match": true,
+        "mirror": 25.79
+      },
+      "mace:large": {
+        "E_a": 253.3,
+        "diff": 158.8,
+        "R": 0.979,
+        "rmse": 91.3,
+        "saddle_match": true,
+        "mirror": 118.11
+      },
+      "orb:orb_v2": {
+        "E_a": 126.2,
+        "diff": 31.6,
+        "R": 0.957,
+        "rmse": 22.7,
+        "saddle_match": true,
+        "mirror": 28.02
+      },
+      "orb:orb_v3_conservative_inf_omat": {
+        "E_a": 132.9,
+        "diff": 38.3,
+        "R": 0.981,
+        "rmse": 32.3,
+        "saddle_match": true,
+        "mirror": 44.01
+      },
+      "sevennet": {
+        "E_a": 100.9,
+        "diff": 6.3,
+        "R": 0.978,
+        "rmse": 12.5,
+        "saddle_match": true,
+        "mirror": 25.82
+      }
+    }
+  },
+  "marcasite": {
+    "dft_profile_meV": [
+      0.0,
+      151.31,
+      41.96,
+      104.55,
+      208.16,
+      77.17,
+      -61.18,
+      -129.29,
+      -144.44
+    ],
+    "E_a_dft_meV": 208.16,
+    "saddle_image": 4,
+    "excluded_images": [
+      1
+    ],
+    "models": {
+      "GRACE-1L-OMAT": {
+        "E_a": 116.7,
+        "diff": -91.4,
+        "R": 0.948,
+        "rmse": 82.3,
+        "saddle_match": true,
+        "mirror": 219.43,
+        "R_excl": 0.965,
+        "rmse_excl": 71.7
+      },
+      "GRACE-2L-OAM": {
+        "E_a": 297.1,
+        "diff": 89.0,
+        "R": 0.839,
+        "rmse": 72.0,
+        "saddle_match": true,
+        "mirror": 102.83,
+        "R_excl": 0.955,
+        "rmse_excl": 60.7
+      },
+      "GRACE-2L-OMAT": {
+        "E_a": 225.6,
+        "diff": 17.5,
+        "R": 0.908,
+        "rmse": 48.4,
+        "saddle_match": true,
+        "mirror": 119.55,
+        "R_excl": 0.991,
+        "rmse_excl": 24.3
+      },
+      "chgnet": {
+        "E_a": 259.8,
+        "diff": 51.6,
+        "R": 0.909,
+        "rmse": 52.0,
+        "saddle_match": true,
+        "mirror": 137.33,
+        "R_excl": 0.993,
+        "rmse_excl": 37.3
+      },
+      "fairchem:uma-s-1p2@omat": {
+        "E_a": 157.8,
+        "diff": -50.4,
+        "R": 0.952,
+        "rmse": 60.8,
+        "saddle_match": true,
+        "mirror": 237.32,
+        "R_excl": 0.974,
+        "rmse_excl": 50.6
+      },
+      "mace:large": {
+        "E_a": 171.9,
+        "diff": -36.3,
+        "R": 0.955,
+        "rmse": 63.8,
+        "saddle_match": true,
+        "mirror": 211.18,
+        "R_excl": 0.985,
+        "rmse_excl": 49.1
+      },
+      "orb:orb_v2": {
+        "E_a": 170.0,
+        "diff": -38.1,
+        "R": 0.931,
+        "rmse": 53.5,
+        "saddle_match": false,
+        "mirror": 261.72,
+        "R_excl": 0.949,
+        "rmse_excl": 50.6
+      },
+      "orb:orb_v3_conservative_inf_omat": {
+        "E_a": 148.4,
+        "diff": -59.8,
+        "R": 0.949,
+        "rmse": 57.9,
+        "saddle_match": true,
+        "mirror": 230.1,
+        "R_excl": 0.97,
+        "rmse_excl": 47.4
+      },
+      "sevennet": {
+        "E_a": 310.2,
+        "diff": 102.1,
+        "R": 0.119,
+        "rmse": 179.9,
+        "saddle_match": false,
+        "mirror": 307.01,
+        "R_excl": 0.321,
+        "rmse_excl": 176.2
+      }
+    }
+  },
+  "greigite_channel": {
+    "dft_profile_meV": [
+      0.0,
+      10.85,
+      49.63,
+      134.67,
+      235.97,
+      134.67,
+      49.63,
+      10.85,
+      -0.0
+    ],
+    "E_a_dft_meV": 235.97,
+    "saddle_image": 4,
+    "excluded_images": [],
+    "models": {
+      "GRACE-1L-OMAT": {
+        "E_a": 274.9,
+        "diff": 39.0,
+        "R": 0.996,
+        "rmse": 21.1,
+        "saddle_match": true,
+        "mirror": 0.19
+      },
+      "GRACE-2L-OAM": {
+        "E_a": 404.0,
+        "diff": 168.0,
+        "R": 0.994,
+        "rmse": 87.0,
+        "saddle_match": true,
+        "mirror": 0.12
+      },
+      "GRACE-2L-OMAT": {
+        "E_a": 335.8,
+        "diff": 99.8,
+        "R": 0.992,
+        "rmse": 59.7,
+        "saddle_match": true,
+        "mirror": 0.21
+      },
+      "chgnet": {
+        "E_a": 254.1,
+        "diff": 18.1,
+        "R": 0.999,
+        "rmse": 8.2,
+        "saddle_match": true,
+        "mirror": 0.12
+      },
+      "fairchem:uma-s-1p2@omat": {
+        "E_a": 288.4,
+        "diff": 52.5,
+        "R": 0.997,
+        "rmse": 31.7,
+        "saddle_match": true,
+        "mirror": 0.09
+      },
+      "mace:large": {
+        "E_a": 221.1,
+        "diff": -14.8,
+        "R": 0.999,
+        "rmse": 6.6,
+        "saddle_match": true,
+        "mirror": 0.07
+      },
+      "orb:orb_v2": {
+        "E_a": 123.8,
+        "diff": -112.2,
+        "R": 0.775,
+        "rmse": 98.3,
+        "saddle_match": true,
+        "mirror": 131.01
+      },
+      "orb:orb_v3_conservative_inf_omat": {
+        "E_a": 345.1,
+        "diff": 109.2,
+        "R": 0.998,
+        "rmse": 54.8,
+        "saddle_match": true,
+        "mirror": 0.86
+      },
+      "sevennet": {
+        "E_a": 546.3,
+        "diff": 310.3,
+        "R": 0.986,
+        "rmse": 117.0,
+        "saddle_match": true,
+        "mirror": 0.12
+      }
+    }
+  },
+  "greigite_cation": {
+    "dft_profile_meV": [
+      0.0,
+      23.44,
+      140.98,
+      362.77,
+      566.83,
+      362.76,
+      140.98,
+      23.43,
+      -0.0
+    ],
+    "E_a_dft_meV": 566.83,
+    "saddle_image": 4,
+    "excluded_images": [],
+    "models": {
+      "GRACE-1L-OMAT": {
+        "E_a": 637.2,
+        "diff": 70.4,
+        "R": 0.998,
+        "rmse": 27.1,
+        "saddle_match": true,
+        "mirror": 0.22
+      },
+      "GRACE-2L-OAM": {
+        "E_a": 474.9,
+        "diff": -92.0,
+        "R": 0.995,
+        "rmse": 60.2,
+        "saddle_match": true,
+        "mirror": 0.12
+      },
+      "GRACE-2L-OMAT": {
+        "E_a": 623.5,
+        "diff": 56.6,
+        "R": 1.0,
+        "rmse": 28.9,
+        "saddle_match": true,
+        "mirror": 0.24
+      },
+      "chgnet": {
+        "E_a": 526.0,
+        "diff": -40.9,
+        "R": 0.996,
+        "rmse": 39.9,
+        "saddle_match": true,
+        "mirror": 0.09
+      },
+      "fairchem:uma-s-1p2@omat": {
+        "E_a": 559.3,
+        "diff": -7.5,
+        "R": 0.998,
+        "rmse": 21.4,
+        "saddle_match": true,
+        "mirror": 11.22
+      },
+      "mace:large": {
+        "E_a": 435.0,
+        "diff": -131.8,
+        "R": 0.998,
+        "rmse": 55.6,
+        "saddle_match": true,
+        "mirror": 0.1
+      },
+      "orb:orb_v2": {
+        "E_a": 930.3,
+        "diff": 363.5,
+        "R": 0.994,
+        "rmse": 200.6,
+        "saddle_match": true,
+        "mirror": 29.27
+      },
+      "orb:orb_v3_conservative_inf_omat": {
+        "E_a": 719.3,
+        "diff": 152.5,
+        "R": 1.0,
+        "rmse": 71.6,
+        "saddle_match": true,
+        "mirror": 1.19
+      },
+      "sevennet": {
+        "E_a": 705.8,
+        "diff": 139.0,
+        "R": 0.99,
+        "rmse": 46.4,
+        "saddle_match": true,
+        "mirror": 1.1
+      }
+    }
+  }
+}

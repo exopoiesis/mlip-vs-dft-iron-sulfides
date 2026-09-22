@@ -1,7 +1,15 @@
 # TM-Spec v0.3 artefact: MACE-MP-0 + CHGNet cross-mineral benchmark vs DFT
-# Four distinct foundation-MLIP failure modes identified.
+# THREE distinct foundation-MLIP failure modes (a fourth, claimed here earlier, is withdrawn).
 # PASS (benchmark completed, failures documented and paper-quotable).
 # id: tm.fes.mlip_vs_dft.benchmark.2026-06-04
+#
+# CORRECTED 2026-09-22 on three counts:
+#   (a) the MACE variant is LARGE, not medium -- the driver calls mace_mp(model="large") and the
+#       run log loads MACE_MPtrj_2022.9.model. Every MACE number here and in the paper is large.
+#   (b) the greigite DFT reference of 1860 meV is RETRACTED (see tm.greig.vfe.neb.2026-06-04);
+#       the corrected references are 235.97 meV (channel edge) and 566.83 meV (cation edge).
+#   (c) the pyrite system is V_S with an Fe-bound hydride hop, not a persulfide-dimer vacancy.
+# A nine-model extension of this benchmark is deposited separately under mlip/r22_2026-09/.
 
 spec: tm-spec/0.3
 kind: MLIPBenchmark
@@ -28,7 +36,9 @@ calculation:
   method: MLIP
   backends:
     - name: MACE-MP-0
-      variant: medium
+      variant: large                      # corrected 2026-09-22; was wrongly recorded as medium
+      checkpoint: MACE_MPtrj_2022.9.model
+      sha256: f80e992b65ab8f88fdf26964511357c022e92704e4d9bcd086652635a8495b32
       version: "0.3.x"
       foundation: true
       fine_tuned: false
@@ -45,14 +55,24 @@ benchmark_setup:
     system: "Fe-S V-anchored proton migration, this work"
   test_systems:
     - id: pyr_vs2_96at
-      system: "pyrite FeS2 96-atom V_S2 persulfide hop"
+      system: "pyrite HFe32S63 96-atom V_S pocket, Fe-to-Fe hydride hop"
       DFT_Ea_meV: 94.6
+      label_corrected_2026_09_22: "was 'V_S2 persulfide hop'; barrier unaffected"
     - id: pyr_vfe_96at
       system: "pyrite FeS2 96-atom V_Fe S-H lateral hop (Dimer result)"
       DFT_Ea_meV: 268
     - id: greig_vfe_56at
-      system: "greigite Fe3S4 56-atom V_Fe oct S-H symmetric hop"
+      system: "greigite Fe3S4 56-atom V_Fe oct, trans axis"
       DFT_Ea_meV: 1860
+      status: RETRACTED
+      retraction: "not a migration path; see tm.greig.vfe.neb.2026-06-04"
+    - id: greig_vfe_channel_56at
+      system: "greigite HFe23S32 56-atom V_Fe oct, S-H hop along a CHANNEL edge"
+      DFT_Ea_meV: 235.97
+      replaces: greig_vfe_56at
+    - id: greig_vfe_cation_56at
+      system: "greigite HFe23S32 56-atom V_Fe oct, S-H hop along a CATION edge"
+      DFT_Ea_meV: 566.83
     - id: pent_vfe
       system: "pentlandite (Fe,Ni)9S8 V_Fe cubane pocket S-H hop"
       DFT_Ea_meV: null
@@ -78,23 +98,41 @@ results:
       pyrite_VS2_meV: 0
       pyrite_VS2_note: "flat PES, correct endpoint topology but barrier = 0"
       pyrite_VFe_meV: 182
-      greigite_note: "unphysical ~1e10 eV intermediate energies"
+      greigite_note: >
+        PRISTINE-CELL RELAXATION collapses (nearest-neighbour S-S contracting to 0.072 A), and
+        the ~1e10 eV figure is a consequence of that collapsed geometry, not an independent
+        energy observation. On DFT-relaxed geometries the same checkpoint evaluates greigite
+        normally: on the corrected channel band it returns 221.1 meV against DFT 235.97.
       pentlandite_note: "cubane [Fe4S4] 3+3 structural collapse"
       paper_quotable: true
     CHGNet-v0.3.0:
       pyrite_VS2_meV: 27.6
       pyrite_VS2_note: "wrong band topology; spurious -24 meV sub-endpoint wells; saddle 3.4x below DFT"
       pyrite_VFe_meV: 223
-      greigite_note: "non-convergent for vacancy configs"
+      greigite_note: >
+        Did not converge for the vacancy configurations under its own relaxation. On the
+        corrected channel band, evaluated on the DFT geometry, it returns 254.1 meV against
+        DFT 235.97.
       pentlandite_note: "cubane collapse"
       paper_quotable: true
   verdict:
     qualitative: >
-      Four distinct foundation-MLIP failure modes: (1) zero-shot flat/wrong-topology PES
-      (pyrite V_S2); (2) [Fe4S4] cubane structural-motif collapse (pentlandite);
-      (3) unphysical/non-convergent on inverse-spinel (greigite);
-      (4) false-positive band-collapse warning (marcasite).
-      Where both converge (pyrite V_Fe) they underbind DFT 1.2-1.5x.
+      THREE distinct foundation-MLIP failure modes: (1) endpoint-seeding sensitivity in the
+      sulfur-vacancy pocket -- placements seeded from the sulfur anchors funnel onto a single Fe
+      under both potentials, so the band is degenerate and no barrier is defined (pyrite);
+      (2) [Fe4S4] cubane structural-motif collapse (pentlandite); (3) relaxation instability of
+      the pristine inverse spinel (greigite) -- specific to RELAXATION, since the same models
+      evaluate greigite normally on DFT-relaxed geometries.
+      Where the reaction coordinate survives (pyrite V_Fe), the error is model-specific once
+      endpoints are relaxed on each model's own surface: MACE within ~12 meV, CHGNet +119 meV.
+    withdrawn_mode: >
+      A fourth mode was claimed here and in the submitted manuscript: "false-positive
+      band-collapse warning (marcasite)". It is WITHDRAWN. Interior images falling below the
+      endpoints was the signature of endpoints left unrelaxed on the model's own surface, and
+      obeys a bound statable in advance -- the depth of a spurious interior well cannot exceed
+      the model's endpoint relaxation energy on that system. It is not a property of the
+      potentials. Relatedly, the earlier "underbind DFT 1.2-1.5x" reading was an artefact of
+      the frozen-endpoint comparison protocol, not a property of the models.
     usable_as: "topology-screening only, not quantitative barriers"
     DFT_reference_pyrite_VS2_meV: 94.6
     DFT_reference_pyrite_VFe_meV: 268

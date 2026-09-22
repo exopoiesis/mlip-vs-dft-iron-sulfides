@@ -3,7 +3,7 @@
 
 Panel A: NEB profiles 1×1×1 cross-code (GPAW + QE + ABACUS) — 5% agreement.
 Panel B: 96-atom production NEB profile (QE, paper-quotable 0.0946 eV).
-Panel C: V_S2 dimer hop schematic (placeholder — TODO ASE/VESTA render).
+Panel C: V_S pocket Fe-to-Fe hydride hop schematic (placeholder — TODO ASE/VESTA render).
 
 Output: paper/MLIPvsDFT/figures/fig1_pyrite_anchor.{png,pdf,svg}
 

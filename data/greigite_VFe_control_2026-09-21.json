@@ -1,0 +1,18 @@
+{
+  "meta_note": "Reproducibility control: the production barrier recomputed from scratch.",
+  "meta_mineral": "greigite",
+  "meta_path": "channel_edge",
+  "meta_method": "QE 7.5, PBE, U=0, nspin=2 ferrimagnetic",
+  "mode": "control",
+  "status": "ok",
+  "t_start": 1789991955.7206151,
+  "E_eV": -88090.59643953403,
+  "E_reference_eV": -88090.59643953403,
+  "delta_eV": 0.0,
+  "delta_meV": 0.0,
+  "max_force": 0.044845952670096965,
+  "tolerance_eV": 0.001,
+  "reproduced": true,
+  "t_end": 1789992365.5809288,
+  "wall_s": 409.8603136539459
+}

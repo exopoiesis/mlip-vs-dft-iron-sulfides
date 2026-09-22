@@ -1,7 +1,15 @@
-# TM-Spec v0.3 artefact: Pyrite FeS2 V_S2 persulfide-dimer hop NEB
+# TM-Spec v0.3 artefact: Pyrite FeS2 V_S pocket, Fe-to-Fe hydride hop NEB
 # PASS, paper-quotable. Hero anchor; small-cell cross-code validated.
-# Foundation MLIPs fail on this system (MACE flat 0, CHGNet wrong topology).
-# id: tm.pyr.vs2.neb.2026-06-04
+# Foundation MLIPs fail on this system (endpoints seeded from sulfur merge onto one Fe).
+# id: tm.pyr.vs2.neb.2026-06-04   (id retained for citation stability; the LABEL was corrected)
+#
+# MECHANISM RELABELLED 2026-09-22. This record previously declared a persulfide-dimer vacancy
+# and an S-H hop. Both were wrong. The cell is HFe32S63: ONE sulfur removed, not a dimer, so
+# the defect is V_S. Under full relaxation the hydrogen leaves its sulfur seed and binds to
+# iron in ALL NINE images (Fe71 -> Fe37, 1.62-1.97 A), with the nearest sulfur never closer
+# than 2.50 A, so the migration is a hydride hop between two adjacent Fe sites across the
+# vacancy pocket. THE BARRIER IS UNAFFECTED (94.59 meV reproduced from the deposited band):
+# the composition and geometry were always what they are, only the name was wrong.
 
 spec: tm-spec/0.3
 kind: NEBCalculation
@@ -10,7 +18,7 @@ schema_url: https://exopoiesis.github.io/tm-spec/0.3.json
 
 # -- 1. STRUCTURE ---------------------------------------------------------
 structure:
-  formula: FeS2               # pyrite 96-atom supercell (V_S2 defect)
+  formula: HFe32S63           # pyrite 96-atom supercell, ONE sulfur removed, plus one H
   prototype: AB2_cP12_205_a_c  # AFLOW: pyrite cubic Pa-3bar
   space_group: { number: 205, symbol: Pa-3 }
   supercell: [2, 2, 2]
@@ -20,9 +28,19 @@ structure:
 # -- 2. DEFECTS -----------------------------------------------------------
 defects:
   reactions:
-    - "(S-S)^2- -> V_S2 + S2(removed)"
+    - "S(lattice) -> V_S + S(removed)"          # one sulfur, not a dimer
+    - "H@Fe71 -> H@Fe37"                        # the migration: Fe-bound hydride hop
   population:
-    V_S2: { count: 1, site: "persulfide_dimer_site" }
+    V_S: { count: 1, site: "single_sulfur_site" }
+    H_i: { count: 1, site: "Fe_bound_in_vacancy_pocket" }
+  corrected_2026_09_22:
+    previous_declaration: "V_S2: { count: 1, site: persulfide_dimer_site }"
+    previous_reaction: "(S-S)^2- -> V_S2 + S2(removed)"
+    evidence: >
+      Composition of the deposited band is HFe32S63 (one S missing from the 96-atom
+      Fe32S64 cell). Nearest-neighbour audit over all nine images: H-Fe 1.62-1.97 A,
+      H-S never below 2.50 A. See data/structures/README.md and SI section I.1.
+    barrier_affected: false
 
 # -- 3. MAGNETIC STATE ----------------------------------------------------
 magnetic:

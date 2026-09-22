@@ -1,0 +1,57 @@
+{
+  "meta_note": "Joint k-mesh + smearing sensitivity on the production channel geometry.",
+  "meta_mineral": "greigite",
+  "meta_path": "channel_edge",
+  "meta_method": "QE 7.5, PBE, U=0, nspin=2 ferrimagnetic",
+  "mode": "kscan",
+  "status": "ok",
+  "t_start": 1790007709.7478213,
+  "points": {
+    "ref_2x2x2_d0.005__endpoint": {
+      "E_eV": -88090.59643953403,
+      "kpts": [
+        2,
+        2,
+        2
+      ],
+      "degauss": 0.005,
+      "geometry": "endpoint"
+    },
+    "ref_2x2x2_d0.005__saddle": {
+      "E_eV": -88090.36053343487,
+      "kpts": [
+        2,
+        2,
+        2
+      ],
+      "degauss": 0.005,
+      "geometry": "saddle"
+    },
+    "dense_3x3x3_d0.002__endpoint": {
+      "E_eV": -88090.73765926922,
+      "kpts": [
+        3,
+        3,
+        3
+      ],
+      "degauss": 0.002,
+      "geometry": "endpoint"
+    },
+    "dense_3x3x3_d0.002__saddle": {
+      "E_eV": -88090.49380064312,
+      "kpts": [
+        3,
+        3,
+        3
+      ],
+      "degauss": 0.002,
+      "geometry": "saddle"
+    }
+  },
+  "barrier_ref_2x2x2_d0.005_meV": 235.90609915845562,
+  "barrier_dense_3x3x3_d0.002_meV": 243.85862609778997,
+  "k_smearing_shift_meV": 7.952526939334348,
+  "significant": false,
+  "t_end": 1790009645.8065093,
+  "wall_s": 1936.0586879253387
+}

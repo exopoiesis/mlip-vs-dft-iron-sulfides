@@ -1,0 +1,136 @@
+# TM-Spec v0.3 artefact: Greigite Fe3S4 V_Fe octahedral, S-H hop along a CATION edge
+# PASS. The expensive contrast path. Shares its endpoint with the channel-edge run, so the
+# 331 meV gap between them is a pure path difference with no admixture of preparation.
+# Together with the channel record this supersedes tm.greig.vfe.neb.2026-06-04 (RETRACTED).
+# id: tm.greig.vfe.cation.neb.2026-09-21
+
+spec: tm-spec/0.3
+kind: NEBCalculation
+id: tm.greig.vfe.cation.neb.2026-09-21
+schema_url: https://exopoiesis.github.io/tm-spec/0.3.json
+supersedes: [tm.greig.vfe.neb.2026-06-04]
+companion: tm.greig.vfe.channel.neb.2026-09-21
+
+# -- 1. STRUCTURE ---------------------------------------------------------
+structure:
+  formula: HFe23S32
+  prototype: AB_cF56_227_d_e
+  space_group: { number: 227, symbol: Fd-3m }
+  supercell: [1, 1, 1]
+  pbc: [true, true, true]
+  ref: structures/greigite_VFe_cation_band.extxyz
+
+# -- 2. DEFECTS -----------------------------------------------------------
+defects:
+  reactions:
+    - "Fe_Fe^x -> V_Fe'' + Fe(removed)"
+    - "nil -> H_i^+ + e'"
+    - "H@S32 -> H@S42"          # along a cation edge: shared with an occupied Fe_oct
+  population:
+    V_Fe: { count: 1, site: "octahedral_16d" }
+    H_int: { count: 1, site: "S-bound, 1.365 A at the endpoints" }
+  path_selection:
+    edge_class: cation
+    d_SS_A: 3.3695              # SHORTER than the channel edge (3.4928) and MORE expensive
+    connectivity: "two disjoint triangles, {38,44,55} and {33,43,50}"
+    see: tm.greig.vfe.channel.neb.2026-09-21   # Pauling's third rule, stated once there
+
+# -- 3. MAGNETIC STATE ----------------------------------------------------
+magnetic:
+  state: ferri
+  collinear: true
+  magmoms_uB:
+    Fe_tet_8a: 5.0
+    Fe_oct_16d: -4.0
+  surrogate_warning: "U=0 PBE under-localizes local moments ~35% vs Devey 2009; ferri order preserved"
+
+# -- 4. CALCULATION -------------------------------------------------------
+calculation:
+  method: DFT
+  level:
+    xc: PBE
+    hubbard_u_eV: 0.0
+    basis: { kind: plane_waves, cutoff_Ry: 80, rho_cutoff_Ry: 320 }
+    pseudopotential: ONCV PBE
+    smearing: { kind: gaussian, width_Ry: 0.005 }
+    spin: collinear
+  k_points: { mesh: [2, 2, 2], shift: [0, 0, 0] }
+  convergence:
+    scf_Ry_images: 1.0e-5
+    scf_Ry_endpoints: 1.0e-6
+    fmax_eV_per_A: 0.05
+  code:
+    name: QuantumESPRESSO
+    version: "7.5"
+    mpirun: "mpirun --allow-run-as-root --bind-to none -np 1 pw.x"
+  energy_convention: "differences of the free energy F; see the channel record"
+
+# -- 5. WORKFLOW (NEB) ----------------------------------------------------
+workflow:
+  kind: NEB
+  stage: production
+  endpoints:
+    A:
+      geometry_origin: dft_relaxed
+      note: "IDENTICAL to the channel run's endpoint A to 0.0000 meV; same host S32, same nearest Fe"
+    B:
+      geometry_origin: dft_relaxed
+  n_images: 9
+  optimizer: FIRE
+  fmax_eV_per_A: 0.05
+  prewrap: idpp
+
+# -- 6. RESULTS -----------------------------------------------------------
+results:
+  Ea_forward_meV: { value: 566.83 }
+  delta_ZPE_meV: -108.1
+  Ea_rate_relevant_meV: 458.7
+  delta_E_rxn_meV: 0.0
+  band_profile_meV: [0.0, 23.4, 141.0, 362.8, 566.8, 362.8, 141.0, 23.4, 0.0]
+  status: FINAL
+  paper_quotable: true
+  notes: >
+    Saddle symmetric at d(S-H) = 1.660 A to both sulfurs. The proton passes 2.469 A from the
+    nearest iron here, against 2.966 A on the channel edge, and the converged saddle bows AWAY
+    from the cation relative to the geometric edge midpoint (which would lie 1.68-1.75 A from
+    Fe). The cost of that bow is the 331 meV gap. Note that two of the four natural geometric
+    descriptors point the wrong way: this path has the SHORTER edge and compresses S...S 3.7x
+    LESS at the saddle (0.050 vs 0.186 A), yet is 2.40x more expensive. Only the
+    saddle-to-cation distance predicts the ordering, and it does so causally.
+
+# -- 7. SANITY GATES ------------------------------------------------------
+sanity:
+  - id: G01_midpoint_not_special_position
+    rule: "path midpoint >= 0.5 A from any lattice site, occupied or vacant"
+    observed: "genuine interior point of an octahedron edge"
+    pass: true
+  - id: G02_saddle_index_one
+    rule: "exactly one imaginary mode at the saddle"
+    observed: "NOT measured in the full space for this path; subspace bound |nu| >= 1012.2 cm^-1"
+    pass: null
+    note: >
+      The full-168-DOF Lanczos was run on the channel saddle only, that being the
+      rate-determining path. This record is the contrast case.
+  - id: G03_endpoints_distinct
+    rule: "two endpoints are two basins with different hosts"
+    observed: "H moves S32 -> S42, displacement 2.138 A under MIC"
+    pass: true
+  - id: G04_ferri_preserved
+    rule: "M_tot consistent with Devey 2009 ferri reference"
+    observed: "M_tot -23.9 uB"
+    pass: true
+  - id: G05_common_endpoint_with_companion
+    rule: "both paths start from the same relaxed endpoint, so the gap is a pure path difference"
+    observed: "E_endpointA agrees to 0.0000 meV between the two runs"
+    pass: true
+
+# -- 8. DERIVED ------------------------------------------------------------
+derived:
+  rate_298K:
+    quantum_harmonic_TST: { k_per_s: 9.70e4, tau_s: 1.03e-5 }
+  boltzmann_weight_vs_channel_298K: 2.6e-6
+  interpretation: >
+    Thermodynamically irrelevant for transport at room temperature. This is a MECHANISTIC
+    CONTRAST establishing that path choice inside one mineral outweighs mineral choice --
+    the 331 meV spread within greigite exceeds the 225 meV spread across mackinawite,
+    marcasite and pyrite V_Fe combined -- not a competing channel.

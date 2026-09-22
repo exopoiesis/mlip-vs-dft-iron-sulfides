@@ -1,0 +1,184 @@
+# TM-Spec v0.3 artefact: Greigite Fe3S4 V_Fe octahedral, S-H hop along a CHANNEL edge
+# PASS, paper-quotable. Supersedes tm.greig.vfe.neb.2026-06-04 (RETRACTED: that band ran along
+# a trans axis whose midpoint is the vacant Fe site, a special position where the force vanishes
+# by symmetry; three imaginary modes, not a first-order saddle).
+# id: tm.greig.vfe.channel.neb.2026-09-21
+
+spec: tm-spec/0.3
+kind: NEBCalculation
+id: tm.greig.vfe.channel.neb.2026-09-21
+schema_url: https://exopoiesis.github.io/tm-spec/0.3.json
+supersedes: [tm.greig.vfe.neb.2026-06-04]
+
+# -- 1. STRUCTURE ---------------------------------------------------------
+structure:
+  formula: HFe23S32            # 56-atom conventional cell: Fe24S32 minus 1 V_Fe plus 1 H
+  prototype: AB_cF56_227_d_e   # AFLOW: greigite inverse spinel Fd-3m
+  space_group: { number: 227, symbol: Fd-3m }
+  supercell: [1, 1, 1]
+  pbc: [true, true, true]
+  ref: structures/greigite_VFe_channel_band.extxyz
+
+# -- 2. DEFECTS -----------------------------------------------------------
+defects:
+  reactions:
+    - "Fe_Fe^x -> V_Fe'' + Fe(removed)"
+    - "nil -> H_i^+ + e'"
+    - "H@S32 -> H@S37"          # along a channel edge of the vacancy octahedron
+  population:
+    V_Fe: { count: 1, site: "octahedral_16d" }
+    H_int: { count: 1, site: "S-bound, 1.365 A at the endpoints" }
+  path_selection:
+    note: >
+      The twelve S-S edges of the V_Fe octahedron split by the -3m site symmetry into two
+      classes of six. CHANNEL edges (3.4928 A) face the empty 16c interstitial and are shared
+      with no occupied octahedron; traced out they form a CLOSED HEXAGON visiting all six
+      sulfurs of the pocket. CATION edges (3.3695 A) are shared with an occupied Fe_oct and
+      form two disjoint triangles. Both classes exist already in the ideal structure: their
+      mean, 3.431 A = 2.4266*sqrt(2), shows the distortion is purely trigonal. The three trans
+      AXES (4.853 A) are NOT edges and are not migration paths -- that was the retracted band.
+    pauling_third_rule: >
+      The SHORTER class carries the HIGHER barrier (566.83 vs 235.97 meV). A shared polyhedral
+      edge contracts because contraction screens the cation-cation repulsion across it, so the
+      short edge is short PRECISELY BECAUSE an occupied cation sits across it, and it is
+      expensive for that same reason. Selecting a path by hop distance therefore picks the
+      worst one systematically in this structure type.
+
+# -- 3. MAGNETIC STATE ----------------------------------------------------
+magnetic:
+  state: ferri
+  collinear: true
+  magmoms_uB:
+    Fe_tet_8a: 5.0     # broken-symmetry initialization, Devey 2009 moments
+    Fe_oct_16d: -4.0
+  surrogate_warning: "U=0 PBE under-localizes local moments ~35% vs Devey 2009; ferri order preserved"
+
+# -- 4. CALCULATION -------------------------------------------------------
+calculation:
+  method: DFT
+  level:
+    xc: PBE
+    hubbard_u_eV: 0.0          # verified on artefacts: no HUBBARD card in any production input
+    basis: { kind: plane_waves, cutoff_Ry: 80, rho_cutoff_Ry: 320 }
+    pseudopotential: ONCV PBE
+    smearing: { kind: gaussian, width_Ry: 0.005 }
+    spin: collinear
+  k_points: { mesh: [2, 2, 2], shift: [0, 0, 0] }
+  convergence:
+    scf_Ry_images: 1.0e-5
+    scf_Ry_endpoints: 1.0e-6
+    fmax_eV_per_A: 0.05
+  code:
+    name: QuantumESPRESSO
+    version: "7.5"
+    mpirun: "mpirun --allow-run-as-root --bind-to none -np 1 pw.x"
+  energy_convention: >
+    Barriers are differences of the FREE ENERGY F (the '!' line of the QE output). Rebuilding
+    from E = F + TS gives 227.89 meV and from the 0 K extrapolation 231.90 meV. State the
+    convention: the choice moves the number by up to 8 meV.
+
+# -- 5. WORKFLOW (NEB) ----------------------------------------------------
+workflow:
+  kind: NEB
+  stage: production
+  endpoints:
+    A:
+      geometry_origin: dft_relaxed
+      note: "identical to the endpoint of the cation-edge run to 0.0000 meV -- common origin"
+    B:
+      geometry_origin: dft_relaxed
+  n_images: 9
+  optimizer: FIRE
+  fmax_eV_per_A: 0.05
+  prewrap: idpp
+
+# -- 6. RESULTS -----------------------------------------------------------
+results:
+  Ea_forward_meV:
+    value: 235.97
+    reproduced_by:
+      ci_neb_production: 235.97
+      lanczos_run_reference_point: 235.91
+      bz_scan_reference_pair: 235.91
+    spread_meV: 0.06
+    single_point_noise_meV: 0.8     # 13 repeats on slightly displaced geometries, conv_thr 1e-6 Ry
+  delta_ZPE_meV: -103.0
+  Ea_rate_relevant_meV: 133.0
+  delta_E_rxn_meV: 0.0              # palindromic band, exact by symmetry
+  band_profile_meV: [0.0, 10.9, 49.6, 134.7, 236.0, 134.7, 49.6, 10.9, 0.0]
+  status: FINAL
+  paper_quotable: true
+  notes: >
+    Hydrogen is S-bound in every image: d(S-H) 1.365 A at the endpoints and 1.653 A to BOTH
+    sulfurs at the saddle. This is a genuine S-H hop, unlike the pyrite V_S anchor.
+
+# -- 7. SANITY GATES ------------------------------------------------------
+sanity:
+  - id: G01_midpoint_not_special_position
+    rule: "path midpoint >= 0.5 A from any lattice site, occupied or vacant"
+    observed: "saddle is a genuine interior point of the edge; the retracted band failed this"
+    pass: true
+  - id: G02_saddle_index_one
+    rule: "exactly one imaginary mode at the saddle, zero at the endpoint"
+    observed: "1 negative eigenvalue (full 168 DOF Lanczos); endpoint 0"
+    pass: true
+    detail: >
+      lambda = -2.53097 eV/A^2/amu, nu = 829.6i cm^-1, mu_eff = 1.054 amu, 99.88% of the mode
+      amplitude on hydrogen. Method validated against an exact MACE Hessian: eigenvector
+      overlap 1.0000, eigenvalue error 0.60%. Caveat: Ritz values bound the spectrum from
+      above, so a SECOND eigenvalue very close to zero is not formally excluded; neither the
+      barrier nor the rate depends on that distinction.
+      Artefact: data/greigite_VFe_saddle_lanczos_2026-09-21.json
+  - id: G03_endpoints_distinct
+    rule: "two endpoints are two basins with different hosts"
+    observed: "H moves S32 -> S37, displacement 1.501 A under MIC"
+    pass: true
+  - id: G04_ferri_preserved
+    rule: "M_tot consistent with Devey 2009 ferri reference"
+    observed: "M_tot -23.9 uB vs Devey -24 uB; d|m_abs| < 0.2% endpoint-to-saddle"
+    pass: true
+  - id: G05_bz_discretization
+    rule: "joint k-mesh + smearing shift below the 20 meV threshold declared before the run"
+    observed: "+7.95 meV: 235.91 -> 243.86 from {2,2,2 / 0.005 Ry} to {3,3,3 / 0.002 Ry}"
+    pass: true
+    detail: "mesh and smearing vary together by design; report as a JOINT sensitivity"
+  - id: G06_hubbard_u_sensitivity
+    rule: "U sensitivity measured on this geometry"
+    observed: "NOT MEASURED -- the earlier scan was on the retracted band and is withdrawn"
+    pass: false
+    blocking: false
+    note: "declared openly in the manuscript as the principal open numerical question"
+
+# -- 8. DERIVED ------------------------------------------------------------
+derived:
+  rate_298K:
+    quantum_harmonic_TST: { k_per_s: 2.25e10, tau_s: 4.4e-11 }
+    classical_vineyard_no_zpe: { k_per_s: 1.60e9, tau_s: 6.23e-10 }
+    quote_as: "order of magnitude, tau ~ 1e-10 s"
+    why_not_three_figures: >
+      delta-ZPE is a DIFFERENCE, in which framework contributions cancel (<= 7 meV of the 103),
+      so it is well controlled. The prefactor is a PRODUCT, in which they do not: the six
+      sulfur modes alone cut nu* by 38%, and the frozen framework modes are absent from the
+      product altogether.
+  tunnelling:
+    kappa_eckart_298K: 2.02
+    crossover_T_K: 187
+    note: "T_c < 298 K, so not deep-tunnelling; no instanton needed. One-sided: can only raise the rate."
+  transport:
+    claim: "rapid LOCAL proton mobility around V_Fe"
+    not_claimed: "proton conductivity of greigite"
+    reasoning: >
+      The cheap edges form a closed hexagon, so the proton circulates among all six sulfurs of
+      its OWN vacancy. Leaving the pocket is a different, uncomputed step, bounded below by the
+      cation class (566.8 meV). The octahedral 16d sublattice is a PYROCHLORE lattice whose
+      neighbouring octahedra share an edge, so the cheap-hop network coincides with the
+      vacancy-adjacency network and bulk transport reduces to site percolation.
+    percolation:
+      threshold_pyrochlore_site: 0.39
+      this_cell: 0.0625          # 1 V_Fe per 16 octahedral 16d sites (NOT per 24 total Fe)
+      margin: "factor 6.2 below threshold"
+      caveats:
+        - "threshold is for RANDOMLY distributed vacancies; ordering can percolate far lower"
+        - "surfaces and grain boundaries are a parallel channel this argument does not address"
+        - "566.8 meV is itself BELOW 25 kT ~ 640 meV, so escape is NOT claimed to be forbidden"
+        - "a primary numerical source for the pyrochlore threshold is still to be cited"

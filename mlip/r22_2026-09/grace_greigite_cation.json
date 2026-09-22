@@ -1,0 +1,56 @@
+{
+  "GRACE-1L-OMAT": {
+    "profile_meV": [
+      0.0,
+      41.99,
+      157.16,
+      377.18,
+      637.18,
+      377.16,
+      157.35,
+      42.21,
+      0.13
+    ],
+    "E_a_meV": 637.18,
+    "diff_vs_dft_meV": 70.38,
+    "endpoint_drift_meV": 0.135,
+    "monotone_to_saddle": true,
+    "any_below_endpoint": false
+  },
+  "GRACE-2L-OMAT": {
+    "profile_meV": [
+      0.0,
+      41.19,
+      160.27,
+      400.99,
+      623.47,
+      400.98,
+      160.47,
+      41.43,
+      0.15
+    ],
+    "E_a_meV": 623.47,
+    "diff_vs_dft_meV": 56.67,
+    "endpoint_drift_meV": 0.147,
+    "monotone_to_saddle": true,
+    "any_below_endpoint": false
+  },
+  "GRACE-2L-OAM": {
+    "profile_meV": [
+      0.0,
+      15.88,
+      80.7,
+      271.22,
+      474.85,
+      271.2,
+      80.82,
+      15.98,
+      0.09
+    ],
+    "E_a_meV": 474.85,
+    "diff_vs_dft_meV": -91.95,
+    "endpoint_drift_meV": 0.087,
+    "monotone_to_saddle": true,
+    "any_below_endpoint": false
+  }
+}

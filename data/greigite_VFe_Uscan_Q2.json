@@ -1,4 +1,7 @@
 {
+  "meta_RETRACTED": true,
+  "meta_retracted_on": "2026-09-22",
+  "meta_retraction_reason": "Measured on the greigite band retracted in release v1.1 (greigite_VFe_band.extxyz, trans axis of the vacancy octahedron, midpoint on the vacant Fe site: a special position where the force vanishes by symmetry, three imaginary modes). The barrier this file characterises, ~1.84 eV, is the energy of an interstitial proton at the vacant site and not a migration barrier. Kept because it may already have been cited. Superseded by greigite_VFe_channel_band.extxyz (235.97 meV) and the measurements in greigite_VFe_saddle_lanczos_2026-09-21.json and greigite_VFe_bz_scan_2026-09-21.json.",
   "endpoints": {
     "endA": {
       "1": {

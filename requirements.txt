@@ -4,7 +4,7 @@ numpy
 matplotlib
 
 # Foundation MLIPs (for mlip/ drivers) -- install per their own instructions:
-#   mace-torch      (MACE-MP-0 medium)   https://github.com/ACEsuit/mace
+#   mace-torch      (MACE-MP-0 large)   https://github.com/ACEsuit/mace
 #   chgnet          (CHGNet-v0.3.0)      https://github.com/CederGroupHub/chgnet
 #
 # DFT (for scripts/ drivers) is EXTERNAL:

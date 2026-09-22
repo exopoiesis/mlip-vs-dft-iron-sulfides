@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Data per SI §J.1 table + main-text §3.4 Table 1
-MINERALS = ["Pyrite\n(V_S₂ dimer)", "Mackinawite\n(V_Fe + S–H)", "Pentlandite\n(V_Fe + S–H)"]
+MINERALS = ["Pyrite\n(V_S hydride)", "Mackinawite\n(V_Fe + S–H)", "Pentlandite\n(V_Fe + S–H)"]
 DFT_VALUES = [0.0946, 0.0429, np.nan]   # eV; pent endpoint-only
 MACE_VALUES = [0.000, 0.000, 0.000]     # eV; effectively flat PES across all 3
 CHGNET_VALUES = [0.0276, 0.000, 0.000]  # eV; pyr V_S2 production band (saddle 27.6 meV, spurious -24 meV sub-endpoint wells, wrong topology)
@@ -46,7 +46,7 @@ def make_figure(out_dir: Path) -> None:
         x,
         [max(v, 0.0005) for v in MACE_VALUES],  # tiny stub so bars visible
         width,
-        label="MACE-MP-0 medium",
+        label="MACE-MP-0 large",
         color="#d95f02",
         edgecolor="black",
         linewidth=0.5,
@@ -112,7 +112,7 @@ def make_figure(out_dir: Path) -> None:
     ax.set_ylabel("Migration barrier E$_a$ (eV)", fontsize=11)
     ax.set_title(
         "Cross-mineral foundation-MLIP vs DFT benchmark\n"
-        + "vacancy-anchored proton migration on canonical RC (V_S₂ pyr, V_Fe+S–H mack/pent)",
+        + "vacancy-anchored proton migration on canonical RC (V_S pyr, V_Fe+S–H mack/pent)",
         fontsize=11,
     )
     ax.set_ylim(-0.020, 0.32)
@@ -123,7 +123,7 @@ def make_figure(out_dir: Path) -> None:
     # Add interpretive caption text box
     caption = (
         "Two distinct foundation-MLIP failure modes + a pathway pitfall (SI §J.2):\n"
-        "(1) Zero-shot PES failure — pyr V_S₂ dimer hop (MACE 0 flat, CHGNet 27.6 meV distorted band vs DFT 95 meV);\n"
+        "(1) Zero-shot PES failure — pyr V_S pocket hydride hop (MACE 0 flat, CHGNet 27.6 meV distorted band vs DFT 95 meV);\n"
         "(2) Structural-motif failure — pent cubane [Fe₄S₄] 3+3 distortion (§3.3.2; not shown);\n"
         "(3) V_S+H pathway-selection pitfall — universally broken for fcc/layered Fe-S (SI §C)."
     )

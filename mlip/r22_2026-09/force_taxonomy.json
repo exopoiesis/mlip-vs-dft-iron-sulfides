@@ -1,0 +1,182 @@
+{
+  "mackinawite||chgnet": {
+    "r": 0.9089472677442255,
+    "perp_med": 1.5236,
+    "dft_perp_med": 0.060552621038429656,
+    "ratio": 25.16158630083162
+  },
+  "mackinawite||fairchem:uma-s-1p2@omat": {
+    "r": 0.9809358609962314,
+    "perp_med": 2.3261,
+    "dft_perp_med": 0.060552621038429656,
+    "ratio": 38.41452211496746
+  },
+  "mackinawite||mace:large": {
+    "r": 0.9978330474494255,
+    "perp_med": 1.4282,
+    "dft_perp_med": 0.060552621038429656,
+    "ratio": 23.586097108721262
+  },
+  "mackinawite||orb:orb_v2": {
+    "r": 0.9748702593120465,
+    "perp_med": 1.532,
+    "dft_perp_med": 0.060552621038429656,
+    "ratio": 25.300308619633785
+  },
+  "mackinawite||orb:orb_v3_conservative_inf_omat": {
+    "r": 0.9938778849385208,
+    "perp_med": 1.8076,
+    "dft_perp_med": 0.060552621038429656,
+    "ratio": 29.851721841285922
+  },
+  "mackinawite||sevennet": {
+    "r": 0.9964803867422588,
+    "perp_med": 1.841,
+    "dft_perp_med": 0.060552621038429656,
+    "ratio": 30.403308204142167
+  },
+  "pyrite_VS2||chgnet": {
+    "r": 0.915049250197042,
+    "perp_med": 1.0098,
+    "dft_perp_med": 0.0830147493905337,
+    "ratio": 12.164103456477447
+  },
+  "pyrite_VS2||fairchem:uma-s-1p2@omat": {
+    "r": 0.9866676840444331,
+    "perp_med": 1.3542,
+    "dft_perp_med": 0.0830147493905337,
+    "ratio": 16.31276381537112
+  },
+  "pyrite_VS2||mace:large": {
+    "r": 0.9665435787681455,
+    "perp_med": 1.5955,
+    "dft_perp_med": 0.0830147493905337,
+    "ratio": 19.21947619806869
+  },
+  "pyrite_VS2||orb:orb_v2": {
+    "r": 0.8399083129134657,
+    "perp_med": 1.2187,
+    "dft_perp_med": 0.0830147493905337,
+    "ratio": 14.680523749662372
+  },
+  "pyrite_VS2||orb:orb_v3_conservative_inf_omat": {
+    "r": 0.9930456461409417,
+    "perp_med": 1.0558,
+    "dft_perp_med": 0.0830147493905337,
+    "ratio": 12.71822185516824
+  },
+  "pyrite_VS2||sevennet": {
+    "r": 0.9941608812456438,
+    "perp_med": 2.0126,
+    "dft_perp_med": 0.0830147493905337,
+    "ratio": 24.243884547936727
+  },
+  "marcasite||chgnet": {
+    "r": 0.9278974990705002,
+    "perp_med": 3.0704,
+    "dft_perp_med": 0.12795270068858794,
+    "ratio": 23.996367278505186
+  },
+  "marcasite||fairchem:uma-s-1p2@omat": {
+    "r": 0.9745425046003792,
+    "perp_med": 2.2,
+    "dft_perp_med": 0.12795270068858794,
+    "ratio": 17.19385357370747
+  },
+  "marcasite||mace:large": {
+    "r": 0.961453250734378,
+    "perp_med": 3.6551,
+    "dft_perp_med": 0.12795270068858794,
+    "ratio": 28.56602463511735
+  },
+  "marcasite||orb:orb_v2": {
+    "r": 0.8708483012741428,
+    "perp_med": 0.6708,
+    "dft_perp_med": 0.12795270068858794,
+    "ratio": 5.242562262383168
+  },
+  "marcasite||orb:orb_v3_conservative_inf_omat": {
+    "r": 0.98942183816048,
+    "perp_med": 2.2209,
+    "dft_perp_med": 0.12795270068858794,
+    "ratio": 17.35719518265769
+  },
+  "marcasite||sevennet": {
+    "r": 0.932429887935556,
+    "perp_med": 3.0345,
+    "dft_perp_med": 0.12795270068858794,
+    "ratio": 23.715794849734234
+  },
+  "greigite_channel||chgnet": {
+    "r": 0.981134986194334,
+    "perp_med": 2.0581,
+    "dft_perp_med": 0.08871486953974028,
+    "ratio": 23.199042174976807
+  },
+  "greigite_channel||fairchem:uma-s-1p2@omat": {
+    "r": 0.9936710371330127,
+    "perp_med": 2.0852,
+    "dft_perp_med": 0.08871486953974028,
+    "ratio": 23.504515204927667
+  },
+  "greigite_channel||mace:large": {
+    "r": 0.9757128980871385,
+    "perp_med": 1.7539,
+    "dft_perp_med": 0.08871486953974028,
+    "ratio": 19.770079233609554
+  },
+  "greigite_channel||orb:orb_v2": {
+    "r": 0.9596073504231128,
+    "perp_med": 4.5468,
+    "dft_perp_med": 0.08871486953974028,
+    "ratio": 51.251836626589835
+  },
+  "greigite_channel||orb:orb_v3_conservative_inf_omat": {
+    "r": 0.9926152507394913,
+    "perp_med": 2.1595,
+    "dft_perp_med": 0.08871486953974028,
+    "ratio": 24.342029822099224
+  },
+  "greigite_channel||sevennet": {
+    "r": 0.9957096029452988,
+    "perp_med": 2.819,
+    "dft_perp_med": 0.08871486953974028,
+    "ratio": 31.775958355405283
+  },
+  "greigite_cation||chgnet": {
+    "r": 0.9861723376510032,
+    "perp_med": 2.1399,
+    "dft_perp_med": 0.13398907722310915,
+    "ratio": 15.97070480929419
+  },
+  "greigite_cation||fairchem:uma-s-1p2@omat": {
+    "r": 0.9942550924570039,
+    "perp_med": 2.1424,
+    "dft_perp_med": 0.13398907722310915,
+    "ratio": 15.989363046605856
+  },
+  "greigite_cation||mace:large": {
+    "r": 0.9960686332872661,
+    "perp_med": 1.7391,
+    "dft_perp_med": 0.13398907722310915,
+    "ratio": 12.979416203487792
+  },
+  "greigite_cation||orb:orb_v2": {
+    "r": 0.9910391311903988,
+    "perp_med": 4.2575,
+    "dft_perp_med": 0.13398907722310915,
+    "ratio": 31.774978141768315
+  },
+  "greigite_cation||orb:orb_v3_conservative_inf_omat": {
+    "r": 0.996193503220053,
+    "perp_med": 2.172,
+    "dft_perp_med": 0.13398907722310915,
+    "ratio": 16.210276576375993
+  },
+  "greigite_cation||sevennet": {
+    "r": 0.9994092299383734,
+    "perp_med": 2.8895,
+    "dft_perp_med": 0.13398907722310915,
+    "ratio": 21.56519068482432
+  }
+}

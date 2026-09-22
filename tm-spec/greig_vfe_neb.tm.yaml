@@ -79,18 +79,28 @@ results:
     value: 1.86
     ci95: [1.66, 2.06]
   delta_E_rxn_eV: 0.0
-  status: PRELIMINARY
-  paper_quotable: true
+  status: RETRACTED
+  retracted_on: 2026-09-22
+  paper_quotable: false
+  superseded_by: [tm.greig.vfe.channel.neb.2026-09-21, tm.greig.vfe.cation.neb.2026-09-21]
   validated_by: [chemist@opus, physicist@opus]
+  retraction_reason: >
+    NOT A MIGRATION BARRIER. The band ran along a trans axis of the V_Fe octahedron
+    (d_S-S 4.853 A). The midpoint of a trans axis is the vacant Fe site itself, a special
+    position of the vacancy site symmetry, where the force vanishes BY SYMMETRY rather than
+    by convergence. The band therefore satisfies any fmax criterion it is given, converges in
+    very few steps, and inherits its mirror symmetry from the initial interpolation. A partial
+    Hessian at that midpoint carries THREE imaginary modes, so it is not a first-order saddle.
+    The 1.86 eV is the energy of the proton at the interstitial vacant-Fe site relative to its
+    sulfur anchor. Every derived quantity is withdrawn with it: the U scan
+    (1.84/1.815/1.806/1.478 eV), the k/ecut scan, and the "kinetically forbidden at 298 K,
+    tau ~90 Gyr" conclusion. The correct migration coordinate runs along the octahedron EDGES,
+    of which there are two symmetry-distinct classes; see the superseding records.
+    Record kept, not deleted, because it may already have been cited.
   notes: >
-    First bulk DFT NEB barrier for greigite. Endpoints bit-degenerate (symmetric hop,
-    d_S-S 4.85 A, octahedral 16d V_Fe pocket).
-    Robust to U: Ea(U=0/1/2/3 eV)=1.84/1.815/1.806/1.478 eV (warm-start single-points),
-    all >> kinetically-forbidden threshold (1.48 eV = 57 kT at 298 K).
-    k/ecut converged (dk 0.0, decut +0.3 meV).
-    U=3 saddle has a residual occupation-basin offset.
-    Bulk H-migration kinetically forbidden at 298 K (tau ~90 Gyr).
-    M_tot -23.9 uB; ferri order preserved throughout NEB.
+    Unaffected by the retraction and still valid: the cell and defect construction, the DFT
+    method, the endpoint relaxation protocol, the U = 0 provenance, and M_tot -23.9 uB with
+    ferri order preserved throughout the NEB.
 
 # -- 7. SANITY GATES ------------------------------------------------------
 sanity:

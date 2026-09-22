@@ -1,3 +1,18 @@
+"""
+!! RETRACTED TARGET -- READ BEFORE RE-RUNNING (added 2026-09-22) !!
+
+This driver was written against the greigite NEB band that has since been RETRACTED. That band ran
+along a trans axis of the V_Fe octahedron, whose midpoint is the vacant Fe site -- a special position
+where the force vanishes BY SYMMETRY rather than by convergence, so it converged at any criterion and
+its midpoint carries three imaginary modes. Every anchor value of ~1.84-1.86 eV appearing below is
+therefore NOT a migration barrier, and any comparison this script computes against that anchor is
+meaningless.
+
+The corrected barriers are 235.97 meV (channel edge) and 566.83 meV (cation edge); see
+data/structures/greigite_VFe_{channel,cation}_band.extxyz and tm-spec/greig_vfe_channel_neb.tm.yaml.
+The script is preserved unedited below as the record of what was actually run.
+"""
+
 #!/usr/bin/env python3
 """
 Greigite V_Fe U=2 Single-Point sensitivity scan (Option B, s162).
