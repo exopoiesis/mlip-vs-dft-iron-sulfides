@@ -1,476 +1,465 @@
 {
-  "holdout": "marcasite",
-  "E_a_dft_meV": 208.16,
-  "thresholds": {
-    "tol_meV": 25.0,
-    "forget_barrier_meV": 50.0,
-    "forget_force_eVA": 0.1
+ "holdout": "marcasite",
+ "E_a_dft_meV": 208.16,
+ "thresholds": {
+  "tol_meV": 25.0,
+  "forget_barrier_meV": 50.0,
+  "forget_force_eVA": 0.1
+ },
+ "rungs": {
+  "S0": {
+   "n_seeds": 1,
+   "seeds": [
+    0
+   ],
+   "sp": {
+    "n": 1,
+    "seeds_used": [
+     0
+    ],
+    "E_a_mean": 171.86,
+    "E_a_sd": 0.0,
+    "err_mean": -36.29,
+    "err_sd": 0.0,
+    "err_per_seed": [
+     -36.29
+    ],
+    "shape_ok_frac": 0.0,
+    "recovers": false
+   },
+   "neb": {
+    "n": 1,
+    "seeds_used": [
+     0
+    ],
+    "E_a_mean": 206.72,
+    "E_a_sd": 0.0,
+    "err_mean": -1.44,
+    "err_sd": 0.0,
+    "err_per_seed": [
+     -1.44
+    ],
+    "shape_ok_frac": 1.0,
+    "recovers": true
+   }
   },
-  "rungs": {
-    "S0": {
-      "n_seeds": 1,
-      "seeds": [
-        0
-      ],
-      "sp": {
-        "n": 1,
-        "seeds_used": [
-          0
-        ],
-        "E_a_mean": 171.86,
-        "E_a_sd": 0.0,
-        "err_mean": -36.29,
-        "err_sd": 0.0,
-        "err_per_seed": [
-          -36.29
-        ],
-        "shape_ok_frac": 0.0,
-        "recovers": false
-      },
-      "neb": {
-        "n": 1,
-        "seeds_used": [
-          0
-        ],
-        "E_a_mean": 206.72,
-        "E_a_sd": 0.0,
-        "err_mean": -1.44,
-        "err_sd": 0.0,
-        "err_per_seed": [
-          -1.44
-        ],
-        "shape_ok_frac": 1.0,
-        "recovers": true
-      }
+  "S1": {
+   "n_seeds": 8,
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "sp": {
+    "n": 8,
+    "seeds_used": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "E_a_mean": 238.57,
+    "E_a_sd": 30.25,
+    "err_mean": 30.41,
+    "err_sd": 30.25,
+    "err_per_seed": [
+     24.23,
+     25.06,
+     -3.93,
+     19.24,
+     20.85,
+     41.02,
+     18.05,
+     98.8
+    ],
+    "shape_ok_frac": 1.0,
+    "recovers": false
+   },
+   "neb": {
+    "n": 3,
+    "seeds_used": [
+     1,
+     2,
+     3
+    ],
+    "E_a_mean": 227.9,
+    "E_a_sd": 17.7,
+    "err_mean": 19.74,
+    "err_sd": 17.7,
+    "err_per_seed": [
+     28.07,
+     31.74,
+     -0.58
+    ],
+    "shape_ok_frac": 1.0,
+    "recovers": true
+   },
+   "F1_train_bands": {
+    "greigite_channel": {
+     "err_mean": -22.48,
+     "delta_vs_S0": 7.66
     },
-    "S1": {
-      "n_seeds": 8,
-      "seeds": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8
-      ],
-      "sp": {
-        "n": 8,
-        "seeds_used": [
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          8
-        ],
-        "E_a_mean": 238.57,
-        "E_a_sd": 30.25,
-        "err_mean": 30.41,
-        "err_sd": 30.25,
-        "err_per_seed": [
-          24.23,
-          25.06,
-          -3.93,
-          19.24,
-          20.85,
-          41.02,
-          18.05,
-          98.8
-        ],
-        "shape_ok_frac": 1.0,
-        "recovers": false
-      },
-      "neb": {
-        "n": 3,
-        "seeds_used": [
-          1,
-          2,
-          3
-        ],
-        "E_a_mean": 227.9,
-        "E_a_sd": 17.7,
-        "err_mean": 19.74,
-        "err_sd": 17.7,
-        "err_per_seed": [
-          28.07,
-          31.74,
-          -0.58
-        ],
-        "shape_ok_frac": 1.0,
-        "recovers": true
-      },
-      "F1_train_bands": {
-        "greigite_channel": {
-          "err_mean": -22.48,
-          "delta_vs_S0": 7.66
-        },
-        "greigite_cation": {
-          "err_mean": -57.41,
-          "delta_vs_S0": -74.4
-        },
-        "mackinawite": {
-          "err_mean": 11.26,
-          "delta_vs_S0": -137.86
-        },
-        "pyrite_VS2": {
-          "err_mean": -17.07,
-          "delta_vs_S0": -141.7
-        }
-      },
-      "F1_flagged": [],
-      "F2_force_drift": {
-        "pentlandite_endA.extxyz": 0.4315,
-        "pentlandite_endB.extxyz": 0.4105,
-        "pyrite_VFe_dimer_saddle.extxyz": 0.0627
-      },
-      "F2_flagged": [
-        "pentlandite_endA.extxyz",
-        "pentlandite_endB.extxyz"
-      ]
+    "greigite_cation": {
+     "err_mean": -57.41,
+     "delta_vs_S0": -74.4
     },
-    "S2": {
-      "n_seeds": 8,
-      "seeds": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8
-      ],
-      "sp": {
-        "n": 8,
-        "seeds_used": [
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          8
-        ],
-        "E_a_mean": 157.51,
-        "E_a_sd": 21.26,
-        "err_mean": -50.65,
-        "err_sd": 21.26,
-        "err_per_seed": [
-          -4.78,
-          -37.37,
-          -61.97,
-          -60.32,
-          -72.22,
-          -57.96,
-          -48.18,
-          -62.41
-        ],
-        "shape_ok_frac": 1.0,
-        "recovers": false
-      },
-      "neb": {
-        "n": 3,
-        "seeds_used": [
-          1,
-          2,
-          3
-        ],
-        "E_a_mean": 131.03,
-        "E_a_sd": 43.09,
-        "err_mean": -77.13,
-        "err_sd": 43.09,
-        "err_per_seed": [
-          -28.99,
-          -112.09,
-          -90.32
-        ],
-        "shape_ok_frac": 1.0,
-        "recovers": false
-      },
-      "F1_train_bands": {
-        "greigite_channel": {
-          "err_mean": -36.19,
-          "delta_vs_S0": 21.37
-        },
-        "greigite_cation": {
-          "err_mean": -72.88,
-          "delta_vs_S0": -58.92
-        },
-        "mackinawite": {
-          "err_mean": 8.21,
-          "delta_vs_S0": -140.91
-        },
-        "pyrite_VS2": {
-          "err_mean": -20.04,
-          "delta_vs_S0": -138.73
-        }
-      },
-      "F1_flagged": [],
-      "F2_force_drift": {
-        "pentlandite_endA.extxyz": 0.4316,
-        "pentlandite_endB.extxyz": 0.4206,
-        "pyrite_VFe_dimer_saddle.extxyz": 0.065
-      },
-      "F2_flagged": [
-        "pentlandite_endA.extxyz",
-        "pentlandite_endB.extxyz"
-      ]
+    "mackinawite": {
+     "err_mean": 11.26,
+     "delta_vs_S0": -137.86
     },
-    "S3": {
-      "n_seeds": 8,
-      "seeds": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8
-      ],
-      "sp": {
-        "n": 8,
-        "seeds_used": [
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          8
-        ],
-        "E_a_mean": 170.15,
-        "E_a_sd": 14.94,
-        "err_mean": -38.01,
-        "err_sd": 14.94,
-        "err_per_seed": [
-          -13.47,
-          -55.26,
-          -51.66,
-          -27.64,
-          -49.23,
-          -47.85,
-          -28.7,
-          -30.28
-        ],
-        "shape_ok_frac": 1.0,
-        "recovers": false
-      },
-      "neb": {
-        "n": 3,
-        "seeds_used": [
-          1,
-          2,
-          3
-        ],
-        "E_a_mean": 123.96,
-        "E_a_sd": 108.36,
-        "err_mean": -84.2,
-        "err_sd": 108.36,
-        "err_per_seed": [
-          -1.52,
-          -206.88,
-          -44.21
-        ],
-        "shape_ok_frac": 1.0,
-        "recovers": false
-      },
-      "F1_train_bands": {
-        "greigite_channel": {
-          "err_mean": -33.17,
-          "delta_vs_S0": 18.35
-        },
-        "greigite_cation": {
-          "err_mean": -67.21,
-          "delta_vs_S0": -64.59
-        },
-        "mackinawite": {
-          "err_mean": 5.0,
-          "delta_vs_S0": -144.12
-        },
-        "pyrite_VS2": {
-          "err_mean": -14.07,
-          "delta_vs_S0": -144.71
-        }
-      },
-      "F1_flagged": [],
-      "F2_force_drift": {
-        "pentlandite_endA.extxyz": 0.453,
-        "pentlandite_endB.extxyz": 0.4404,
-        "pyrite_VFe_dimer_saddle.extxyz": 0.0608
-      },
-      "F2_flagged": [
-        "pentlandite_endA.extxyz",
-        "pentlandite_endB.extxyz"
-      ]
-    },
-    "S3solo": {
-      "n_seeds": 8,
-      "seeds": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8
-      ],
-      "sp": {
-        "n": 8,
-        "seeds_used": [
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          8
-        ],
-        "E_a_mean": 152.1,
-        "E_a_sd": 22.71,
-        "err_mean": -56.06,
-        "err_sd": 22.71,
-        "err_per_seed": [
-          -21.48,
-          -65.67,
-          -56.56,
-          -53.26,
-          -59.08,
-          -34.25,
-          -98.7,
-          -59.49
-        ],
-        "shape_ok_frac": 1.0,
-        "recovers": false
-      },
-      "neb": {
-        "n": 3,
-        "seeds_used": [
-          1,
-          2,
-          3
-        ],
-        "E_a_mean": 158.01,
-        "E_a_sd": 23.14,
-        "err_mean": -50.15,
-        "err_sd": 23.14,
-        "err_per_seed": [
-          -23.72,
-          -66.78,
-          -59.96
-        ],
-        "shape_ok_frac": 1.0,
-        "recovers": false
-      },
-      "F1_train_bands": {
-        "greigite_channel": {
-          "err_mean": -41.27,
-          "delta_vs_S0": 26.45
-        },
-        "greigite_cation": {
-          "err_mean": -259.23,
-          "delta_vs_S0": 127.43
-        },
-        "mackinawite": {
-          "err_mean": 65.94,
-          "delta_vs_S0": -83.18
-        },
-        "pyrite_VS2": {
-          "err_mean": 223.0,
-          "delta_vs_S0": 64.23
-        }
-      },
-      "F1_flagged": [
-        "greigite_cation",
-        "pyrite_VS2"
-      ],
-      "F2_force_drift": {
-        "pentlandite_endA.extxyz": 0.2337,
-        "pentlandite_endB.extxyz": 0.2769,
-        "pyrite_VFe_dimer_saddle.extxyz": 0.0487
-      },
-      "F2_flagged": [
-        "pentlandite_endA.extxyz",
-        "pentlandite_endB.extxyz"
-      ]
+    "pyrite_VS2": {
+     "err_mean": -17.07,
+     "delta_vs_S0": -141.7
     }
+   },
+   "F1_flagged": [],
+   "F2_force_drift": {
+    "pentlandite_endA.extxyz": 0.4315,
+    "pentlandite_endB.extxyz": 0.4105,
+    "pyrite_VFe_dimer_saddle.extxyz": 0.0627
+   },
+   "F2_flagged": [
+    "pentlandite_endA.extxyz",
+    "pentlandite_endB.extxyz"
+   ]
   },
-  "discriminator": {
-    "sp": {
-      "n_pairs": 8,
-      "seeds": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8
-      ],
-      "delta_per_seed": [
-        10.76,
-        -30.2,
-        -47.73,
-        -8.4,
-        -28.38,
-        -6.83,
-        -10.65,
-        68.52
-      ],
-      "delta_mean": -6.61,
-      "delta_sd": 35.23,
-      "ci95": [
-        -36.07,
-        22.84
-      ],
-      "p_exact": 0.625,
-      "p_min_attainable": 0.0078,
-      "distinguishable": false,
-      "equivalent_TOST_25meV": false,
-      "verdict": "ни одна ступень не восстанавливает: ПРЕДЕЛ ПРЕДСТАВЛЕНИЯ/ЁМКОСТИ при этом бюджете  [ДИ содержит ноль -> ступени НЕРАЗЛИЧИМЫ, писать так]"
+  "S2": {
+   "n_seeds": 8,
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "sp": {
+    "n": 8,
+    "seeds_used": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "E_a_mean": 157.51,
+    "E_a_sd": 21.26,
+    "err_mean": -50.65,
+    "err_sd": 21.26,
+    "err_per_seed": [
+     -4.78,
+     -37.37,
+     -61.97,
+     -60.32,
+     -72.22,
+     -57.96,
+     -48.18,
+     -62.41
+    ],
+    "shape_ok_frac": 1.0,
+    "recovers": false
+   },
+   "neb": {
+    "n": 3,
+    "seeds_used": [
+     1,
+     2,
+     3
+    ],
+    "E_a_mean": 131.03,
+    "E_a_sd": 43.09,
+    "err_mean": -77.13,
+    "err_sd": 43.09,
+    "err_per_seed": [
+     -28.99,
+     -112.09,
+     -90.32
+    ],
+    "shape_ok_frac": 1.0,
+    "recovers": false
+   },
+   "F1_train_bands": {
+    "greigite_channel": {
+     "err_mean": -36.19,
+     "delta_vs_S0": 21.37
     },
-    "neb": {
-      "n_pairs": 8,
-      "seeds": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8
-      ],
-      "delta_per_seed": [
-        26.55,
-        -175.14,
-        -43.63,
-        -8.4,
-        -28.38,
-        -6.83,
-        -10.65,
-        68.52
-      ],
-      "delta_mean": -22.24,
-      "delta_sd": 70.77,
-      "ci95": [
-        -81.41,
-        36.92
-      ],
-      "p_exact": 0.4922,
-      "p_min_attainable": 0.0078,
-      "distinguishable": false,
-      "equivalent_TOST_25meV": false,
-      "verdict": "S1 восстанавливает, S3 нет — по предрегистрации это признак СЛОМАННОЙ ОБВЯЗКИ, а не результат; лестница не интерпретируется  [ДИ содержит ноль -> ступени НЕРАЗЛИЧИМЫ, писать так]"
+    "greigite_cation": {
+     "err_mean": -72.88,
+     "delta_vs_S0": -58.92
+    },
+    "mackinawite": {
+     "err_mean": 8.21,
+     "delta_vs_S0": -140.91
+    },
+    "pyrite_VS2": {
+     "err_mean": -20.04,
+     "delta_vs_S0": -138.73
     }
+   },
+   "F1_flagged": [],
+   "F2_force_drift": {
+    "pentlandite_endA.extxyz": 0.4316,
+    "pentlandite_endB.extxyz": 0.4206,
+    "pyrite_VFe_dimer_saddle.extxyz": 0.065
+   },
+   "F2_flagged": [
+    "pentlandite_endA.extxyz",
+    "pentlandite_endB.extxyz"
+   ]
+  },
+  "S3": {
+   "n_seeds": 8,
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "sp": {
+    "n": 8,
+    "seeds_used": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "E_a_mean": 170.15,
+    "E_a_sd": 14.94,
+    "err_mean": -38.01,
+    "err_sd": 14.94,
+    "err_per_seed": [
+     -13.47,
+     -55.26,
+     -51.66,
+     -27.64,
+     -49.23,
+     -47.85,
+     -28.7,
+     -30.28
+    ],
+    "shape_ok_frac": 1.0,
+    "recovers": false
+   },
+   "neb": {
+    "n": 3,
+    "seeds_used": [
+     1,
+     2,
+     3
+    ],
+    "E_a_mean": 123.96,
+    "E_a_sd": 108.36,
+    "err_mean": -84.2,
+    "err_sd": 108.36,
+    "err_per_seed": [
+     -1.52,
+     -206.88,
+     -44.21
+    ],
+    "shape_ok_frac": 1.0,
+    "recovers": false
+   },
+   "F1_train_bands": {
+    "greigite_channel": {
+     "err_mean": -33.17,
+     "delta_vs_S0": 18.35
+    },
+    "greigite_cation": {
+     "err_mean": -67.21,
+     "delta_vs_S0": -64.59
+    },
+    "mackinawite": {
+     "err_mean": 5.0,
+     "delta_vs_S0": -144.12
+    },
+    "pyrite_VS2": {
+     "err_mean": -14.07,
+     "delta_vs_S0": -144.71
+    }
+   },
+   "F1_flagged": [],
+   "F2_force_drift": {
+    "pentlandite_endA.extxyz": 0.453,
+    "pentlandite_endB.extxyz": 0.4404,
+    "pyrite_VFe_dimer_saddle.extxyz": 0.0608
+   },
+   "F2_flagged": [
+    "pentlandite_endA.extxyz",
+    "pentlandite_endB.extxyz"
+   ]
+  },
+  "S3solo": {
+   "n_seeds": 8,
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "sp": {
+    "n": 8,
+    "seeds_used": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "E_a_mean": 152.1,
+    "E_a_sd": 22.71,
+    "err_mean": -56.06,
+    "err_sd": 22.71,
+    "err_per_seed": [
+     -21.48,
+     -65.67,
+     -56.56,
+     -53.26,
+     -59.08,
+     -34.25,
+     -98.7,
+     -59.49
+    ],
+    "shape_ok_frac": 1.0,
+    "recovers": false
+   },
+   "neb": {
+    "n": 3,
+    "seeds_used": [
+     1,
+     2,
+     3
+    ],
+    "E_a_mean": 158.01,
+    "E_a_sd": 23.14,
+    "err_mean": -50.15,
+    "err_sd": 23.14,
+    "err_per_seed": [
+     -23.72,
+     -66.78,
+     -59.96
+    ],
+    "shape_ok_frac": 1.0,
+    "recovers": false
+   },
+   "F1_train_bands": {
+    "greigite_channel": {
+     "err_mean": -41.27,
+     "delta_vs_S0": 26.45
+    },
+    "greigite_cation": {
+     "err_mean": -259.23,
+     "delta_vs_S0": 127.43
+    },
+    "mackinawite": {
+     "err_mean": 65.94,
+     "delta_vs_S0": -83.18
+    },
+    "pyrite_VS2": {
+     "err_mean": 223.0,
+     "delta_vs_S0": 64.23
+    }
+   },
+   "F1_flagged": [
+    "greigite_cation",
+    "pyrite_VS2"
+   ],
+   "F2_force_drift": {
+    "pentlandite_endA.extxyz": 0.2337,
+    "pentlandite_endB.extxyz": 0.2769,
+    "pyrite_VFe_dimer_saddle.extxyz": 0.0487
+   },
+   "F2_flagged": [
+    "pentlandite_endA.extxyz",
+    "pentlandite_endB.extxyz"
+   ]
   }
+ },
+ "discriminator": {
+  "sp": {
+   "n_pairs": 8,
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "delta_per_seed": [
+    10.76,
+    -30.2,
+    -47.73,
+    -8.4,
+    -28.38,
+    -6.83,
+    -10.65,
+    68.52
+   ],
+   "delta_mean": -6.61,
+   "delta_sd": 35.23,
+   "ci95": [
+    -36.07,
+    22.84
+   ],
+   "p_exact": 0.625,
+   "p_min_attainable": 0.0078,
+   "distinguishable": false,
+   "verdict": "ни одна ступень не восстанавливает: ПРЕДЕЛ ПРЕДСТАВЛЕНИЯ/ЁМКОСТИ при этом бюджете  [ДИ содержит ноль -> ступени НЕРАЗЛИЧИМЫ, писать так]"
+  },
+  "neb": {
+   "n_pairs": 3,
+   "seeds": [
+    1,
+    2,
+    3
+   ],
+   "delta_per_seed": [
+    26.55,
+    -175.14,
+    -43.63
+   ],
+   "delta_mean": -64.07,
+   "delta_sd": 102.39,
+   "ci95": [
+    -318.42,
+    190.27
+   ],
+   "p_exact": 0.5,
+   "p_min_attainable": 0.25,
+   "distinguishable": false,
+   "verdict": "underpowered: with 3 seed pairs the smallest attainable two-sided p is 0.25, so this convention is reported descriptively and establishes nothing on its own"
+  }
+ },
+ "correction_note": "Corrected 2026-09-23. The paired difference for the self-consistent NEB convention was previously computed over all eight seeds although that convention was only evaluated for three; the remaining seeds silently fell back to the single-point value, so the NEB discriminator mixed two conventions. It is now computed over the three seeds that carry it, where the minimum attainable two-sided p is 0.25 and the test is therefore descriptive only. The single-point discriminator (n = 8) is unaffected."
 }

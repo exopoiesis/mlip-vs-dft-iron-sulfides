@@ -76,16 +76,25 @@ Errors in meV, mean ± s.d. over 8 seeds. "Single-point" = model energies on the
 
 Discriminator, paired over seeds, exact sign-permutation test:
 
-* single-point: Δ = |S1| − |S3| = **+59.28 meV**, 95 % CI [+36.72, +81.84], **p = 0.0078**
-  (the smallest value attainable with 8 pairs, 2/2⁸);
-* self-consistent NEB: Δ = **+44.81 meV**, 95 % CI [+16.25, +73.38], p = 0.0156.
+* single-point, **8 pairs**: Δ = |S1| − |S3| = **+59.28 meV**, 95 % CI [+36.72, +81.84],
+  **p = 0.0078** — the smallest value 8 pairs can produce (2/2⁸), stated so that it is read as a
+  design limit rather than as strength of evidence;
+* self-consistent NEB, **3 pairs**: Δ = +24.03 meV, 95 % CI [−65.39, +113.46], p = 0.5. The
+  smallest attainable two-sided p at 3 pairs is 0.25, so **this convention is descriptive only**
+  and establishes nothing on its own. The single-point result carries the claim.
+
+> ⚠️ **Corrected 2026-09-23.** The NEB discriminator was first reported as +44.81 meV with
+> p = 0.0156. That was wrong: the paired difference was computed over all eight seeds although the
+> self-consistent convention was evaluated for only three, and the remaining seeds silently fell
+> back to the single-point value, mixing two conventions. `ladder_*.json` now carries the corrected
+> figure and a `correction_note`. The single-point discriminator was never affected.
 
 **Reading.** The zero-shot failure is a **data-coverage** failure, not a limitation of the MLIP
 approach: the architecture represents this barrier accurately once it has seen the reaction
 coordinate of *that* mineral (S3solo lands within 0.5 meV). What does not happen is transfer —
 fine-tuning on three other iron sulfides leaves the error essentially where zero-shot left it.
 
-Two secondary observations:
+Three secondary observations:
 
 * **S2 ≈ S1.** Giving the model both endpoint basins of the target mineral changes nothing in the
   single-point convention. The saddle region is what is needed, and that is exactly what cannot be
@@ -93,6 +102,14 @@ Two secondary observations:
 * A model that fits the barriers of its own four training minerals to **5.4 meV** still misses the
   fifth by ~70 meV (see `control_schedule_length.json`). Good training-set fit says nothing about
   transfer.
+* **The in-domain rung buys its accuracy by forgetting.** S3solo reaches +0.5 meV on mackinawite
+  while its barrier error on the four minerals it was *not* trained on degrades by +38 to +186 meV
+  relative to zero-shot, and its force error on structures outside the training set (pentlandite
+  V_Fe + H) drifts by 0.22–0.28 eV/Å. Every rung shows out-of-domain force drift of 0.25–0.45 eV/Å
+  on pentlandite, above the 0.1 eV/Å threshold declared in advance. Single-head fine-tuning
+  produces a specialist, not an improved general potential; replay-based multi-head fine-tuning is
+  the established mitigation and was not available for this checkpoint (see §7). Per-rung figures
+  are in the `F1_train_bands` and `F2_force_drift` fields of `ladder_*.json`.
 
 ## 4. Control: is this an artefact of a short schedule?
 
