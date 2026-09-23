@@ -1,15 +1,16 @@
-"""R2.3 v2-final: выборки на СИММЕТРИЙНО-НЕЭКВИВАЛЕНТНЫХ конфигурациях.
+"""R2.3 v2-final: sampling on SYMMETRY-INEQUIVALENT configurations.
 
-Что изменено против build_sets2 и почему:
-  * из обучающего пула убраны зеркальные половины обеих греигитовых полос. Образы i и 8-i там
-    ИЗОМЕТРИЧНЫ (спектры расстояний совпадают до 1e-5 A), MACE воспроизводит их до 0.07-0.10 мэВ
-    (2e-7 от абсолютной энергии = численный шум). Для эквивариантной модели это одно свидетельство.
-    Держать их в пуле нельзя: валидация тогда почти всегда содержит двойника обучающей точки.
-  * убран побитовый дубликат: греигит-канал:0 == греигит-катион:0.
-  * валидация СТРАТИФИЦИРОВАНА - ровно по одной конфигурации с каждой обучающей полосы.
-  * валидация одинакова на всех ступенях при данном сиде => дизайн ПАРНЫЙ.
+What changed vs build_sets2 and why:
+  * the mirrored halves of both greigite bands were removed from the training pool. Images i and
+    8-i there are ISOMETRIC (distance spectra match to within 1e-5 A), MACE reproduces them to
+    within 0.07-0.10 meV (2e-7 of the absolute energy = numerical noise). For an equivariant
+    model this is a single piece of evidence. They cannot stay in the pool: validation would then
+    almost always contain a twin of a training point.
+  * a bitwise duplicate was removed: greigite-channel:0 == greigite-cation:0.
+  * validation is STRATIFIED - exactly one configuration from each training band.
+  * validation is identical across all rungs for a given seed => the design is PAIRED.
 
-Вызов: build_sets3.py <holdout> <seeds>
+Call: build_sets3.py <holdout> <seeds>
 """
 import json
 import sys
@@ -24,7 +25,7 @@ import os
 SRC = Path(os.environ.get("R23_SRC", "/work/structures"))
 OUTD = Path(os.environ.get("R23_OUT", "/work/out"))
 OUTD.mkdir(parents=True, exist_ok=True)
-# нуль-шот общий для обеих лестниц, он не зависит от выбора холдаута
+# the zero-shot is shared across both ladders, it does not depend on the choice of holdout
 ZS = json.loads(Path(os.environ.get("R23_ZS", str(OUTD / "zeroshot.json"))).read_text())
 
 HOLDOUT = sys.argv[1] if len(sys.argv) > 1 else "mackinawite"
@@ -38,14 +39,14 @@ BANDS = {
     "marcasite": "marcasite_VFe_band.extxyz",
 }
 
-# полный набор пригодных образов (маркаситовый образ 1 дефектен)
+# the full set of usable images (marcasite image 1 is defective)
 USABLE = {b: list(range(9)) for b in BANDS}
 USABLE["marcasite"] = [0, 2, 3, 4, 5, 6, 7, 8]
 
-# симметрийно-неэквивалентное подмножество для ОБУЧЕНИЯ
+# symmetry-inequivalent subset for TRAINING
 SYM_UNIQUE = {
-    "greigite_channel": [0, 1, 2, 3, 4],   # 5..8 - зеркала 3..0
-    "greigite_cation": [1, 2, 3, 4],       # 0 совпадает с greigite_channel:0
+    "greigite_channel": [0, 1, 2, 3, 4],   # 5..8 are mirrors of 3..0
+    "greigite_cation": [1, 2, 3, 4],       # 0 coincides with greigite_channel:0
     "mackinawite": list(range(9)),
     "pyrite_VS2": list(range(9)),
     "marcasite": [0, 2, 3, 4, 5, 6, 7, 8],
@@ -75,10 +76,10 @@ hold = targets(HOLDOUT, USABLE[HOLDOUT])
 
 n_raw = sum(len(USABLE[b]) for b in others)
 n_uni = sum(len(SYM_UNIQUE[b]) for b in others)
-print(f"холдаут: {HOLDOUT} ({len(hold)} образов)")
-print(f"обучающий пул: {n_raw} образов -> {n_uni} симметрийно-неэквивалентных")
+print(f"holdout: {HOLDOUT} ({len(hold)} images)")
+print(f"training pool: {n_raw} images -> {n_uni} symmetry-inequivalent")
 for b in others:
-    print(f"    {b:18s} {len(USABLE[b])} -> {len(SYM_UNIQUE[b])}  образы {SYM_UNIQUE[b]}")
+    print(f"    {b:18s} {len(USABLE[b])} -> {len(SYM_UNIQUE[b])}  images {SYM_UNIQUE[b]}")
 
 ends = [USABLE[HOLDOUT][0], USABLE[HOLDOUT][-1]]
 RUNGS = {
@@ -96,7 +97,7 @@ for rung, extra in RUNGS.items():
     for sd in SEEDS:
         rng = np.random.default_rng(1000 + sd)
         vset, tset = [], []
-        for b in others:                      # ровно по одной валидационной с каждой полосы
+        for b in others:                      # exactly one validation config from each band
             idxs = list(by_band[b])
             pick = int(rng.choice(idxs))
             for i in idxs:
@@ -110,7 +111,7 @@ for rung, extra in RUNGS.items():
             "n_train": len(tset), "n_valid": len(vset),
             "valid_configs": [f"{c.info['band']}:{c.info['image']}" for c in vset]}
     n = summary["rungs"][rung]["per_seed"][str(SEEDS[0])]["n_train"]
-    print(f"  {rung}: обучение {n}, валидация 4, из холдаута {len(extra)}")
+    print(f"  {rung}: training {n}, validation 4, from holdout {len(extra)}")
 
 for sd in SEEDS:
     cfgs = [hold[i] for i in USABLE[HOLDOUT]]
@@ -118,10 +119,10 @@ for sd in SEEDS:
     write(OUTD / f"valid_S3solo_s{sd}.xyz", cfgs, format="extxyz")
 summary["rungs"]["S3solo"] = {
     "n_holdout_configs": len(hold),
-    "note": "валидация = обучение; это ПОДГОНКА, контроль ёмкости, не обобщение",
+    "note": "validation = training; this is FITTING, a capacity control, not generalization",
     "per_seed": {str(s): {"n_train": len(hold), "n_valid": len(hold)} for s in SEEDS}}
-print(f"  S3solo: обучение {len(hold)} (валидация = те же)")
+print(f"  S3solo: training {len(hold)} (validation = same)")
 
 (OUTD / f"datasets_{HOLDOUT}.json").write_text(
     json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
-print(f"\nзаписано datasets_{HOLDOUT}.json")
+print(f"\nwrote datasets_{HOLDOUT}.json")

@@ -142,7 +142,7 @@ results:
   notes: >
     Benchmark establishes DFT as required for quantitative barriers in Fe-S minerals.
     MLIP-only screening viable for endpoint geometry and qualitative path topology
-    but not for paper-grade Ea. Both backends tested on gomer RTX 4070
+    but not for paper-grade Ea. Both backends tested on a local RTX 4070 node
     (infra-mace-neb:latest); results cross-checked. Mackinawite nspin control
     confirms CHGNet energy insensitive to initialized magmoms (0.0 meV shift).
 
@@ -162,7 +162,7 @@ provenance:
   author: igor@exopoiesis.space
   literature: [Batatia2023_MACE, Deng2023_CHGNet, Jiang2025_CHGNet_magmom]
   compute:
-    host: gomer-local
+    host: local-gpu-node
     gpu: RTX 4070 12 GB
     cost_usd: 0.0
     walltime_h: 6.0

@@ -938,7 +938,7 @@ def load_calculator(args):
         except TypeError as exc:
             raise RuntimeError(
                 "Spin-aware CHGNet requires the local Third Matter CHGNet fork. "
-                "Deploy git/chgnet on gomer and put it first in PYTHONPATH."
+                "Deploy git/chgnet on the GPU node and put it first in PYTHONPATH."
             ) from exc
     else:
         model = CHGNet.load(

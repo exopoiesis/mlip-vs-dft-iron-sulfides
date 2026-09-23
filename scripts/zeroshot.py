@@ -1,10 +1,10 @@
-"""R2.3 шаг A: нуль-шотовый MACE-MP-0 large на всех пяти DFT-полосах.
+"""R2.3 step A: zero-shot MACE-MP-0 large on all five DFT bands.
 
-Даёт (1) ступень S0, померенную ТЕМ ЖЕ кодом, что и дообученные ступени, и
-(2) якоря E_MACE0(b, 0) для привязки энергетической шкалы обучающих целей.
+Gives (1) the S0 rung, measured by the SAME code as the fine-tuned rungs, and
+(2) anchors E_MACE0(b, 0) for pinning the energy scale of the training targets.
 
-Путь загрузки модели скопирован из R2.2 band_runner.py дословно, иначе S0 будет
-измерена другой обвязкой, чем S1-S3.
+The model-loading path is copied verbatim from R2.2 band_runner.py, otherwise S0 would be
+measured with a different harness than S1-S3.
 """
 import json
 import sys
@@ -30,7 +30,7 @@ from mace.calculators import mace_mp  # noqa: E402
 
 t0 = time.time()
 calc = mace_mp(model="large", dispersion=False, default_dtype="float64", device="cuda")
-print(f"MACE-MP-0 large загружен за {time.time()-t0:.1f} с", flush=True)
+print(f"MACE-MP-0 large loaded in {time.time()-t0:.1f} s", flush=True)
 
 result = {}
 for band, fname in BANDS.items():
@@ -67,16 +67,16 @@ for band, fname in BANDS.items():
     }
     print(f"{band:18s} E_a(MACE)={result[band]['E_a_mlip_meV']:8.2f}  "
           f"E_a(DFT)={result[band]['E_a_dft_meV']:8.2f}  "
-          f"седло {result[band]['saddle_image_mlip']}/{result[band]['saddle_image_dft']}",
+          f"saddle {result[band]['saddle_image_mlip']}/{result[band]['saddle_image_dft']}",
           flush=True)
 
 OUT.write_text(json.dumps(result, indent=2), encoding="utf-8")
 
-# --- гейт П5: воспроизводим ли мы опубликованное R2.2 число на холдауте
+# --- gate G5: do we reproduce the published R2.2 number on the holdout
 published = 171.86
 got = result["marcasite"]["E_a_mlip_meV"]
 delta = abs(got - published)
-print(f"\nГЕЙТ П5: маркасит S0 = {got:.2f} мэВ, опубликовано {published:.2f}, "
-      f"|Δ| = {delta:.2f} мэВ -> {'PASS' if delta <= 2.0 else 'FAIL'}")
+print(f"\nGATE G5: marcasite S0 = {got:.2f} meV, published {published:.2f}, "
+      f"|Δ| = {delta:.2f} meV -> {'PASS' if delta <= 2.0 else 'FAIL'}")
 if delta > 2.0:
     sys.exit(3)

@@ -6,7 +6,7 @@ Adapted from neb_canonical_mack_72at_qe.py (V_S+H variant) per s132 chemist+phys
 joint verdict + MLIP topology validation:
   - V_S+H lateral hop confirmed BROKEN (single-broad-Fe-pocket-well, 43/48 MACE collapse,
     DFT smoke endA==endB single basin, pent V_S+H confirmed same artifact at BFGS step 14)
-  - V_Fe+H MLIP scan (s132 gomer) shows 3 distinct S-H basins in MACE (54% S-H, 24% Fe collapse;
+  - V_Fe+H MLIP scan (s132, local GPU node) shows 3 distinct S-H basins in MACE (54% S-H, 24% Fe collapse;
     cf. V_S MACE 8% S-H / 90% Fe collapse). CHGNet AMBIGUOUS but partial S-H.
   - Liu 2021 ACS Omega L-650: V_Fe surface E_a = 0.26 eV (literature anchor).
 
@@ -46,8 +46,8 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # Q-115 ERRATA #6 part D (CS s132 evening): seed numpy random for IDPP
-# bit-reproducibility. ASE IDPP uses np.random для path perturbation when
-# linear init близок к saddle. Two independent runs c same script otherwise
+# bit-reproducibility. ASE IDPP uses np.random for path perturbation when
+# the linear init is close to the saddle. Two independent runs with the same script otherwise
 # may pick different mirror branches due BLAS thread order numerics.
 import os as _os
 _os.environ.setdefault("PYTHONHASHSEED", "0")
@@ -834,7 +834,7 @@ def run_mackinawite_VFe(args):
     #
     # Q-115 ERRATA #6 (s132 day 2 evening, after W3 abort + harvest re-analysis):
     # h_disp threshold 1.0 was too strict for in-pocket mirror endpoints. Real
-    # mack V_Fe in-layer endA/endB are mirror images через V_Fe pocket center,
+    # mack V_Fe in-layer endA/endB are mirror images through the V_Fe pocket center,
     # both at canonical d_H_S=1.432 Å + d_to_V_Fe_pos=1.222 Å. Geometrically
     # h_disp = 2 × Δy_VFe ≈ 0.5-0.7 Å (NOT 3.674 hop distance).
     # PRIMARY criterion: same_nearest_host == False (different S anchors).
@@ -937,7 +937,7 @@ def run_mackinawite_VFe(args):
     # images at same E. Nudge intermediate images to break exact mirror,
     # allowing NEB to find one branch of saddle path cleanly.
     #
-    # Physicist refinement: original (x, z) nudge was invariant под y-mirror
+    # Physicist refinement: original (x, z) nudge was invariant under y-mirror
     # reflection (mirror plane = y=y_VFe). Added y-component so nudge truly
     # breaks mirror symmetry, not just quasi-degeneracy.
     #   image mid:    +0.20 Å z + 0.05 Å y (out-of-plane + mirror break)
@@ -1014,7 +1014,7 @@ def run_mackinawite_VFe(args):
 
     max_idx = int(np.argmax(energies))
     # CS MEDIUM patch: warn if saddle on endpoint (no real barrier — degenerate
-    # path или endpoint is itself maximum)
+    # path or the endpoint is itself the maximum)
     if max_idx in (0, len(images) - 1):
         result["saddle_on_endpoint_warning"] = True
         print(f"[SADDLE WARN] argmax at endpoint (idx={max_idx}) — no real barrier, "
@@ -1026,7 +1026,7 @@ def run_mackinawite_VFe(args):
         fmax_ci = float("nan")
 
     # Q-115 ERRATA #6 part C (physicist s132 evening): log saddle H position +
-    # nearest Fe identity для cross-run reproducibility. If two independent
+    # nearest Fe identity for cross-run reproducibility. If two independent
     # runs pick different mirror branches due BLAS thread numerics, E_a should
     # match ±5 meV but y-sign of saddle H may flip.
     try:
@@ -1205,8 +1205,8 @@ def main():
     parser.add_argument("--no-idpp-prewrap", dest="idpp_prewrap",
                         action="store_false")
     # Q-115 ERRATA #6 part B (s132 day 2 evening): asymmetric IDPP nudge for
-    # mirror-symmetric V_Fe endpoints, prevents "degenerate band failure" в
-    # CI-NEB. Default ON for V_Fe canonical с reuse_relaxed.
+    # mirror-symmetric V_Fe endpoints, prevents "degenerate band failure" in
+    # CI-NEB. Default ON for V_Fe canonical with reuse_relaxed.
     parser.add_argument("--asymmetric-idpp-nudge", action="store_true",
                         default=True,
                         help="Nudge middle NEB image +0.2 Å z, neighbours ±0.1 Å x "

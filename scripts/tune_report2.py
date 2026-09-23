@@ -1,9 +1,10 @@
-"""Отчёт по подбору. СЛЕПОЙ К ХОЛДАУТУ: полоса холдаута здесь не читается.
+"""Tuning report. BLIND TO THE HOLDOUT: the holdout band is not read here.
 
-Критерий, объявленный заранее: схема годится, только если подгоняет барьеры ОБУЧАЮЩИХ
-полос до MAE <= 10 мэВ. Не может воспроизвести виденное — потолок S3 бессмыслен.
+Criterion, declared in advance: a scheme is acceptable only if it fits the barriers of the
+TRAINING bands to MAE <= 10 meV. If it cannot reproduce what it has seen — the S3 ceiling is
+meaningless.
 
-Вызов: tune_report2.py <holdout> <tag> [tag...]
+Call: tune_report2.py <holdout> <tag> [tag...]
 """
 import json
 import re
@@ -39,7 +40,7 @@ for tag in TAGS:
     run = Path(f"/work/runs/{tag}")
     model = run / f"{tag}.model"
     if not model.exists():
-        print(f"{tag}: модели нет")
+        print(f"{tag}: no model")
         continue
     log = (run / "train.log").read_text(errors="replace")
     ep = re.findall(r"Epoch (\d+):.*RMSE_E_per_atom=\s*([\d.]+) meV, RMSE_F=\s*([\d.]+)", log)
@@ -64,17 +65,17 @@ for tag in TAGS:
 
     mae = float(np.mean([abs(v) for v in errs.values()]))
     rows.append((tag, mae, errs, float(np.mean(frms)), last))
-    ok = "ГОДИТСЯ" if mae <= THRESH else "не годится"
-    print(f"\n### {tag}   эпоха {last[0]}: valid RMSE_E {last[1]} мэВ/атом, RMSE_F {last[2]} мэВ/Å")
+    ok = "ACCEPTABLE" if mae <= THRESH else "not acceptable"
+    print(f"\n### {tag}   epoch {last[0]}: valid RMSE_E {last[1]} meV/atom, RMSE_F {last[2]} meV/Å")
     for b, v in errs.items():
-        print(f"    {b:18s} ошибка барьера {v:+8.2f} мэВ")
-    print(f"    MAE по обучающим полосам: {mae:7.2f} мэВ   (порог {THRESH}) -> {ok}")
-    print(f"    средняя RMS сил:          {rows[-1][3]:.4f} эВ/Å")
+        print(f"    {b:18s} barrier error {v:+8.2f} meV")
+    print(f"    MAE over training bands: {mae:7.2f} meV   (threshold {THRESH}) -> {ok}")
+    print(f"    mean force RMS:          {rows[-1][3]:.4f} eV/Å")
 
 if rows:
     best = min(rows, key=lambda r: r[1])
-    print(f"\nЛучшая: {best[0]}, MAE {best[1]:.2f} мэВ")
-    print(f"Холдаут ({HOLD}) в этом отчёте не читался.")
+    print(f"\nBest: {best[0]}, MAE {best[1]:.2f} meV")
+    print(f"Holdout ({HOLD}) was not read in this report.")
     json.dump({t: {"train_band_barrier_MAE_meV": m, "errs": e, "force_rms_eVA": f}
                for t, m, e, f, _l in rows},
               open(OUTD / "tune_v2.json", "w"), indent=2, ensure_ascii=False)

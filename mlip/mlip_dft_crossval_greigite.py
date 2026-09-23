@@ -15,7 +15,7 @@ Output: one JSON per backend with per-frame {E_DFT, E_MLIP, ΔE, F_RMSE,
 optional E_relaxed, n_steps, fmax_final}. Aggregate stats: ΔE rMSE,
 F_RMSE, R² for E.
 
-Usage on gomer:
+Usage on a local GPU node:
   python mlip_dft_crossval_greigite.py \
     --backend mace \
     --runner /workspace/mace_canonical_1vacancy.py \
@@ -105,7 +105,7 @@ def main():
     parser.add_argument("--spin-aware-chgnet", action=argparse.BooleanOptionalAction,
                         default=True)
     parser.add_argument("--filter-config-prefix", default=None,
-                        help="If set, only process frames whose config_type starts с "
+                        help="If set, only process frames whose config_type starts with "
                              "this prefix (e.g. greigite_bulk for primitive only)")
     parser.add_argument("--max-frames", type=int, default=None)
     args = parser.parse_args()

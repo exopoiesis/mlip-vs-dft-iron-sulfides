@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Pent V_Fe S-H lateral-hop MLIP NEB pre-flight PROBE (Phase 4, $0 gomer).
+Pent V_Fe S-H lateral-hop MLIP NEB pre-flight PROBE (Phase 4, $0 on a local GPU node).
 
 Purpose: de-risk the production DFT pent V_Fe NEB BEFORE spending A100.
 This is NOT a paper-grade barrier -- it is a PARAMETER-TUNING probe answering:

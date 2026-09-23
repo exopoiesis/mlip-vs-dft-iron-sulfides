@@ -4,7 +4,7 @@ Canonical V_Fe (octahedral 4a) + H lateral hop NEB -- pyrite FeS2 (Pa-3, #205),
 conventional cell * 2x2x2 = 96 atoms pristine (Fe32 S64); after V_Fe + H = 96 atoms
 (Fe31 S64 H1).
 
-Adapted from neighbouring templates per Q-115 + РЕШЕНИЕ-082 (chemistry-signature):
+Adapted from neighbouring templates per Q-115 + DECISION-082 (chemistry-signature):
   - structure builder + ONCV PP paths + 2x2x2 cell from neb_canonical_pyr_96at_qe.py
     (V_S2 paper anchor, paper-grade 94.6 meV s129)
   - V_Fe defect logic (canonical_triple JSON save/load, S_i + S_k anchors,
@@ -22,23 +22,23 @@ Pyrite specifics (KEEP, do not simplify):
     rho-precision; same as greigite +U setup, more conservative than 4x default)
   - gaussian smearing degauss=0.01 Ry (Q-115 errata; wider than 0.005 for
     V_Fe-introduced holes near Fermi level)
-  - mixing_mode='plain' beta=0.3 (homogeneous diamagnetic; не 0.05 как greigite)
+  - mixing_mode='plain' beta=0.3 (homogeneous diamagnetic; not 0.05 like greigite)
   - 2x2x2 k-mesh
   - 9-image CI-NEB, FIRE optimizer, IDPP-prewrap (ASE #1130 fix mandatory)
-  - fmax_endpoint=0.03, fmax_neb=0.05 (РЕШЕНИЕ-079 paper-grade)
+  - fmax_endpoint=0.03, fmax_neb=0.05 (DECISION-079 paper-grade)
 
 Reaction coordinate:
   1. Build pyrite Pa-3 conv 2x2x2 (96 atoms).
   2. Pick central Fe(4a) atom (V_Fe = vacancy_atom) -- Wyckoff 4a, octahedral 6-S.
   3. Find 6 S anchors within fe_s_max ~2.85 A (Fe-S nominal ~2.27 A).
   4. Pick 2 S atoms (S_i, S_k) as adjacent edge pair (S-S edge d ~3.20-3.85 A).
-  5. Build endA: H placed 1.35 A from S_i toward V_Fe (S-H в pocket).
+  5. Build endA: H placed 1.35 A from S_i toward V_Fe (S-H in pocket).
   6. Build endB: H placed 1.35 A from S_k toward V_Fe.
   7. PRE-FLIGHT GATES (s148, mandatory): G1 Wyckoff, G2 parity, G3 pocket-radius.
   8. Relax pristine (REUSE skip if --reuse-pristine) + endA + endB BFGS.
   9. CI-NEB FIRE 9 images.
 
-Expected E_a: 150-400 meV (cross-mineral scaling, см. CROSS_MINERAL_VFE_BARRIER_PATTERN.md).
+Expected E_a: 150-400 meV (cross-mineral scaling, see CROSS_MINERAL_VFE_BARRIER_PATTERN.md).
 Endpoint dE_predicted: ~0 (Pa-3 cubic mirror symmetry).
 
 REFERENCE DOCS:
@@ -51,7 +51,7 @@ LITERATURE GAP: V_Fe + S-H migration barrier in cubic FeS2 -- NOT FOUND in
 public DFT literature 2014-2026. This script produces the first paper-grade
 quantitative anchor.
 
-Per РЕШЕНИЕ-079 (s125) + РЕШЕНИЕ-082 (s148 chemistry-signature scope):
+Per DECISION-079 (s125) + DECISION-082 (s148 chemistry-signature scope):
   - QE PWSCF (no Pulay forces, paper-grade fmax achievable)
   - V_Fe pivot (V_S+H deprecated for thiospinels/all-equivalent-S sulfides)
   - canonical_triple.json save/load (s129: avoid silent index flip on REUSE)
@@ -133,8 +133,8 @@ def check_disk_space(work_dir: Path, min_gb: int = 100) -> dict:
     """Check available disk space in workspace; warn if below min_gb.
 
     Returns dict {available_gb, total_gb, used_gb, ok_for_neb}.
-    s153 precedent: 50 GB instance crashed на image_02 exit 127, $9 + 12 hr lost.
-    Recommended: >= 150 GB для 9-image NEB w/ disk_io='high' (~80-100 GB peak).
+    s153 precedent: 50 GB instance crashed on image_02 exit 127, $9 + 12 hr lost.
+    Recommended: >= 150 GB for 9-image NEB w/ disk_io='high' (~80-100 GB peak).
     """
     try:
         stat = shutil.disk_usage(str(work_dir))
@@ -262,7 +262,7 @@ def build_pyrite(a: float = 5.418, x_S: float = 0.385,
     """Build pyrite FeS2, Pa-3 (#205), a=5.418 A, conv cell * repeat = 96 atoms.
 
     VERBATIM structure builder from neb_canonical_pyr_96at_qe.py (V_S2 parent),
-    но с explicit lattice/x_S params for community-verified values:
+    but with explicit lattice/x_S params for community-verified values:
       a = 5.418 A      (Bayliss 1977 exp; PBE 5.417-5.425 A, <0.1% deviation)
       x_S = 0.385      (Brik 2021 Front Chem; MP mp-226)
       Wyckoff Fe 4a    (0, 0, 0) + symmetry
@@ -309,8 +309,8 @@ def pick_vfe_oct_and_two_s_neighbours(atoms, fe_s_max: float = 2.85,
     S-S ~2.18 A -- pyrite dimers must NOT be hop pairs by chemistry).
 
     Tie-break for cell embedding (s148 chemistry-signature):
-      - Among 12 edges (octahedron edges of 6 anchors), pick pair с minimum
-        deviation from Pa-3 mirror plane intersecting V_Fe -- i.e. pair с
+      - Among 12 edges (octahedron edges of 6 anchors), pick the pair with minimum
+        deviation from the Pa-3 mirror plane intersecting V_Fe -- i.e. the pair with
         max ||midpoint_S_i_S_k - V_Fe_pos||_mic but bounded; deterministic
         secondary tie-break by (S_i_idx, S_k_idx) ascending.
 
@@ -473,7 +473,7 @@ def prewrap_endpoint_for_idpp(initial, final, label: str = "endB"):
     """Fix ASE GitLab issue #1130: pre-IDPP linear interp lacks MIC.
 
     Atoms whose endpoint position wraps across PBC get linearly interpolated
-    через WHOLE cell (not the short hop) -> broken initial NEB path с overlaps.
+    through WHOLE cell (not the short hop) -> broken initial NEB path with overlaps.
 
     Fix: pre-wrap final endpoint relative to initial via find_mic, so
     final.positions = initial.positions + mic_displacement. After this,
@@ -597,7 +597,7 @@ def make_calc(work_dir: Path, label: str, kpts=(2, 2, 2),
 
     Per Q115_DFT_PROTOCOL_FINAL + PYR_VFE_NOMAD_REFERENCE_2026-05-28:
       - ecutwfc=60 Ry (Q-115 standard; pyrite community 38-90 Ry range; ours mid)
-      - ecutrho=480 Ry default (8 * ecutwfc, conservative для V_Fe defect rho
+      - ecutrho=480 Ry default (8 * ecutwfc, conservative for V_Fe defect rho
         precision; ONCV typical 4x = 240 Ry also OK but 8x safer for paper)
       - nspin=1 baseline (diamagnetic Fe2+ LS d6; MP mp-226, Brik 2021 consensus)
       - NO Hubbard U (community consensus; +U=2 sensitivity in SI optional)
@@ -613,13 +613,13 @@ def make_calc(work_dir: Path, label: str, kpts=(2, 2, 2),
       - 'medium' (default): wfc each opt step (endpoint BFGS recovery on
         SIGTERM kill window); good balance for endpoint relax
       - 'high': wfc each SCF (NEB images; recoverable mid-FIRE on kill;
-        ~1 GB / image / SCF -> ~9 GB workspace для 9-image NEB)
+        ~1 GB / image / SCF -> ~9 GB workspace for 9-image NEB)
       - 'low': no save (NOT recoverable on crash, smallest disk; risky)
 
     wfc_reuse: enables `restart_mode='restart'` + `startingwfc='file'` for
     SIGTERM kill recovery. Requires previous run with disk_io>='medium'.
 
-    nspin: 1 default (diamagnetic); pass nspin=2 для Tier 1 sensitivity if
+    nspin: 1 default (diamagnetic); pass nspin=2 for Tier 1 sensitivity if
     Q1 (magnetic anomaly from V_Fe hole) materializes. If nspin=2, caller
     must set atoms.set_initial_magnetic_moments() prior to make_calc.
     """
@@ -669,7 +669,7 @@ def make_calc(work_dir: Path, label: str, kpts=(2, 2, 2),
         input_data["electrons"]["startingwfc"] = "file"
 
     # Smearing block -- V_Fe creates 1 hole (96 valence e_pristine -> 95
-    # e_endpoint; odd number requires occupations='smearing' для nspin=1
+    # e_endpoint; odd number requires occupations='smearing' for nspin=1
     # to avoid Fermi-level fix issues).
     if occupations == "smearing":
         input_data["system"]["smearing"] = smearing
@@ -870,7 +870,7 @@ def _patch_singlepoint_for_load():
     _orig_spc_init = _sp.SinglePointCalculator.__init__
 
     def _patched_spc_init(self, atoms=None, **results):
-        # s150 fix: kw arg `atoms` not `atoms_obj` для ASE NEB compatibility
+        # s150 fix: kw arg `atoms` not `atoms_obj` for ASE NEB compatibility
         filtered = {k: v for k, v in results.items() if k in _all_props}
         _orig_spc_init(self, atoms, **filtered)
 
@@ -956,7 +956,7 @@ def run_pyrite_VFe(args):
         "H": args.pp_h,
     }
 
-    # UNIFIED smearing для pristine + endpoints + NEB (per V_S2 sibling lesson):
+    # UNIFIED smearing for pristine + endpoints + NEB (per V_S2 sibling lesson):
     # - Pristine pyrite gap 0.95 eV >> degauss 0.01 Ry (~136 meV) -> smearing
     #   essentially inactive for integer fillings; effect <1 meV/atom for pristine
     # - V_Fe + H endpoint: 1 hole -> requires smearing for nspin=1 odd-electron OK
@@ -993,7 +993,7 @@ def run_pyrite_VFe(args):
         "method": (f"PBE PWFFT, nspin={args.nspin}, ecutwfc={args.ecutwfc} Ry, "
                    f"no Hubbard U (community consensus pyrite)"),
         "protocol": ("canonical V_Fe (Wyckoff 4a, octahedral) + S-H lateral hop, "
-                     "s148 V_Fe pivot, РЕШЕНИЕ-082 chemistry-signature scope"),
+                     "s148 V_Fe pivot, DECISION-082 chemistry-signature scope"),
         "kpts": list(args.kpts),
         "ecutwfc": args.ecutwfc,
         "ecutrho": args.ecutrho,
@@ -1471,7 +1471,7 @@ def run_pyrite_VFe(args):
     # s154 fix: force mic=True in IDPP to avoid stock-ASE mic=False bug.
     # Stock ASE on fresh vastai ships idpp_interpolate mic=False default →
     # IDPP path crosses PBC linearly → image_NN bad geometry → SCF non-conv.
-    # marc W4 cost $4+5h before fix discovered (s154). Hot-fix here вместо
+    # marc W4 cost $4+5h before fix discovered (s154). Hot-fix here instead of
     # ASE source patching: pass mic=True kwarg explicitly.
     idpp_mode = None
     if args.init_band_xyz:
@@ -1608,7 +1608,7 @@ def run_pyrite_VFe(args):
 
     # Optimizer selection — FIRE default, LBFGS / ODE for stiff systems (s156 pyrite fix)
     # trajectory= mandatory for recovery (s134 lesson)
-    # gomer agent recommendation hierarchy (preferred → fallback):
+    # Optimizer recommendation hierarchy (preferred → fallback):
     #   1. NEBOptimizer(method='ode')  — adaptive ODE integrator, designed for NEB
     #   2. plain LBFGS                 — Hessian-based, no line search
     #   3. FIRE                        — momentum (default, fails on stiff systems)
@@ -1621,8 +1621,8 @@ def run_pyrite_VFe(args):
         opt_neb = NEBOptimizer(neb, logfile=str(work_dir / "neb.log"),
                                 trajectory=str(work_dir / "neb.traj"),
                                 method='ode')
-        print(f"[OPTIMIZER] NEBOptimizer(method='ode') (s156 fix v3.2: gomer "
-              f"agent preferred -- adaptive ODE integrator on non-conservative "
+        print(f"[OPTIMIZER] NEBOptimizer(method='ode') (s156 fix v3.2: "
+              f"preferred -- adaptive ODE integrator on non-conservative "
               f"NEB spring forces)", flush=True)
     elif args.optimizer == "lbfgs":
         opt_neb = LBFGS(neb, logfile=str(work_dir / "neb.log"),
@@ -1781,7 +1781,7 @@ def main():
     parser.add_argument("--optimizer", choices=["fire", "lbfgs", "ode"], default="fire",
                         help="NEB optimizer. fire (default) = momentum-based; "
                              "lbfgs = plain LBFGS (Hessian-based fixed step); "
-                             "ode = NEBOptimizer(method='ode') — gomer agent's "
+                             "ode = NEBOptimizer(method='ode') — the "
                              "preferred for NEB (adaptive ODE integrator on "
                              "non-conservative spring forces, robust).")
     # v4 (s158): warm-start the band from a pre-converged MLIP band instead of
@@ -1802,13 +1802,13 @@ def main():
                              "only). Near-upper-bound barrier; relax for exact saddle.")
 
     # ---------- convergence ----------
-    # Per РЕШЕНИЕ-079 (Q115 protocol): paper-grade fmax for QE PWSCF
+    # Per DECISION-079 (Q115 protocol): paper-grade fmax for QE PWSCF
     parser.add_argument("--fmax-pristine", type=float, default=0.03,
-                        help="pristine relax fmax (eV/A) -- РЕШЕНИЕ-079: 0.03")
+                        help="pristine relax fmax (eV/A) -- DECISION-079: 0.03")
     parser.add_argument("--fmax-endpoint", type=float, default=0.03,
-                        help="endpoint relax fmax (eV/A) -- РЕШЕНИЕ-079: 0.03")
+                        help="endpoint relax fmax (eV/A) -- DECISION-079: 0.03")
     parser.add_argument("--fmax-neb", type=float, default=0.05,
-                        help="NEB fmax (eV/A) -- РЕШЕНИЕ-079: 0.05")
+                        help="NEB fmax (eV/A) -- DECISION-079: 0.05")
     parser.add_argument("--max-steps-relax", type=int, default=200)
     parser.add_argument("--max-steps-endpoint", type=int, default=500)
     parser.add_argument("--max-steps-neb", type=int, default=500)
@@ -1844,7 +1844,7 @@ def main():
                              "do NOT use mp/mv for systems with band gap)")
     parser.add_argument("--degauss", type=float, default=0.01,
                         help="smearing width in Ry "
-                             "(0.01 Q-115 errata; wider than 0.005 для "
+                             "(0.01 Q-115 errata; wider than 0.005 for "
                              "V_Fe-introduced holes near Fermi level)")
 
     # ---------- pseudopotentials ----------
@@ -1911,12 +1911,12 @@ def main():
                              "SIGTERM kill). Requires prior run disk_io>='medium'. "
                              "~3-4x SCF speedup. WARNING: crashes if no save dir.")
     parser.add_argument("--reuse-relaxed", default=None,
-                        help="Path к dir with relaxed_pristine.xyz + "
+                        help="Path to dir with relaxed_pristine.xyz + "
                              "relaxed_endA.xyz + relaxed_endB.xyz. "
                              "Skip BFGS, do single-point SCF on each, "
                              "then jump to NEB phase.")
     parser.add_argument("--reuse-pristine", default=None,
-                        help="Path к relaxed_pristine.xyz (file or dir). "
+                        help="Path to relaxed_pristine.xyz (file or dir). "
                              "Skip pristine BFGS only; endA/endB built fresh "
                              "via V_Fe picker. NEW s148.")
 
@@ -1998,7 +1998,7 @@ def main():
                   f"skip pristine BFGS, build endA/endB fresh", flush=True)
         print(f"idpp_prewrap={args.idpp_prewrap} (ASE issue #1130 fix)",
               flush=True)
-        print(f"РЕШЕНИЕ-079 (Q115 protocol) + РЕШЕНИЕ-082 (s148 V_Fe pivot)",
+        print(f"DECISION-079 (Q115 protocol) + DECISION-082 (s148 V_Fe pivot)",
               flush=True)
         print("=" * 70, flush=True)
 
@@ -2028,14 +2028,14 @@ def main():
 
 
 if __name__ == "__main__":
-    # V_Fe pivot per РЕШЕНИЕ-082 (s148, 2026-05-20).
+    # V_Fe pivot per DECISION-082 (s148, 2026-05-20).
     # V_S+H deprecated for pyrite: S all-equivalent under Pa-3 Wyckoff 8c,
     # picker hop_mode returned symmetry-equivalent triples -> endpoints
     # by-construction identical (Wigner-Bloch). V_Fe (Wyckoff 4a, octahedral)
     # is the chemistry-correct RC for cubic FeS2 with diamagnetic baseline.
     # See: knowledge/PYR_VFE_NOMAD_REFERENCE_2026-05-28.md
     #      knowledge/PYR_VFE_EXPERIMENT_PLAN.md
-    #      knowledge/DECISIONS.md РЕШЕНИЕ-082
+    #      knowledge/DECISIONS.md DECISION-082
     #      knowledge/RC_SELECTION_RULES.md
     main()
 

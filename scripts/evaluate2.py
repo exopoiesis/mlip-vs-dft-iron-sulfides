@@ -1,6 +1,6 @@
-"""R2.3 v2: оценка модели. Исправляет критерий П1 и добавляет самосогласованный NEB.
+"""R2.3 v2: model evaluation. Fixes the G1 criterion and adds self-consistent NEB.
 
-Вызов: evaluate2.py <model|FOUNDATION> <tag> <holdout> [--neb]
+Call: evaluate2.py <model|FOUNDATION> <tag> <holdout> [--neb]
 """
 import json
 import sys
@@ -12,7 +12,7 @@ from ase.optimize import FIRE
 
 
 class SafeJSONEncoder(json.JSONEncoder):
-    """ASE возвращает numpy.bool_, а не bool; json падает на этом в самом конце счёта."""
+    """ASE returns numpy.bool_, not bool; json chokes on this right at the end of the run."""
 
     def default(self, obj):
         if isinstance(obj, np.bool_):
@@ -54,11 +54,11 @@ ZS = json.loads(Path(os.environ.get("R23_ZS", str(OUTD / "zeroshot.json"))).read
 if MODEL == "FOUNDATION":
     MODEL = "/root/.cache/mace/MACE_MPtrj_20229model"
 
-TOL_DEPTH = 25.0     # мэВ ниже минимума DFT-профиля
+TOL_DEPTH = 25.0     # meV below the minimum of the DFT profile
 
 
 def check_P1_shape(prof, dft, saddle_dft):
-    """Пункты 2 и 3 критерия П1. Формулируются ОТНОСИТЕЛЬНО ЭТАЛОНА."""
+    """Points 2 and 3 of the G1 criterion. Formulated RELATIVE TO THE REFERENCE."""
     return {
         "saddle_ok": bool(int(np.argmax(prof)) == saddle_dft),
         "no_spurious_basin": bool(prof.min() >= dft.min() - TOL_DEPTH),
@@ -67,7 +67,7 @@ def check_P1_shape(prof, dft, saddle_dft):
     }
 
 
-# ---- САМОТЕСТ: критерий обязан проходить на самом DFT ----
+# ---- SELF-TEST: the criterion must pass on the DFT itself ----
 selftest = {}
 for band in BANDS:
     keep = USABLE[band]
@@ -75,7 +75,7 @@ for band in BANDS:
     d = d - d[0]
     selftest[band] = check_P1_shape(d, d, int(np.argmax(d)))
 bad = [b for b, v in selftest.items() if not (v["saddle_ok"] and v["no_spurious_basin"])]
-print(f"САМОТЕСТ П1 на DFT: {'PASS' if not bad else 'FAIL ' + str(bad)}")
+print(f"SELF-TEST G1 on DFT: {'PASS' if not bad else 'FAIL ' + str(bad)}")
 if bad:
     sys.exit(5)
 
@@ -117,7 +117,7 @@ for band in BANDS:
     rec.update(check_P1_shape(prof, dft, saddle_dft))
     out["bands"][band] = rec
 
-# ---- самосогласованный NEB на холдауте: конвенция Table 2 статьи ----
+# ---- self-consistent NEB on the holdout: Table 2 convention from the paper ----
 if DO_NEB:
     from ase.mep import NEB
     imgs = read(SRC / BANDS[HOLD], ":")
@@ -131,10 +131,10 @@ if DO_NEB:
         relaxed.append(a)
     bandims = [relaxed[0]] + [relaxed[0].copy() for _ in range(7)] + [relaxed[1]]
     neb = NEB(bandims, climb=True, k=0.3)
-    # mic=True обязателен: ячейка периодическая, хоп может пересекать границу
+    # mic=True is mandatory: the cell is periodic, the hop can cross the boundary
     neb.interpolate("idpp", mic=True)
-    # У КАЖДОГО образа должен быть СВОЙ калькулятор - ASE это проверяет и падает на общем.
-    # Веса MACE ~40 МБ, девять экземпляров ничего не стоят; память ест прямой проход, а он общий.
+    # EACH image must have its OWN calculator - ASE checks this and fails on a shared one.
+    # MACE weights are ~40 MB, nine instances cost nothing; memory is eaten by the forward pass, which is shared.
     for im in bandims:
         im.calc = MACECalculator(model_paths=MODEL, device="cuda", default_dtype="float64")
     conv = bool(FIRE(neb, logfile=None).run(fmax=0.05, steps=400))
@@ -171,12 +171,12 @@ if all(f"pentlandite_end{x}.extxyz" in out["ood"] for x in "AB"):
     json.dumps(out, indent=2, cls=SafeJSONEncoder), encoding="utf-8")
 
 h = out["bands"][HOLD]
-print(f"[{TAG}] ХОЛДАУТ {HOLD}: одноточечно E_a={h['E_a_meV']:.2f} "
-      f"(DFT {h['E_a_dft_meV']:.2f}, ошибка {h['err_meV']:+.2f})  "
-      f"седло {'ok' if h['saddle_ok'] else 'НЕТ'}  "
-      f"ложных ям {'нет' if h['no_spurious_basin'] else 'ЕСТЬ'}  "
-      f"ΔE_rxn ошибка {h['dE_rxn_err_meV']:+.2f}")
+print(f"[{TAG}] HOLDOUT {HOLD}: single-point E_a={h['E_a_meV']:.2f} "
+      f"(DFT {h['E_a_dft_meV']:.2f}, error {h['err_meV']:+.2f})  "
+      f"saddle {'ok' if h['saddle_ok'] else 'NO'}  "
+      f"spurious basins {'none' if h['no_spurious_basin'] else 'PRESENT'}  "
+      f"ΔE_rxn error {h['dE_rxn_err_meV']:+.2f}")
 if DO_NEB:
     n = out["neb_selfconsistent"]
-    print(f"        самосогласованный NEB: E_a={n['E_a_meV']:.2f} "
-          f"ошибка {n['err_meV']:+.2f}  сошёлся={n['converged']}")
+    print(f"        self-consistent NEB: E_a={n['E_a_meV']:.2f} "
+          f"error {n['err_meV']:+.2f}  converged={n['converged']}")

@@ -1,9 +1,9 @@
 #!/bin/bash
-# ВНУТРИ контейнера. Пути через переменные окружения, чтобы две лестницы (разные холдауты)
-# не затирали друг друга. Аргументы те же, что у train3.sh.
-#   R23_OUT  - каталог с train_*.xyz / valid_*.xyz (по умолчанию /work/out)
-#   R23_RUNS - куда класть прогоны (по умолчанию /work/runs)
-# Аргументы: <ступень> <сид> <эпох> <вес_E> <вес_F> <lr> <dtype> <метка>
+# RUNS INSIDE the container. Paths go through environment variables so that two ladders
+# (different holdouts) do not overwrite each other. Same arguments as train3.sh.
+#   R23_OUT  - directory with train_*.xyz / valid_*.xyz (default /work/out)
+#   R23_RUNS - where to place the runs (default /work/runs)
+# Arguments: <rung> <seed> <epochs> <weight_E> <weight_F> <lr> <dtype> <tag>
 set -uo pipefail
 
 RUNG=$1; SEED=$2; EPOCHS=$3; EW=$4; FW=$5; LR=$6; DT=$7; TAG=$8
@@ -40,7 +40,7 @@ for line in open(sys.argv[1], errors="replace"):
     if m: ts.append((datetime.datetime.strptime(m.group(1),"%Y-%m-%d %H:%M:%S"), int(m.group(2))))
 if len(ts)>2:
     dt=(ts[-1][0]-ts[0][0]).total_seconds(); de=ts[-1][1]-ts[0][1]
-    print(f"    {dt/de:6.2f} с/эпоху")
+    print(f"    {dt/de:6.2f} s/epoch")
 PY
 
 echo "rc=$rc tag=$TAG"

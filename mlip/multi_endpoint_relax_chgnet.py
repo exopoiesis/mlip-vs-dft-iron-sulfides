@@ -3,7 +3,7 @@
 CHGNet cross-check version of multi-endpoint relax.
 
 Same enumeration candidates as MACE version, independent foundation MLIP.
-Resolves Case A (real chemistry) vs Case B (MACE-specific artifact) для ranking.
+Resolves Case A (real chemistry) vs Case B (MACE-specific artifact) for ranking.
 
 Container: pytorch/pytorch:2.5.1-cuda12.4-cudnn9-runtime + pip chgnet==0.4.2
 """

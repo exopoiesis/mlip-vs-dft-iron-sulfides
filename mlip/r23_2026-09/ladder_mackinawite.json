@@ -437,7 +437,7 @@
    "p_exact": 0.0078,
    "p_min_attainable": 0.0078,
    "distinguishable": true,
-   "verdict": "S3 восстанавливает, S1 нет: ДЕФИЦИТ ПОКРЫТИЯ ДАННЫМИ, не предел подхода"
+   "verdict": "S3 recovers, S1 does not: DATA-COVERAGE DEFICIT, not a limit of the approach"
   },
   "neb": {
    "n_pairs": 3,

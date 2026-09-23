@@ -1,11 +1,12 @@
-"""Выбор графика обучения по ПРЕДРЕГИСТРИРОВАННОМУ правилу (§4 предрегистрации v2).
+"""Training-schedule selection by the PREREGISTERED rule (preregistration v2, §4).
 
-Двухступенчато, чтобы не выбирать по in-sample:
-  1) ГЕЙТ (in-sample): MAE барьеров на обучающих полосах <= 10 мэВ. Это условие осмысленности:
-     модель, не воспроизводящая виденное, потолком быть не может.
-  2) ОТБОР среди прошедших (out-of-sample): по RMS сил на ВАЛИДАЦИОННОМ файле из лога обучения.
+Two-stage, so as not to select on in-sample:
+  1) GATE (in-sample): barrier MAE on the training bands <= 10 meV. This is a sanity
+     condition: a model that cannot reproduce what it has seen cannot be a ceiling.
+  2) SELECTION among those that pass (out-of-sample): by force RMS on the VALIDATION
+     file from the training log.
 
-Холдаут здесь не читается.
+The holdout is not read here.
 """
 import json
 import re
@@ -23,7 +24,7 @@ tune = json.loads((OUTD / "tune_v2.json").read_text())
 rows = []
 for tag, cfg in CFG.items():
     if tag not in tune:
-        print(f"  {tag}: нет результата")
+        print(f"  {tag}: no result")
         continue
     mae = tune[tag]["train_band_barrier_MAE_meV"]
     log = Path(f"/work/runs/{tag}/train.log")
@@ -34,19 +35,19 @@ for tag, cfg in CFG.items():
             vf = float(ep[-1])
     passed = mae <= GATE_MAE
     rows.append((tag, cfg, mae, vf, passed))
-    print(f"  {tag}: MAE барьеров {mae:7.2f} мэВ (гейт {GATE_MAE}) -> "
-          f"{'прошёл' if passed else 'НЕ прошёл'}; валид. RMS сил {vf} мэВ/Å")
+    print(f"  {tag}: barrier MAE {mae:7.2f} meV (gate {GATE_MAE}) -> "
+          f"{'passed' if passed else 'FAILED'}; valid. force RMS {vf} meV/Å")
 
 ok = [r for r in rows if r[4] and r[3] is not None]
 if ok:
     best = min(ok, key=lambda r: r[3])
-    reason = "прошёл гейт, минимальная валидационная RMS сил"
+    reason = "passed the gate, minimum validation force RMS"
 else:
-    # ни одна не прошла гейт: берём наименьший MAE и ЯВНО помечаем это как нарушение П5
+    # no scheme passed the gate: take the smallest MAE and EXPLICITLY flag this as a G5 violation
     best = min(rows, key=lambda r: r[2])
-    reason = ("ГЕЙТ НЕ ПРОЙДЕН НИ ОДНОЙ СХЕМОЙ: по П5 это провал обвязки, лестницу нельзя "
-              "трактовать как потолок; выбран наименьший MAE, результат помечается")
-    print("\n  ⚠️ ВНИМАНИЕ: " + reason)
+    reason = ("GATE PASSED BY NO SCHEME: per G5 this is a harness failure, the ladder cannot "
+              "be treated as a ceiling; the smallest MAE is chosen, the result is flagged")
+    print("\n  ⚠️ WARNING: " + reason)
 
 chosen = dict(best[1])
 chosen.update({"tag": best[0], "train_band_MAE_meV": best[2],
@@ -55,6 +56,6 @@ chosen.update({"tag": best[0], "train_band_MAE_meV": best[2],
                "reason": reason})
 (OUTD / "chosen.json").write_text(json.dumps(chosen, indent=2, ensure_ascii=False),
                                   encoding="utf-8")
-print(f"\nВЫБРАНО: {best[0]}  w_E={chosen['energy_weight']} "
+print(f"\nCHOSEN: {best[0]}  w_E={chosen['energy_weight']} "
       f"w_F={chosen['forces_weight']} lr={chosen['lr']}")
-print(f"  причина: {reason}")
+print(f"  reason: {reason}")

@@ -1,12 +1,12 @@
-"""QA обучающих файлов v3: сверка с источником + структурные инварианты ступеней.
+"""QA v3 of the training files: cross-check against the source + structural invariants of the rungs.
 
-Проверяем на каждом сиде:
-  1) REF_forces и позиции поатомно совпадают с исходной полосой депозита (порог 1e-7 -
-     точность записи extxyz %16.8f, а не 1e-9, иначе ложные провалы);
-  2) внутриполосный профиль REF_energy равен DFT-профилю;
-  3) валидация НЕ содержит холдаутного минерала и ОДИНАКОВА на всех ступенях (парность);
-  4) все конфигурации холдаута остались в обучении (ступень S3 обязана быть полной);
-  5) зеркальные половины греигита в обучающий пул не попали.
+Checked for each seed:
+  1) REF_forces and positions match the source deposited band atom-by-atom (tolerance 1e-7 -
+     the extxyz write precision is %16.8f, not 1e-9, otherwise the check gives false failures);
+  2) the intra-band REF_energy profile equals the DFT profile;
+  3) validation does NOT contain the holdout mineral and is IDENTICAL across all rungs (pairing);
+  4) all holdout configurations remain in training (rung S3 must be complete);
+  5) the mirrored halves of greigite did not end up in the training pool.
 """
 import json
 import sys
@@ -53,7 +53,7 @@ for rung in ("S1", "S2", "S3", "S3solo"):
             s = src[b][i]
             worst_f = max(worst_f, float(np.abs(a.arrays["REF_forces"] - s.get_forces()).max()))
             worst_p = max(worst_p, float(np.abs(a.get_positions() - s.get_positions()).max()))
-        # профиль
+        # profile
         byb = {}
         for a in t + v:
             byb.setdefault(a.info["band"], {})[int(a.info["image"])] = a.info["REF_energy"]
@@ -64,29 +64,29 @@ for rung in ("S1", "S2", "S3", "S3solo"):
                 worst_e = max(worst_e, abs((e[i] - e[base]) * 1000 - (dft[i] - dft[base])))
         if rung != "S3solo":
             chk(all(a.info["band"] != HOLD for a in v),
-                f"{rung} s{sd}: валидация без холдаута")
+                f"{rung} s{sd}: validation excludes the holdout")
         n_hold = sum(1 for a in t if a.info["band"] == HOLD)
         exp = {"S1": 0, "S2": 2, "S3": len(D["usable_images"][HOLD]),
                "S3solo": len(D["usable_images"][HOLD])}[rung]
-        chk(n_hold == exp, f"{rung} s{sd}: конфигураций холдаута в обучении {n_hold} (ждали {exp})")
+        chk(n_hold == exp, f"{rung} s{sd}: holdout configs in training {n_hold} (expected {exp})")
 
 print()
-chk(worst_f < TOL_POS, f"силы совпадают с депозитом, макс |Δ| = {worst_f:.2e} эВ/Å")
-chk(worst_p < TOL_POS, f"позиции совпадают, макс |Δ| = {worst_p:.2e} Å")
-chk(worst_e < 1e-2, f"профили совпадают с DFT, макс |Δ| = {worst_e:.2e} мэВ")
+chk(worst_f < TOL_POS, f"forces match the deposit, max |Δ| = {worst_f:.2e} eV/Å")
+chk(worst_p < TOL_POS, f"positions match, max |Δ| = {worst_p:.2e} Å")
+chk(worst_e < 1e-2, f"profiles match the DFT, max |Δ| = {worst_e:.2e} meV")
 
-# парность валидации
+# validation pairing
 for sd in SEEDS:
     sets = []
     for rung in ("S1", "S2", "S3"):
         v = read(OUTD / f"valid_{rung}_s{sd}.xyz", ":")
         sets.append(tuple(sorted(f"{a.info['band']}:{a.info['image']}" for a in v)))
-    chk(len(set(sets)) == 1, f"сид {sd}: валидация одинакова на S1/S2/S3 (парность)")
+    chk(len(set(sets)) == 1, f"seed {sd}: validation identical across S1/S2/S3 (pairing)")
 
-# зеркальные половины греигита не в обучении
+# mirrored halves of greigite not in training
 t = read(OUTD / f"train_S1_s{SEEDS[0]}.xyz", ":")
 mirr = [a for a in t if a.info["band"].startswith("greigite") and int(a.info["image"]) > 4]
-chk(not mirr, f"зеркальных греигитовых образов в обучении: {len(mirr)}")
+chk(not mirr, f"mirrored greigite images in training: {len(mirr)}")
 
-print("\n" + ("ВСЁ ЧИСТО" if not fails else f"ПРОВАЛОВ: {len(fails)}"))
+print("\n" + ("ALL CLEAR" if not fails else f"FAILURES: {len(fails)}"))
 sys.exit(1 if fails else 0)

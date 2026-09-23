@@ -101,10 +101,10 @@ def mic_vector(atoms, pos_a, pos_b):
 def pick_cubane_fe_vacancy_and_neighbour_s(atoms, fe_s_max=2.55):
     """Pick an Fe atom in pentlandite for V_Fe placement.
 
-    s132-fix v3: после MACE/CHGNet diagnostic выяснилось что foundation MLIP
-    relaxed pent НЕ воспроизводит canonical cubane 4-coord (получается 3 close
-    S at 2.34 + 3 far S at 3.57 — distorted). Octahedral Fe (Wyckoff 4b в
-    pent) однако сохраняет clean 6-coord (6 S at 2.478 Å MACE / 2.387 CHGNet).
+    s132-fix v3: after the MACE/CHGNet diagnostic it turned out that the foundation MLIP
+    relaxed pent does NOT reproduce the canonical cubane 4-coord (it gives 3 close
+    S at 2.34 + 3 far S at 3.57 — distorted). Octahedral Fe (Wyckoff 4b in
+    pent), however, retains a clean 6-coord (6 S at 2.478 Å MACE / 2.387 CHGNet).
 
     Pivot strategy: pick the most **regular 6-coord (octahedral)** Fe by finding
     Fe with smallest spread among 6 nearest S (max - min < 0.15 Å). After V_Fe

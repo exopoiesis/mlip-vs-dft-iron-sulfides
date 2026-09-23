@@ -1,7 +1,7 @@
-"""R2.3 v2: сведение лестницы. Парный анализ, все четыре строки П2, точный тест.
+"""R2.3 v2: ladder aggregation. Paired analysis, all four rows of G2, exact test.
 
-Правила взяты из PREREGISTRATION_R23_finetune_v2_2026-09-22.md и здесь не изобретаются.
-Вызов: aggregate2.py <holdout>
+Rules taken from PREREGISTRATION_R23_finetune_v2_2026-09-22.md and are not invented here.
+Call: aggregate2.py <holdout>
 """
 import itertools
 import json
@@ -16,9 +16,9 @@ import os
 OUTD = Path(os.environ.get("R23_OUT", "/work/out"))
 HOLD = sys.argv[1] if len(sys.argv) > 1 else "mackinawite"
 
-TOL = 25.0            # П1-1: допуск на барьер, мэВ (kT при 290 K)
-FORGET_BARRIER = 50.0  # П3 F1
-FORGET_FORCE = 0.1     # П3 F2, эВ/Å
+TOL = 25.0            # G1-1: barrier tolerance, meV (kT at 290 K)
+FORGET_BARRIER = 50.0  # G3 F1
+FORGET_FORCE = 0.1     # G3 F2, eV/Å
 RUNGS = ("S1", "S2", "S3", "S3solo")
 
 try:
@@ -26,7 +26,7 @@ try:
 
     def tcrit(df):
         return float(tdist.ppf(0.975, df))
-except Exception:                                   # таблица на случай отсутствия scipy
+except Exception:                                   # table in case scipy is unavailable
     _T = {1: 12.706, 2: 4.303, 3: 3.182, 4: 2.776, 5: 2.571, 6: 2.447,
           7: 2.365, 8: 2.306, 9: 2.262, 10: 2.228, 15: 2.131, 20: 2.086}
 
@@ -38,15 +38,15 @@ evals = {}
 for p in sorted(OUTD.glob("eval_*.json")):
     evals[p.stem[len("eval_"):]] = json.loads(p.read_text())
 if "S0" not in evals:
-    raise SystemExit("нет eval_S0.json")
+    raise SystemExit("eval_S0.json missing")
 S0 = evals["S0"]
 
-# самотест критерия обязан быть пройден
+# the criterion's self-test must pass
 st = S0.get("P1_selftest", {})
 bad = [b for b, v in st.items() if not (v["saddle_ok"] and v["no_spurious_basin"])]
-print(f"САМОТЕСТ П1 на DFT: {'PASS' if not bad else 'FAIL ' + str(bad)}")
+print(f"SELF-TEST G1 on DFT: {'PASS' if not bad else 'FAIL ' + str(bad)}")
 if bad:
-    raise SystemExit("критерий проваливает собственный эталон — лестница не интерпретируется")
+    raise SystemExit("the criterion fails its own reference — the ladder cannot be interpreted")
 
 by_rung = {}
 for tag, d in evals.items():
@@ -76,8 +76,8 @@ def drift(d):
     return o
 
 
-print(f"\nхолдаут {HOLD}, DFT-барьер {E_DFT:.2f} мэВ\n")
-hdr = f"{'ступень':9s} {'n':>2s} {'E_a одноточечно':>22s} {'E_a самосогл. NEB':>22s} {'восст.':>7s}"
+print(f"\nholdout {HOLD}, DFT barrier {E_DFT:.2f} meV\n")
+hdr = f"{'rung':9s} {'n':>2s} {'E_a single-point':>22s} {'E_a self-consist. NEB':>22s} {'recov.':>7s}"
 print(hdr)
 
 for rung in ("S0",) + RUNGS:
@@ -91,8 +91,8 @@ for rung in ("S0",) + RUNGS:
     row = {"n_seeds": len(seeds), "seeds": seeds}
 
     for kind in ("sp", "neb"):
-        # самосогласованный NEB считается не на всех сидах (он дорог) - берём подмножество,
-        # где он есть, и честно печатаем его размер, а не выбрасываем ступень целиком
+        # self-consistent NEB is not computed for every seed (it is expensive) - take the
+        # subset where it exists, and honestly print its size rather than dropping the whole rung
         if kind == "neb":
             sub = [s for s in seeds if "neb_selfconsistent" in runs[s]]
             if not sub:
@@ -138,11 +138,11 @@ for rung in ("S0",) + RUNGS:
     sp, nb = row.get("sp"), row.get("neb")
     s_sp = f"{sp['E_a_mean']:8.2f}±{sp['E_a_sd']:<5.2f}({sp['err_mean']:+7.2f})" if sp else "-"
     s_nb = f"{nb['E_a_mean']:8.2f}±{nb['E_a_sd']:<5.2f}({nb['err_mean']:+7.2f})" if nb else "-"
-    rec = "ДА" if (nb or sp or {}).get("recovers") else "нет"
+    rec = "YES" if (nb or sp or {}).get("recovers") else "no"
     print(f"{rung:9s} {len(seeds):2d} {s_sp:>22s} {s_nb:>22s} {rec:>7s}")
 
 
-# ---------- П2: парный дискриминатор ----------
+# ---------- G2: paired discriminator ----------
 def paired(a_rung, b_rung, kind):
     A, B = by_rung.get(a_rung, {}), by_rung.get(b_rung, {})
     seeds = sorted(set(A) & set(B))
@@ -155,7 +155,7 @@ def paired(a_rung, b_rung, kind):
     mean, sd = float(d.mean()), float(d.std(ddof=1))
     se = sd / np.sqrt(n)
     half = tcrit(n - 1) * se
-    # точный перестановочный тест по знакам
+    # exact sign-permutation test
     obs = abs(mean)
     cnt = sum(1 for signs in itertools.product([1, -1], repeat=n)
               if abs(float(np.mean(d * np.array(signs)))) >= obs - 1e-12)
@@ -175,30 +175,30 @@ for kind in ("sp", "neb"):
     if not r:
         continue
     report["discriminator"][kind] = r
-    print(f"\nП2 ({'одноточечно' if kind == 'sp' else 'самосогл. NEB'}): "
-          f"Δ = |S1|−|S3| = {r['delta_mean']:+.2f} мэВ, "
-          f"95% ДИ [{r['ci95'][0]:+.2f}, {r['ci95'][1]:+.2f}], "
-          f"p = {r['p_exact']} (минимум достижимый {r['p_min_attainable']})")
+    print(f"\nG2 ({'single-point' if kind == 'sp' else 'self-consist. NEB'}): "
+          f"Δ = |S1|−|S3| = {r['delta_mean']:+.2f} meV, "
+          f"95% CI [{r['ci95'][0]:+.2f}, {r['ci95'][1]:+.2f}], "
+          f"p = {r['p_exact']} (minimum attainable {r['p_min_attainable']})")
 
     s1 = report["rungs"].get("S1", {}).get(kind) or {}
     s3 = report["rungs"].get("S3", {}).get(kind) or {}
     solo = report["rungs"].get("S3solo", {}).get(kind) or {}
     if s1.get("recovers") and s3.get("recovers"):
-        v = "обе восстанавливают: провал лечится даже без данных по минералу"
+        v = "both recover: the failure is cured even without mineral-specific data"
     elif s3.get("recovers") and not s1.get("recovers"):
-        v = "S3 восстанавливает, S1 нет: ДЕФИЦИТ ПОКРЫТИЯ ДАННЫМИ, не предел подхода"
+        v = "S3 recovers, S1 does not: DATA-COVERAGE DEFICIT, not a limit of the approach"
     elif s1.get("recovers") and not s3.get("recovers"):
-        v = ("S1 восстанавливает, S3 нет — по предрегистрации это признак СЛОМАННОЙ ОБВЯЗКИ, "
-             "а не результат; лестница не интерпретируется")
+        v = ("S1 recovers, S3 does not — per the preregistration this is a sign of a BROKEN "
+             "HARNESS, not a result; the ladder cannot be interpreted")
     elif solo and solo.get("recovers"):
-        v = "ни S1, ни S3, но S3solo да: КОНФЛИКТ СУПЕРВИЗИИ между минералами, не предел ёмкости"
+        v = "neither S1 nor S3, but S3solo does: SUPERVISION CONFLICT between minerals, not a capacity limit"
     else:
-        v = "ни одна ступень не восстанавливает: ПРЕДЕЛ ПРЕДСТАВЛЕНИЯ/ЁМКОСТИ при этом бюджете"
+        v = "no rung recovers: LIMIT OF REPRESENTATION/CAPACITY at this budget"
     if not r["distinguishable"]:
-        v += "  [ДИ содержит ноль -> ступени НЕРАЗЛИЧИМЫ, писать так]"
+        v += "  [95% CI contains zero -> rungs are INDISTINGUISHABLE, state it as such]"
     report["discriminator"][kind]["verdict"] = v
-    print(f"ВЕРДИКТ: {v}")
+    print(f"VERDICT: {v}")
 
 (OUTD / f"ladder_{HOLD}.json").write_text(
     json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
-print(f"\nзаписано ladder_{HOLD}.json")
+print(f"\nwrote ladder_{HOLD}.json")

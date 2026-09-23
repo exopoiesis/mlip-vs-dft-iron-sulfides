@@ -1,13 +1,13 @@
 """
-NEB pre-flight gates — 5 hard-abort physics theorems перед каждым DFT NEB run.
+NEB pre-flight gates — 5 hard-abort physics theorems before every DFT NEB run.
 
-Created 2026-05-20 (s148) после marcasite V_S+H artifact (3rd same-basin trap in
+Created 2026-05-20 (s148) after the marcasite V_S+H artifact (3rd same-basin trap in
 Fe-S sulfides). Codifies physicist + chemist consilium meta-review findings
 (BS-P1..P6, B1, B2).
 
-Import this module в любой NEB production script и вызывай `run_all_gates()`
-после picker triple selected + pristine cell built. Любой fail → SystemExit
-(не warning, не continue).
+Import this module into any NEB production script and call `run_all_gates()`
+after the picker triple is selected + the pristine cell is built. Any fail → SystemExit
+(not a warning, not a continue).
 
 5 gates:
   G1 (Wyckoff theorem, BS-P1): spglib eq_atoms[i] != eq_atoms[k]
@@ -16,9 +16,9 @@ Import this module в любой NEB production script и вызывай `run_al
   G4 (NEB-steps theorem, BS-P2 post-relax): neb_steps >= 5 OR full diagnosis
   G5 (Test A v2 strict, BS-P3): dE > 5*scf_noise_total AND h_displ > 0.5 Å
 
-См.:
+See:
   - knowledge/RC_SELECTION_RULES.md (live mineral × RC table)
-  - knowledge/DECISIONS.md РЕШЕНИЕ-082 (s148 addendum)
+  - knowledge/DECISIONS.md DECISION-082 (s148 addendum)
   - memory/feedback_RC_check_before_NEB.md
 """
 from __future__ import annotations
@@ -29,7 +29,7 @@ from typing import Iterable, Mapping, Optional  # noqa: F401
 import numpy as np
 
 
-# Valence electron counts для common ONCV-SR PBE Pseudo Dojo pseudo
+# Valence electron counts for common ONCV-SR PBE Pseudo Dojo pseudo
 # (Fe: 16, S: 6, H: 1, Ni: 18, etc.) Add as needed.
 ONCV_VAL_E: Mapping[str, int] = {
     "H":  1,
@@ -52,7 +52,7 @@ ONCV_VAL_E: Mapping[str, int] = {
     "Ar": 8,
     "K":  9,
     "Ca": 10,
-    # Magnetic 3d (semicore included для most ONCV):
+    # Magnetic 3d (semicore included for most ONCV):
     "Ti": 12,
     "V":  13,
     "Cr": 14,
@@ -66,14 +66,14 @@ ONCV_VAL_E: Mapping[str, int] = {
 
 
 def _abort(msg: str, *, gate: str) -> None:
-    """Hard abort с consistent format. NO continue, NO warning."""
+    """Hard abort with consistent format. NO continue, NO warning."""
     sys.stderr.write(
         "\n========================================================\n"
         f"NEB PRE-FLIGHT GATE FAILED: {gate}\n"
         "========================================================\n"
         f"{msg}\n"
         "\n"
-        "See knowledge/RC_SELECTION_RULES.md для допустимых reaction\n"
+        "See knowledge/RC_SELECTION_RULES.md for the allowed reaction\n"
         "coordinates per mineral chemistry signature.\n"
         "========================================================\n"
     )
@@ -90,21 +90,21 @@ def gate_wyckoff_inequivalence(
     symprec: float = 0.05,
     require_distinct: bool = True,
 ) -> dict:
-    """G1: Reject picker triple если все atoms в single Wyckoff orbit.
+    """G1: Reject the picker triple if all atoms are in a single Wyckoff orbit.
 
-    Reason (BS-P1): Если eq_atoms[i] == eq_atoms[k], endpoints related by
-    space-group operation → identical configurations by Wigner-Bloch theorem.
-    NEB не может найти barrier between identical states.
+    Reason (BS-P1): If eq_atoms[i] == eq_atoms[k], the endpoints are related by
+    a space-group operation → identical configurations by the Wigner-Bloch theorem.
+    NEB cannot find a barrier between identical states.
 
     Returns
     -------
-    dict с keys: space_group, n_orbits, equivalent_atoms, picker_orbits
+    dict with keys: space_group, n_orbits, equivalent_atoms, picker_orbits
     """
     try:
         import spglib
     except ImportError:
         _abort(
-            "spglib not installed but required для pre-flight gate G1 "
+            "spglib not installed but required for pre-flight gate G1 "
             "(Wyckoff theorem).\nInstall: pip install spglib",
             gate="G1 Wyckoff",
         )
@@ -116,12 +116,12 @@ def gate_wyckoff_inequivalence(
     ds = spglib.get_symmetry_dataset((cell, scaled, numbers), symprec=symprec)
     if ds is None:
         _abort(
-            f"spglib не определил symmetry на cell с symprec={symprec}. "
-            "Сheck cell + positions OK?",
+            f"spglib could not determine symmetry on the cell with symprec={symprec}. "
+            "Check that the cell + positions are OK?",
             gate="G1 Wyckoff",
         )
 
-    # Handle spglib API: dict-like OR object с attributes
+    # Handle spglib API: dict-like OR object with attributes
     if hasattr(ds, "equivalent_atoms"):
         eq_atoms = np.asarray(ds.equivalent_atoms)
         sg_num = int(ds.number)
@@ -139,14 +139,14 @@ def gate_wyckoff_inequivalence(
         common_orbit = picker_orbits[0]
         orbit_size = int(np.sum(eq_atoms == common_orbit))
         _abort(
-            f"Picker triple {triple_list} all в single Wyckoff orbit "
+            f"Picker triple {triple_list} all in a single Wyckoff orbit "
             f"(rep={common_orbit}, size={orbit_size}/{len(atoms)} atoms).\n"
             f"Space group: #{sg_num} {sg_int}.\n"
-            f"By Wigner-Bloch theorem, endpoints are CRYSTALLOGRAPHICALLY "
-            f"IDENTICAL — NEB cannot find barrier between same configuration.\n"
+            f"By the Wigner-Bloch theorem, the endpoints are CRYSTALLOGRAPHICALLY "
+            f"IDENTICAL — NEB cannot find a barrier between the same configuration.\n"
             f"\n"
-            f"Use different picker logic (e.g. cross-orbit pair) OR pivot к "
-            f"V_Fe lateral hop / V_S₂ dimer hop per РЕШЕНИЕ-082.",
+            f"Use different picker logic (e.g. cross-orbit pair) OR pivot to "
+            f"V_Fe lateral hop / V_S₂ dimer hop per DECISION-082.",
             gate="G1 Wyckoff",
         )
 
@@ -168,22 +168,22 @@ def gate_electron_parity_nspin(
     val_e_table: Mapping[str, int] = ONCV_VAL_E,
     tot_charge: float = 0.0,
 ) -> dict:
-    """G2: Reject nspin=1 если total valence electrons odd.
+    """G2: Reject nspin=1 if the total valence electron count is odd.
 
-    Reason (BS-P4): Closed-shell DFT (nspin=1) cannot represent unpaired
-    electron. Defect cell (V_S+H) typically has odd e⁻ count regardless of
-    pristine magnetic state (V_S removes 2 anion e⁻, +H adds 1 → parity flips).
+    Reason (BS-P4): Closed-shell DFT (nspin=1) cannot represent an unpaired
+    electron. A defect cell (V_S+H) typically has an odd e⁻ count regardless of
+    the pristine magnetic state (V_S removes 2 anion e⁻, +H adds 1 → parity flips).
 
     Returns
     -------
-    dict с keys: n_val_e, parity, nspin_required
+    dict with keys: n_val_e, parity, nspin_required
     """
     try:
         n_val = sum(val_e_table[s] for s in atoms.get_chemical_symbols())
     except KeyError as e:
         _abort(
-            f"Element {e} нет в val_e_table — add к ONCV_VAL_E "
-            "(используем стандартные ONCV-SR PBE counts).",
+            f"Element {e} is missing from val_e_table — add it to ONCV_VAL_E "
+            "(use the standard ONCV-SR PBE counts).",
             gate="G2 parity",
         )
 
@@ -193,9 +193,9 @@ def gate_electron_parity_nspin(
     if is_odd and nspin == 1:
         _abort(
             f"Odd valence electrons {n_val_net} ({n_val} val - {tot_charge:.1f} "
-            f"charge) requires nspin=2 (or different tot_charge).\n"
-            f"Closed-shell DFT (nspin=1) literally cannot represent unpaired "
-            f"electron — ground state misrepresented.",
+            f"charge) requires nspin=2 (or a different tot_charge).\n"
+            f"Closed-shell DFT (nspin=1) literally cannot represent an unpaired "
+            f"electron — the ground state is misrepresented.",
             gate="G2 parity",
         )
 
@@ -219,19 +219,19 @@ def gate_pocket_radius(
     threshold_A: float = 1.60,
     exclude_vacancy_idx: Optional[int] = None,
 ) -> dict:
-    """G3: Reject V_X+H protocol если pocket radius < d_FeH equilibrium.
+    """G3: Reject the V_X+H protocol if the pocket radius < d_FeH equilibrium.
 
     Reason (BS-P6): If r_pocket = min(d(V_X_site, Fe_j)) < 1.6 Å (typical
-    Fe-H hydride bond), H atom inevitably collapses to nearest Fe instead
-    of remaining at S anchor → same-basin trap regardless of picker.
+    Fe-H hydride bond), the H atom inevitably collapses to the nearest Fe instead
+    of remaining at the S anchor → same-basin trap regardless of the picker.
 
-    For V_Fe case: the vacancy IS a Fe atom. Set exclude_vacancy_idx=fe_v_index
-    to skip self-distance (otherwise r_pocket = 0 trivially). For V_S case:
-    vacancy is S, no Fe coincides, exclude_vacancy_idx=None is safe.
+    For the V_Fe case: the vacancy IS an Fe atom. Set exclude_vacancy_idx=fe_v_index
+    to skip the self-distance (otherwise r_pocket = 0 trivially). For the V_S case:
+    the vacancy is S, no Fe coincides, exclude_vacancy_idx=None is safe.
 
     Returns
     -------
-    dict с keys: r_pocket, nearest_metal_idx, threshold
+    dict with keys: r_pocket, nearest_metal_idx, threshold
     """
     metal_indices = [i for i, s in enumerate(atoms.get_chemical_symbols())
                      if s == metal_symbol]
@@ -240,7 +240,7 @@ def gate_pocket_radius(
         metal_indices = [i for i in metal_indices if i != exclude_vacancy_idx]
     if not metal_indices:
         _abort(
-            f"No {metal_symbol} atoms found в cell (after exclude).",
+            f"No {metal_symbol} atoms found in the cell (after exclude).",
             gate="G3 pocket",
         )
 
@@ -263,7 +263,7 @@ def gate_pocket_radius(
             f"Pocket radius r={r_pocket:.3f} Å < {threshold_A} Å threshold.\n"
             f"Nearest {metal_symbol} #{nearest_idx} at d={r_pocket:.3f} Å.\n"
             f"H atom will collapse to {metal_symbol}-H hydride (d≈1.6 Å) "
-            f"instead of remaining at S anchor — same-basin artifact "
+            f"instead of remaining at the S anchor — same-basin artifact "
             f"inevitable regardless of picker choice.\n"
             f"\n"
             f"Use V_{metal_symbol} lateral hop OR V_S₂ dimer hop instead.",
@@ -289,24 +289,24 @@ def gate_neb_steps_nonzero(
     *,
     min_steps: int = 1,
 ) -> dict:
-    """G4: Reject NEB result если converged за 0 steps (initial path already
-    под threshold).
+    """G4: Reject the NEB result if it converged in 0 steps (initial path already
+    under threshold).
 
-    Reason (BS-P2): NEB converging immediately means initial path = final
-    path = no movement = endpoints same basin. Theorem:
+    Reason (BS-P2): NEB converging immediately means the initial path = final
+    path = no movement = endpoints in the same basin. Theorem:
 
         (neb_steps == 0 AND fmax_initial < fmax_threshold)
             IMPLIES endpoints in same basin.
 
     Returns
     -------
-    dict с keys: neb_steps, fmax_initial, fmax_threshold, verdict
+    dict with keys: neb_steps, fmax_initial, fmax_threshold, verdict
     """
     if neb_steps < min_steps and fmax_initial < fmax_threshold:
         _abort(
-            f"NEB converged за {neb_steps} steps (< {min_steps}) с initial "
+            f"NEB converged in {neb_steps} steps (< {min_steps}) with initial "
             f"fmax={fmax_initial:.4f} < threshold {fmax_threshold}.\n"
-            f"This is theorem-level signature of same-basin endpoints "
+            f"This is a theorem-level signature of same-basin endpoints "
             f"(BS-P2 zero-steps theorem).\n"
             f"\n"
             f"Possible causes:\n"
@@ -339,18 +339,18 @@ def gate_test_a_v2_strict(
     nearest_class_A: str = "",
     nearest_class_B: str = "",
 ) -> dict:
-    """G5: Strict Test A v2 gate — abort если same-basin signature.
+    """G5: Strict Test A v2 gate — abort if a same-basin signature is present.
 
     Reason (BS-P3): SCF noise floor total ≈ conv_thr × n_e / 2 (Ry).
-    Strict thresholds для production NEB:
+    Strict thresholds for production NEB:
         dE_endpoints > max(5 × scf_noise_total, 5 meV)
         h_displ > max(0.5 Å, 0.2 × hop_distance)
 
-    Если nearest_class_A == nearest_class_B == "BOTH_Fe_attraction" → same Fe basin.
+    If nearest_class_A == nearest_class_B == "BOTH_Fe_attraction" → same Fe basin.
 
     Returns
     -------
-    dict с verdicts и computed floors.
+    dict with verdicts and computed floors.
     """
     scf_noise_total_eV = (conv_thr_Ry * n_electrons / 2.0) * 13.6057  # Ry → eV
     gate_dE_eV = max(5.0 * scf_noise_total_eV, 0.005)
@@ -413,11 +413,11 @@ def run_pre_deploy_gates(
 ) -> dict:
     """Run G1 (Wyckoff) + G2 (parity) + G3 (pocket radius) before launching DFT.
 
-    vacancy_is_metal=True для V_Fe RC (the vacancy IS a Fe atom — exclude its
-    self-distance в G3 calc). False для V_S RC (vacancy is S; Fe metric still
+    vacancy_is_metal=True for the V_Fe RC (the vacancy IS an Fe atom — exclude its
+    self-distance in the G3 calc). False for the V_S RC (vacancy is S; the Fe metric still
     excludes none).
 
-    Any failure → SystemExit. Otherwise returns dict с all gate diagnostics.
+    Any failure → SystemExit. Otherwise returns dict with all gate diagnostics.
     """
     print("[PRE-FLIGHT] Running 3 hard gates (G1 Wyckoff, G2 parity, G3 pocket)...",
           flush=True)
@@ -451,7 +451,7 @@ def run_pre_deploy_gates(
           f"{pocket_threshold_A} Å (excluded vacant idx={exclude_idx})",
           flush=True)
 
-    print("[PRE-FLIGHT] All 3 pre-deploy gates PASS — proceeding к DFT NEB.",
+    print("[PRE-FLIGHT] All 3 pre-deploy gates PASS — proceeding to DFT NEB.",
           flush=True)
 
     return {"G1": g1, "G2": g2, "G3": g3}

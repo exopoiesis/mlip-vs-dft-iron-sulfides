@@ -5,23 +5,23 @@ Canonical V_Fe (octahedral 16d) + H lateral hop NEB -- greigite Fe3S4
 after V_Fe + H = 56 atoms = Fe23 S32 H1.
 
 Adapted from neb_canonical_greigite_56at_qe.py (V_S+H, deprecated s148) per
-РЕШЕНИЕ-082 chemistry-signature extension (2026-05-20, s148):
-  - V_S+H broken for ALL Fe-S sulfides где S all-equivalent under SG symmetry.
+DECISION-082 chemistry-signature extension (2026-05-20, s148):
+  - V_S+H broken for ALL Fe-S sulfides where S is all-equivalent under SG symmetry.
   - Greigite Fd-3m S 32e single orbit → V_S+H artifact predicted (mack/pent/marc precedent).
   - V_Fe pivot per Liu 2021 ACS Omega 0.26 eV anchor (extrapolated).
 
-Greigite specifics retained from V_S+H parent (КРИТИЧНО, не упрощать):
-  - nspin=2 + Hubbard U_eff=1.0 eV (Dudarev) ON Fe1+Fe2 sublattices [НЕОБХОДИМО]
+Greigite specifics retained from V_S+H parent (CRITICAL, do not simplify):
+  - nspin=2 + Hubbard U_eff=1.0 eV (Dudarev) ON Fe1+Fe2 sublattices [MANDATORY]
   - Ferrimagnetic A↑↓B init: Fe_tet 8a (+5 μB Fe³⁺) ↑ / Fe_oct 16d (-4 μB) ↓
   - apply_greigite_ferri_split mandatory (sublattice labels Fe1/Fe2)
-  - РЕШЕНИЕ-094 AFM+U Tier 1 recipe: plain mixing β=0.05, mixing_ndim=12,
+  - DECISION-094 AFM+U Tier 1 recipe: plain mixing β=0.05, mixing_ndim=12,
     mixing_fixed_ns=15, tot_mag=0, conv_thr=1e-3, david diag
   - HUBBARD card injection POST-WRITER (QE 7.2+ syntax, ortho-atomic)
 
 V_Fe choice: octahedral Fe (Wyckoff 16d). Pyrrhotite T11 (s135) + pentlandite
-(s132) precedent — octahedral V_Fe для thiospinel/sulfide families. Tetrahedral
+(s132) precedent — octahedral V_Fe for thiospinel/sulfide families. Tetrahedral
 Fe_tet (8a, 4 S neighbours) NOT picked (would be "smaller pocket, similar to
-mack" — но greigite has BOTH coordinations available — clear choice for clean
+mack" — but greigite has BOTH coordinations available — clear choice for clean
 6-S V_Fe lateral hop).
 
 Reaction coordinate (this script):
@@ -29,18 +29,18 @@ Reaction coordinate (this script):
   - Apply ferri split via apply_greigite_ferri_split → Fe1=tet, Fe2=oct.
   - Pick central Fe_oct atom (V_Fe = vacancy_atom) — Fe2 only, octahedral 6-S.
   - Find 6 S neighbours within fe_s_max ~2.85 Å (greigite Fe_oct-S ~2.46 nominal).
-  - Pick 2 S atoms (S_i, S_k) с maximum d(S_i, S_k) — lateral hop через V_Fe pocket.
-  - Build endA: H placed 1.35 Å от S_i toward V_Fe (S-H в pocket).
-  - Build endB: H placed 1.35 Å от S_k toward V_Fe.
+  - Pick 2 S atoms (S_i, S_k) with maximum d(S_i, S_k) — lateral hop through V_Fe pocket.
+  - Build endA: H placed 1.35 Å from S_i toward V_Fe (S-H in pocket).
+  - Build endB: H placed 1.35 Å from S_k toward V_Fe.
   - PRE-FLIGHT GATES (s148, mandatory): G1 Wyckoff, G2 parity, G3 pocket-radius.
   - Relax pristine (REUSE skip if --reuse-pristine) + endA + endB BFGS.
   - CI-NEB FIRE 9 images.
 
 Expected E_a: 0.2-0.5 eV bulk Fe-S Fe_oct V_Fe (Liu 2021 surface anchor 0.26 eV).
-Может быть выше mack/pent due AFM+U coupling complications + larger cell relaxation.
+May be higher than mack/pent due to AFM+U coupling complications + larger cell relaxation.
 
 ==========================================================================
-ORIGINAL V_S+H notes (DEPRECATED but retained для reference):
+ORIGINAL V_S+H notes (DEPRECATED but retained for reference):
 ==========================================================================
 
 
@@ -55,25 +55,25 @@ m_Fe_oct≈-4 μB per atom; Kwon-Subedi 2011 PRB).
 Hubbard U_eff=1.0 eV consensus (Dudarev simplified):
   - Devey 2009 J Phys Chem C  (U=1.0 eV)
   - Roldan & de Leeuw 2016 RSPA  (U=1.0 eV, CI-NEB H2O greigite surfaces)
-  - 4 более recent papers triangulate same value (Q-115 NOMAD benchmarks).
+  - 4 more recent papers triangulate the same value (Q-115 NOMAD benchmarks).
   - applied to Fe1 (tet) AND Fe2 (oct) 3d shells, ortho-atomic projection.
 
 Canonical protocol (apples-to-apples with mack/pent/marc V_S+H siblings):
   - V_S at one S site, H hops S_i -> S_k via V_S pocket
   - Build via s142 build_greigite_conventional (a=9.876 Å, u=0.253)
   - Ferri init via s142 apply_greigite_ferri_split (fractional [-1,+1])
-  - HUBBARD card injected POST-WRITER на Fe1-3d + Fe2-3d (ortho-atomic)
+  - HUBBARD card injected POST-WRITER on Fe1-3d + Fe2-3d (ortho-atomic)
   - Full relax pristine + endpoints (NO FixAtoms)
-  - CI-NEB 9 images, IDPP interpolation (с prewrap ASE #1130), FIRE optimizer
+  - CI-NEB 9 images, IDPP interpolation (with prewrap ASE #1130), FIRE optimizer
 
 Output JSON includes magnetic_moments_endA/B + fe_neighbor_type_endA (tet/oct/mixed)
-для H-anchor site classification (does H prefer S near Fe_tet vs Fe_oct?).
+for H-anchor site classification (does H prefer S near Fe_tet vs Fe_oct?).
 
 Workflow precedent: Roldan & de Leeuw 2016 RSPA "First-principles theoretical
 study of greigite (Fe3S4) surfaces and their interaction with H2O" — same
 SG, same U=1.0, plain mixing, atomic_random startingwfc, conv_thr ~1e-6.
 
-Per РЕШЕНИЕ-079 (s125) + РЕШЕНИЕ-094 (s142 AFM+U recipe greigite):
+Per DECISION-079 (s125) + DECISION-094 (s142 AFM+U recipe greigite):
   - QE PWSCF (no Pulay forces, paper-grade fmax achievable)
   - nspin=2 + Hubbard U=1.0 (ferri ground state mandatory; Tier 2 production)
   - plain mixing β=0.05 ndim=12 fixed_ns=15  (s142 RESHENIE-094 transferable recipe)
@@ -84,7 +84,7 @@ Per РЕШЕНИЕ-079 (s125) + РЕШЕНИЕ-094 (s142 AFM+U recipe greigite):
 
 References:
   - knowledge/Q115_NOMAD_BENCHMARKS.md (U=1.0 consensus, 6 papers)
-  - knowledge/handoffs/SESSION_HANDOFF_2026-05-10_s142.md (РЕШЕНИЕ-094)
+  - knowledge/handoffs/SESSION_HANDOFF_2026-05-10_s142.md (DECISION-094)
   - experiments/2026-05-19_greigite_neb/docs/LITERATURE_FINDINGS.md
   - Roldan & de Leeuw 2016 RSPA (CI-NEB H2O on greigite surfaces precedent)
   - Devey, Roldan, de Leeuw 2009 J Phys Chem C (Hubbard U calibration)
@@ -214,7 +214,7 @@ def acquire_singleton():
             if len(parts) < 2:
                 continue
             pid_str, args_str = parts
-            # GREIGITE FIX: singleton scoped к greigite script name
+            # GREIGITE FIX: singleton scoped to greigite script name
             if "neb_canonical_greigite_56at_qe_VFe.py" not in args_str:
                 continue
             try:
@@ -256,15 +256,15 @@ def build_greigite_56at(a=9.876, u=0.253, repeat=(1, 1, 1)):
     """Greigite Fe3S4, Fd-3m setting=2, a=9.876 Å, conventional cell = 56 atoms.
 
     GREIGITE NEW: thin wrapper around s142 build_greigite_conventional()
-    (afmu_singlepoint_greigite.py). Falls back to inline crystal() call с
-    same Wyckoff data if s142 module unavailable.
+    (afmu_singlepoint_greigite.py). Falls back to inline crystal() call with
+    the same Wyckoff data if the s142 module is unavailable.
 
     Atom order (Wyckoff preserved by ASE crystal()):
         indices [0:8]   — Fe_tet (8a, magmom +1.0 ferri init → +5 μB Fe³⁺ HS)
         indices [8:24]  — Fe_oct (16d, magmom −0.9 ferri init → −4 μB Fe²⁺/³⁺ mixed)
         indices [24:56] — S (32e u≈0.253)
 
-    Cell ~9.88 Å — already > 8 Å V_S–V_S spacing (no supercell needed для
+    Cell ~9.88 Å — already > 8 Å V_S–V_S spacing (no supercell needed for
     one-vacancy NEB; --repeat (1,1,1) default).
     Phase 2 option: repeat=(2,1,1) → 112 atoms finite-size convergence check.
     """
@@ -303,8 +303,8 @@ def pick_vfe_oct_and_two_s_neighbours(atoms, oct_indices, fe_s_max=2.85,
     Greigite has 16 Fe_oct (Wyckoff 16d) per conventional cell. Octahedral
     coordination = 6 S neighbours. fe_s_max=2.85 (Fe_oct-S nominal 2.46 Å).
 
-    From 6 S, pick (S_i, S_k) с maximum d(S_i, S_k) within pocket = lateral hop
-    через V_Fe pocket center.
+    From 6 S, pick (S_i, S_k) with maximum d(S_i, S_k) within pocket = lateral hop
+    through V_Fe pocket center.
 
     Returns: (fe_v_idx, s_i_idx, s_k_idx, hop_d, s_neighbours_list)
     """
@@ -454,7 +454,7 @@ def prewrap_endpoint_for_idpp(initial, final, label="endB"):
     """
     Fix ASE GitLab issue #1130: pre-IDPP linear interpolation does NOT apply
     minimum-image convention, so atoms whose endpoint position wraps across
-    PBC get linearly interpolated через WHOLE cell (not the short hop). This
+    PBC get linearly interpolated through WHOLE cell (not the short hop). This
     creates broken initial NEB path with atom overlaps.
 
     Fix: pre-wrap final endpoint relative to initial via `find_mic`, so
@@ -465,10 +465,10 @@ def prewrap_endpoint_for_idpp(initial, final, label="endB"):
     (Δz_naive=10.0 Å vs Δz_mic=-0.84 Å). Heavy atoms unaffected.
 
     Returns: (final_unwrapped, n_unwrapped, summary) — modified Atoms +
-    count + dict с forensic info (max |Δ_mic|, atom symbols).
+    count + dict with forensic info (max |Δ_mic|, atom symbols).
     """
     # Physicist condition #1: defensive guard against slab/2D systems where
-    # find_mic для non-PBC axis silently returns naive displacement.
+    # find_mic for non-PBC axis silently returns naive displacement.
     assert all(initial.pbc), (
         f"prewrap_endpoint_for_idpp requires full 3D PBC, got pbc={initial.pbc}. "
         f"For slabs, manual unwrap needed for non-PBC axis."
@@ -546,7 +546,7 @@ def inject_hubbard_card(pwi_path, U_eff=1.0, species_with_U=("Fe1", "Fe2")):
 class GreigiteEspresso(Espresso):
     """GREIGITE NEW: Espresso subclass that runs post-writer hooks before pw.x.
 
-    Hooks executed после ASE writes espresso.pwi и before pw.x launch:
+    Hooks executed after ASE writes espresso.pwi and before pw.x launch:
       1. `normalise_split_labels_in_pwi` — renames Fe→Fe1, Fe1→Fe2 in ATOMIC_SPECIES
          + ATOMIC_POSITIONS + starting_magnetization keys (ntyp split convention).
       2. `inject_hubbard_card` — appends HUBBARD ortho-atomic + U Fe1-3d / U Fe2-3d.
@@ -608,14 +608,14 @@ def make_calc(work_dir, label, kpts=(2, 2, 2),
               diago_full_acc=True, startingwfc="atomic+random",
               electron_maxstep=500,  # FIXED s150 R3: 200→500 (charge-ordered transition needs more iter)
               disk_io="medium",
-              occupations="smearing", smearing="gaussian", degauss=0.005,  # FIXED s150 R3: 0.01→0.005 Ry (Wu 2018 VASP SIGMA=0.05 eV equivalent; old 0.01 too wide для half-metallic gap 0.3-0.4 eV)
+              occupations="smearing", smearing="gaussian", degauss=0.005,  # FIXED s150 R3: 0.01→0.005 Ry (Wu 2018 VASP SIGMA=0.05 eV equivalent; old 0.01 too wide for half-metallic gap 0.3-0.4 eV)
               pseudo_files=None, pseudo_dir=None,
               wfc_reuse=False,
               U_eff=1.0):
     """
-    GREIGITE FIX: rewritten для ferrimagnetic A↑↓B + Hubbard U_eff=1.0 eV.
+    GREIGITE FIX: rewritten for ferrimagnetic A↑↓B + Hubbard U_eff=1.0 eV.
 
-    Defaults transfer s142 РЕШЕНИЕ-094 recipe (mack V_Fe AFM+U overnight success):
+    Defaults transfer s142 DECISION-094 recipe (mack V_Fe AFM+U overnight success):
       - nspin=2 (ferri A↑↓B mandatory; Kwon-Subedi 2011 + Devey 2009)
       - HUBBARD ortho-atomic, U Fe1-3d = U Fe2-3d = 1.0 eV (injected post-writer)
       - mixing_mode='plain', mixing_beta=0.05, mixing_ndim=12, mixing_fixed_ns=15
@@ -628,7 +628,7 @@ def make_calc(work_dir, label, kpts=(2, 2, 2),
       - mpirun ALWAYS prefixed (QE GPU mandatory)
 
     `starting_magnetization` is set via `atoms.set_initial_magnetic_moments()`
-    PRIOR к make_calc() call (см. apply_greigite_ferri_split). ASE writes per-species
+    PRIOR to the make_calc() call (see apply_greigite_ferri_split). ASE writes per-species
     block automatically when nspin=2.
 
     Returns GreigiteEspresso instance — hooks `normalise_split_labels_in_pwi` +
@@ -673,8 +673,8 @@ def make_calc(work_dir, label, kpts=(2, 2, 2),
             "conv_thr":         conv_thr,
             "mixing_mode":      mixing_mode,
             "mixing_beta":      mixing_beta,
-            "mixing_ndim":      mixing_ndim,         # GREIGITE NEW: РЕШЕНИЕ-094
-            "mixing_fixed_ns":  mixing_fixed_ns,     # GREIGITE NEW: РЕШЕНИЕ-094
+            "mixing_ndim":      mixing_ndim,         # GREIGITE NEW: DECISION-094
+            "mixing_fixed_ns":  mixing_fixed_ns,     # GREIGITE NEW: DECISION-094
             "electron_maxstep": electron_maxstep,
             "diagonalization":  diagonalization,
             "diago_thr_init":   diago_thr_init,      # GREIGITE NEW
@@ -726,7 +726,7 @@ def run_greigite(args):
 
     # GREIGITE FIX: unified ferri+U calc kwargs for pristine + endpoints + NEB.
     # Greigite ferri ground state requires nspin=2 + Hubbard EVERYWHERE (otherwise
-    # SCF collapses to non-magnetic). Recipe per s142 РЕШЕНИЕ-094 (mack V_Fe AFM+U).
+    # SCF collapses to non-magnetic). Recipe per s142 DECISION-094 (mack V_Fe AFM+U).
     pristine_calc_kwargs = dict(
         kpts=tuple(args.kpts),
         ecutwfc=args.ecutwfc,
@@ -759,7 +759,7 @@ def run_greigite(args):
         "code":      "QE PWSCF",
         "method":    f"PBE+U PWFFT, nspin=2 ferri A↑↓B, U_eff={args.U_eff} eV (Dudarev), ecutwfc={args.ecutwfc} Ry",
         "protocol":  "canonical V_Fe (octahedral 16d) + H lateral hop (greigite ferri+U), "
-                     "s148 V_Fe pivot после V_S+H deprecated per РЕШЕНИЕ-082 chemistry-signature",
+                     "s148 V_Fe pivot after V_S+H deprecated per DECISION-082 chemistry-signature",
         "kpts":      list(args.kpts),
         "ecutwfc":   args.ecutwfc,
         "ecutrho":   args.ecutrho,
@@ -772,10 +772,10 @@ def run_greigite(args):
         "n_images":  args.n_images,
         "fmax_neb":  args.fmax_neb,
         "fmax_endpoint": args.fmax_endpoint,
-        "decision_ref": "РЕШЕНИЕ-079 (Q-115) + РЕШЕНИЕ-082 chemistry-signature scope (s148) + "
-                        "РЕШЕНИЕ-094 AFM+U Tier 1 recipe (s142). "
+        "decision_ref": "DECISION-079 (Q-115) + DECISION-082 chemistry-signature scope (s148) + "
+                        "DECISION-094 AFM+U Tier 1 recipe (s142). "
                         "knowledge/MARCASITE_VSH_ARTIFACT_2026-05-20.md (V_S+H broken for thiospinels).",
-        "literature_anchor": "Liu 2021 ACS Omega L-650 V_Fe surface E_a=0.26 eV (extrapolated к octahedral V_Fe in thiospinel).",
+        "literature_anchor": "Liu 2021 ACS Omega L-650 V_Fe surface E_a=0.26 eV (extrapolated to octahedral V_Fe in thiospinel).",
     }
 
     # ---------- build + relax pristine ----------
@@ -783,7 +783,7 @@ def run_greigite(args):
     # REUSE_PRISTINE_ONLY: pristine loaded, endA/endB built fresh via V_Fe picker
     REUSE_FULL = args.reuse_relaxed is not None
     REUSE_PRISTINE_ONLY = (args.reuse_pristine is not None) and not REUSE_FULL
-    REUSE = REUSE_FULL  # alias для downstream pristine SP path
+    REUSE = REUSE_FULL  # alias for the downstream pristine SP path
     if REUSE_FULL:
         # ASE write() saves QE calc results (nspins, nkpts, eigenvalues, fermi_level, ...)
         # in extended xyz comment line. ASE read() then fails because SinglePointCalculator
@@ -793,7 +793,7 @@ def run_greigite(args):
         from ase.calculators.calculator import all_properties as _all_props
         _orig_spc_init = _sp.SinglePointCalculator.__init__
         def _patched_spc_init(self, atoms=None, **results):
-            # s150 FIX: kw arg `atoms` not `atoms_obj` для ASE NEB compatibility
+            # s150 FIX: kw arg `atoms` not `atoms_obj` for ASE NEB compatibility
             filtered = {k: v for k, v in results.items() if k in _all_props}
             _orig_spc_init(self, atoms, **filtered)
         _sp.SinglePointCalculator.__init__ = _patched_spc_init
@@ -806,7 +806,7 @@ def run_greigite(args):
         atoms = read(str(src / "relaxed_pristine.xyz"))
         pre_endA = read(str(src / "relaxed_endA.xyz"))
         pre_endB = read(str(src / "relaxed_endB.xyz"))
-        # Detach loaded SinglePointCalculator — мы attach новый QE calc для single-point
+        # Detach loaded SinglePointCalculator — we attach a new QE calc for single-point
         atoms.calc = None
         pre_endA.calc = None
         pre_endB.calc = None
@@ -817,8 +817,8 @@ def run_greigite(args):
               f"endB={pre_endB.get_chemical_formula()} {len(pre_endB)}at", flush=True)
         result["reuse_relaxed_from"] = str(src)
         # s150 FIX: ferri split metadata (fe_oct_indices/fe_tet_indices) NOT preserved in
-        # xyz round-trip — must re-apply на loaded pristine для V_Fe picker (Phase 3).
-        # Mirror логика из REUSE_PRISTINE_ONLY и fresh-build paths ниже.
+        # xyz round-trip — must re-apply on the loaded pristine for the V_Fe picker (Phase 3).
+        # Mirrors the logic from the REUSE_PRISTINE_ONLY and fresh-build paths below.
         if apply_greigite_ferri_split is None:
             raise RuntimeError(
                 "apply_greigite_ferri_split not available — afmu_singlepoint_greigite.py "
@@ -840,7 +840,7 @@ def run_greigite(args):
         from ase.calculators.calculator import all_properties as _all_props
         _orig_spc_init = _sp.SinglePointCalculator.__init__
         def _patched_spc_init(self, atoms=None, **results):
-            # s150 FIX: kw arg `atoms` not `atoms_obj` для ASE NEB compatibility
+            # s150 FIX: kw arg `atoms` not `atoms_obj` for ASE NEB compatibility
             filtered = {k: v for k, v in results.items() if k in _all_props}
             _orig_spc_init(self, atoms, **filtered)
         _sp.SinglePointCalculator.__init__ = _patched_spc_init
@@ -885,11 +885,11 @@ def run_greigite(args):
         if apply_greigite_ferri_split is None:
             raise RuntimeError(
                 "apply_greigite_ferri_split not available — afmu_singlepoint_greigite.py "
-                "must be on PYTHONPATH (deploy под /workspace/infra/gpu_scripts)."
+                "must be on PYTHONPATH (deploy under /workspace/infra/gpu_scripts)."
             )
-        # R1-FIX F6 (Chem S1): pass magmom_oct=-1.0 (was -0.9 default) для Devey -32 μB target net magnetization.
+        # R1-FIX F6 (Chem S1): pass magmom_oct=-1.0 (was -0.9 default) for the Devey -32 μB target net magnetization.
         # 8×(+5) + 16×(-4.5) = -32 μB/56at = -4 μB/fu (matches Devey 2009).
-        # Settled SCF value with -1.0 init may reach -4.5 μB (Kiejna 2024 Table 1 shows -3.51/+3.56 для PBE+U(1.0)).
+        # Settled SCF value with -1.0 init may reach -4.5 μB (Kiejna 2024 Table 1 shows -3.51/+3.56 for PBE+U(1.0)).
         atoms, sites, species_order, mag_list = apply_greigite_ferri_split(
             atoms, magmom_tet=+5.0, magmom_oct=-4.0,  # FIXED s150 R3: absolute μB per QE INPUT_PW.html (|val|>=1)
         )
@@ -897,7 +897,7 @@ def run_greigite(args):
         result["fe_oct_indices"] = list(sites["oct"])
         result["species_order_split"] = list(species_order)
         result["magmom_init_list"] = [float(m) for m in mag_list]
-        # R1-FIX F8 (Chem S4): magnetism class disclaimer для anchor comparison.
+        # R1-FIX F8 (Chem S4): magnetism class disclaimer for anchor comparison.
         result["magnetism_class"] = "ferrimagnetic_thiospinel_U=1.0_Dudarev"
         result["comparison_caveat"] = (
             "Direct E_a numeric comparison with nspin=1 anchors (pyrite/mack/pent/marcasite) "
@@ -916,7 +916,7 @@ def run_greigite(args):
 
     # PWFFT pristine relax: no Pulay forces => BFGS works cleanly with default maxstep.
     # If forces too high (build basis far from PBE-eq), BFGS may overshoot — fmax 0.03
-    # per РЕШЕНИЕ-079 endpoint target is paper-grade and achievable in PWFFT.
+    # per DECISION-079 endpoint target is paper-grade and achievable in PWFFT.
     if REUSE_FULL or REUSE_PRISTINE_ONLY:
         print(f"[2/6] Single-point pristine (REUSE — skip BFGS)", flush=True)
     else:
@@ -1008,14 +1008,14 @@ def run_greigite(args):
     result["hop_distance_A"] = float(hop_d)
 
     # ---------- PRE-FLIGHT GATES (s148, mandatory) ----------
-    # G1 Wyckoff inequivalence: marc precedent — different orbits для (V_Fe, S, S) triple
-    # G2 parity: PRISTINE Fe24 S32 = 24*16+32*6 = 576 e⁻ even — nspin=2 explicit для ferri
+    # G1 Wyckoff inequivalence: marc precedent — different orbits for the (V_Fe, S, S) triple
+    # G2 parity: PRISTINE Fe24 S32 = 24*16+32*6 = 576 e⁻ even — nspin=2 explicit for ferri
     # G3 pocket radius: exclude V_Fe self-distance (vacancy_is_metal=True)
     try:
         sys.path.insert(0, str(Path(__file__).resolve().parent))
         from neb_preflight_gates import run_pre_deploy_gates  # type: ignore
         gates_diag = run_pre_deploy_gates(
-            atoms,  # pristine cell с ferri magmoms
+            atoms,  # pristine cell with ferri magmoms
             V_S_index=sv,           # actually V_Fe site here
             S_i_index=si,
             S_k_index=sk,
@@ -1027,7 +1027,7 @@ def run_greigite(args):
         result["preflight_gates"] = gates_diag
     except ImportError as exc:
         print(f"[PRE-FLIGHT WARN] neb_preflight_gates import failed: {exc}. "
-              f"Continuing без gate check (NOT recommended).", flush=True)
+              f"Continuing without gate check (NOT recommended).", flush=True)
         result["preflight_gates"] = {"error": str(exc)}
 
     # ---------- endpoint A ----------
@@ -1063,7 +1063,7 @@ def run_greigite(args):
             raise RuntimeError(f"endA relax failed: {exc}") from exc
     h_idx_A = len(endA) - 1
     # C1: separate d_H_S_nearest + d_H_Fe_nearest + nearest_nonH identity
-    # (chemist MUST-FIX R2 — THE diagnostic для H1/H2/H3 classification)
+    # (chemist MUST-FIX R2 — THE diagnostic for H1/H2/H3 classification)
     syms_A = endA.get_chemical_symbols()
     all_d_A = [(j, syms_A[j], float(endA.get_distance(h_idx_A, j, mic=True)))
                for j in range(len(endA)) if j != h_idx_A]
@@ -1244,7 +1244,7 @@ def run_greigite(args):
     # R1-FIX F4 (Phys M2): SCF noise floor formula bug.
     # conv_thr in QE is total-energy noise (Ry), NOT per-electron. Multiplying by
     # n_elec_est over-estimated noise by 3 orders of magnitude (5e-3 eV vs real ~1.4e-5 eV)
-    # → Test A became BLIND к same-basin trap. Drop the × n_elec multiplier.
+    # → Test A became BLIND to the same-basin trap. Drop the × n_elec multiplier.
     scf_noise_floor_eV = float(args.conv_thr_endpoint * 13.6056)  # Ry → eV (total-E noise)
     result["scf_noise_floor_estimate_eV"] = scf_noise_floor_eV
     same_basin_risk = bool(
@@ -1288,17 +1288,17 @@ def run_greigite(args):
         result["t_total_s"] = time.time() - t_start
         return result
 
-    # C3: defensive check — endA.calc и endB.calc должны быть set before NEB
-    # (R1 CS finding: endB calc может detach после prewrap copy)
+    # C3: defensive check — endA.calc and endB.calc must be set before NEB
+    # (R1 CS finding: endB calc can detach after the prewrap copy)
     if endA.calc is None:
         raise RuntimeError("endA.calc is None before NEB — calculator was detached")
     if endB.calc is None:
         raise RuntimeError("endB.calc is None before NEB — calculator was detached after prewrap")
 
     # ---------- ASE issue #1130 fix: pre-wrap endB relative to endA ----------
-    # ASE pre-IDPP linear interp does NOT apply minimum-image для PBC.
+    # ASE pre-IDPP linear interp does NOT apply minimum-image for PBC.
     # Atoms whose endpoint position wraps across cell boundary get linearly
-    # interpolated через whole cell → atom overlaps → broken initial NEB path.
+    # interpolated through the whole cell → atom overlaps → broken initial NEB path.
     # Fix: pre-wrap endB so naive interp is already minimum-image.
     if args.idpp_prewrap:
         endB_unwrapped, n_unwrapped, prewrap_summary = prewrap_endpoint_for_idpp(
@@ -1308,7 +1308,7 @@ def run_greigite(args):
         result["idpp_prewrap_summary"] = prewrap_summary
         if n_unwrapped > 0:
             # CRITICAL: ASE Atoms.copy() does NOT preserve calc, but NEB.get_forces()
-            # требует endB.calc для FIRE iterations. Restore calc reference (energy
+            # requires endB.calc for FIRE iterations. Restore calc reference (energy
             # invariant under integer lattice translation, cached results valid).
             endB_unwrapped.calc = endB.calc
             endB = endB_unwrapped
@@ -1320,8 +1320,8 @@ def run_greigite(args):
     # ---------- CI-NEB ----------
     t0 = time.time()
     # s150 FIX: cleanup sp_*/tmp wfc — single-point reference results already in
-    # *.pwo files, tmp wfc not needed for Phase 6. Saves ~25 GB на 50 GB disk
-    # (greig W2 hit disk-full на image_06 1st run без этой очистки).
+    # *.pwo files, tmp wfc not needed for Phase 6. Saves ~25 GB on a 50 GB disk
+    # (greig W2 hit disk-full on image_06 1st run without this cleanup).
     import shutil as _shutil
     for sp_subdir in ("sp_pristine", "sp_endA", "sp_endB"):
         tmp_path = work_dir / sp_subdir / "tmp"
@@ -1436,8 +1436,8 @@ def run_greigite(args):
 
     # ---------- cross-refs ----------
     # GREIGITE FIX: sibling refs updated. No direct DFT-NEB V_S+H literature anchor
-    # exists для greigite (Roldan 2016 did H2O molecular adsorption, not V_S hop).
-    # Cross-link к marc/pyr siblings (different magnetism class — diamagnetic vs ferri).
+    # exists for greigite (Roldan 2016 did H2O molecular adsorption, not V_S hop).
+    # Cross-link to marc/pyr siblings (different magnetism class — diamagnetic vs ferri).
     result["sibling_anchors"] = {
         "pyrite_E_a_QE_96at_paper_eV": 0.0946,
         "marc_E_a_QE_96at_paper_eV":   "see s133/s134 output",
@@ -1450,7 +1450,7 @@ def run_greigite(args):
         "Canonical 1-vacancy V_S hop on greigite Fe3S4 (Fd-3m setting=2, "
         "conventional 56-atom cell, Z=8). Ferrimagnetic A↑↓B (Fe_tet 8a ↑ +5 μB / "
         "Fe_oct 16d ↓ -4 μB) + Hubbard U_eff=1.0 eV (Dudarev) on both Fe1-3d + Fe2-3d. "
-        "Recipe per s142 РЕШЕНИЕ-094 + Devey 2009 + Roldan-de Leeuw 2016. "
+        "Recipe per s142 DECISION-094 + Devey 2009 + Roldan-de Leeuw 2016. "
         "Full relax pristine + endpoints (NO FixAtoms). Phase 1: 1x1x1 (56at) smoke; "
         "Phase 2 optional: 2x1x1 = 112 atoms finite-size check."
     )
@@ -1494,16 +1494,16 @@ def main():
                         help="greigite supercell repeat nx ny nz "
                              "(default 1 1 1 = 56 atoms Phase 1; "
                              "use 2 1 1 = 112 atoms Phase 2 finite-size check)")
-    # GREIGITE FIX: paper-grade fmax tightened for ferri+U Tier 2 (РЕШЕНИЕ-094)
+    # GREIGITE FIX: paper-grade fmax tightened for ferri+U Tier 2 (DECISION-094)
     parser.add_argument("--fmax-pristine", type=float, default=0.05,
                         help="pristine relax fmax (eV/A) — greigite ferri+U Tier 2 default")
     parser.add_argument("--fmax-endpoint", type=float, default=0.05,
                         help="endpoint relax fmax (eV/A) — R1-FIX F7 (Chem S3): 0.03→0.05 "
                              "AFM+U thiospinel plateaus 0.1-0.3 typically, 0.05 paper-grade "
                              "per Consilium B marcasite precedent + LITERATURE_FINDINGS line 78. "
-                             "Tighten 0.03 only если smoke shows tight convergence (fmax<0.1 by iter 20).")
+                             "Tighten 0.03 only if smoke shows tight convergence (fmax<0.1 by iter 20).")
     parser.add_argument("--fmax-neb", type=float, default=0.05,
-                        help="NEB fmax (eV/A) — РЕШЕНИЕ-079: 0.05")
+                        help="NEB fmax (eV/A) — DECISION-079: 0.05")
     parser.add_argument("--max-steps-relax",    type=int, default=200)
     parser.add_argument("--max-steps-endpoint", type=int, default=500)
     parser.add_argument("--max-steps-neb",      type=int, default=500)
@@ -1516,10 +1516,10 @@ def main():
     parser.add_argument("--dyneb-scale-fmax", type=float, default=0.0,
                         help="ASE DyNEB scaled convergence factor. Default 0.0 keeps the same "
                              "fmax threshold for all images; tune only after a reference run.")
-    # hop_mode default = 'diagonal' для apples-to-apples с MACE s122 +
-    # ABACUS sibling (оба default 'diagonal' через args.mack_hop_mode).
-    # Q115 protocol §2.1 wording "nearest only" inconsistent с actual s122 finding
-    # (V_S=132,S_i=130,S_k=134 — это diagonal mode result). Verify w/ Q115 author later.
+    # hop_mode default = 'diagonal' for apples-to-apples with MACE s122 +
+    # ABACUS sibling (both default to 'diagonal' via args.mack_hop_mode).
+    # Q115 protocol §2.1 wording "nearest only" is inconsistent with the actual s122 finding
+    # (V_S=132,S_i=130,S_k=134 — this is a diagonal mode result). Verify w/ Q115 author later.
     parser.add_argument("--hop-mode", default="diagonal",
                         choices=["nearest", "diagonal", "antipodal"],
                         help="S-S hop topology (default diagonal — apples-to-apples "
@@ -1536,20 +1536,20 @@ def main():
                              "mid=midpoint of V_S pocket. R2 multi-start robustness check.")
     # QE-specific
     parser.add_argument("--ecutwfc", type=float, default=80.0,
-                        help="plane-wave cutoff Ry (FIXED s150 R3: 60→80 для Fe³⁺ HS d⁵ ONCV)")
+                        help="plane-wave cutoff Ry (FIXED s150 R3: 60→80 for Fe³⁺ HS d⁵ ONCV)")
     parser.add_argument("--ecutrho", type=float, default=320.0,
                         help="density cutoff Ry (FIXED s150 R3: 240→320, 4*ecutwfc ONCV-SR PBE)")
-    # GREIGITE FIX: s142 РЕШЕНИЕ-094 recipe — plain mixing β=0.05 + ndim=12 + fixed_ns=15
+    # GREIGITE FIX: s142 DECISION-094 recipe — plain mixing β=0.05 + ndim=12 + fixed_ns=15
     parser.add_argument("--mixing-beta", type=float, default=0.05,
-                        help="electron mixing (0.05 plain — s142 РЕШЕНИЕ-094 greigite ferri+U; "
+                        help="electron mixing (0.05 plain — s142 DECISION-094 greigite ferri+U; "
                              "0.2 default too aggressive for charged ferri Fe³⁺ HS")
     parser.add_argument("--mixing-mode", default="plain",
                         choices=["plain", "TF", "local-TF"],
                         help="electron mixing mode (plain=Broyden — s142 transferable recipe; "
                              "local-TF if endpoint SCF stalls)")
-    # R1-FIX F1 (Chem M1): degauss 0.0015→0.01 Ry per s142 mack-validated РЕШЕНИЕ-094.
-    # Roldan VASP ISMEAR=-5 (tetrahedron) ≠ QE gaussian — 0.0015 Ry too narrow для
-    # ferri+U half-metal SCF на sparse k-mesh. s142 mack overnight success used 0.01.
+    # R1-FIX F1 (Chem M1): degauss 0.0015→0.01 Ry per s142 mack-validated DECISION-094.
+    # Roldan VASP ISMEAR=-5 (tetrahedron) ≠ QE gaussian — 0.0015 Ry too narrow for
+    # ferri+U half-metal SCF on a sparse k-mesh. s142 mack overnight success used 0.01.
     parser.add_argument("--smearing", default="gaussian",
                         choices=["gaussian", "mp", "mv", "fd"],
                         help="smearing type (gaussian default; mv/mp would smear greigite "
@@ -1557,12 +1557,12 @@ def main():
     parser.add_argument("--degauss", type=float, default=0.005,
                         help="smearing width Ry (FIXED s150 R3: 0.01→0.005, ≡ 68 meV — "
                              "Wu 2018 VASP ISMEAR=0/SIGMA=0.05 eV equivalent. 0.01 was too "
-                             "wide для half-metallic gap 0.3-0.4 eV (Kiejna 2024) — smeared gap; "
+                             "wide for half-metallic gap 0.3-0.4 eV (Kiejna 2024) — smeared gap; "
                              "0.001 too aggressive — SCF stiffness)")
     # GREIGITE FIX: conv_thr=1e-6 Ry Tier 2 production (Roldan/Devey precedent)
     parser.add_argument("--conv-thr-endpoint", type=float, default=1.0e-6,
                         help="SCF threshold for endpoint relax (Tier 2 paper-grade; 1e-8 "
-                             "too tight для greigite ferri+U — SCF won't reach в 200 steps)")
+                             "too tight for greigite ferri+U — SCF won't reach it in 200 steps)")
     parser.add_argument("--conv-thr-neb", type=float, default=1.0e-5,
                         help="SCF threshold for NEB images (slightly relaxed vs endpoint)")
     # GREIGITE NEW: Hubbard U_eff (Dudarev simplified, applied to Fe1-3d + Fe2-3d)
@@ -1611,13 +1611,13 @@ def main():
                              "duplicate work after smoke (--skip-neb).")
     # s148 NEW (V_Fe pivot): pristine-only reuse
     parser.add_argument("--reuse-pristine", default=None,
-                        help="Path к relaxed_pristine.xyz (file or dir). Skip pristine "
+                        help="Path to relaxed_pristine.xyz (file or dir). Skip pristine "
                              "BFGS only; endA/endB built fresh via V_Fe picker. "
                              "NOTE: pristine XYZ does NOT include ferri split labels — "
                              "apply_greigite_ferri_split runs after load. NEW s148.")
     parser.add_argument("--fe-s-max", type=float, default=2.85,
                         help="Fe_oct-S neighbour cutoff (greigite Fe_oct-S ~2.46 nominal, "
-                             "2.85 safe для post-relax thermal expansion).")
+                             "2.85 safe for post-relax thermal expansion).")
     parser.add_argument("--expected-n-s", type=int, default=6,
                         help="Expected S neighbours per V_Fe_oct (greigite octahedral = 6).")
     # ASE GitLab issue #1130 fix: pre-wrap endB endpoint so naive linear
@@ -1674,7 +1674,7 @@ def main():
               flush=True)
         print(f"conv_thr endpoint={args.conv_thr_endpoint}, neb={args.conv_thr_neb}",
               flush=True)
-        print(f"mixing_mode={args.mixing_mode} beta={args.mixing_beta} (s142 РЕШЕНИЕ-094)",
+        print(f"mixing_mode={args.mixing_mode} beta={args.mixing_beta} (s142 DECISION-094)",
               flush=True)
         print(f"U_eff={args.U_eff} eV on Fe1-3d + Fe2-3d (Devey 2009 / Roldan 2016)",
               flush=True)
@@ -1687,7 +1687,7 @@ def main():
             print(f"REUSE_RELAXED={args.reuse_relaxed} — skip BFGS, single-point + NEB",
                   flush=True)
         print(f"idpp_prewrap={args.idpp_prewrap} (ASE issue #1130 fix)", flush=True)
-        print(f"РЕШЕНИЕ-079 + РЕШЕНИЕ-094 (s142): nspin=2 ferri A↑↓B + U=1.0 eV",
+        print(f"DECISION-079 + DECISION-094 (s142): nspin=2 ferri A↑↓B + U=1.0 eV",
               flush=True)
         print("=" * 70, flush=True)
 
@@ -1719,7 +1719,7 @@ def main():
 
 
 if __name__ == "__main__":
-    # V_Fe pivot per РЕШЕНИЕ-082 — V_S+H deprecated для greigite. This script
+    # V_Fe pivot per DECISION-082 — V_S+H deprecated for greigite. This script
     # uses V_Fe (octahedral 16d) RC + pre-flight gates (G1/G2/G3). No deprecation
     # guard needed for this variant.
     main()

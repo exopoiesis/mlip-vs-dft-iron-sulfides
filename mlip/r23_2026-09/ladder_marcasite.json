@@ -435,7 +435,7 @@
    "p_exact": 0.625,
    "p_min_attainable": 0.0078,
    "distinguishable": false,
-   "verdict": "ни одна ступень не восстанавливает: ПРЕДЕЛ ПРЕДСТАВЛЕНИЯ/ЁМКОСТИ при этом бюджете  [ДИ содержит ноль -> ступени НЕРАЗЛИЧИМЫ, писать так]"
+   "verdict": "no rung recovers: LIMIT OF REPRESENTATION/CAPACITY at this budget  [95% CI contains zero -> rungs are INDISTINGUISHABLE, state it as such]"
   },
   "neb": {
    "n_pairs": 3,

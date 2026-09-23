@@ -11,7 +11,7 @@ mode then carries real H amplitude ALONG the S18->S71 axis -> transfer mode
 Also: a soft flat-top + S-compression mode can signal a shallow mu-S-H-S bridge
 intermediate the symmetric NEB smeared over (mackinawite lesson, Igor s158).
 
-Runs MACE-MP-0 large on the DFT saddle GEOMETRY (v5_saddle_image4.xyz). $0 on gomer.
+Runs MACE-MP-0 large on the DFT saddle GEOMETRY (v5_saddle_image4.xyz). $0 on a local GPU node.
 Reports per-atom amplitude breakdown of each imaginary mode + H axis projection +
 saves eigenvector. NOT a DFT result -- a seed/diagnostic to design the DFT dimer.
 """

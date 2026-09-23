@@ -1,4 +1,19 @@
 """
+⚠️ THIS FILE DOES NOT EXECUTE AS DEPOSITED.
+
+Its indentation was flattened and at least one expression lost its right-hand side
+(`s_neighbours =` on the line below) in a file transfer before the first release, so the
+module raises IndentationError on import. It is kept in place rather than removed because
+it documents the plotting machinery used for Figure 3, but it is not the version that
+produced the deposited image.
+
+What is usable here instead:
+  * figures/fig3_pent_endpoints.{png,pdf,svg} - the rendered figure itself;
+  * data/structures/pentlandite_end{A,B}.extxyz - the endpoint geometries it draws;
+  * mlip/mlip_pent_endpoint_scan_vfe.py - the scan that produced the cubane-failure numbers
+    quoted in the paper.
+"""
+"""
 Figure 3 — Pentlandite foundation-MLIP cubane failure mode.
 
 ⚠️ NEEDS REDRAW (2026-06-01 pentlandite scope change). The V_Fe + S–H DFT

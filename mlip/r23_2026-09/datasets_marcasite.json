@@ -373,7 +373,7 @@
     },
     "S3solo": {
       "n_holdout_configs": 8,
-      "note": "валидация = обучение; это ПОДГОНКА, контроль ёмкости, не обобщение",
+      "note": "validation = training; this is FITTING, a capacity control, not generalization",
       "per_seed": {
         "1": {
           "n_train": 8,

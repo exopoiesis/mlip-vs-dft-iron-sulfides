@@ -6,8 +6,10 @@ from pathlib import Path
 import json
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_JSON = ROOT / "results/mlip_active_learning/gomer_s132_vfe_scan/chgnet/chgnet_mack_vfe_scan.json"
-NONE_JSON = ROOT / "results/mlip_active_learning/gomer_s132_mack_vfe_chgnet_none/chgnet_mack_vfe_scan_none.json"
+# NOTE: the two inputs below are outputs of a local topology scan that is NOT part of
+# this deposit; the paths describe the original working layout and will not resolve here.
+DEFAULT_JSON = ROOT / "results/mlip_active_learning/s132_vfe_scan/chgnet/chgnet_mack_vfe_scan.json"
+NONE_JSON = ROOT / "results/mlip_active_learning/s132_mack_vfe_chgnet_none/chgnet_mack_vfe_scan_none.json"
 
 def categorize(j):
     rows = []
