@@ -1,8 +1,19 @@
 # Software environments for the nine-model MLIP benchmark (2026-09)
 
-Exact package versions for every foundation-potential number in the paper, recorded **from the runs
-themselves** rather than assembled afterwards. Each `env_*.txt` is a verbatim `pip freeze` taken on the
-machine that produced the corresponding results.
+Exact package versions for every number in the **nine-model benchmark** (paper §3.6, Table 5),
+recorded **from the runs themselves** rather than assembled afterwards. Each `env_*.txt` is a verbatim
+`pip freeze` taken on the machine that produced the corresponding results.
+
+> **These three freezes do not cover the whole paper, and we say so rather than let the versions be
+> read across.** The MACE-MP-0 and CHGNet numbers of §3.1–§3.5 (Table 2, the self-consistent bands)
+> and the fine-tuning ladder of §3.7 ran earlier, on a different and older stack: **`mace-torch`
+> 0.3.15, `chgnet` 0.4.2, PyTorch 2.5.1+cu124, ASE 3.23.0, Python 3.10.12, CUDA 12.4** — the
+> container `pytorch/pytorch:2.5.1-cuda12.4-cudnn9-runtime` for the two-model work on an RTX 4070,
+> and `exopoiesis/infra-mace-gpu` on an A100 for the ladder. That stack is recorded in the script
+> headers (`mlip/multi_endpoint_relax_chgnet.py`), in `mlip/r23_2026-09/README.md`, and in §2.1 of
+> the paper; no `pip freeze` was captured at the time, and we do not manufacture one now from a
+> rebuilt image, because it would not be the environment that ran. Note in particular that
+> **`mace-torch` differs between the two stacks** (0.3.15 against 0.3.16 here).
 
 ---
 
