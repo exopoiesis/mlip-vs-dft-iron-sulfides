@@ -177,7 +177,7 @@ energies/frequencies behind the paper's tables and figures.
 ## Citing
 
 See `CITATION.cff`. Current archived release: **v1.3**, Zenodo DOI
-[10.5281/zenodo.22912908](https://doi.org/10.5281/zenodo.22912908).
+[10.5281/zenodo.22919796](https://doi.org/10.5281/zenodo.22919796).
 
 **Cite the release that matches the numbers you use.** These are version-specific DOIs by choice, not
 all-versions DOIs, because published numbers changed between releases. Archived predecessors:
