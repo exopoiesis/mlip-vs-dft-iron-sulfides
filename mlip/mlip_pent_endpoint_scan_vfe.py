@@ -1,4 +1,15 @@
 #!/usr/bin/env python3
+# ============================================================================
+# WITHDRAWN (2026-09-23). This script operates on a pentlandite model that does not
+# reproduce the pentlandite structure: the octahedral metal sits at Wyckoff 4a instead
+# of 4b, the tetrahedral metal at 32f with x = 0.356 instead of 0.1261, and all sulfur
+# on a single 32f orbit instead of the 8c and 24e sites pentlandite actually has.
+# Composition and site multiplicities are correct either way, which is why the error
+# went unnoticed; the coordination is not (3 S at the tetrahedral metal and 8 at the
+# octahedral one, against 4 and 6). All results derived from it are withdrawn - see
+# manuscript section 3.3 and mlip/PENTLANDITE_WITHDRAWN.md. The correct structure is
+# built by mlip/pentlandite_structure_verified.py.
+# ============================================================================
 """V_Fe + H endpoint basin scan for PENTLANDITE (Fe9S8).
 
 Adapted from mlip_mack_endpoint_scan_vfe.py (s132): same V_Fe+H methodology,

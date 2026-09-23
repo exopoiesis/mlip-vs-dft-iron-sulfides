@@ -27,7 +27,7 @@ Code and data accompanying the manuscript:
 
 We benchmark foundation machine-learning interatomic potentials, zero-shot, against plane-wave DFT (Quantum
 ESPRESSO) for **vacancy-anchored proton (neutral H⁰ proxy) migration** across four iron sulfides spanning the
-natural diagenetic series, plus a pentlandite structural-motif diagnostic. The core comparison uses
+natural diagenetic series. The core comparison uses
 **MACE-MP-0 (large)** and **CHGNet-v0.3.0**; a second pass extends it to **nine checkpoints across five DFT
 bands** (45 model×band measurements). We establish a unified PBE (U = 0) DFT reference landscape, report the
 first harmonic zero-point corrections for *bulk* vacancy-anchored proton migration in iron sulfides, and
@@ -37,7 +37,7 @@ document three distinct, diagnosable foundation-MLIP failure modes.
 
 | Mineral | Reaction coordinate | E_a (electronic) | E_a (ZPE-corr.) | Foundation-MLIP outcome |
 |---|---|---|---|---|
-| Pyrite (Pa-3̄) | V_S pocket, Fe→Fe hydride hop | 94.6 meV | — | both potentials merge the two Fe minima when endpoints are seeded from sulfur, so no barrier is defined |
+| Pyrite (Pa-3̄) | V_S pocket, Fe→Fe hydrogen transfer | 94.6 meV | — | both potentials merge the two Fe minima when endpoints are seeded from sulfur, so no barrier is defined |
 | Pyrite (Pa-3̄) | V_Fe + S–H | 268 meV | 173 meV | with own-surface endpoints: MACE within ~12 meV, CHGNet +119 meV |
 | Mackinawite (P4/nmm) | V_Fe + S–H | 42.9 meV | ≈ 0 (barrierless) | **all nine** models overestimate the smallest barrier in the series, by 1.75–9.66× |
 | Marcasite (Pnnm) | V_Fe + S–H | 208 meV | 123 meV | MACE reproduces barrier and reaction energy inside the reference's own ±15 meV magnetic-sheet uncertainty |
@@ -73,8 +73,31 @@ DFT. Verified not to be an artefact of training length: the same hyperparameters
 held-out error at +51.6 ± 18.8 meV. A second ladder (marcasite held out) is deposited but **not interpreted**
 — it fails the preregistered schedule gate, and the README in that directory explains why.
 
-(Pentlandite V_Fe barrier requires nspin = 2 and is developed in a companion magnetic-framework study; the
-[Fe₄S₄] cubane structural-motif MLIP failure is documented here.)
+(Pentlandite was part of this benchmark through release v1.3 and is **withdrawn in v1.4**: the cell used
+for it does not reproduce the pentlandite structure. See `mlip/PENTLANDITE_WITHDRAWN.md`.)
+
+## Withdrawn in v1.4 — pentlandite
+
+Every pentlandite artefact in this repository was computed on a cell that reproduces the
+composition of pentlandite but not its structure: the octahedral metal sits at Wyckoff 4a
+instead of 4b, the tetrahedral metal at 32f with x = 0.356 instead of 0.1261, and all sulfur
+on a single 32f orbit instead of the 8c and 24e sites pentlandite actually has. Composition
+and site multiplicities come out right either way — 36 metals and 32 sulfurs give Fe₉S₈ — so
+every composition check passed; the coordination does not (3 S at the tetrahedral metal and
+8 at the octahedral one, against 4 and 6).
+
+**Nothing is deleted.** Releases v1.0–v1.3 contain these files and may have been cited, so they
+are flagged in place: `meta_RETRACTED` in the two `data/structures/pentlandite_end*.extxyz`,
+a header in `mlip/mlip_pent_*.py` and `tm-spec/pent_vfe_neb.tm.yaml`, and the former Figure 3
+renamed to `figures/withdrawn_pentlandite_endpoints.py`. The full account, including what the
+"3 + 3 cubane collapse" actually was, is in **`mlip/PENTLANDITE_WITHDRAWN.md`**.
+
+`mlip/pentlandite_structure_verified.py` builds the mineral correctly from the published
+Wyckoff positions and refuses to return a cell whose metal coordination is wrong.
+
+**The four minerals that carry every barrier here are unaffected** and were re-checked against
+published crystallography: pyrite, marcasite, mackinawite and greigite all show the expected
+coordination in their deposited structures. No barrier, benchmark or fine-tuning number changes.
 
 ## Repository layout
 
