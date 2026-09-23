@@ -1,0 +1,11700 @@
+{
+ "S0": {
+  "model": "/root/.cache/mace/MACE_MPtrj_20229model",
+  "tag": "S0",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     14.773,
+     41.597,
+     131.888,
+     221.142,
+     131.852,
+     41.581,
+     14.771,
+     0.074
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 221.14,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -14.82,
+    "dE_rxn_meV": 0.07,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.07,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.1359,
+     0.1354,
+     0.1342,
+     0.1332,
+     0.1392,
+     0.1332,
+     0.1342,
+     0.1354,
+     0.1358
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     26.345,
+     131.929,
+     291.076,
+     435.034,
+     291.069,
+     132.007,
+     26.444,
+     0.051
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 435.03,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -131.8,
+    "dE_rxn_meV": 0.05,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.05,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.1359,
+     0.1346,
+     0.1335,
+     0.1357,
+     0.1432,
+     0.1357,
+     0.1335,
+     0.1345,
+     0.1358
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     31.427,
+     54.645,
+     96.997,
+     191.995,
+     112.624,
+     60.195,
+     31.459,
+     0.028
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 192.0,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 149.12,
+    "dE_rxn_meV": 0.03,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.04,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0928,
+     0.0969,
+     0.1001,
+     0.1055,
+     0.1286,
+     0.1079,
+     0.1009,
+     0.0969,
+     0.0928
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     56.787,
+     171.187,
+     240.958,
+     253.354,
+     166.956,
+     53.078,
+     4.216,
+     -5.288
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 253.35,
+    "E_a_dft_meV": 94.59,
+    "err_meV": 158.77,
+    "dE_rxn_meV": -5.29,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": -5.52,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0881,
+     0.096,
+     0.0968,
+     0.0971,
+     0.1036,
+     0.1065,
+     0.1064,
+     0.0918,
+     0.0879
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -5.29,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     26.353,
+     53.987,
+     171.865,
+     24.555,
+     -129.628,
+     -191.345,
+     -206.695
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 171.86,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -36.29,
+    "dE_rxn_meV": -206.7,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": -62.25,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.2258,
+     0.2286,
+     0.2262,
+     0.2147,
+     0.2082,
+     0.2075,
+     0.2077,
+     0.2082
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": false,
+    "min_profile_meV": -206.7,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -863.1022337685916,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -853.8849837594781,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -570.6272783970709,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 9217.25
+  },
+  "neb_selfconsistent": {
+   "converged": true,
+   "profile_meV": [
+    0.0,
+    2.759,
+    36.709,
+    96.351,
+    108.482,
+    96.361,
+    36.723,
+    2.762,
+    -0.002
+   ],
+   "E_a_meV": 108.48,
+   "E_a_dft_meV": 42.88,
+   "err_meV": 65.6,
+   "saddle_image": 4,
+   "endpoint_relax_meV": [
+    129679170.6,
+    129679170.61
+   ]
+  }
+ },
+ "S1_s1": {
+  "model": "/work/runs/S1_s1/S1_s1.model",
+  "tag": "S1_s1",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     7.847,
+     35.578,
+     112.889,
+     200.814,
+     112.884,
+     35.578,
+     7.847,
+     -0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 200.81,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -35.15,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0183,
+     0.0163,
+     0.0164,
+     0.0185,
+     0.0142,
+     0.0185,
+     0.0164,
+     0.0163,
+     0.0183
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     21.173,
+     104.882,
+     260.78,
+     429.058,
+     260.768,
+     104.881,
+     21.175,
+     -0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 429.06,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -137.77,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0183,
+     0.0182,
+     0.0241,
+     0.0309,
+     0.0205,
+     0.0309,
+     0.0241,
+     0.0182,
+     0.0183
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     19.79,
+     34.696,
+     62.457,
+     128.95,
+     73.182,
+     38.437,
+     19.829,
+     0.01
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 128.95,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 86.07,
+    "dE_rxn_meV": 0.01,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.02,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0467,
+     0.0483,
+     0.0502,
+     0.0532,
+     0.063,
+     0.0544,
+     0.0506,
+     0.0484,
+     0.0467
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     10.001,
+     38.715,
+     61.913,
+     69.096,
+     51.286,
+     25.729,
+     9.198,
+     0.821
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 69.1,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -25.49,
+    "dE_rxn_meV": 0.82,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": 0.59,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0152,
+     0.0137,
+     0.0143,
+     0.0143,
+     0.0143,
+     0.0145,
+     0.0146,
+     0.0145,
+     0.0157
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     27.591,
+     79.45,
+     188.589,
+     89.206,
+     -24.684,
+     -79.807,
+     -92.744
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 188.59,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -19.57,
+    "dE_rxn_meV": -92.74,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 51.7,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0186,
+     0.0179,
+     0.021,
+     0.0165,
+     0.0197,
+     0.0166,
+     0.0139,
+     0.0141
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -92.74,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -872.7272044805712,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -867.2988546637323,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -570.7216142770424,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 5428.35
+  },
+  "neb_selfconsistent": {
+   "converged": true,
+   "profile_meV": [
+    0.0,
+    -2.541,
+    17.216,
+    67.519,
+    88.826,
+    67.521,
+    17.221,
+    -2.539,
+    -0.002
+   ],
+   "E_a_meV": 88.83,
+   "E_a_dft_meV": 42.88,
+   "err_meV": 45.95,
+   "saddle_image": 4,
+   "endpoint_relax_meV": [
+    129694438.1,
+    129694438.11
+   ]
+  }
+ },
+ "S1_s2": {
+  "model": "/work/runs/S1_s2/S1_s2.model",
+  "tag": "S1_s2",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     11.921,
+     44.897,
+     135.327,
+     233.463,
+     135.322,
+     44.896,
+     11.921,
+     -0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 233.46,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -2.5,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0154,
+     0.0122,
+     0.0147,
+     0.0224,
+     0.0114,
+     0.0224,
+     0.0147,
+     0.0122,
+     0.0154
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     20.991,
+     110.934,
+     294.307,
+     520.443,
+     294.292,
+     110.933,
+     20.989,
+     -0.0
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 520.44,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -46.39,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0154,
+     0.0149,
+     0.0195,
+     0.0224,
+     0.0144,
+     0.0224,
+     0.0195,
+     0.0149,
+     0.0154
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     17.437,
+     31.565,
+     58.473,
+     119.429,
+     68.876,
+     35.211,
+     17.476,
+     0.004
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 119.43,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 76.55,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.01,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0545,
+     0.056,
+     0.0574,
+     0.0594,
+     0.0639,
+     0.06,
+     0.0577,
+     0.056,
+     0.0545
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     10.748,
+     42.074,
+     69.228,
+     78.2,
+     57.687,
+     27.986,
+     9.327,
+     0.831
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 78.2,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -16.39,
+    "dE_rxn_meV": 0.83,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": 0.6,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0109,
+     0.0099,
+     0.0099,
+     0.0095,
+     0.0097,
+     0.0107,
+     0.0117,
+     0.0098,
+     0.0112
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     20.816,
+     74.84,
+     186.75,
+     81.391,
+     -30.593,
+     -83.425,
+     -95.087
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 186.75,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -21.41,
+    "dE_rxn_meV": -95.09,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 49.36,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0138,
+     0.0158,
+     0.0208,
+     0.0136,
+     0.0175,
+     0.0143,
+     0.0107,
+     0.0096
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -95.09,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -872.7478198120865,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -867.9884953867285,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -571.1151064779385,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 4759.32
+  },
+  "neb_selfconsistent": {
+   "converged": true,
+   "profile_meV": [
+    0.0,
+    -3.001,
+    22.971,
+    72.493,
+    91.355,
+    72.496,
+    22.976,
+    -3.0,
+    -0.002
+   ],
+   "E_a_meV": 91.36,
+   "E_a_dft_meV": 42.88,
+   "err_meV": 48.48,
+   "saddle_image": 4,
+   "endpoint_relax_meV": [
+    129697438.21,
+    129697438.22
+   ]
+  }
+ },
+ "S1_s3": {
+  "model": "/work/runs/S1_s3/S1_s3.model",
+  "tag": "S1_s3",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     8.68,
+     31.049,
+     90.571,
+     176.083,
+     90.567,
+     31.05,
+     8.68,
+     -0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 176.08,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -59.88,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0161,
+     0.0137,
+     0.0144,
+     0.0159,
+     0.0116,
+     0.0159,
+     0.0144,
+     0.0137,
+     0.0161
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     15.38,
+     91.593,
+     261.84,
+     447.872,
+     261.827,
+     91.592,
+     15.379,
+     -0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 447.87,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -118.96,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0161,
+     0.0162,
+     0.0204,
+     0.0229,
+     0.016,
+     0.0229,
+     0.0204,
+     0.0162,
+     0.0161
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     10.871,
+     20.084,
+     39.685,
+     97.015,
+     47.993,
+     22.515,
+     10.838,
+     0.008
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 97.02,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 54.14,
+    "dE_rxn_meV": 0.01,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.02,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0336,
+     0.0336,
+     0.0355,
+     0.0391,
+     0.0504,
+     0.0404,
+     0.0359,
+     0.0336,
+     0.0336
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     7.64,
+     32.465,
+     55.118,
+     62.329,
+     45.877,
+     24.824,
+     10.061,
+     1.223
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 62.33,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -32.26,
+    "dE_rxn_meV": 1.22,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": 0.99,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0117,
+     0.0104,
+     0.0112,
+     0.0109,
+     0.0113,
+     0.0121,
+     0.0118,
+     0.0102,
+     0.0118
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     17.956,
+     65.666,
+     176.443,
+     72.211,
+     -39.312,
+     -87.584,
+     -96.913
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 176.44,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -31.72,
+    "dE_rxn_meV": -96.91,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 47.53,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0159,
+     0.0156,
+     0.0214,
+     0.0163,
+     0.0193,
+     0.0156,
+     0.0125,
+     0.0119
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -96.91,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -875.3874111656203,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -870.1615044843799,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -570.9891739024716,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 5225.91
+  },
+  "neb_selfconsistent": {
+   "converged": true,
+   "profile_meV": [
+    0.0,
+    -6.275,
+    4.584,
+    31.974,
+    47.623,
+    31.982,
+    4.586,
+    -6.274,
+    -0.003
+   ],
+   "E_a_meV": 47.62,
+   "E_a_dft_meV": 42.88,
+   "err_meV": 4.74,
+   "saddle_image": 4,
+   "endpoint_relax_meV": [
+    129696869.68,
+    129696869.68
+   ]
+  }
+ },
+ "S1_s4": {
+  "model": "/work/runs/S1_s4/S1_s4.model",
+  "tag": "S1_s4",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     10.223,
+     38.959,
+     116.935,
+     197.909,
+     116.931,
+     38.96,
+     10.223,
+     -0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 197.91,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -38.06,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0178,
+     0.0152,
+     0.0158,
+     0.0197,
+     0.0136,
+     0.0197,
+     0.0158,
+     0.0152,
+     0.0178
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     20.284,
+     109.234,
+     296.97,
+     512.073,
+     296.956,
+     109.232,
+     20.286,
+     -0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 512.07,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -54.76,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0178,
+     0.0176,
+     0.0208,
+     0.0248,
+     0.0186,
+     0.0248,
+     0.0208,
+     0.0176,
+     0.0178
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     16.887,
+     30.243,
+     55.261,
+     112.647,
+     64.966,
+     33.661,
+     16.911,
+     0.005
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 112.65,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 69.77,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.01,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0531,
+     0.0544,
+     0.0561,
+     0.0589,
+     0.0656,
+     0.0597,
+     0.0564,
+     0.0545,
+     0.0531
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     11.125,
+     41.815,
+     67.358,
+     75.244,
+     54.82,
+     26.93,
+     9.135,
+     0.781
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 75.24,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -19.34,
+    "dE_rxn_meV": 0.78,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": 0.55,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0126,
+     0.0117,
+     0.0121,
+     0.012,
+     0.0122,
+     0.0126,
+     0.013,
+     0.012,
+     0.0131
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     26.848,
+     79.508,
+     197.62,
+     85.625,
+     -30.456,
+     -83.257,
+     -95.193
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 197.62,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -10.54,
+    "dE_rxn_meV": -95.19,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 49.25,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0159,
+     0.017,
+     0.021,
+     0.0162,
+     0.0191,
+     0.0155,
+     0.0128,
+     0.0126
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -95.19,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -871.3735662257546,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -866.428725944301,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -570.790403084525,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 4944.84
+  }
+ },
+ "S1_s5": {
+  "model": "/work/runs/S1_s5/S1_s5.model",
+  "tag": "S1_s5",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     13.722,
+     52.512,
+     134.145,
+     227.067,
+     134.141,
+     52.512,
+     13.722,
+     -0.002
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 227.07,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -8.9,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0169,
+     0.0148,
+     0.0175,
+     0.0165,
+     0.0122,
+     0.0166,
+     0.0175,
+     0.0148,
+     0.0169
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     22.357,
+     121.577,
+     325.001,
+     537.498,
+     324.987,
+     121.574,
+     22.354,
+     -0.002
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 537.5,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -29.33,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0169,
+     0.0163,
+     0.0192,
+     0.0227,
+     0.0173,
+     0.0227,
+     0.0192,
+     0.0163,
+     0.0169
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     15.443,
+     27.071,
+     49.659,
+     114.482,
+     59.084,
+     30.057,
+     15.428,
+     0.003
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 114.48,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 71.6,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.01,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.066,
+     0.0667,
+     0.0675,
+     0.0693,
+     0.0761,
+     0.07,
+     0.0677,
+     0.0667,
+     0.066
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     13.375,
+     48.328,
+     77.716,
+     86.4,
+     62.445,
+     30.239,
+     9.817,
+     0.784
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 86.4,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -8.19,
+    "dE_rxn_meV": 0.78,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": 0.55,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0128,
+     0.0109,
+     0.011,
+     0.011,
+     0.0112,
+     0.0118,
+     0.0119,
+     0.0117,
+     0.0131
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     30.067,
+     76.837,
+     168.95,
+     59.18,
+     -47.643,
+     -99.351,
+     -109.059
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 168.95,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -39.21,
+    "dE_rxn_meV": -109.06,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 35.38,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.015,
+     0.0151,
+     0.0177,
+     0.0141,
+     0.0175,
+     0.0147,
+     0.0123,
+     0.0118
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -109.06,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -874.3393044425745,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -868.6857896918173,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -571.0277276811177,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 5653.51
+  }
+ },
+ "S1_s6": {
+  "model": "/work/runs/S1_s6/S1_s6.model",
+  "tag": "S1_s6",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     -0.894,
+     11.202,
+     70.097,
+     143.569,
+     70.093,
+     11.203,
+     -0.894,
+     -0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 143.57,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -92.4,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0173,
+     0.0158,
+     0.0146,
+     0.0154,
+     0.0111,
+     0.0155,
+     0.0146,
+     0.0158,
+     0.0173
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.89,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     13.032,
+     78.269,
+     215.119,
+     388.422,
+     215.108,
+     78.268,
+     13.034,
+     -0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 388.42,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -178.41,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0173,
+     0.0175,
+     0.0244,
+     0.0241,
+     0.015,
+     0.0241,
+     0.0244,
+     0.0175,
+     0.0173
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     11.418,
+     20.81,
+     39.428,
+     90.99,
+     47.171,
+     23.302,
+     11.415,
+     -0.002
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 90.99,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 48.11,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.01,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0647,
+     0.0655,
+     0.0662,
+     0.068,
+     0.0733,
+     0.0686,
+     0.0664,
+     0.0655,
+     0.0647
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     9.57,
+     37.757,
+     62.932,
+     71.061,
+     51.123,
+     24.791,
+     8.485,
+     0.88
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 71.06,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -23.53,
+    "dE_rxn_meV": 0.88,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": 0.65,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.012,
+     0.0107,
+     0.0113,
+     0.011,
+     0.011,
+     0.0117,
+     0.0117,
+     0.0109,
+     0.0124
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     16.984,
+     52.699,
+     145.907,
+     50.67,
+     -42.976,
+     -83.721,
+     -91.873
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 145.91,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -62.25,
+    "dE_rxn_meV": -91.87,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 52.57,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0165,
+     0.0168,
+     0.018,
+     0.0146,
+     0.0208,
+     0.0168,
+     0.014,
+     0.0133
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -91.87,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -871.5266924075141,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -866.9454773966048,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -570.8734665986378,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 4581.22
+  }
+ },
+ "S1_s7": {
+  "model": "/work/runs/S1_s7/S1_s7.model",
+  "tag": "S1_s7",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     10.571,
+     38.482,
+     114.683,
+     242.515,
+     114.678,
+     38.483,
+     10.571,
+     -0.0
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 242.51,
+    "E_a_dft_meV": 235.97,
+    "err_meV": 6.55,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0173,
+     0.014,
+     0.0141,
+     0.0202,
+     0.0111,
+     0.0202,
+     0.0141,
+     0.014,
+     0.0173
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     14.79,
+     94.294,
+     274.204,
+     494.492,
+     274.19,
+     94.294,
+     14.791,
+     -0.0
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 494.49,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -72.34,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0173,
+     0.0167,
+     0.0194,
+     0.0218,
+     0.016,
+     0.0218,
+     0.0194,
+     0.0167,
+     0.0173
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     16.733,
+     31.229,
+     61.386,
+     149.089,
+     74.069,
+     35.152,
+     16.799,
+     0.003
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 149.09,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 106.21,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.01,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0702,
+     0.0716,
+     0.0728,
+     0.075,
+     0.0773,
+     0.0757,
+     0.0731,
+     0.0716,
+     0.0702
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     8.64,
+     34.618,
+     57.697,
+     65.228,
+     47.565,
+     23.292,
+     7.971,
+     0.84
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 65.23,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -29.36,
+    "dE_rxn_meV": 0.84,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": 0.61,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0131,
+     0.0118,
+     0.0126,
+     0.0122,
+     0.0121,
+     0.0127,
+     0.0126,
+     0.0121,
+     0.0135
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     35.797,
+     87.953,
+     197.357,
+     83.524,
+     -29.199,
+     -82.78,
+     -93.216
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 197.36,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -10.8,
+    "dE_rxn_meV": -93.22,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 51.23,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0181,
+     0.0167,
+     0.0203,
+     0.0175,
+     0.0211,
+     0.0183,
+     0.016,
+     0.0158
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -93.22,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -873.1617648917944,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -868.2540309505298,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -570.9767520029986,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 4907.73
+  }
+ },
+ "S1_s8": {
+  "model": "/work/runs/S1_s8/S1_s8.model",
+  "tag": "S1_s8",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     17.196,
+     57.619,
+     135.334,
+     197.649,
+     135.33,
+     57.619,
+     17.197,
+     -0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 197.65,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -38.32,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0173,
+     0.0151,
+     0.016,
+     0.0158,
+     0.0125,
+     0.0158,
+     0.016,
+     0.0151,
+     0.0173
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     19.86,
+     108.664,
+     307.04,
+     487.749,
+     307.026,
+     108.664,
+     19.858,
+     -0.0
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 487.75,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -79.08,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0173,
+     0.0171,
+     0.0192,
+     0.0217,
+     0.0154,
+     0.0217,
+     0.0192,
+     0.0171,
+     0.0173
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     11.734,
+     20.609,
+     37.216,
+     77.042,
+     43.824,
+     22.867,
+     11.701,
+     0.003
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 77.04,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 34.16,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.01,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0504,
+     0.0508,
+     0.0517,
+     0.0539,
+     0.0613,
+     0.0546,
+     0.0519,
+     0.0508,
+     0.0504
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     10.993,
+     40.081,
+     64.951,
+     71.97,
+     50.363,
+     24.416,
+     8.044,
+     0.764
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 71.97,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -22.62,
+    "dE_rxn_meV": 0.76,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": 0.53,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0115,
+     0.01,
+     0.0109,
+     0.0112,
+     0.012,
+     0.0112,
+     0.0108,
+     0.0102,
+     0.0116
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     34.479,
+     87.51,
+     171.402,
+     82.63,
+     -26.962,
+     -82.451,
+     -94.017
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 171.4,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -36.76,
+    "dE_rxn_meV": -94.02,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 50.43,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0143,
+     0.0137,
+     0.0166,
+     0.0126,
+     0.0175,
+     0.0148,
+     0.012,
+     0.0111
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -94.02,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -875.8431798703095,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -870.4598056380374,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -571.1206412572135,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 5383.37
+  }
+ },
+ "S2_s1": {
+  "model": "/work/runs/S2_s1/S2_s1.model",
+  "tag": "S2_s1",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     14.703,
+     47.856,
+     113.135,
+     214.887,
+     113.131,
+     47.855,
+     14.703,
+     0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 214.89,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -21.08,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.016,
+     0.0136,
+     0.0154,
+     0.0181,
+     0.0146,
+     0.0181,
+     0.0153,
+     0.0136,
+     0.016
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     15.705,
+     88.103,
+     247.706,
+     457.828,
+     247.694,
+     88.102,
+     15.705,
+     0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 457.83,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -109.0,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.016,
+     0.0159,
+     0.0215,
+     0.0268,
+     0.0163,
+     0.0268,
+     0.0215,
+     0.0159,
+     0.016
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     4.689,
+     11.914,
+     31.669,
+     98.733,
+     41.12,
+     14.013,
+     4.594,
+     -0.014
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 98.73,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 55.85,
+    "dE_rxn_meV": -0.01,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": -0.01,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0228,
+     0.0245,
+     0.0266,
+     0.0318,
+     0.0431,
+     0.0338,
+     0.0272,
+     0.0245,
+     0.0228
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     8.392,
+     31.218,
+     53.925,
+     61.666,
+     43.6,
+     20.607,
+     6.382,
+     0.727
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 61.67,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -32.92,
+    "dE_rxn_meV": 0.73,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": 0.49,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0122,
+     0.0117,
+     0.0121,
+     0.0115,
+     0.0118,
+     0.0123,
+     0.0125,
+     0.0115,
+     0.0123
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     25.976,
+     75.168,
+     189.183,
+     77.608,
+     -34.031,
+     -90.27,
+     -102.046
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 189.18,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -18.98,
+    "dE_rxn_meV": -102.05,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 42.4,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0208,
+     0.0162,
+     0.0195,
+     0.0163,
+     0.0194,
+     0.0166,
+     0.0147,
+     0.0149
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -102.05,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -895.9867658483154,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -890.4428275102399,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -571.0840691544591,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 5543.94
+  },
+  "neb_selfconsistent": {
+   "converged": true,
+   "profile_meV": [
+    0.0,
+    0.416,
+    10.367,
+    39.579,
+    51.063,
+    39.585,
+    10.372,
+    0.418,
+    -0.003
+   ],
+   "E_a_meV": 51.06,
+   "E_a_dft_meV": 42.88,
+   "err_meV": 8.18,
+   "saddle_image": 4,
+   "endpoint_relax_meV": [
+    129680994.97,
+    129680994.97
+   ]
+  }
+ },
+ "S2_s2": {
+  "model": "/work/runs/S2_s2/S2_s2.model",
+  "tag": "S2_s2",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     9.106,
+     29.064,
+     98.336,
+     222.743,
+     98.331,
+     29.065,
+     9.107,
+     0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 222.74,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -13.22,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0158,
+     0.0136,
+     0.0168,
+     0.0245,
+     0.0139,
+     0.0245,
+     0.0168,
+     0.0136,
+     0.0157
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     16.191,
+     99.494,
+     271.907,
+     504.49,
+     271.893,
+     99.494,
+     16.191,
+     0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 504.49,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -62.34,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0158,
+     0.0149,
+     0.0204,
+     0.023,
+     0.0153,
+     0.023,
+     0.0204,
+     0.0148,
+     0.0158
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     5.931,
+     16.099,
+     43.468,
+     129.721,
+     55.921,
+     19.108,
+     5.863,
+     -0.013
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 129.72,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 86.84,
+    "dE_rxn_meV": -0.01,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": -0.01,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0158,
+     0.0198,
+     0.025,
+     0.0335,
+     0.0428,
+     0.036,
+     0.0263,
+     0.0198,
+     0.0158
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     10.283,
+     38.201,
+     63.634,
+     71.246,
+     48.393,
+     20.595,
+     5.67,
+     0.531
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 71.25,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -23.34,
+    "dE_rxn_meV": 0.53,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": 0.3,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0116,
+     0.0107,
+     0.0112,
+     0.0108,
+     0.011,
+     0.0117,
+     0.0122,
+     0.0107,
+     0.0119
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     20.837,
+     68.993,
+     171.196,
+     62.867,
+     -43.388,
+     -96.419,
+     -107.347
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 171.2,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -36.96,
+    "dE_rxn_meV": -107.35,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 37.09,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0173,
+     0.0162,
+     0.0208,
+     0.0157,
+     0.0188,
+     0.0156,
+     0.0133,
+     0.0129
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -107.35,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -895.4054982156908,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -889.5843027437576,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -571.0216242407434,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 5821.2
+  },
+  "neb_selfconsistent": {
+   "converged": true,
+   "profile_meV": [
+    0.0,
+    1.007,
+    13.353,
+    57.54,
+    75.726,
+    57.546,
+    13.356,
+    1.008,
+    -0.003
+   ],
+   "E_a_meV": 75.73,
+   "E_a_dft_meV": 42.88,
+   "err_meV": 32.85,
+   "saddle_image": 4,
+   "endpoint_relax_meV": [
+    129680084.77,
+    129680084.78
+   ]
+  }
+ },
+ "S2_s3": {
+  "model": "/work/runs/S2_s3/S2_s3.model",
+  "tag": "S2_s3",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     15.211,
+     48.774,
+     120.439,
+     221.119,
+     120.435,
+     48.774,
+     15.211,
+     -0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 221.12,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -14.85,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0171,
+     0.0141,
+     0.0157,
+     0.0181,
+     0.0133,
+     0.0181,
+     0.0157,
+     0.0141,
+     0.0171
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     11.118,
+     75.94,
+     241.773,
+     468.88,
+     241.76,
+     75.937,
+     11.114,
+     -0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 468.88,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -97.95,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0171,
+     0.0171,
+     0.0204,
+     0.0226,
+     0.0148,
+     0.0226,
+     0.0204,
+     0.0171,
+     0.0171
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     7.33,
+     16.456,
+     39.311,
+     111.907,
+     49.658,
+     18.967,
+     7.243,
+     -0.012
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 111.91,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 69.03,
+    "dE_rxn_meV": -0.01,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0137,
+     0.0173,
+     0.0213,
+     0.0283,
+     0.0416,
+     0.0308,
+     0.0223,
+     0.0173,
+     0.0137
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     12.849,
+     43.921,
+     72.777,
+     81.304,
+     54.417,
+     23.362,
+     5.856,
+     0.2
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 81.3,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -13.28,
+    "dE_rxn_meV": 0.2,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": -0.03,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0128,
+     0.0119,
+     0.0128,
+     0.0128,
+     0.0132,
+     0.014,
+     0.0131,
+     0.012,
+     0.0135
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     23.157,
+     80.888,
+     202.692,
+     90.35,
+     -26.859,
+     -82.332,
+     -93.26
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 202.69,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -5.47,
+    "dE_rxn_meV": -93.26,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 51.18,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0177,
+     0.0169,
+     0.0226,
+     0.0153,
+     0.0199,
+     0.0166,
+     0.0142,
+     0.0141
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -93.26,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -897.1705551465834,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -891.5104571189767,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -571.0200168096558,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 5660.1
+  },
+  "neb_selfconsistent": {
+   "converged": true,
+   "profile_meV": [
+    0.0,
+    -1.608,
+    9.267,
+    42.638,
+    52.829,
+    42.641,
+    9.267,
+    -1.607,
+    -0.003
+   ],
+   "E_a_meV": 52.83,
+   "E_a_dft_meV": 42.88,
+   "err_meV": 9.95,
+   "saddle_image": 4,
+   "endpoint_relax_meV": [
+    129679710.68,
+    129679710.69
+   ]
+  }
+ },
+ "S2_s4": {
+  "model": "/work/runs/S2_s4/S2_s4.model",
+  "tag": "S2_s4",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     14.699,
+     44.303,
+     119.761,
+     229.609,
+     119.757,
+     44.303,
+     14.7,
+     -0.002
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 229.61,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -6.36,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0203,
+     0.0177,
+     0.0209,
+     0.0263,
+     0.0176,
+     0.0263,
+     0.0209,
+     0.0177,
+     0.0203
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     14.466,
+     90.557,
+     276.583,
+     510.318,
+     276.568,
+     90.552,
+     14.46,
+     -0.002
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 510.32,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -56.51,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0203,
+     0.0194,
+     0.0213,
+     0.0248,
+     0.0177,
+     0.0248,
+     0.0213,
+     0.0194,
+     0.0203
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     8.277,
+     18.828,
+     45.836,
+     125.357,
+     57.7,
+     21.728,
+     8.168,
+     -0.012
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 125.36,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 82.48,
+    "dE_rxn_meV": -0.01,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0314,
+     0.0339,
+     0.0374,
+     0.0432,
+     0.052,
+     0.0451,
+     0.0383,
+     0.0339,
+     0.0314
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     11.665,
+     41.703,
+     67.494,
+     74.905,
+     51.983,
+     24.482,
+     7.751,
+     0.379
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 74.9,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -19.68,
+    "dE_rxn_meV": 0.38,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": 0.15,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0147,
+     0.0138,
+     0.0142,
+     0.0141,
+     0.014,
+     0.0143,
+     0.0145,
+     0.0139,
+     0.0152
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     10.974,
+     52.852,
+     158.644,
+     56.31,
+     -52.931,
+     -103.48,
+     -113.232
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 158.64,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -49.51,
+    "dE_rxn_meV": -113.23,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 31.21,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0173,
+     0.018,
+     0.0198,
+     0.0146,
+     0.0201,
+     0.0171,
+     0.0144,
+     0.0138
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -113.23,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -897.3910010211848,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -891.3969681455103,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -571.0470531700665,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 5994.03
+  }
+ },
+ "S2_s5": {
+  "model": "/work/runs/S2_s5/S2_s5.model",
+  "tag": "S2_s5",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     9.836,
+     32.95,
+     88.441,
+     155.401,
+     88.438,
+     32.951,
+     9.836,
+     0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 155.4,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -80.56,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0172,
+     0.015,
+     0.0188,
+     0.0192,
+     0.0156,
+     0.0192,
+     0.0188,
+     0.015,
+     0.0172
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     18.239,
+     103.513,
+     280.082,
+     485.643,
+     280.069,
+     103.512,
+     18.239,
+     -0.0
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 485.64,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -81.19,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0172,
+     0.0154,
+     0.0192,
+     0.0226,
+     0.0149,
+     0.0226,
+     0.0192,
+     0.0154,
+     0.0172
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     3.263,
+     8.886,
+     24.701,
+     78.556,
+     32.254,
+     10.478,
+     3.121,
+     -0.012
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 78.56,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 35.68,
+    "dE_rxn_meV": -0.01,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0135,
+     0.016,
+     0.0194,
+     0.0264,
+     0.0422,
+     0.0288,
+     0.0202,
+     0.016,
+     0.0135
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     13.241,
+     45.892,
+     74.115,
+     82.537,
+     58.734,
+     27.638,
+     8.495,
+     0.697
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 82.54,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -12.05,
+    "dE_rxn_meV": 0.7,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": 0.46,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0133,
+     0.0115,
+     0.0119,
+     0.0119,
+     0.0122,
+     0.0126,
+     0.0124,
+     0.0119,
+     0.0134
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     20.976,
+     65.446,
+     158.018,
+     68.551,
+     -33.02,
+     -85.803,
+     -97.786
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 158.02,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -50.14,
+    "dE_rxn_meV": -97.79,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 46.66,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0161,
+     0.015,
+     0.0173,
+     0.0153,
+     0.0191,
+     0.0156,
+     0.0132,
+     0.0124
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -97.79,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -896.0936200634598,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -890.0471267940419,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -570.9690327352745,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 6046.49
+  }
+ },
+ "S2_s6": {
+  "model": "/work/runs/S2_s6/S2_s6.model",
+  "tag": "S2_s6",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     15.573,
+     50.891,
+     125.246,
+     234.21,
+     125.241,
+     50.891,
+     15.573,
+     0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 234.21,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -1.75,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0173,
+     0.0152,
+     0.0177,
+     0.02,
+     0.0149,
+     0.02,
+     0.0177,
+     0.0152,
+     0.0173
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     16.34,
+     87.265,
+     266.5,
+     504.887,
+     266.485,
+     87.264,
+     16.339,
+     0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 504.89,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -61.94,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0173,
+     0.0171,
+     0.0213,
+     0.0242,
+     0.0159,
+     0.0242,
+     0.0213,
+     0.0171,
+     0.0173
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     8.088,
+     17.657,
+     41.45,
+     119.018,
+     52.288,
+     20.288,
+     8.024,
+     -0.008
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 119.02,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 76.14,
+    "dE_rxn_meV": -0.01,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0138,
+     0.0174,
+     0.0216,
+     0.0292,
+     0.041,
+     0.0318,
+     0.0226,
+     0.0174,
+     0.0138
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     10.66,
+     39.016,
+     64.724,
+     72.331,
+     49.087,
+     22.059,
+     6.628,
+     0.525
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 72.33,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -22.26,
+    "dE_rxn_meV": 0.53,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": 0.29,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0117,
+     0.0111,
+     0.0114,
+     0.0111,
+     0.0114,
+     0.0119,
+     0.0124,
+     0.011,
+     0.0121
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     25.195,
+     79.524,
+     204.682,
+     88.937,
+     -27.458,
+     -82.743,
+     -94.217
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 204.68,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -3.48,
+    "dE_rxn_meV": -94.22,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 50.22,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0155,
+     0.0149,
+     0.0192,
+     0.0165,
+     0.0213,
+     0.0161,
+     0.0131,
+     0.0124
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -94.22,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -895.7232688306094,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -889.8618375537817,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -570.980874086929,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 5861.43
+  }
+ },
+ "S2_s7": {
+  "model": "/work/runs/S2_s7/S2_s7.model",
+  "tag": "S2_s7",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     16.704,
+     47.066,
+     108.501,
+     203.129,
+     108.498,
+     47.066,
+     16.705,
+     0.0
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 203.13,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -32.84,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0215,
+     0.0178,
+     0.0186,
+     0.0198,
+     0.0165,
+     0.0198,
+     0.0186,
+     0.0178,
+     0.0215
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     14.339,
+     99.856,
+     292.004,
+     514.486,
+     291.99,
+     99.855,
+     14.337,
+     0.0
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 514.49,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -52.34,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0215,
+     0.019,
+     0.0195,
+     0.0228,
+     0.0158,
+     0.0228,
+     0.0195,
+     0.019,
+     0.0215
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     3.816,
+     10.532,
+     30.324,
+     102.403,
+     39.839,
+     12.44,
+     3.67,
+     -0.011
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 102.4,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 59.52,
+    "dE_rxn_meV": -0.01,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0269,
+     0.0279,
+     0.0303,
+     0.0356,
+     0.0473,
+     0.0378,
+     0.031,
+     0.0279,
+     0.0269
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     13.012,
+     44.26,
+     69.818,
+     77.235,
+     55.167,
+     25.595,
+     7.423,
+     0.227
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 77.24,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -17.35,
+    "dE_rxn_meV": 0.23,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": -0.01,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0132,
+     0.0122,
+     0.0126,
+     0.0125,
+     0.0126,
+     0.0132,
+     0.0138,
+     0.0126,
+     0.0139
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     29.558,
+     78.792,
+     179.675,
+     71.417,
+     -34.349,
+     -85.738,
+     -95.322
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 179.67,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -28.48,
+    "dE_rxn_meV": -95.32,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 49.12,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0162,
+     0.0155,
+     0.0174,
+     0.0148,
+     0.0196,
+     0.0166,
+     0.0148,
+     0.0141
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -95.32,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -896.9590123527975,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -891.2702723312034,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -571.0531130923082,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 5688.74
+  }
+ },
+ "S2_s8": {
+  "model": "/work/runs/S2_s8/S2_s8.model",
+  "tag": "S2_s8",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     16.249,
+     47.623,
+     106.555,
+     222.785,
+     106.552,
+     47.623,
+     16.249,
+     0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 222.78,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -13.18,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0177,
+     0.0149,
+     0.0159,
+     0.0179,
+     0.0135,
+     0.0179,
+     0.0159,
+     0.0149,
+     0.0177
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     14.419,
+     95.317,
+     288.348,
+     522.758,
+     288.334,
+     95.316,
+     14.418,
+     0.0
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 522.76,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -44.07,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0177,
+     0.0166,
+     0.0178,
+     0.0217,
+     0.0138,
+     0.0217,
+     0.0178,
+     0.0166,
+     0.0177
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     5.207,
+     13.702,
+     38.114,
+     125.745,
+     49.857,
+     16.208,
+     5.13,
+     -0.009
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 125.74,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 82.86,
+    "dE_rxn_meV": -0.01,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0196,
+     0.0215,
+     0.0252,
+     0.0333,
+     0.0439,
+     0.0363,
+     0.0262,
+     0.0215,
+     0.0196
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     14.521,
+     48.284,
+     77.472,
+     85.944,
+     59.705,
+     27.4,
+     7.692,
+     0.379
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 85.94,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -8.64,
+    "dE_rxn_meV": 0.38,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": 0.14,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0124,
+     0.0109,
+     0.0112,
+     0.0111,
+     0.0119,
+     0.0119,
+     0.0116,
+     0.0109,
+     0.0124
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     30.24,
+     80.391,
+     191.311,
+     79.108,
+     -25.563,
+     -76.223,
+     -85.544
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 191.31,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -16.85,
+    "dE_rxn_meV": -85.54,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 58.9,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.015,
+     0.016,
+     0.017,
+     0.0149,
+     0.0198,
+     0.0168,
+     0.0148,
+     0.0133
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -85.54,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -897.5318330173463,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -891.9239012131513,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -570.9418204465346,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 5607.93
+  }
+ },
+ "S3_s1": {
+  "model": "/work/runs/S3_s1/S3_s1.model",
+  "tag": "S3_s1",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     14.486,
+     50.923,
+     121.241,
+     201.609,
+     121.238,
+     50.923,
+     14.486,
+     -0.0
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 201.61,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -34.36,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.015,
+     0.013,
+     0.0146,
+     0.0177,
+     0.0219,
+     0.0177,
+     0.0146,
+     0.013,
+     0.015
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     16.95,
+     98.28,
+     274.585,
+     494.37,
+     274.571,
+     98.277,
+     16.947,
+     -0.0
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 494.37,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -72.46,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.015,
+     0.015,
+     0.0206,
+     0.0267,
+     0.016,
+     0.0267,
+     0.0206,
+     0.0149,
+     0.015
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     2.511,
+     6.299,
+     15.397,
+     46.545,
+     19.709,
+     7.422,
+     2.548,
+     -0.004
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 46.55,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 3.67,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0134,
+     0.0135,
+     0.0134,
+     0.0137,
+     0.0146,
+     0.0138,
+     0.0134,
+     0.0135,
+     0.0134
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     11.825,
+     41.252,
+     67.295,
+     74.253,
+     48.089,
+     20.223,
+     5.495,
+     0.246
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 74.25,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -20.34,
+    "dE_rxn_meV": 0.25,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": 0.01,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0124,
+     0.0118,
+     0.0121,
+     0.0118,
+     0.0121,
+     0.0123,
+     0.0131,
+     0.0121,
+     0.0131
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     33.614,
+     82.838,
+     177.893,
+     69.833,
+     -37.052,
+     -92.574,
+     -102.601
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 177.89,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -30.27,
+    "dE_rxn_meV": -102.6,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 41.84,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0194,
+     0.015,
+     0.0177,
+     0.0148,
+     0.0191,
+     0.0164,
+     0.0143,
+     0.0144
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -102.6,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -896.5485670382736,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -890.4994723722632,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -570.9768772447163,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 6049.09
+  },
+  "neb_selfconsistent": {
+   "converged": true,
+   "profile_meV": [
+    0.0,
+    3.528,
+    15.324,
+    34.442,
+    45.722,
+    34.45,
+    15.33,
+    3.53,
+    -0.001
+   ],
+   "E_a_meV": 45.72,
+   "E_a_dft_meV": 42.88,
+   "err_meV": 2.84,
+   "saddle_image": 4,
+   "endpoint_relax_meV": [
+    129680973.23,
+    129680973.24
+   ]
+  }
+ },
+ "S3_s2": {
+  "model": "/work/runs/S3_s2/S3_s2.model",
+  "tag": "S3_s2",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     16.285,
+     52.515,
+     122.149,
+     209.998,
+     122.145,
+     52.515,
+     16.285,
+     0.0
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 210.0,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -25.97,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0162,
+     0.0143,
+     0.017,
+     0.0196,
+     0.0179,
+     0.0196,
+     0.017,
+     0.0143,
+     0.0162
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     16.228,
+     87.23,
+     258.881,
+     482.112,
+     258.867,
+     87.228,
+     16.224,
+     0.0
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 482.11,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -84.72,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0162,
+     0.0165,
+     0.0218,
+     0.0248,
+     0.016,
+     0.0248,
+     0.0218,
+     0.0165,
+     0.0162
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     3.238,
+     7.323,
+     16.301,
+     44.911,
+     20.312,
+     8.424,
+     3.265,
+     -0.002
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 44.91,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 2.03,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.01,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0113,
+     0.0102,
+     0.0101,
+     0.0101,
+     0.0114,
+     0.0101,
+     0.01,
+     0.0102,
+     0.0113
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     11.66,
+     43.327,
+     70.794,
+     78.869,
+     54.549,
+     24.382,
+     7.493,
+     0.583
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 78.87,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -15.72,
+    "dE_rxn_meV": 0.58,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": 0.35,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0133,
+     0.0123,
+     0.0124,
+     0.0122,
+     0.0124,
+     0.0132,
+     0.0142,
+     0.0125,
+     0.0134
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     20.103,
+     81.584,
+     203.193,
+     97.541,
+     -18.331,
+     -75.852,
+     -87.036
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 203.19,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -4.97,
+    "dE_rxn_meV": -87.04,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 57.41,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0165,
+     0.018,
+     0.0234,
+     0.0167,
+     0.0208,
+     0.0172,
+     0.0143,
+     0.0133
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -87.04,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -898.5015252042269,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -892.1077800885664,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -570.757290770676,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 6393.75
+  },
+  "neb_selfconsistent": {
+   "converged": true,
+   "profile_meV": [
+    0.0,
+    4.29,
+    16.588,
+    34.773,
+    44.879,
+    34.781,
+    16.595,
+    4.292,
+    -0.002
+   ],
+   "E_a_meV": 44.88,
+   "E_a_dft_meV": 42.88,
+   "err_meV": 2.0,
+   "saddle_image": 4,
+   "endpoint_relax_meV": [
+    129678970.97,
+    129678970.98
+   ]
+  }
+ },
+ "S3_s3": {
+  "model": "/work/runs/S3_s3/S3_s3.model",
+  "tag": "S3_s3",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     16.492,
+     50.458,
+     116.487,
+     219.171,
+     116.483,
+     50.457,
+     16.493,
+     0.002
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 219.17,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -16.79,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0173,
+     0.015,
+     0.0166,
+     0.0193,
+     0.0154,
+     0.0193,
+     0.0166,
+     0.015,
+     0.0173
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     20.0,
+     115.669,
+     308.108,
+     525.772,
+     308.094,
+     115.667,
+     20.0,
+     0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 525.77,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -41.06,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0173,
+     0.016,
+     0.0182,
+     0.023,
+     0.0145,
+     0.023,
+     0.0182,
+     0.016,
+     0.0173
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     4.247,
+     9.855,
+     23.123,
+     66.133,
+     29.102,
+     11.446,
+     4.285,
+     -0.004
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 66.13,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 23.25,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0086,
+     0.0088,
+     0.0092,
+     0.0099,
+     0.0096,
+     0.0104,
+     0.0092,
+     0.0088,
+     0.0086
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     11.935,
+     39.935,
+     65.599,
+     73.321,
+     49.712,
+     22.591,
+     6.511,
+     0.428
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 73.32,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -21.27,
+    "dE_rxn_meV": 0.43,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": 0.19,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0119,
+     0.0105,
+     0.0112,
+     0.0108,
+     0.0112,
+     0.0118,
+     0.0114,
+     0.0104,
+     0.0122
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     23.347,
+     75.591,
+     188.609,
+     76.113,
+     -35.103,
+     -88.785,
+     -98.657
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 188.61,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -19.55,
+    "dE_rxn_meV": -98.66,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 45.78,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0157,
+     0.0157,
+     0.0201,
+     0.0148,
+     0.0202,
+     0.0163,
+     0.0132,
+     0.0121
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -98.66,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -898.8834582615638,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -892.9839528354034,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -570.9003953517347,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 5899.51
+  },
+  "neb_selfconsistent": {
+   "converged": true,
+   "profile_meV": [
+    0.0,
+    5.015,
+    21.268,
+    49.23,
+    65.112,
+    49.242,
+    21.278,
+    5.017,
+    -0.002
+   ],
+   "E_a_meV": 65.11,
+   "E_a_dft_meV": 42.88,
+   "err_meV": 22.23,
+   "saddle_image": 4,
+   "endpoint_relax_meV": [
+    129679436.35,
+    129679436.36
+   ]
+  }
+ },
+ "S3_s4": {
+  "model": "/work/runs/S3_s4/S3_s4.model",
+  "tag": "S3_s4",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     13.302,
+     46.071,
+     116.612,
+     210.2,
+     116.609,
+     46.071,
+     13.303,
+     0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 210.2,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -25.77,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0161,
+     0.0135,
+     0.0165,
+     0.0195,
+     0.0151,
+     0.0195,
+     0.0164,
+     0.0135,
+     0.0161
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     14.555,
+     92.474,
+     279.244,
+     504.464,
+     279.229,
+     92.473,
+     14.554,
+     0.0
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 504.46,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -62.36,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0161,
+     0.0154,
+     0.0191,
+     0.0237,
+     0.0156,
+     0.0237,
+     0.0191,
+     0.0154,
+     0.0161
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     4.104,
+     9.144,
+     20.233,
+     51.521,
+     25.055,
+     10.56,
+     4.151,
+     -0.003
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 51.52,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 8.64,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0114,
+     0.0113,
+     0.0111,
+     0.0111,
+     0.0127,
+     0.0112,
+     0.011,
+     0.0113,
+     0.0114
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     10.771,
+     40.335,
+     68.356,
+     76.807,
+     51.289,
+     22.132,
+     6.248,
+     0.501
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 76.81,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -17.78,
+    "dE_rxn_meV": 0.5,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": 0.27,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0111,
+     0.0105,
+     0.0108,
+     0.0104,
+     0.0106,
+     0.0113,
+     0.0116,
+     0.0103,
+     0.0115
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     21.515,
+     75.283,
+     189.352,
+     90.779,
+     -22.375,
+     -79.416,
+     -90.677
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 189.35,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -18.81,
+    "dE_rxn_meV": -90.68,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 53.76,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0167,
+     0.0158,
+     0.0185,
+     0.0146,
+     0.019,
+     0.0158,
+     0.0129,
+     0.0125
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -90.68,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -899.1765985168119,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -893.132029284721,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -571.0960980268869,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 6044.57
+  }
+ },
+ "S3_s5": {
+  "model": "/work/runs/S3_s5/S3_s5.model",
+  "tag": "S3_s5",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     15.446,
+     50.095,
+     116.882,
+     200.697,
+     116.879,
+     50.095,
+     15.447,
+     0.0
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 200.7,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -35.27,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.018,
+     0.0159,
+     0.0188,
+     0.0191,
+     0.016,
+     0.0191,
+     0.0188,
+     0.0159,
+     0.018
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     14.206,
+     83.079,
+     246.448,
+     444.239,
+     246.436,
+     83.078,
+     14.204,
+     -0.0
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 444.24,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -122.59,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.018,
+     0.0174,
+     0.021,
+     0.0231,
+     0.0157,
+     0.0231,
+     0.021,
+     0.0174,
+     0.018
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     2.633,
+     6.672,
+     16.189,
+     48.321,
+     20.598,
+     7.836,
+     2.669,
+     -0.004
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 48.32,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 5.44,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0101,
+     0.0098,
+     0.0096,
+     0.01,
+     0.0122,
+     0.0101,
+     0.0095,
+     0.0098,
+     0.0102
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     15.402,
+     48.136,
+     74.999,
+     82.471,
+     57.476,
+     26.193,
+     6.887,
+     0.189
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 82.47,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -12.12,
+    "dE_rxn_meV": 0.19,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": -0.05,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0147,
+     0.0129,
+     0.0132,
+     0.0131,
+     0.0134,
+     0.0137,
+     0.0138,
+     0.0135,
+     0.0147
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     16.862,
+     56.463,
+     142.406,
+     49.909,
+     -45.995,
+     -92.636,
+     -99.191
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 142.41,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -65.75,
+    "dE_rxn_meV": -99.19,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 45.25,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0159,
+     0.0168,
+     0.0184,
+     0.0152,
+     0.0206,
+     0.0172,
+     0.0149,
+     0.0136
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -99.19,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -898.1790693252108,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -892.1870837739159,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -571.0221355280214,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 5991.99
+  }
+ },
+ "S3_s6": {
+  "model": "/work/runs/S3_s6/S3_s6.model",
+  "tag": "S3_s6",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     15.087,
+     53.417,
+     121.166,
+     205.168,
+     121.163,
+     53.417,
+     15.088,
+     0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 205.17,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -30.8,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0162,
+     0.0143,
+     0.0176,
+     0.0179,
+     0.0153,
+     0.0179,
+     0.0176,
+     0.0143,
+     0.0162
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     16.057,
+     87.528,
+     256.115,
+     439.951,
+     256.102,
+     87.526,
+     16.055,
+     0.0
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 439.95,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -126.88,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0162,
+     0.0158,
+     0.021,
+     0.0232,
+     0.0138,
+     0.0232,
+     0.021,
+     0.0158,
+     0.0162
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     2.389,
+     5.916,
+     14.827,
+     48.2,
+     19.177,
+     6.937,
+     2.409,
+     -0.005
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 48.2,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 5.32,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0093,
+     0.0091,
+     0.009,
+     0.0092,
+     0.0109,
+     0.0094,
+     0.0089,
+     0.0091,
+     0.0093
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     10.198,
+     36.583,
+     60.382,
+     67.329,
+     45.404,
+     20.17,
+     5.841,
+     0.348
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 67.33,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -27.26,
+    "dE_rxn_meV": 0.35,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": 0.11,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0114,
+     0.011,
+     0.0115,
+     0.011,
+     0.0112,
+     0.0117,
+     0.0124,
+     0.0109,
+     0.0121
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     25.677,
+     75.377,
+     167.57,
+     70.648,
+     -27.3,
+     -80.88,
+     -91.478
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 167.57,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -40.59,
+    "dE_rxn_meV": -91.48,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 52.96,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0162,
+     0.0148,
+     0.0169,
+     0.0134,
+     0.0203,
+     0.0163,
+     0.0134,
+     0.0128
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -91.48,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -897.550307468473,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -891.7980082000196,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -571.0206574445133,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 5752.3
+  }
+ },
+ "S3_s7": {
+  "model": "/work/runs/S3_s7/S3_s7.model",
+  "tag": "S3_s7",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     9.152,
+     31.919,
+     89.778,
+     172.772,
+     89.776,
+     31.92,
+     9.152,
+     0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 172.77,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -63.19,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.018,
+     0.0153,
+     0.0176,
+     0.0191,
+     0.0157,
+     0.0191,
+     0.0176,
+     0.0153,
+     0.018
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     18.731,
+     123.126,
+     322.051,
+     518.187,
+     322.037,
+     123.124,
+     18.731,
+     -0.0
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 518.19,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -48.64,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.018,
+     0.0152,
+     0.0182,
+     0.0229,
+     0.0156,
+     0.0229,
+     0.0182,
+     0.0152,
+     0.018
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     3.316,
+     7.944,
+     18.237,
+     50.919,
+     22.779,
+     9.259,
+     3.362,
+     -0.002
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 50.92,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 8.04,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.01,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0098,
+     0.0097,
+     0.0095,
+     0.0094,
+     0.0112,
+     0.0094,
+     0.0093,
+     0.0097,
+     0.0098
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     10.521,
+     38.963,
+     64.825,
+     72.423,
+     48.868,
+     21.981,
+     6.914,
+     0.471
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 72.42,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -22.17,
+    "dE_rxn_meV": 0.47,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": 0.24,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0119,
+     0.0114,
+     0.0119,
+     0.0115,
+     0.0116,
+     0.0124,
+     0.0131,
+     0.0113,
+     0.0125
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     23.489,
+     67.352,
+     145.025,
+     37.797,
+     -63.168,
+     -114.193,
+     -121.613
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 145.03,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -63.13,
+    "dE_rxn_meV": -121.61,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 22.83,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0168,
+     0.015,
+     0.0174,
+     0.0143,
+     0.0196,
+     0.0171,
+     0.015,
+     0.0139
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -121.61,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -898.0556853859838,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -892.0659139126143,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -571.0354237846511,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 5989.77
+  }
+ },
+ "S3_s8": {
+  "model": "/work/runs/S3_s8/S3_s8.model",
+  "tag": "S3_s8",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     11.118,
+     33.28,
+     84.379,
+     165.666,
+     84.377,
+     33.281,
+     11.119,
+     -0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 165.67,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -70.3,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.02,
+     0.0181,
+     0.0206,
+     0.0215,
+     0.0183,
+     0.0215,
+     0.0206,
+     0.0181,
+     0.0201
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     14.996,
+     91.691,
+     246.102,
+     417.716,
+     246.09,
+     91.688,
+     14.993,
+     -0.002
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 417.72,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -149.11,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.02,
+     0.0189,
+     0.0215,
+     0.0259,
+     0.017,
+     0.0259,
+     0.0215,
+     0.0189,
+     0.02
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     2.889,
+     7.628,
+     19.627,
+     58.868,
+     25.098,
+     9.003,
+     2.894,
+     -0.004
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 58.87,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 15.99,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0126,
+     0.0118,
+     0.012,
+     0.0127,
+     0.015,
+     0.0131,
+     0.0121,
+     0.0118,
+     0.0126
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     11.59,
+     38.703,
+     62.193,
+     69.257,
+     48.882,
+     23.634,
+     7.289,
+     0.56
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 69.26,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -25.33,
+    "dE_rxn_meV": 0.56,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": 0.33,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0133,
+     0.0117,
+     0.0129,
+     0.0132,
+     0.0142,
+     0.0132,
+     0.0124,
+     0.0118,
+     0.0133
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     11.208,
+     41.881,
+     116.112,
+     19.292,
+     -68.163,
+     -110.21,
+     -116.006
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 116.11,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -92.05,
+    "dE_rxn_meV": -116.01,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 28.44,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0157,
+     0.0166,
+     0.0181,
+     0.0139,
+     0.0206,
+     0.0176,
+     0.0151,
+     0.0133
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -116.01,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -898.5352863892011,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -892.2875170213908,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -570.8264430660525,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 6247.77
+  }
+ },
+ "S3solo_s1": {
+  "model": "/work/runs/S3solo_s1/S3solo_s1.model",
+  "tag": "S3solo_s1",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     18.056,
+     32.944,
+     61.497,
+     108.62,
+     61.47,
+     32.93,
+     18.056,
+     0.06
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 108.62,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -127.34,
+    "dE_rxn_meV": 0.06,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.06,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.114,
+     0.1141,
+     0.1143,
+     0.1137,
+     0.111,
+     0.1137,
+     0.1143,
+     0.1141,
+     0.114
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     18.077,
+     90.505,
+     183.949,
+     265.322,
+     183.945,
+     90.567,
+     18.15,
+     0.041
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 265.32,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -301.51,
+    "dE_rxn_meV": 0.04,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.04,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.114,
+     0.1125,
+     0.1123,
+     0.119,
+     0.1116,
+     0.119,
+     0.1123,
+     0.1125,
+     0.114
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     4.899,
+     10.132,
+     20.244,
+     51.198,
+     24.293,
+     11.442,
+     4.981,
+     0.008
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 51.2,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 8.32,
+    "dE_rxn_meV": 0.01,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.02,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.012,
+     0.011,
+     0.0107,
+     0.0106,
+     0.0125,
+     0.0107,
+     0.0105,
+     0.0109,
+     0.012
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     56.119,
+     185.179,
+     273.897,
+     291.943,
+     188.498,
+     63.885,
+     9.368,
+     -8.597
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 291.94,
+    "E_a_dft_meV": 94.59,
+    "err_meV": 197.36,
+    "dE_rxn_meV": -8.6,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": -8.83,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.2381,
+     0.2432,
+     0.2448,
+     0.2432,
+     0.2457,
+     0.2489,
+     0.2487,
+     0.2408,
+     0.2387
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -8.6,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     30.202,
+     31.531,
+     83.169,
+     -5.612,
+     -76.073,
+     -102.642,
+     -111.85
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 83.17,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -124.99,
+    "dE_rxn_meV": -111.85,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 32.59,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.3063,
+     0.3058,
+     0.3045,
+     0.2997,
+     0.2974,
+     0.2978,
+     0.2982,
+     0.2988
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -111.85,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -888.1720355035372,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -880.1627708176511,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -575.5985700947795,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 8009.26
+  },
+  "neb_selfconsistent": {
+   "converged": true,
+   "profile_meV": [
+    0.0,
+    4.678,
+    18.125,
+    38.308,
+    51.453,
+    38.311,
+    18.129,
+    4.681,
+    0.004
+   ],
+   "E_a_meV": 51.45,
+   "E_a_dft_meV": 42.88,
+   "err_meV": 8.57,
+   "saddle_image": 4,
+   "endpoint_relax_meV": [
+    129679332.11,
+    129679332.12
+   ]
+  }
+ },
+ "S3solo_s2": {
+  "model": "/work/runs/S3solo_s2/S3solo_s2.model",
+  "tag": "S3solo_s2",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     18.165,
+     29.744,
+     51.776,
+     101.269,
+     51.75,
+     29.731,
+     18.164,
+     0.058
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 101.27,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -134.7,
+    "dE_rxn_meV": 0.06,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.06,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.1111,
+     0.111,
+     0.1117,
+     0.1111,
+     0.108,
+     0.1111,
+     0.1116,
+     0.111,
+     0.1111
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     17.378,
+     88.161,
+     174.289,
+     255.756,
+     174.286,
+     88.221,
+     17.447,
+     0.04
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 255.76,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -311.07,
+    "dE_rxn_meV": 0.04,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.04,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.1111,
+     0.1097,
+     0.1098,
+     0.1173,
+     0.1091,
+     0.1174,
+     0.1098,
+     0.1096,
+     0.1111
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     4.106,
+     9.287,
+     19.622,
+     50.676,
+     23.867,
+     10.62,
+     4.174,
+     -0.0
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 50.68,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 7.8,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.01,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0085,
+     0.0076,
+     0.0073,
+     0.0073,
+     0.0087,
+     0.0074,
+     0.0072,
+     0.0076,
+     0.0085
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     56.479,
+     188.045,
+     278.933,
+     297.436,
+     191.923,
+     65.286,
+     9.919,
+     -8.866
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 297.44,
+    "E_a_dft_meV": 94.59,
+    "err_meV": 202.85,
+    "dE_rxn_meV": -8.87,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": -9.1,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.2433,
+     0.2485,
+     0.2506,
+     0.2495,
+     0.2522,
+     0.2549,
+     0.2541,
+     0.2461,
+     0.2439
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -8.87,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     23.72,
+     18.838,
+     73.351,
+     -18.905,
+     -85.638,
+     -107.146,
+     -114.706
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 73.35,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -134.81,
+    "dE_rxn_meV": -114.71,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 29.74,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.3027,
+     0.3022,
+     0.3009,
+     0.2963,
+     0.2943,
+     0.295,
+     0.2953,
+     0.2958
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -114.71,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -889.7248851955695,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -881.6966079322826,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -575.8443568386958,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 8028.28
+  },
+  "neb_selfconsistent": {
+   "converged": true,
+   "profile_meV": [
+    0.0,
+    5.207,
+    19.402,
+    39.27,
+    50.821,
+    39.279,
+    19.41,
+    5.21,
+    0.002
+   ],
+   "E_a_meV": 50.82,
+   "E_a_dft_meV": 42.88,
+   "err_meV": 7.94,
+   "saddle_image": 4,
+   "endpoint_relax_meV": [
+    129679499.6,
+    129679499.61
+   ]
+  }
+ },
+ "S3solo_s3": {
+  "model": "/work/runs/S3solo_s3/S3solo_s3.model",
+  "tag": "S3solo_s3",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     18.461,
+     31.39,
+     48.93,
+     80.787,
+     48.903,
+     31.376,
+     18.46,
+     0.066
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 80.79,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -155.18,
+    "dE_rxn_meV": 0.07,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.07,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.1262,
+     0.1259,
+     0.1262,
+     0.1266,
+     0.1233,
+     0.1266,
+     0.1262,
+     0.1259,
+     0.1261
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     21.681,
+     100.74,
+     193.609,
+     258.6,
+     193.607,
+     100.81,
+     21.764,
+     0.046
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 258.6,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -308.23,
+    "dE_rxn_meV": 0.05,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.05,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.1262,
+     0.1247,
+     0.1244,
+     0.1323,
+     0.1248,
+     0.1323,
+     0.1243,
+     0.1247,
+     0.1261
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     3.178,
+     6.728,
+     13.052,
+     36.362,
+     15.678,
+     7.524,
+     3.232,
+     0.009
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 36.36,
+    "E_a_dft_meV": 42.88,
+    "err_meV": -6.52,
+    "dE_rxn_meV": 0.01,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.02,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0164,
+     0.014,
+     0.0136,
+     0.0138,
+     0.016,
+     0.014,
+     0.0136,
+     0.014,
+     0.0164
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     61.884,
+     199.85,
+     292.274,
+     310.933,
+     204.242,
+     70.873,
+     10.844,
+     -7.699
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 310.93,
+    "E_a_dft_meV": 94.59,
+    "err_meV": 216.35,
+    "dE_rxn_meV": -7.7,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": -7.93,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.16,
+     0.1672,
+     0.167,
+     0.1626,
+     0.1657,
+     0.1731,
+     0.1751,
+     0.1636,
+     0.1605
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -7.7,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     27.213,
+     15.219,
+     37.919,
+     -51.295,
+     -115.564,
+     -140.877,
+     -149.753
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 37.92,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -170.24,
+    "dE_rxn_meV": -149.75,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": -5.31,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.2704,
+     0.2717,
+     0.2704,
+     0.2643,
+     0.2601,
+     0.2598,
+     0.2601,
+     0.2606
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -149.75,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -881.4380185718323,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -873.2926194083198,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -576.6923490809614,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 8145.4
+  },
+  "neb_selfconsistent": {
+   "converged": true,
+   "profile_meV": [
+    0.0,
+    3.711,
+    12.439,
+    25.089,
+    34.35,
+    25.093,
+    12.443,
+    3.714,
+    0.006
+   ],
+   "E_a_meV": 34.35,
+   "E_a_dft_meV": 42.88,
+   "err_meV": -8.53,
+   "saddle_image": 4,
+   "endpoint_relax_meV": [
+    129679301.73,
+    129679301.74
+   ]
+  }
+ },
+ "S3solo_s4": {
+  "model": "/work/runs/S3solo_s4/S3solo_s4.model",
+  "tag": "S3solo_s4",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     19.514,
+     31.574,
+     45.388,
+     77.656,
+     45.362,
+     31.56,
+     19.513,
+     0.061
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 77.66,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -158.31,
+    "dE_rxn_meV": 0.06,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.06,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.1165,
+     0.1163,
+     0.1169,
+     0.1173,
+     0.1138,
+     0.1173,
+     0.1169,
+     0.1163,
+     0.1164
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     19.915,
+     95.826,
+     184.226,
+     252.422,
+     184.224,
+     95.889,
+     19.989,
+     0.042
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 252.42,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -314.41,
+    "dE_rxn_meV": 0.04,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.04,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.1165,
+     0.115,
+     0.1149,
+     0.1233,
+     0.1147,
+     0.1233,
+     0.1148,
+     0.115,
+     0.1164
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     2.859,
+     6.812,
+     14.291,
+     35.497,
+     17.276,
+     7.774,
+     2.909,
+     -0.0
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 35.5,
+    "E_a_dft_meV": 42.88,
+    "err_meV": -7.38,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.01,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0094,
+     0.0083,
+     0.0079,
+     0.0085,
+     0.0094,
+     0.0087,
+     0.0079,
+     0.0082,
+     0.0094
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     57.478,
+     189.298,
+     279.926,
+     298.543,
+     194.128,
+     67.262,
+     10.767,
+     -8.096
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 298.54,
+    "E_a_dft_meV": 94.59,
+    "err_meV": 203.96,
+    "dE_rxn_meV": -8.1,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": -8.33,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.2029,
+     0.2086,
+     0.21,
+     0.2082,
+     0.2112,
+     0.2151,
+     0.2151,
+     0.2059,
+     0.2034
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -8.1,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     24.193,
+     12.544,
+     49.962,
+     -43.409,
+     -111.109,
+     -133.345,
+     -141.06
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 49.96,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -158.2,
+    "dE_rxn_meV": -141.06,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 3.38,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.2858,
+     0.286,
+     0.2845,
+     0.279,
+     0.276,
+     0.2764,
+     0.2767,
+     0.2773
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -141.06,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -886.3447855798519,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -878.1166908830116,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -576.307517036945,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 8228.09
+  }
+ },
+ "S3solo_s5": {
+  "model": "/work/runs/S3solo_s5/S3solo_s5.model",
+  "tag": "S3solo_s5",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     18.024,
+     27.557,
+     42.978,
+     93.575,
+     42.951,
+     27.542,
+     18.023,
+     0.059
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 93.58,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -142.39,
+    "dE_rxn_meV": 0.06,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.06,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.1132,
+     0.1133,
+     0.1143,
+     0.1135,
+     0.1096,
+     0.1136,
+     0.1143,
+     0.1133,
+     0.1132
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     17.073,
+     86.452,
+     165.445,
+     241.897,
+     165.442,
+     86.514,
+     17.144,
+     0.041
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 241.9,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -324.93,
+    "dE_rxn_meV": 0.04,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.04,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.1132,
+     0.1119,
+     0.112,
+     0.1203,
+     0.1106,
+     0.1203,
+     0.112,
+     0.1118,
+     0.1132
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     1.95,
+     5.728,
+     14.208,
+     43.318,
+     17.984,
+     6.763,
+     1.995,
+     -0.002
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 43.32,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 0.44,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.01,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.009,
+     0.0073,
+     0.007,
+     0.0072,
+     0.0084,
+     0.0073,
+     0.007,
+     0.0073,
+     0.009
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     52.939,
+     176.615,
+     262.821,
+     280.295,
+     179.431,
+     59.97,
+     8.567,
+     -8.917
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 280.3,
+    "E_a_dft_meV": 94.59,
+    "err_meV": 185.71,
+    "dE_rxn_meV": -8.92,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": -9.15,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.2594,
+     0.2639,
+     0.2661,
+     0.2657,
+     0.2683,
+     0.2701,
+     0.269,
+     0.262,
+     0.2601
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -8.92,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     22.717,
+     16.351,
+     68.833,
+     -20.068,
+     -80.318,
+     -98.205,
+     -104.479
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 68.83,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -139.33,
+    "dE_rxn_meV": -104.48,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 39.96,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.3096,
+     0.3087,
+     0.3074,
+     0.3032,
+     0.3018,
+     0.3027,
+     0.3031,
+     0.3037
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -104.48,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -890.5867857289129,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -882.6641945883824,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -575.8043196266597,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 7922.59
+  }
+ },
+ "S3solo_s6": {
+  "model": "/work/runs/S3solo_s6/S3solo_s6.model",
+  "tag": "S3solo_s6",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     19.029,
+     32.278,
+     50.108,
+     86.292,
+     50.082,
+     32.265,
+     19.028,
+     0.059
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 86.29,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -149.67,
+    "dE_rxn_meV": 0.06,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.06,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.113,
+     0.113,
+     0.1137,
+     0.1137,
+     0.11,
+     0.1138,
+     0.1137,
+     0.113,
+     0.1129
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     18.114,
+     90.431,
+     180.327,
+     251.216,
+     180.324,
+     90.492,
+     18.186,
+     0.04
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 251.22,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -315.61,
+    "dE_rxn_meV": 0.04,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.04,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.113,
+     0.1115,
+     0.1112,
+     0.1191,
+     0.1104,
+     0.1191,
+     0.1112,
+     0.1114,
+     0.1129
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     3.471,
+     7.807,
+     16.18,
+     42.985,
+     19.629,
+     8.86,
+     3.526,
+     0.003
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 42.99,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 0.11,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.01,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0137,
+     0.0119,
+     0.0116,
+     0.0114,
+     0.0129,
+     0.0115,
+     0.0115,
+     0.0118,
+     0.0137
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     56.796,
+     188.972,
+     280.227,
+     299.055,
+     193.861,
+     66.656,
+     10.763,
+     -7.924
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 299.05,
+    "E_a_dft_meV": 94.59,
+    "err_meV": 204.47,
+    "dE_rxn_meV": -7.92,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": -8.16,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.2035,
+     0.2095,
+     0.2112,
+     0.2091,
+     0.212,
+     0.2162,
+     0.216,
+     0.2065,
+     0.204
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -7.92,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     25.213,
+     18.317,
+     59.512,
+     -31.499,
+     -100.656,
+     -125.903,
+     -135.032
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 59.51,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -148.65,
+    "dE_rxn_meV": -135.03,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 9.41,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.2824,
+     0.2824,
+     0.281,
+     0.2757,
+     0.2728,
+     0.2731,
+     0.2734,
+     0.2739
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -135.03,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -886.5338902431528,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -878.4255072266837,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -575.7842447494132,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 8108.38
+  }
+ },
+ "S3solo_s7": {
+  "model": "/work/runs/S3solo_s7/S3solo_s7.model",
+  "tag": "S3solo_s7",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     16.727,
+     26.567,
+     51.489,
+     104.261,
+     51.462,
+     26.553,
+     16.726,
+     0.058
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 104.26,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -131.7,
+    "dE_rxn_meV": 0.06,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.06,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.1099,
+     0.11,
+     0.1107,
+     0.1098,
+     0.1063,
+     0.1098,
+     0.1107,
+     0.11,
+     0.1098
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     13.818,
+     75.225,
+     148.977,
+     224.596,
+     148.974,
+     75.285,
+     13.888,
+     0.039
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 224.6,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -342.23,
+    "dE_rxn_meV": 0.04,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.04,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.1099,
+     0.1086,
+     0.1089,
+     0.1162,
+     0.1071,
+     0.1162,
+     0.1089,
+     0.1086,
+     0.1098
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     3.957,
+     9.025,
+     19.16,
+     46.68,
+     23.177,
+     10.362,
+     4.035,
+     0.002
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 46.68,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 3.8,
+    "dE_rxn_meV": 0.0,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.01,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0086,
+     0.0073,
+     0.0071,
+     0.0068,
+     0.0081,
+     0.0069,
+     0.007,
+     0.0072,
+     0.0086
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     49.827,
+     166.481,
+     249.085,
+     265.623,
+     167.857,
+     54.485,
+     6.849,
+     -9.204
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 265.62,
+    "E_a_dft_meV": 94.59,
+    "err_meV": 171.04,
+    "dE_rxn_meV": -9.2,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": -9.44,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.2858,
+     0.2897,
+     0.2925,
+     0.2927,
+     0.295,
+     0.2959,
+     0.294,
+     0.288,
+     0.2865
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -9.2,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     26.048,
+     29.637,
+     87.438,
+     7.412,
+     -49.208,
+     -64.793,
+     -69.546
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 87.44,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -120.72,
+    "dE_rxn_meV": -69.55,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 74.9,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.3242,
+     0.3228,
+     0.3217,
+     0.3182,
+     0.3177,
+     0.3187,
+     0.319,
+     0.3196
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -69.55,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -894.4868709424173,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -887.0495577506408,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -576.9262586671958,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 7437.31
+  }
+ },
+ "S3solo_s8": {
+  "model": "/work/runs/S3solo_s8/S3solo_s8.model",
+  "tag": "S3solo_s8",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     18.648,
+     29.332,
+     45.262,
+     88.688,
+     45.235,
+     29.318,
+     18.647,
+     0.059
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 88.69,
+    "E_a_dft_meV": 235.97,
+    "err_meV": -147.28,
+    "dE_rxn_meV": 0.06,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.06,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.1141,
+     0.1141,
+     0.1149,
+     0.1143,
+     0.1104,
+     0.1143,
+     0.1149,
+     0.1141,
+     0.114
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     17.271,
+     87.962,
+     170.58,
+     243.539,
+     170.578,
+     88.024,
+     17.342,
+     0.041
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 243.54,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -323.29,
+    "dE_rxn_meV": 0.04,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": 0.04,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.1141,
+     0.1127,
+     0.1127,
+     0.1208,
+     0.1115,
+     0.1208,
+     0.1126,
+     0.1126,
+     0.114
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     2.44,
+     6.283,
+     14.318,
+     40.471,
+     17.743,
+     7.272,
+     2.483,
+     -0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 40.47,
+    "E_a_dft_meV": 42.88,
+    "err_meV": -2.41,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.01,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0089,
+     0.0072,
+     0.007,
+     0.0073,
+     0.0086,
+     0.0074,
+     0.007,
+     0.0072,
+     0.0089
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     54.862,
+     181.969,
+     270.043,
+     288.041,
+     185.673,
+     62.883,
+     9.356,
+     -8.665
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 288.04,
+    "E_a_dft_meV": 94.59,
+    "err_meV": 193.45,
+    "dE_rxn_meV": -8.66,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": -8.9,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.2422,
+     0.247,
+     0.2489,
+     0.2478,
+     0.2504,
+     0.253,
+     0.2523,
+     0.2448,
+     0.2429
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -8.66,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     23.926,
+     17.297,
+     63.788,
+     -24.393,
+     -85.823,
+     -105.36,
+     -112.544
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 63.79,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -144.37,
+    "dE_rxn_meV": -112.54,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 31.9,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.3032,
+     0.3026,
+     0.3013,
+     0.2967,
+     0.295,
+     0.2957,
+     0.296,
+     0.2966
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -112.54,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -890.1946578707006,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -882.1567220176834,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -576.3601898127906,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 8037.94
+  }
+ },
+ "tE_HOLD": {
+  "model": "/work/runs/tE/tE.model",
+  "tag": "tE_HOLD",
+  "holdout": "mackinawite",
+  "P1_selftest": {
+   "greigite_channel": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.01,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -144.44,
+    "min_dft_meV": -144.44
+   }
+  },
+  "bands": {
+   "greigite_channel": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     13.062,
+     49.759,
+     134.048,
+     252.998,
+     134.044,
+     49.758,
+     13.062,
+     -0.002
+    ],
+    "profile_dft_meV": [
+     0.0,
+     10.854,
+     49.631,
+     134.671,
+     235.965,
+     134.668,
+     49.628,
+     10.854,
+     -0.0
+    ],
+    "E_a_meV": 253.0,
+    "E_a_dft_meV": 235.97,
+    "err_meV": 17.03,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0209,
+     0.0181,
+     0.0203,
+     0.0224,
+     0.0149,
+     0.0224,
+     0.0203,
+     0.0181,
+     0.0209
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "greigite_cation": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     27.834,
+     138.888,
+     341.165,
+     566.493,
+     341.15,
+     138.887,
+     27.836,
+     -0.001
+    ],
+    "profile_dft_meV": [
+     0.0,
+     23.438,
+     140.979,
+     362.773,
+     566.829,
+     362.757,
+     140.976,
+     23.434,
+     -0.0
+    ],
+    "E_a_meV": 566.49,
+    "E_a_dft_meV": 566.83,
+    "err_meV": -0.34,
+    "dE_rxn_meV": -0.0,
+    "dE_rxn_dft_meV": -0.0,
+    "dE_rxn_err_meV": -0.0,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0209,
+     0.0188,
+     0.0227,
+     0.0323,
+     0.0238,
+     0.0323,
+     0.0227,
+     0.0188,
+     0.0209
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -0.0,
+    "min_dft_meV": -0.0
+   },
+   "mackinawite": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     20.665,
+     36.59,
+     65.774,
+     143.044,
+     77.41,
+     40.748,
+     20.794,
+     0.016
+    ],
+    "profile_dft_meV": [
+     0.0,
+     1.556,
+     5.371,
+     14.73,
+     42.88,
+     18.85,
+     6.462,
+     1.565,
+     -0.008
+    ],
+    "E_a_meV": 143.04,
+    "E_a_dft_meV": 42.88,
+    "err_meV": 100.16,
+    "dE_rxn_meV": 0.02,
+    "dE_rxn_dft_meV": -0.01,
+    "dE_rxn_err_meV": 0.02,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0855,
+     0.0863,
+     0.0871,
+     0.0884,
+     0.0905,
+     0.0887,
+     0.0872,
+     0.0863,
+     0.0855
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": -0.01
+   },
+   "pyrite_VS2": {
+    "images_used": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     16.137,
+     53.191,
+     83.473,
+     92.148,
+     68.1,
+     34.557,
+     10.803,
+     0.251
+    ],
+    "profile_dft_meV": [
+     0.0,
+     15.112,
+     53.218,
+     84.868,
+     94.588,
+     70.186,
+     34.626,
+     9.141,
+     0.234
+    ],
+    "E_a_meV": 92.15,
+    "E_a_dft_meV": 94.59,
+    "err_meV": -2.44,
+    "dE_rxn_meV": 0.25,
+    "dE_rxn_dft_meV": 0.23,
+    "dE_rxn_err_meV": 0.02,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0155,
+     0.0137,
+     0.0146,
+     0.015,
+     0.0158,
+     0.0164,
+     0.0154,
+     0.0148,
+     0.0159
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": 0.0,
+    "min_dft_meV": 0.0
+   },
+   "marcasite": {
+    "images_used": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "profile_meV": [
+     0.0,
+     39.244,
+     102.039,
+     204.493,
+     72.895,
+     -61.467,
+     -130.664,
+     -143.085
+    ],
+    "profile_dft_meV": [
+     0.0,
+     41.965,
+     104.55,
+     208.159,
+     77.169,
+     -61.182,
+     -129.288,
+     -144.442
+    ],
+    "E_a_meV": 204.49,
+    "E_a_dft_meV": 208.16,
+    "err_meV": -3.67,
+    "dE_rxn_meV": -143.08,
+    "dE_rxn_dft_meV": -144.44,
+    "dE_rxn_err_meV": 1.36,
+    "saddle_image_dft": 4,
+    "force_rms_vs_dft_eVA": [
+     0.0181,
+     0.0183,
+     0.0234,
+     0.02,
+     0.0221,
+     0.0196,
+     0.0151,
+     0.0149
+    ],
+    "saddle_ok": true,
+    "no_spurious_basin": true,
+    "min_profile_meV": -143.08,
+    "min_dft_meV": -144.44
+   }
+  },
+  "ood": {
+   "pentlandite_endA.extxyz": {
+    "E_eV": -872.3102442624121,
+    "n_atoms": 136
+   },
+   "pentlandite_endB.extxyz": {
+    "E_eV": -868.0154757523571,
+    "n_atoms": 136
+   },
+   "pyrite_VFe_dimer_saddle.extxyz": {
+    "E_eV": -571.0703336140023,
+    "n_atoms": 96
+   },
+   "pentlandite_dE_BA_meV": 4294.77
+  },
+  "neb_selfconsistent": {
+   "converged": true,
+   "profile_meV": [
+    0.0,
+    5.942,
+    33.723,
+    97.199,
+    117.428,
+    97.2,
+    33.724,
+    5.942,
+    0.005
+   ],
+   "E_a_meV": 117.43,
+   "E_a_dft_meV": 42.88,
+   "err_meV": 74.55,
+   "saddle_image": 4,
+   "endpoint_relax_meV": [
+    129700206.98,
+    129700207.0
+   ]
+  }
+ }
+}

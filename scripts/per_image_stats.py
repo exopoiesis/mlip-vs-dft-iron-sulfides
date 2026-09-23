@@ -6,13 +6,16 @@ generated from measured numbers rather than retyped.
 """
 import json
 import math
+import os
 from pathlib import Path
 
 from ase.io import read
 
-ROOT = Path("D:/home/ignat/project-third-matter")
-RES = ROOT / "results/mlip_r22_2026-09-22"
-DEP = ROOT / "git/mlip-vs-dft-iron-sulfides/data/structures"
+# Paths are taken from the environment so the script runs from a clone without editing:
+#   MLIP_RUN  directory holding the R2.2 run output (band_*.json, grace_*.json)
+#   DEPOSIT   this repository's data/structures directory
+RES = Path(os.environ.get("MLIP_RUN", "results/mlip_r22_2026-09-22"))
+DEP = Path(os.environ.get("DEPOSIT", Path(__file__).resolve().parent.parent / "data/structures"))
 
 # band key in the R2.2 run  ->  deposited DFT band
 DEPOSIT = {

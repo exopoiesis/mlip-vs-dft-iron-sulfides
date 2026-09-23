@@ -1,0 +1,98 @@
+{
+ "purpose": "Blind selection of the training schedule. The holdout band is never read by the selection script (tune_report2.py opens only the four training bands).",
+ "gate": {
+  "criterion": "MAE of barrier error over the four TRAINING bands",
+  "threshold_meV": 10.0,
+  "rationale": "a model that cannot reproduce the barriers of the data it was trained on cannot serve as a representability ceiling"
+ },
+ "configurations": {
+  "tA": {
+   "energy_weight": 100,
+   "forces_weight": 100,
+   "lr": 0.0001,
+   "epochs": 200
+  },
+  "tB": {
+   "energy_weight": 10000,
+   "forces_weight": 100,
+   "lr": 0.0001,
+   "epochs": 200
+  },
+  "tC": {
+   "energy_weight": 10000,
+   "forces_weight": 100,
+   "lr": 0.001,
+   "epochs": 200
+  },
+  "tD": {
+   "energy_weight": 10000,
+   "forces_weight": 100,
+   "lr": 0.001,
+   "epochs": 4000
+  },
+  "tE": {
+   "energy_weight": 1000000,
+   "forces_weight": 100,
+   "lr": 0.001,
+   "epochs": 4000
+  }
+ },
+ "results": {
+  "tA": {
+   "train_band_barrier_MAE_meV": 93.515280382188,
+   "errs": {
+    "greigite_channel": -79.0017233877405,
+    "greigite_cation": -247.87363915409492,
+    "pyrite_VS2": -13.402252442871287,
+    "marcasite": -33.78350654404528
+   },
+   "force_rms_eVA": 0.014090372096953432
+  },
+  "tB": {
+   "train_band_barrier_MAE_meV": 45.63403697842301,
+   "errs": {
+    "greigite_channel": -30.67251296832987,
+    "greigite_cation": -106.90603949804404,
+    "pyrite_VS2": -4.7627379332891735,
+    "marcasite": -40.19485751402897
+   },
+   "force_rms_eVA": 0.022571303301879325
+  },
+  "tC": {
+   "train_band_barrier_MAE_meV": 31.563540557680028,
+   "errs": {
+    "greigite_channel": -21.11100203874352,
+    "greigite_cation": -65.5792202833411,
+    "pyrite_VS2": -13.782331645940104,
+    "marcasite": -25.781608262695386
+   },
+   "force_rms_eVA": 0.014976522119683798
+  },
+  "tD": {
+   "train_band_barrier_MAE_meV": 5.3906431198033715,
+   "errs": {
+    "greigite_channel": -4.077724850141152,
+    "greigite_cation": -7.990380208370652,
+    "pyrite_VS2": -4.7184126471632055,
+    "marcasite": 4.776054773538476
+   },
+   "force_rms_eVA": 0.008008665493619846
+  },
+  "tE": {
+   "train_band_barrier_MAE_meV": 5.868777043594733,
+   "errs": {
+    "greigite_channel": 17.032734951861727,
+    "greigite_cation": -0.3364489578686971,
+    "pyrite_VS2": -2.4399141205560966,
+    "marcasite": -3.666010144092411
+   },
+   "force_rms_eVA": 0.01943206315471933
+  }
+ },
+ "outcome": {
+  "at_200_epochs": "no configuration passed the gate (best tC, MAE 31.56 meV)",
+  "at_4000_epochs": "tD passed (MAE 5.39 meV) and tE passed (5.87 meV)",
+  "selected": "tD hyperparameters, i.e. the same energy/force weights and learning rate as tC; selection among gate-passing configurations used validation force RMSE (12.08 vs 20.13 meV/A), an out-of-sample quantity",
+  "consequence": "the ladders were trained with the 200-epoch schedule, which fails the gate; a converged control (4000 epochs) was therefore run for S1 and is reported in control_schedule_length.json"
+ }
+}

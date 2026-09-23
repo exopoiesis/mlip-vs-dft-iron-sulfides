@@ -50,6 +50,29 @@ computed from a common endpoint. The **shorter** edge (3.369 Å, shared with an 
 and it is expensive for that same reason. Selecting a migration path by hop distance therefore picks the worst
 one systematically in this structure type.
 
+## Does limited fine-tuning fix it?
+
+A separate experiment (`mlip/r23_2026-09/`) fine-tunes MACE-MP-0 large on the deposited DFT bands with one
+mineral held out, increasing what the model is told about that mineral rung by rung. With **mackinawite**
+held out (DFT barrier 42.88 meV), error against DFT in meV, 8 seeds:
+
+| what the model was given | barrier error |
+|---|---|
+| nothing (zero-shot) | +149.1 |
+| 26 symmetry-inequivalent configurations of the **three other** iron sulfides | +68.3 ± 22.7 |
+| the same, **plus both endpoint basins** of the held-out mineral | +68.6 ± 17.4 |
+| the same, plus the **full band** of the held-out mineral | +9.1 ± 7.1 |
+| **only** the held-out band | +0.5 ± 5.9 |
+
+Paired over seeds, |S1| − |S3| = **+59.3 meV**, 95 % CI [+36.7, +81.8], exact p = 0.0078 (the smallest value
+8 pairs can produce). So the zero-shot failure is a **data-coverage** failure and not a limit of the approach:
+the architecture reproduces this barrier to sub-meV once it has seen the reaction coordinate of *that*
+mineral. What does not happen is transfer between iron sulfides — and giving the model both endpoint basins
+changes nothing, because the saddle region is what is missing and that is exactly what cannot be had without
+DFT. Verified not to be an artefact of training length: the same hyperparameters run 20× longer leave the
+held-out error at +51.6 ± 18.8 meV. A second ladder (marcasite held out) is deposited but **not interpreted**
+— it fails the preregistered schedule gate, and the README in that directory explains why.
+
 (Pentlandite V_Fe barrier requires nspin = 2 and is developed in a companion magnetic-framework study; the
 [Fe₄S₄] cubane structural-motif MLIP failure is documented here.)
 
@@ -60,6 +83,8 @@ scripts/   QE DFT/NEB + dimer + convergence single-point drivers (ASE-driven), p
 zpe/       partial-Hessian zero-point frequency drivers (saddle + endpoint)
 mlip/      MACE-MP-0 / CHGNet topology-scan, NEB-probe, and band-correlation drivers
 mlip/r22_2026-09/    nine-model x five-band benchmark: per-image profiles, forces, barrier matrix
+mlip/r23_2026-09/    few-shot fine-tuning ladder for MACE-MP-0: does limited fine-tuning recover a
+                     held-out DFT barrier? ladders, blind schedule selection, convergence control
 mlip/environments/   three pip freezes (the nine models do not fit in one environment) + weight provenance
 figures/   figure-generation scripts (Table 1 / ZPE trend / barrier landscape / band correlation)
 data/      harvested result JSON (the numbers behind every table and figure)

@@ -1,0 +1,413 @@
+{
+  "holdout": "mackinawite",
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "n_raw_training_images": 35,
+  "n_symmetry_unique": 26,
+  "sym_unique_images": {
+    "greigite_channel": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "greigite_cation": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "mackinawite": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "pyrite_VS2": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "marcasite": [
+      0,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  "usable_images": {
+    "greigite_channel": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "greigite_cation": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "mackinawite": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "pyrite_VS2": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "marcasite": [
+      0,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  "rungs": {
+    "S1": {
+      "n_holdout_configs": 0,
+      "per_seed": {
+        "1": {
+          "n_train": 22,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:4",
+            "greigite_cation:3",
+            "pyrite_VS2:7",
+            "marcasite:0"
+          ]
+        },
+        "2": {
+          "n_train": 22,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:3",
+            "greigite_cation:2",
+            "pyrite_VS2:6",
+            "marcasite:3"
+          ]
+        },
+        "3": {
+          "n_train": 22,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:1",
+            "greigite_cation:1",
+            "pyrite_VS2:5",
+            "marcasite:3"
+          ]
+        },
+        "4": {
+          "n_train": 22,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:3",
+            "greigite_cation:1",
+            "pyrite_VS2:1",
+            "marcasite:2"
+          ]
+        },
+        "5": {
+          "n_train": 22,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:2",
+            "greigite_cation:1",
+            "pyrite_VS2:8",
+            "marcasite:8"
+          ]
+        },
+        "6": {
+          "n_train": 22,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:2",
+            "greigite_cation:2",
+            "pyrite_VS2:1",
+            "marcasite:5"
+          ]
+        },
+        "7": {
+          "n_train": 22,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:0",
+            "greigite_cation:1",
+            "pyrite_VS2:6",
+            "marcasite:7"
+          ]
+        },
+        "8": {
+          "n_train": 22,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:1",
+            "greigite_cation:1",
+            "pyrite_VS2:4",
+            "marcasite:7"
+          ]
+        }
+      }
+    },
+    "S2": {
+      "n_holdout_configs": 2,
+      "per_seed": {
+        "1": {
+          "n_train": 24,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:4",
+            "greigite_cation:3",
+            "pyrite_VS2:7",
+            "marcasite:0"
+          ]
+        },
+        "2": {
+          "n_train": 24,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:3",
+            "greigite_cation:2",
+            "pyrite_VS2:6",
+            "marcasite:3"
+          ]
+        },
+        "3": {
+          "n_train": 24,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:1",
+            "greigite_cation:1",
+            "pyrite_VS2:5",
+            "marcasite:3"
+          ]
+        },
+        "4": {
+          "n_train": 24,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:3",
+            "greigite_cation:1",
+            "pyrite_VS2:1",
+            "marcasite:2"
+          ]
+        },
+        "5": {
+          "n_train": 24,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:2",
+            "greigite_cation:1",
+            "pyrite_VS2:8",
+            "marcasite:8"
+          ]
+        },
+        "6": {
+          "n_train": 24,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:2",
+            "greigite_cation:2",
+            "pyrite_VS2:1",
+            "marcasite:5"
+          ]
+        },
+        "7": {
+          "n_train": 24,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:0",
+            "greigite_cation:1",
+            "pyrite_VS2:6",
+            "marcasite:7"
+          ]
+        },
+        "8": {
+          "n_train": 24,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:1",
+            "greigite_cation:1",
+            "pyrite_VS2:4",
+            "marcasite:7"
+          ]
+        }
+      }
+    },
+    "S3": {
+      "n_holdout_configs": 9,
+      "per_seed": {
+        "1": {
+          "n_train": 31,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:4",
+            "greigite_cation:3",
+            "pyrite_VS2:7",
+            "marcasite:0"
+          ]
+        },
+        "2": {
+          "n_train": 31,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:3",
+            "greigite_cation:2",
+            "pyrite_VS2:6",
+            "marcasite:3"
+          ]
+        },
+        "3": {
+          "n_train": 31,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:1",
+            "greigite_cation:1",
+            "pyrite_VS2:5",
+            "marcasite:3"
+          ]
+        },
+        "4": {
+          "n_train": 31,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:3",
+            "greigite_cation:1",
+            "pyrite_VS2:1",
+            "marcasite:2"
+          ]
+        },
+        "5": {
+          "n_train": 31,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:2",
+            "greigite_cation:1",
+            "pyrite_VS2:8",
+            "marcasite:8"
+          ]
+        },
+        "6": {
+          "n_train": 31,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:2",
+            "greigite_cation:2",
+            "pyrite_VS2:1",
+            "marcasite:5"
+          ]
+        },
+        "7": {
+          "n_train": 31,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:0",
+            "greigite_cation:1",
+            "pyrite_VS2:6",
+            "marcasite:7"
+          ]
+        },
+        "8": {
+          "n_train": 31,
+          "n_valid": 4,
+          "valid_configs": [
+            "greigite_channel:1",
+            "greigite_cation:1",
+            "pyrite_VS2:4",
+            "marcasite:7"
+          ]
+        }
+      }
+    },
+    "S3solo": {
+      "n_holdout_configs": 9,
+      "note": "валидация = обучение; это ПОДГОНКА, контроль ёмкости, не обобщение",
+      "per_seed": {
+        "1": {
+          "n_train": 9,
+          "n_valid": 9
+        },
+        "2": {
+          "n_train": 9,
+          "n_valid": 9
+        },
+        "3": {
+          "n_train": 9,
+          "n_valid": 9
+        },
+        "4": {
+          "n_train": 9,
+          "n_valid": 9
+        },
+        "5": {
+          "n_train": 9,
+          "n_valid": 9
+        },
+        "6": {
+          "n_train": 9,
+          "n_valid": 9
+        },
+        "7": {
+          "n_train": 9,
+          "n_valid": 9
+        },
+        "8": {
+          "n_train": 9,
+          "n_valid": 9
+        }
+      }
+    }
+  }
+}

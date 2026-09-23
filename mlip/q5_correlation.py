@@ -24,11 +24,12 @@ import sys
 
 import numpy as np
 
-ROOT = "/d/home/ignat/project-third-matter"
-# When run from a Windows python the cwd is set by the wrapper; use relative paths
-# resolved against the project root if ROOT exists, else cwd.
+# Project root: set PROJECT_ROOT in the environment, otherwise paths resolve against cwd.
+ROOT = os.environ.get("PROJECT_ROOT", "")
+
+
 def P(rel):
-    base = ROOT if os.path.isdir(ROOT) else "."
+    base = ROOT if ROOT and os.path.isdir(ROOT) else "."
     return os.path.join(base, rel)
 
 
