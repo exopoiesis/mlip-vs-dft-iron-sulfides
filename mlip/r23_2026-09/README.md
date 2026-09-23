@@ -56,7 +56,8 @@ The energy targets are referenced per band:
 `E0s` are the foundation model's own atomic energies. Absolute DFT totals here are ONCV
 pseudopotential energies (−1300…−1800 eV/atom) and are incompatible with the foundation scale
 (≈ −5.9 eV/atom). A consequence worth stating: the four training bands span only **three distinct
-stoichiometries** over three elements (determinant of the composition matrix = 336 ≠ 0), so a linear
+stoichiometries** over three elements — Fe23S32H for both greigite bands, Fe32S63H for pyrite,
+Fe31S64H for marcasite (determinant of the composition matrix = 40 ≠ 0) — so a linear
 composition reference is exactly determined and **inter-band energy information is identically zero
 by construction**. The model learns intra-band shape plus forces, nothing else.
 
