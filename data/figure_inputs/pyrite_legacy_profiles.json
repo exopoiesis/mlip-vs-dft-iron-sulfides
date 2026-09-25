@@ -1,0 +1,68 @@
+{
+  "status": "HISTORICAL_DEGENERATE_ENDPOINT_PROFILES",
+  "interpretation": "MLIP ranges are not migration barriers; see SI O.2.",
+  "cases": [
+    {
+      "case": "pyrite_V_S2",
+      "n_images": 9,
+      "dft_band_meV": [
+        0.0,
+        15.112,
+        53.218,
+        84.868,
+        94.588,
+        70.186,
+        34.626,
+        9.141,
+        0.234
+      ],
+      "dft_saddle_index": 4,
+      "dft_barrier_meV": 94.588,
+      "note": "V_S2 sulfur-vacancy H-hop, 96-atom cell, 9 images, symmetric, DFT saddle img4 = 94.6 meV (QE PBE). MLIP same vacancy/hop topology.",
+      "models": {
+        "mace_mp0_large": {
+          "mlip_band_meV": [
+            0.0,
+            -0.0131,
+            -0.023,
+            -0.0298,
+            -0.0334,
+            -0.0338,
+            -0.031,
+            -0.0251,
+            -0.016
+          ],
+          "pearson_R": -0.764,
+          "rmse_meV": 53.167,
+          "mlip_saddle_index": 0,
+          "saddle_matches_dft": false,
+          "mlip_barrier_meV": 0.0338,
+          "barrier_ratio_mlip_over_dft": 0.0004
+        },
+        "chgnet_v030": {
+          "mlip_band_meV": [
+            0.0,
+            -4.8981,
+            -23.6206,
+            -7.5073,
+            27.6031,
+            -17.0288,
+            -23.6206,
+            0.3204,
+            0.0458
+          ],
+          "pearson_R": 0.1274,
+          "rmse_meV": 58.12,
+          "mlip_saddle_index": 4,
+          "saddle_matches_dft": true,
+          "mlip_barrier_meV": 51.2238,
+          "barrier_ratio_mlip_over_dft": 0.5415
+        }
+      },
+      "failure_classification": {
+        "mace_mp0_large": "energetic+topological (MLIP flat: no barrier, no saddle)",
+        "chgnet_v030": "force-misalignment (low shape correlation)"
+      }
+    }
+  ]
+}

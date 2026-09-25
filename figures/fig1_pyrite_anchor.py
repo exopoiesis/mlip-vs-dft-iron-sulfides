@@ -3,11 +3,10 @@
 
 Panel A: NEB profiles 1×1×1 cross-code (GPAW + QE + ABACUS) — 5% agreement.
 Panel B: 96-atom production NEB profile (QE, paper-quotable 0.0946 eV).
-Panel C: V_S pocket Fe-to-Fe hydride hop schematic (placeholder — TODO ASE/VESTA render).
 
-Output: paper/MLIPvsDFT/figures/fig1_pyrite_anchor.{png,pdf,svg}
+Output: figures/fig1_pyrite_anchor.{png,pdf,svg}
 
-Run: python paper/MLIPvsDFT/figures/fig1_pyrite_anchor.py
+Run: python figures/fig1_pyrite_anchor.py
 """
 import json
 from pathlib import Path
@@ -18,17 +17,13 @@ import numpy as np
 # =============================================================
 # Project root + data paths
 # =============================================================
-ROOT = Path(__file__).resolve().parents[3]
-RESULTS = ROOT / "results"
+ROOT = Path(__file__).resolve().parents[1]
+DATA = ROOT / "data" / "figure_inputs"
 FIGDIR = Path(__file__).resolve().parent
-
-# 1×1×1 cross-code data
-GPAW_JSON = RESULTS / "q071_dft_neb_pyrite.json"
-QE_JSON = RESULTS / "dft_datasets" / "neb_pyrite_qe_result.json"
-ABACUS_JSON = RESULTS / "dft_datasets" / "neb_pyrite_abacus_1x1x1_result.json"
-
-# 96at production
-PROD_JSON = RESULTS / "dft_datasets" / "2026-05-01" / "pyr_prod_neb_W3" / "results" / "neb_canonical_pyr_96at_qe.json"
+GPAW_JSON = DATA / "pyrite_gpaw.json"
+QE_JSON = DATA / "pyrite_qe_small.json"
+ABACUS_JSON = DATA / "pyrite_abacus_small.json"
+PROD_JSON = DATA / "pyrite_qe_production.json"
 
 
 # =============================================================
@@ -78,7 +73,7 @@ plt.rcParams.update({
     "axes.spines.right": False,
 })
 
-fig, (axA, axB) = plt.subplots(1, 2, figsize=(7.0, 3.0), constrained_layout=True)
+fig, (axA, axB) = plt.subplots(1, 2, figsize=(9.0, 3.8), constrained_layout=True)
 
 # ---- Panel A: cross-code 1×1×1 ----
 colors_A = {"GPAW": "#1f77b4", "QE": "#d62728", "ABACUS": "#2ca02c"}
@@ -102,7 +97,7 @@ for label, energies_meV, Ea_eV in datasets_A:
 axA.axhline(0, color="grey", linewidth=0.5, linestyle=":")
 axA.set_xlabel("Reaction coordinate")
 axA.set_ylabel("Relative energy (meV)")
-axA.set_title(r"(a) Pyrite 1$\times$1$\times$1 (12 atoms) — cross-code anchor")
+axA.set_title("(a) Small cell: two vacancies\nCross-code comparison")
 axA.legend(loc="lower center", frameon=False, ncol=1)
 axA.set_xlim(-0.02, 1.02)
 
@@ -114,7 +109,7 @@ axB.plot(rc_prod, prod_meV,
          marker="D",
          markersize=5,
          linewidth=1.7,
-         label=f"QE 96at prod NEB:\n$E_a$ = {prod_meta['E_a_eV']*1000:.1f} meV (paper-grade)")
+         label=f"QE production NEB:\n$E_a$ = {prod_meta['E_a_eV']*1000:.1f} meV")
 
 # Annotate saddle point
 i_max = int(np.argmax(prod_meV))
@@ -127,8 +122,8 @@ axB.annotate(f"{prod_meV[i_max]:.0f} meV",
 axB.axhline(0, color="grey", linewidth=0.5, linestyle=":")
 axB.set_xlabel("Reaction coordinate")
 axB.set_ylabel("Relative energy (meV)")
-axB.set_title(r"(b) Pyrite conv$\times$2$\times$2$\times$2 (96 atoms) — production NEB")
-axB.legend(loc="upper right", frameon=False)
+axB.set_title("(b) Production: one vacancy\n96-atom parent cell")
+axB.legend(loc="lower center", frameon=False)
 axB.set_xlim(-0.02, 1.02)
 
 # Suptitle (small, paper-grade)

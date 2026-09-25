@@ -23,7 +23,7 @@ OUT = Path(__file__).resolve().parent
 # label, DFT eV, MACE eV (None = no defined barrier), CHGNet eV, note
 ROWS = [
     ("Mackinawite\nV_Fe + S–H", 0.0429, 0.108, 0.183, ""),
-    ("Pyrite\nV_S pocket, Fe→Fe", 0.0946, None, None, "endpoints merge"),
+    ("Pyrite\nV_S pocket, Fe→Fe", 0.0946, None, None, "seed-sensitive"),
     ("Marcasite\nV_Fe + S–H", 0.208, 0.208, 0.318, ""),
     ("Greigite\nV_Fe + S–H (channel)", 0.236, 0.221, 0.254, "single point"),
     ("Pyrite\nV_Fe + S–H", 0.268, 0.256, 0.387, ""),
@@ -60,7 +60,7 @@ def main():
     ax.set_xticks(x)
     ax.set_xticklabels(labels, fontsize=9)
     ax.set_ylabel("Migration barrier $E_a$ (eV)", fontsize=11)
-    ax.set_title("Foundation-MLIP versus DFT on the converged reaction coordinates",
+    ax.set_title("Foundation-MLIP versus DFT on the tested reaction coordinates",
                  fontsize=12)
     ax.legend(fontsize=9, frameon=False, loc="upper left")
     ax.set_ylim(0, 0.44)
@@ -69,8 +69,8 @@ def main():
 
     fig.text(0.01, 0.015,
              "MLIP bars use endpoints relaxed on the model's own surface, except greigite "
-             "(single point on the DFT band).\nNo MLIP bar for the pyrite V_S pocket: both "
-             "potentials merge the two Fe minima, so no barrier is defined.",
+             "(single point on the DFT band). Bar labels: meV.\n"
+             "No validated self-consistent MLIP barrier for pyrite V_S; endpoint outcome depends on seeding.",
              fontsize=7.5, color="#555555")
 
     fig.tight_layout(rect=(0, 0.07, 1, 1))

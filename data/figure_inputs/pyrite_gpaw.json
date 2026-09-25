@@ -1,0 +1,56 @@
+{
+  "system": "pyrite_inter_dimer",
+  "method": "DFT_GPAW_PBE",
+  "pw_cutoff_eV": 350,
+  "kpts": [
+    2,
+    2,
+    2
+  ],
+  "smearing_eV": 0.1,
+  "fmax_relax": 0.03,
+  "fmax_neb": 0.05,
+  "n_images": 5,
+  "E_a_MACE_eV": 0.79,
+  "gpu": "NVIDIA RTX 4000 Ada Generation",
+  "gpu_fft": true,
+  "formula_pristine": "Fe4S8",
+  "n_atoms_pristine": 12,
+  "cell_A": [
+    5.416,
+    5.416,
+    5.416
+  ],
+  "E_pristine_eV": -73.93412678461006,
+  "time_relax_pristine_s": 21.4,
+  "S_pair_indices": [
+    6,
+    9
+  ],
+  "S_pair_distance_A": 3.067514356861885,
+  "n_atoms": 11,
+  "formula": "HFe4S6",
+  "E_endpointA_eV": -63.16124778242085,
+  "E_endpointB_eV": -63.16101768609003,
+  "dE_endpoints_eV": 0.00023009633082438086,
+  "time_endpoints_s": 175.2,
+  "DFT_MACE_ratio": 0.22953245552979004,
+  "agreement": "poor (> 0.5 eV)",
+  "converged": true,
+  "n_neb_steps": 26,
+  "E_a_eV": 0.18133063986853415,
+  "energies_per_image": [
+    0.0,
+    0.10388929330623142,
+    0.18133063986853415,
+    0.14781011844186054,
+    0.11888324132286243,
+    0.13030994630925363,
+    0.00023009633082438086
+  ],
+  "time_neb_s": 469.3,
+  "D_H_cm2s": 8.0993627503933e-06,
+  "tau_200nm_s": 2.469330071557644e-05,
+  "D_H_MACE_cm2s": 4.1668580114498525e-16,
+  "total_time_s": 668.1
+}

@@ -8,8 +8,8 @@ referee 2, comment 3:
 > distinguish zero-shot failure from a more fundamental limitation of the MLIP approach.*
 
 **This is fine-tuning, not active learning.** There is no acquisition function, no uncertainty model
-and no loop: every additional label here would cost a DFT-NEB calculation. We call it a *few-shot
-fine-tuning ladder* and make no claim about active learning.
+and no acquisition loop. The labels were taken from existing DFT bands. This does not establish
+that an active-learning label would require an entire new DFT-NEB calculation.
 
 ---
 
@@ -28,13 +28,15 @@ information the model is given about that mineral is increased rung by rung.
 | **S3** | S1 + the full band of the held-out mineral | representability ceiling (in-domain) |
 | **S3solo** | *only* the held-out band | capacity control, free of cross-mineral conflict |
 
-**The discriminator is the paired difference S3 − S1**, not "did S1 recover". S3 is deliberately
-tautological: it works as a ceiling, not as a result. S3solo was added because a negative S3 would
-otherwise be indistinguishable from a third possibility — conflicting supervision between minerals,
-which here require corrections of opposite sign (+149, +159, −15, −132 meV).
+**The discriminator is the paired difference in absolute barrier errors, |S1| − |S3|.** S3 and
+S3solo include the target band in training and are fitting controls, not unseen-path predictions.
+S3solo removes simultaneous supervision from the other minerals, whose zero-shot errors have
+different signs (+149, +159, −15, −132 meV).
 
-Eight seeds per rung. The validation split is drawn only from non-holdout minerals and is
-**identical across rungs at a given seed**, so the design is paired.
+Eight seeds are paired across fitted rungs; S0 is one deterministic zero-shot calculation.
+For S1–S3, validation is drawn only from non-holdout minerals and is identical across rungs at a
+given seed. S3solo uses the same nine target images for training and validation, with no independent
+validation set (`scripts/build_sets3.py`, `datasets_mackinawite.json`).
 
 ## 2. How little data this is
 
@@ -48,8 +50,10 @@ For the mackinawite holdout the training pool is 35 band images, but:
 * mackinawite, pyrite and marcasite are **not** mirror-symmetric.
 
 ⇒ **26 symmetry-inequivalent configurations**, and an **effective n ≈ 4 paths**, because the nine
-images of a band are points on one trajectory. All three numbers (35 / 34 / 26) are stated because
-they are the honest measure of the data budget. Training uses only the 26.
+images of a band are points on one trajectory. These counts describe the pool. One configuration
+from each of its four bands is reserved for validation at every seed: S1 trains on 22 and validates
+on four. S2/S3 add their target configurations to those 22. Seed statistics are conditional on
+this fixed path selection, not uncertainty across a population of minerals.
 
 The energy targets are referenced per band:
 `target_E(b,i) = E_DFT(b,i) − E_DFT(b,0) + E_MACE0(b,0)`, forces are the DFT forces unchanged, and
@@ -90,52 +94,53 @@ Discriminator, paired over seeds, exact sign-permutation test:
 > back to the single-point value, mixing two conventions. `ladder_*.json` now carries the corrected
 > figure and a `correction_note`. The single-point discriminator was never affected.
 
-**Reading.** The zero-shot failure is a **data-coverage** failure, not a limitation of the MLIP
-approach: the architecture represents this barrier accurately once it has seen the reaction
-coordinate of *that* mineral (S3solo lands within 0.5 meV). What does not happen is transfer —
-fine-tuning on three other iron sulfides leaves the error essentially where zero-shot left it.
+**Reading.** Transfer from the other three iron sulfides is partial: the fixed-band error decreases
+from 149.12 to 68.33 meV. S3solo has a **mean absolute barrier error of 4.60 meV**; its signed mean
+of +0.52 meV reflects cancellation of positive and negative errors and is not its accuracy.
+The architecture can fit this target barrier, but this in-sample result does not identify data
+coverage as the sole cause of the zero-shot errors.
 
 Three secondary observations:
 
-* **S2 ≈ S1.** Giving the model both endpoint basins of the target mineral changes nothing in the
-  single-point convention. The saddle region is what is needed, and that is exactly what cannot be
-  obtained without DFT.
-* A model that fits the barriers of its own four training minerals to **5.4 meV** still misses the
-  fifth by ~70 meV (see `control_schedule_length.json`). Good training-set fit says nothing about
-  transfer.
-* **The in-domain rung buys its accuracy by forgetting.** S3solo reaches +0.5 meV on mackinawite
-  while its barrier error on the four minerals it was *not* trained on degrades by +38 to +186 meV
-  relative to zero-shot, and its force error on structures outside the training set (pentlandite
-  V_Fe + H) drifts by 0.22–0.28 eV/Å. Every rung shows out-of-domain force drift of 0.25–0.45 eV/Å
-  on pentlandite, above the 0.1 eV/Å threshold declared in advance. Single-head fine-tuning
-  produces a specialist, not an improved general potential; replay-based multi-head fine-tuning is
-  the established mitigation and was not available for this checkpoint (see §7). Per-rung figures
-  are in the `F1_train_bands` and `F2_force_drift` fields of `ladder_*.json`.
+* **S2 ≈ S1 in this fixed-band experiment.** Adding the tested endpoint configurations scarcely
+  changes the error. Adding the full target band improves fitting; this does not isolate a single
+  saddle configuration's effect or establish that endpoints cannot help under other designs.
+* The longer-schedule control fits its four training **bands** to 5.4 meV and leaves the target-band
+  error at 51.6 meV (`control_schedule_length.json`). Good fit on those paths does not establish
+  accurate transfer to the holdout.
+* **Target-path fitting degrades performance elsewhere.** S3solo increases barrier errors on the
+  other four bands by 38–186 meV relative to zero-shot. This is a specialist fit, not an improved
+  general potential. `F2_force_drift` additionally records force changes on the withdrawn,
+  incorrectly constructed pentlandite structures. These remain historical numerical controls,
+  not evidence of transfer to real pentlandite; see `../PENTLANDITE_WITHDRAWN.md`.
 
 ## 4. Control: is this an artefact of a short schedule?
 
 The ladders were trained for 200 epochs, which **fails** the preregistered schedule gate (see
 `schedule_sweep.json`): at 200 epochs the best configuration reproduces the training bands' own
-barriers only to MAE 31.6 meV, against a 10 meV threshold. The identical hyperparameters run to
-convergence (4000 epochs) pass the gate at 5.4 meV.
+barriers only to MAE 31.6 meV, against a 10 meV threshold. The control with the same nominal
+hyperparameters and a 4000-epoch budget passes the gate at 5.4 meV.
 
-S1 was therefore re-run to convergence, 8 seeds:
+S1 was therefore re-run with the longer schedule, using 8 seeds:
 
 | schedule | single-point | self-consistent NEB |
 |---|---|---|
 | 200 epochs | +68.33 ± 22.70 (n = 8) | +33.06 ± 24.56 (n = 3) |
 | 4000 epochs | +51.56 ± 18.76 (n = 8) | **−25.41 ± 18.25** (n = 8) |
 
-A twentyfold longer schedule moves the single-point error by 7–17 meV and leaves S1 far outside the
-25 meV recovery tolerance. The conclusion is not an artefact of training length.
+The tested longer schedule leaves the mean fixed-band error above the 25 meV recovery tolerance.
+This does not establish independence from training length or other optimization choices generally.
 
-In the self-consistent convention the longer schedule **reverses the sign of the error** and inflates
-the seed-to-seed spread: per-seed NEB errors are
+In the self-consistent convention the longer schedule **reverses the sign of the mean error**.
+Its per-seed NEB errors are
 −42.9, −41.6, −40.8, −34.5, −28.3, −15.3, −4.4, +4.5 meV. The spread (47 meV) **exceeds the DFT
-barrier itself** (42.88 meV), and in one seed of eight the barrier vanishes entirely (E_a = 0.00 meV).
+barrier itself** (42.88 meV), and in one seed of eight the reported barrier vanishes (E_a = 0.00 meV).
+Nevertheless, the mean absolute self-consistent error improves to **26.54 meV** from zero-shot
+65.60 meV. The signed reversal is not evidence that absolute accuracy became worse. These seed
+variations remain large relative to the reference barrier.
 
-Because S3 and S3solo *already* recover at the short schedule, and longer training can only improve
-an in-domain fit, the ceiling conclusion holds a fortiori and the full ladder was not re-run.
+The full ladder was not rerun at the longer schedule. S3/S3solo demonstrate target fitting at the
+tested short schedule; monotonic improvement with further training is not assumed.
 
 ## 5. Second holdout (marcasite) — reported, not interpreted
 
@@ -144,21 +149,20 @@ A second ladder was run with marcasite held out, at the same 200-epoch schedule
 and we say so rather than quietly dropping it.**
 
 * S3solo gives −56.06 ± 22.71 meV, i.e. the model fails to reproduce the barrier of the very band it
-  was trained on. For mackinawite the same rung landed at +0.52 meV. 200 epochs is not enough for a
-  208 meV barrier although it sufficed for a 42.88 meV one. This is precisely the schedule-gate
+  was trained on. Mackinawite's corresponding signed mean is +0.52 meV (MAE 4.60 meV). The tested
+  schedule fits these bands differently; their barrier heights alone do not explain that difference.
+  This is the schedule-gate
   failure described above, and the preregistered rule says such a ladder cannot be read as a ceiling.
 * The discriminator is flat: Δ = −6.61 meV, 95 % CI [−36.07, +22.84], p = 0.625 — indistinguishable.
 
 One result from this ladder *is* usable and is reported: **zero-shot MACE-MP-0 reproduces the
 marcasite barrier to −1.44 meV in the self-consistent convention** (−36.29 meV single-point).
-That is the best agreement anywhere in this work, and it is why marcasite is a poor choice of
-holdout for a recovery experiment — there is almost nothing to recover. The holdout was moved to
-mackinawite, where every one of the nine models benchmarked in §3.6 overestimates the barrier
+That self-consistent control leaves little zero-shot error to recover, although its fixed-band error
+is appreciable. The interpreted holdout is mackinawite, where every one of the nine models in main
+§3.4 overestimates the fixed-band barrier
 (MACE-MP-0 by 4.5×), on the basis of that published fact and not of any fine-tuning outcome.
 
-Bringing the marcasite ladder to a converged schedule would cost roughly 35 GPU-hours; it was judged
-not worth it, since the mackinawite ladder answers the referee's question and the marcasite ladder's
-only interpretable number is already reported.
+No converged-schedule marcasite ladder is deposited; no transfer conclusion is drawn from that ladder.
 
 ## 6. Files
 
@@ -187,10 +191,10 @@ information.
 Container `exopoiesis/infra-mace-gpu`, NVIDIA A100-SXM4-80GB: MACE 0.3.15, PyTorch 2.5.1+cu124,
 ASE 3.23.0, Python 3.10.12, `--default_dtype float64` throughout. Fine-tuning is single-head
 (`--multiheads_finetuning False`): MACE does not recognise this checkpoint as a Materials Project
-model and requires an explicit replay set, which we do not have. Single-head fine-tuning converges
-*better* on one target system, so this is the regime most favourable to recovery — the caveat is
-that out-of-domain retention is not protected, which is why drift on structures outside the training
-set is reported in the evaluation files.
+model in the tested setup without an explicit replay set. This study did not compare single-head
+and replay-based multi-head strategies and does not establish which would fit or transfer better.
+Retention is assessed on the other deposited bands; invalid pentlandite force controls retain
+only the historical status described in §3.
 
 The evaluator reproduces the published R2.2 zero-shot barriers to within 0.05 meV on all five bands
 (171.86 / 221.14 / 435.03 / 192.00 / 253.35 meV), which is checked in code before any ladder runs.

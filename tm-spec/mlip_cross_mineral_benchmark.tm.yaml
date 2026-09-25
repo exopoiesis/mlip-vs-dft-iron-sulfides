@@ -1,171 +1,213 @@
-# TM-Spec v0.3 artefact: MACE-MP-0 + CHGNet cross-mineral benchmark vs DFT
-# THREE distinct foundation-MLIP failure modes (a fourth, claimed here earlier, is withdrawn).
-# PASS (benchmark completed, failures documented and paper-quotable).
-# id: tm.fes.mlip_vs_dft.benchmark.2026-06-04
-#
-# CORRECTED 2026-09-22 on three counts:
-#   (a) the MACE variant is LARGE, not medium -- the driver calls mace_mp(model="large") and the
-#       run log loads MACE_MPtrj_2022.9.model. Every MACE number here and in the paper is large.
-#   (b) the greigite DFT reference of 1860 meV is RETRACTED (see tm.greig.vfe.neb.2026-06-04);
-#       the corrected references are 235.97 meV (channel edge) and 566.83 meV (cation edge).
-#   (c) the pyrite system is V_S with an Fe-bound hydride hop, not a persulfide-dimer vacancy.
-# A nine-model extension of this benchmark is deposited separately under mlip/r22_2026-09/.
-
+# TM-Spec v0.3 record; scientific metadata synchronized 2026-09-25.
+# See README.md for reference resolution, historical_interpretation and validation scope.
 spec: tm-spec/0.3
 kind: MLIPBenchmark
 id: tm.fes.mlip_vs_dft.benchmark.2026-06-04
 schema_url: https://exopoiesis.github.io/tm-spec/0.3.json
-
-# -- 1. STRUCTURE ---------------------------------------------------------
 structure:
-  formula: FeS2               # representative; benchmark spans FeS2/FeS/Fe3S4 family
+  formula: FeS2
   composition:
-    solid: "FeS2/FeS/Fe3S4 family"
-  space_group: { number: 205, symbol: Pa-3 }
-  pbc: [true, true, true]
-
-# -- 2. MAGNETIC STATE ----------------------------------------------------
+    solid: FeS2/FeS/Fe3S4 family
+  space_group:
+    number: 205
+    symbol: Pa-3
+  pbc:
+  - true
+  - true
+  - true
 magnetic:
   state: NM
   collinear: true
   magmoms_uB: {}
-  surrogate_warning: "per-mineral varies: NM (pyrite/mackinawite), ferri (greigite), PM-itinerant (marcasite)"
-
-# -- 3. CALCULATION (multi-backend MLIP) ----------------------------------
+  surrogate_warning: 'Per-mineral DFT reference choices differ: non-spin-polarized pyrite/mackinawite,
+    weak-moment marcasite sheet and ferrimagnetic greigite. MLIP initial-moment insensitivity is not equivalence
+    to nspin=1 DFT.'
 calculation:
   method: MLIP
   backends:
-    - name: MACE-MP-0
-      variant: large                      # corrected 2026-09-22; was wrongly recorded as medium
-      checkpoint: MACE_MPtrj_2022.9.model
-      sha256: f80e992b65ab8f88fdf26964511357c022e92704e4d9bcd086652635a8495b32
-      version: "0.3.x"
-      foundation: true
-      fine_tuned: false
-    - name: CHGNet
-      variant: v0.3.0
-      foundation: true
-      fine_tuned: false
-
-# -- 4. BENCHMARK SETUP ---------------------------------------------------
+  - name: MACE-MP-0
+    variant: large
+    checkpoint: MACE_MPtrj_2022.9.model
+    sha256: f80e992b65ab8f88fdf26964511357c022e92704e4d9bcd086652635a8495b32
+    version: 0.3.15
+    foundation: true
+    fine_tuned: false
+  - name: CHGNet
+    variant: v0.3.0
+    foundation: true
+    fine_tuned: false
+    package_version: 0.4.2
 benchmark_setup:
   reference:
-    method: "plane-wave DFT (PBE U=0)"
+    method: plane-wave DFT (PBE U=0)
     code: QuantumESPRESSO
-    system: "Fe-S V-anchored proton migration, this work"
+    system: Local neutral-H vacancy-defect paths in dry bulk Fe-S compounds
   test_systems:
-    - id: pyr_vs2_96at
-      system: "pyrite HFe32S63 96-atom V_S pocket, Fe-to-Fe hydride hop"
-      DFT_Ea_meV: 94.6
-      label_corrected_2026_09_22: "was 'V_S2 persulfide hop'; barrier unaffected"
-    - id: pyr_vfe_96at
-      system: "pyrite FeS2 96-atom V_Fe S-H lateral hop (Dimer result)"
-      DFT_Ea_meV: 268
-    - id: greig_vfe_56at
-      system: "greigite Fe3S4 56-atom V_Fe oct, trans axis"
-      DFT_Ea_meV: 1860
-      status: RETRACTED
-      retraction: "not a migration path; see tm.greig.vfe.neb.2026-06-04"
-    - id: greig_vfe_channel_56at
-      system: "greigite HFe23S32 56-atom V_Fe oct, S-H hop along a CHANNEL edge"
-      DFT_Ea_meV: 235.97
-      replaces: greig_vfe_56at
-    - id: greig_vfe_cation_56at
-      system: "greigite HFe23S32 56-atom V_Fe oct, S-H hop along a CATION edge"
-      DFT_Ea_meV: 566.83
-    - id: pent_vfe
-      system: "pentlandite (Fe,Ni)9S8 V_Fe cubane pocket S-H hop"
-      DFT_Ea_meV: null
+  - id: pyr_vs2_96at
+    system: pyrite HFe32S63 96-atom V_S pocket, Fe-to-Fe hydrogen transfer
+    DFT_Ea_meV: 94.6
+    label_corrected_2026_09_22: was 'V_S2 persulfide hop'; barrier unaffected
+  - id: pyr_vfe_96at
+    system: pyrite FeS2 96-atom V_Fe S-H lateral hop (Dimer result)
+    DFT_Ea_meV: 268
+  - id: greig_vfe_56at
+    system: greigite Fe3S4 56-atom V_Fe oct, trans axis
+    DFT_Ea_meV: 1860
+    status: RETRACTED
+    retraction: not a migration path; see tm.greig.vfe.neb.2026-06-04
+  - id: greig_vfe_channel_56at
+    system: greigite HFe23S32 56-atom V_Fe oct, S-H hop along a CHANNEL edge
+    DFT_Ea_meV: 235.97
+    replaces: greig_vfe_56at
+  - id: greig_vfe_cation_56at
+    system: greigite HFe23S32 56-atom V_Fe oct, S-H hop along a CATION edge
+    DFT_Ea_meV: 566.83
+  - id: pent_vfe
+    system: Incorrect Fe71S64H structural model intended as pure-Fe pentlandite
+    DFT_Ea_meV: null
+    status: RETRACTED
+    retraction: Incorrect Wyckoff assignments and coordination; no valid pentlandite diagnosis.
   test_observables:
-    - "barrier Ea (eV)"
-    - "saddle topology / band shape"
-    - "endpoint topology preservation"
-
-# -- 5. METRICS -----------------------------------------------------------
+  - barrier Ea (eV)
+  - saddle topology / band shape
+  - endpoint topology preservation
 metrics:
-  abs_diff_saddle_eV:
-    MACE_vs_DFT_pyrVS2: 0.095
-    CHGNet_vs_DFT_pyrVS2: 0.067
-  frac_correct_kind:
-    note: "CHGNet magnitude-only magmom (Jiang/Xu PNAS 2025); initialized magmoms do not change CHGNet energy (mackinawite control: 0.0 pp shift)"
-  Ea_correlation_R2:
-    note: "not computable -- structural collapse on 2/4 systems precludes global R2"
-
-# -- 6. RESULTS -----------------------------------------------------------
+  scope: Current quantitative barriers require matched self-consistent or fixed-DFT-band protocol. Historical
+    degenerate-band errors are in results.historical_interpretation and are not accepted migration metrics.
 results:
   per_backend:
     MACE-MP-0:
-      pyrite_VS2_meV: 0
-      pyrite_VS2_note: "flat PES, correct endpoint topology but barrier = 0"
-      pyrite_VFe_meV: 182
-      greigite_note: >
-        PRISTINE-CELL RELAXATION collapses (nearest-neighbour S-S contracting to 0.072 A), and
-        the ~1e10 eV figure is a consequence of that collapsed geometry, not an independent
-        energy observation. On DFT-relaxed geometries the same checkpoint evaluates greigite
-        normally: on the corrected channel band it returns 221.1 meV against DFT 235.97.
-      pentlandite_note: "cubane [Fe4S4] 3+3 structural collapse"
+      pyrite_VS2_meV: null
+      pyrite_VS2_note: No validated self-consistent barrier under the tested construction; endpoint-seeding
+        sensitivity. Legacy values withdrawn as migration barriers.
+      pyrite_VFe_meV: 256
+      greigite_note: 'PRISTINE-CELL RELAXATION collapses (nearest-neighbour S-S contracting to 0.072 A),
+        and the ~1e10 eV figure is a consequence of that collapsed geometry, not an independent energy
+        observation. On DFT-relaxed geometries the same checkpoint evaluates greigite normally: on the
+        corrected channel band it returns 221.1 meV against DFT 235.97.
+
+        '
+      pentlandite_note: 'WITHDRAWN: incorrect structural model; no demonstrated cubane failure on real
+        pentlandite.'
       paper_quotable: true
+      pyrite_VFe_protocol: Self-consistent NEB after own-surface endpoint relaxation; previous 182/223 meV
+        were frozen-endpoint values.
     CHGNet-v0.3.0:
-      pyrite_VS2_meV: 27.6
-      pyrite_VS2_note: "wrong band topology; spurious -24 meV sub-endpoint wells; saddle 3.4x below DFT"
-      pyrite_VFe_meV: 223
-      greigite_note: >
-        Did not converge for the vacancy configurations under its own relaxation. On the
-        corrected channel band, evaluated on the DFT geometry, it returns 254.1 meV against
-        DFT 235.97.
-      pentlandite_note: "cubane collapse"
+      pyrite_VS2_meV: null
+      pyrite_VS2_note: No validated self-consistent barrier under the tested construction; endpoint-seeding
+        sensitivity. Legacy values withdrawn as migration barriers.
+      pyrite_VFe_meV: 387
+      greigite_note: 'Did not converge for the vacancy configurations under its own relaxation. On the
+        corrected channel band, evaluated on the DFT geometry, it returns 254.1 meV against DFT 235.97.
+
+        '
+      pentlandite_note: 'WITHDRAWN: incorrect structural model; no demonstrated cubane failure on real
+        pentlandite.'
       paper_quotable: true
+      pyrite_VFe_protocol: Self-consistent NEB after own-surface endpoint relaxation; previous 182/223 meV
+        were frozen-endpoint values.
   verdict:
-    qualitative: >
-      THREE distinct foundation-MLIP failure modes: (1) endpoint-seeding sensitivity in the
-      sulfur-vacancy pocket -- placements seeded from the sulfur anchors funnel onto a single Fe
-      under both potentials, so the band is degenerate and no barrier is defined (pyrite);
-      (2) [Fe4S4] cubane structural-motif collapse (pentlandite); (3) relaxation instability of
-      the pristine inverse spinel (greigite) -- specific to RELAXATION, since the same models
-      evaluate greigite normally on DFT-relaxed geometries.
-      Where the reaction coordinate survives (pyrite V_Fe), the error is model-specific once
-      endpoints are relaxed on each model's own surface: MACE within ~12 meV, CHGNet +119 meV.
-    withdrawn_mode: >
-      A fourth mode was claimed here and in the submitted manuscript: "false-positive
-      band-collapse warning (marcasite)". It is WITHDRAWN. Interior images falling below the
-      endpoints was the signature of endpoints left unrelaxed on the model's own surface, and
-      obeys a bound statable in advance -- the depth of a spurious interior well cannot exceed
-      the model's endpoint relaxation energy on that system. It is not a property of the
-      potentials. Relatedly, the earlier "underbind DFT 1.2-1.5x" reading was an artefact of
-      the frozen-endpoint comparison protocol, not a property of the models.
-    usable_as: "topology-screening only, not quantitative barriers"
+    qualitative: System-dependent barrier errors, endpoint-seeding sensitivity and pristine-greigite relaxation
+      instability under the tested setup. Pentlandite motif-failure and intrinsic marcasite band-collapse
+      interpretations are withdrawn. These tests do not identify training coverage as a sole cause.
+    usable_as: Screening and quantitative estimates only within the validation scope of the chosen structure,
+      path and reference.
     DFT_reference_pyrite_VS2_meV: 94.6
     DFT_reference_pyrite_VFe_meV: 268
   status: PASS
   paper_quotable: true
-  validated_by: [chemist@opus, physicist@opus]
-  notes: >
-    Benchmark establishes DFT as required for quantitative barriers in Fe-S minerals.
-    MLIP-only screening viable for endpoint geometry and qualitative path topology
-    but not for paper-grade Ea. Both backends tested on a local RTX 4070 node
-    (infra-mace-neb:latest); results cross-checked. Mackinawite nspin control
-    confirms CHGNet energy insensitive to initialized magmoms (0.0 meV shift).
+  notes: Current two-model self-consistent comparisons are in main Section 3.3/Table 2. Nine-checkpoint energy
+    profiles in ../mlip/r22_2026-09 cover five fixed DFT paths in four minerals, not 45 independent pathways;
+    checkpoints share corpora. They do not retest relaxation failures of every model. Historical well-depth/endpoint-relaxation
+    inequalities do not establish a general bound. Both evaluated protocols retain their own endpoint
+    reference conventions.
+  historical_interpretation:
+    internal_review_labels:
+    - chemist@opus
+    - physicist@opus
+    metrics:
+      abs_diff_saddle_eV:
+        MACE_vs_DFT_pyrVS2: 0.095
+        CHGNet_vs_DFT_pyrVS2: 0.067
+      frac_correct_kind:
+        note: 'CHGNet magnitude-only magmom (Jiang/Xu PNAS 2025); initialized magmoms do not change CHGNet
+          energy (mackinawite control: 0.0 pp shift)'
+      Ea_correlation_R2:
+        note: not computable -- structural collapse on 2/4 systems precludes global R2
+    per_backend:
+      MACE-MP-0:
+        pyrite_VS2_meV: 0
+        pyrite_VS2_note: flat PES, correct endpoint topology but barrier = 0
+        pyrite_VFe_meV: 182
+        greigite_note: 'PRISTINE-CELL RELAXATION collapses (nearest-neighbour S-S contracting to 0.072
+          A), and the ~1e10 eV figure is a consequence of that collapsed geometry, not an independent
+          energy observation. On DFT-relaxed geometries the same checkpoint evaluates greigite normally:
+          on the corrected channel band it returns 221.1 meV against DFT 235.97.
 
-# -- 7. SANITY GATES ------------------------------------------------------
+          '
+        pentlandite_note: cubane [Fe4S4] 3+3 structural collapse
+        paper_quotable: true
+      CHGNet-v0.3.0:
+        pyrite_VS2_meV: 27.6
+        pyrite_VS2_note: wrong band topology; spurious -24 meV sub-endpoint wells; saddle 3.4x below DFT
+        pyrite_VFe_meV: 223
+        greigite_note: 'Did not converge for the vacancy configurations under its own relaxation. On the
+          corrected channel band, evaluated on the DFT geometry, it returns 254.1 meV against DFT 235.97.
+
+          '
+        pentlandite_note: cubane collapse
+        paper_quotable: true
+    verdict:
+      qualitative: 'THREE distinct foundation-MLIP failure modes: (1) endpoint-seeding sensitivity in
+        the sulfur-vacancy pocket -- placements seeded from the sulfur anchors funnel onto a single Fe
+        under both potentials, so the band is degenerate and no barrier is defined (pyrite); (2) [Fe4S4]
+        cubane structural-motif collapse (pentlandite); (3) relaxation instability of the pristine inverse
+        spinel (greigite) -- specific to RELAXATION, since the same models evaluate greigite normally
+        on DFT-relaxed geometries. Where the reaction coordinate survives (pyrite V_Fe), the error is
+        model-specific once endpoints are relaxed on each model''s own surface: MACE within ~12 meV, CHGNet
+        +119 meV.
+
+        '
+      withdrawn_mode: 'A fourth mode was claimed here and in the submitted manuscript: "false-positive
+        band-collapse warning (marcasite)". It is WITHDRAWN. Interior images falling below the endpoints
+        was the signature of endpoints left unrelaxed on the model''s own surface, and obeys a bound statable
+        in advance -- the depth of a spurious interior well cannot exceed the model''s endpoint relaxation
+        energy on that system. It is not a property of the potentials. Relatedly, the earlier "underbind
+        DFT 1.2-1.5x" reading was an artefact of the frozen-endpoint comparison protocol, not a property
+        of the models.
+
+        '
+      usable_as: topology-screening only, not quantitative barriers
+      DFT_reference_pyrite_VS2_meV: 94.6
+      DFT_reference_pyrite_VFe_meV: 268
+    notes: 'Benchmark establishes DFT as required for quantitative barriers in Fe-S minerals. MLIP-only
+      screening viable for endpoint geometry and qualitative path topology but not for paper-grade Ea.
+      Both backends tested on a local RTX 4070 node (infra-mace-neb:latest); results cross-checked. Mackinawite
+      nspin control confirms CHGNet energy insensitive to initialized magmoms (0.0 meV shift).
+
+      '
 sanity:
-  - id: G15_dual_backend
-    rule: ">=2 MLIP backends compared"
-    observed: "MACE-MP-0 + CHGNet-v0.3.0"
-    pass: true
-  - id: G06_ascii_safe
-    rule: "no em-dash or non-ASCII in YAML (ASCII-only container safe)"
-    pass: true
-
-# -- 8. PROVENANCE --------------------------------------------------------
+- id: G15_dual_backend
+  rule: '>=2 MLIP backends compared'
+  observed: MACE-MP-0 + CHGNet-v0.3.0
+  pass: true
+- id: G06_ascii_safe
+  rule: no em-dash or non-ASCII in YAML (ASCII-only container safe)
+  pass: warn
+  observed: Current UTF-8 scientific metadata is not an ASCII-only deployment artifact; deployment compatibility was not tested.
 provenance:
-  date: "2026-06-04"
+  date: '2026-06-04'
   author: igor@exopoiesis.space
-  literature: [Batatia2023_MACE, Deng2023_CHGNet, Jiang2025_CHGNet_magmom]
+  literature:
+  - Batatia2023_MACE
+  - Deng2023_CHGNet
+  - Jiang2025_CHGNet_magmom
   compute:
     host: local-gpu-node
     gpu: RTX 4070 12 GB
     cost_usd: 0.0
     walltime_h: 6.0
-  hash:
-    inputs:  sha256:placeholder_mlip_bench_inputs
-    outputs: sha256:placeholder_mlip_bench_outputs
+  hash_status: Run-input/output aggregate hashes were not recorded; placeholder strings removed 2026-09-25.
+    No hash verification is implied.
+  metadata_revision: '2026-09-25: synchronized interpretations with revised manuscript; original numerical
+    observations retained with explicit protocol/withdrawal status.'

@@ -1,0 +1,52 @@
+{
+  "system": "pyrite_1x1x1",
+  "method": "DFT_ABACUS_PBE_LCAO",
+  "code": "ABACUS v3.9.0.26",
+  "basis": "LCAO DZP (Fe_4s2p2d1f, S_2s2p1d, H_2s1p)",
+  "pseudopotentials": "ONCV PBE 1.2",
+  "ecutwfc_Ry": 80,
+  "kpts": [
+    2,
+    2,
+    2
+  ],
+  "smearing": "gaussian 0.05 Ry",
+  "n_atoms": 11,
+  "formula": "HFe4S6",
+  "cell_A": [
+    5.416,
+    5.416,
+    5.416
+  ],
+  "S_pair_indices": [
+    4,
+    9
+  ],
+  "S_pair_dist_A": 3.077603577850793,
+  "E_endA_eV": -14564.2007179692,
+  "E_endB_eV": -14564.2007179692,
+  "dE_endpoints_eV": 0.0,
+  "E_a_eV": 0.18730940519890282,
+  "E_rxn_eV": 0.0,
+  "energies_eV": [
+    0.0,
+    0.1311699158995907,
+    0.10932774419961788,
+    0.14638205559822381,
+    0.18730940519890282,
+    0.08795978209855093,
+    0.0
+  ],
+  "n_images": 5,
+  "neb_steps": 31,
+  "converged": true,
+  "time_neb_s": 16973.57116675377,
+  "time_total_s": 24735.35388159752,
+  "E_a_GPAW_1x1x1_eV": 0.181,
+  "E_a_QE_1x1x1_eV": 0.19,
+  "E_a_ABACUS_2x2x2_eV": 0.075,
+  "E_a_MACE_2x2x2_eV": 0.79,
+  "NOTE": "Apple-to-apple 1x1x1 cross-verify. ABACUS 2x2x2 used Gamma-only kpts.",
+  "harvested": "",
+  "source": "AX102 Hetzner"
+}

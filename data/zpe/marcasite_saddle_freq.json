@@ -1,6 +1,6 @@
 {
   "tool": "marc_vfe_saddle_freq_dft",
-  "level": "DFT (QE pw.x, PBE+U Dudarev)",
+  "level": "DFT (QE pw.x, PBE, U=0)",
   "calc": {
     "nspin": 2,
     "ecutwfc": 60.0,
@@ -152,5 +152,5 @@
   },
   "zpe_real_modes_eV": 0.62605,
   "verdict": "INDEX_1_TS",
-  "note": "DFT-grade partial-Hessian over reactive region (H + S anchors + 1st shell) for marcasite V_Fe, apples-to-apples with the marc V_Fe NEB v4c (nspin=2, U=2 Dudarev, Yang init, mv smearing, ecutrho 240). ZPE is reactive-subsystem only; DeltaZPE-dd = ZPE_saddle - ZPE_endA."
+  "note": "Partial-Hessian over the reactive region (H + S anchors + 1st shell) for marcasite V_Fe: nspin=2, actual U=0, uniform weak-moment initialization, mv smearing, ecutrho 240. ZPE is reactive-subsystem only; DeltaZPE-dd = ZPE_saddle - ZPE_endA. Metadata corrected 2026-09-25: the source-era PBE+U/U=2 description was inconsistent with calc.U=0 and the production saddle.log make_calc record (U_Fe=0.0; system contains no Hubbard term). U_kind records the inactive driver option, not an applied Hubbard correction. Frequencies and all numerical fields are unchanged."
 }

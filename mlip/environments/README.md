@@ -1,61 +1,55 @@
 # Software environments for the nine-model MLIP benchmark (2026-09)
 
-Exact package versions for every number in the **nine-model benchmark** (paper §3.6, Table 5),
-recorded **from the runs themselves** rather than assembled afterwards. Each `env_*.txt` is a verbatim
-`pip freeze` taken on the machine that produced the corresponding results.
+Package manifests for the **nine-model fixed-geometry benchmark** (paper §3.4, Table 3).
+Each `env_*.txt` records the `pip freeze` from the environment used for its model evaluations.
 
-> **These three freezes do not cover the whole paper, and we say so rather than let the versions be
-> read across.** The MACE-MP-0 and CHGNet numbers of §3.1–§3.5 (Table 2, the self-consistent bands)
-> and the fine-tuning ladder of §3.7 ran earlier, on a different and older stack: **`mace-torch`
-> 0.3.15, `chgnet` 0.4.2, PyTorch 2.5.1+cu124, ASE 3.23.0, Python 3.10.12, CUDA 12.4** — the
-> container `pytorch/pytorch:2.5.1-cuda12.4-cudnn9-runtime` for the two-model work on an RTX 4070,
-> and `exopoiesis/infra-mace-gpu` on an A100 for the ladder. That stack is recorded in the script
-> headers (`mlip/multi_endpoint_relax_chgnet.py`), in `mlip/r23_2026-09/README.md`, and in §2.1 of
-> the paper; no `pip freeze` was captured at the time, and we do not manufacture one now from a
-> rebuilt image, because it would not be the environment that ran. Note in particular that
-> **`mace-torch` differs between the two stacks** (0.3.15 against 0.3.16 here).
+The older two-model self-consistent calculations (paper §3.3, Table 2) and the fine-tuning ladder
+(§3.5) used `mace-torch` 0.3.15, `chgnet` 0.4.2, PyTorch 2.5.1+cu124, ASE 3.23.0,
+Python 3.10.12 and CUDA 12.4. Their recorded containers were
+`pytorch/pytorch:2.5.1-cuda12.4-cudnn9-runtime` on the RTX 4070 and `exopoiesis/infra-mace-gpu`
+on the A100. These component versions are documented in the scripts, fine-tuning README and
+paper §2.3; **no contemporaneous complete package freeze exists for those older calculations**.
+In particular, `mace-torch` is 0.3.15 there and 0.3.16 in `env_main.txt`.
 
----
+## Three environments used for these runs
 
-## Three environments, not one — and that is itself a finding
+The runner used separate PyTorch, Orb and TensorFlow environments to handle the installed versions
+and interfaces. This records the setup used, not a claim that all nine models can never coexist
+in another environment.
 
-The nine checkpoints benchmarked here **cannot be installed together**. The obstruction is not
-carelessness on our part but genuine incompatibility between the stacks:
+| File | Environment | Results obtained in it |
+|---|---|---|
+| `env_main.txt` (204 packages) | torch 2.8.0+cu126, Python 3.12 | MACE-MP-0 large, CHGNet v0.3.0, SevenNet 7net-0, UMA-s-1p2 |
+| `env_orb.txt` (84) | orb-models 0.5.5, torch 2.14.0 | Orb-v2, Orb-v3-conservative-inf-omat |
+| `env_grace.txt` (77) | tensorpotential 0.6.1, TensorFlow 2.20.0 | GRACE-1L-OMAT, GRACE-2L-OMAT, GRACE-2L-OAM |
 
-| file | environment | results obtained in it | why it has to be separate |
-|---|---|---|---|
-| `env_main.txt` (204 packages) | torch 2.8.0+cu126, Python 3.12 | MACE-MP-0 (large), CHGNet v0.3.0, SevenNet 7net-0, UMA-s-1p2 | the base stack |
-| `env_orb.txt` (84) | **orb-models 0.5.5, torch 2.14.0** | Orb-v2, Orb-v3-conservative-inf-omat | orb-models **0.7.0 removed the ASE calculator**; 0.5.5 pulls its own torch, which is incompatible with fairchem |
-| `env_grace.txt` (77) | **tensorpotential 0.6.1, TensorFlow 2.20.0** | GRACE-1L-OMAT, GRACE-2L-OMAT, GRACE-2L-OAM | GRACE runs on TensorFlow; two CUDA runtimes do not coexist in one container |
+### Recorded installation limitations
 
-Anyone assembling a multi-model benchmark of this kind should plan for the same split.
+The `orb-models==0.7.0` pin in `env_main.txt` produced no results: the runner could not find
+`ORBCalculator` with that installation. All reported Orb evaluations used `env_orb.txt` and
+orb-models 0.5.5. The unused pin remains in the unedited package manifest.
 
-### Two honest notes about `env_main.txt`
-
-**The `orb-models==0.7.0` pin in that freeze produced no results.** Version 0.7.0 ships no ASE
-calculator, and an attempt to use it fails with `no ORBCalculator found`. Every Orb number in the paper
-comes from `env_orb.txt` (orb-models 0.5.5). The pin in the main freeze is a by-product of installation,
-not a source of results, and we leave it visible rather than editing the freeze.
-
-**pip reports a dependency conflict** in that environment: `fairchem-core 2.20.0 requires e3nn>=0.5,
-but you have e3nn 0.4.4` (pulled in by mace-torch). We checked that it does not affect the numbers —
-MACE on the greigite channel band reproduced the control value of **221.1 meV** obtained independently
-on a different machine.
+`pip` reported a conflict in `env_main.txt`: `fairchem-core 2.20.0 requires e3nn>=0.5`, while
+e3nn 0.4.4 was installed. A MACE control on the greigite channel reproduced the independently
+obtained 221.1 meV value. This checks one checkpoint and band; it does not establish that the
+dependency conflict has no effect on every model or result.
 
 ## Models and weight provenance
 
-| model | source | licence |
-|---|---|---|
-| MACE-MP-0 (large) | `github.com/ACEsuit/mace-mp` → `MACE_MPtrj_2022.9.model`, 133 803 220 B, `sha256 f80e992b65ab8f88fdf26964511357c022e92704e4d9bcd086652635a8495b32` | open |
-| CHGNet v0.3.0 | weights bundled with the `chgnet` package | open |
-| SevenNet `7net-0` | bundled with the `sevenn` package | open |
-| UMA-s-1p2 | HuggingFace `facebook/UMA` (gated; licence accepted) | Meta — **not redistributable** |
-| Orb-v2, Orb-v3-conservative-inf-omat | `orbital-materials`, downloaded by the package | open |
-| GRACE-1L-OMAT, GRACE-2L-OMAT, GRACE-2L-OAM | HuggingFace `AMS-ICAMS-RUB/grace-foundation-models` | Academic Software License |
+| Model | Recorded source |
+|---|---|
+| MACE-MP-0 (large) | `github.com/ACEsuit/mace-mp` → `MACE_MPtrj_2022.9.model`, 133 803 220 B, `sha256 f80e992b65ab8f88fdf26964511357c022e92704e4d9bcd086652635a8495b32` |
+| CHGNet v0.3.0 | weights bundled with the `chgnet` package |
+| SevenNet `7net-0` | bundled with the `sevenn` package |
+| UMA-s-1p2 | HuggingFace `facebook/UMA` (gated; licence accepted for these runs) |
+| Orb-v2, Orb-v3-conservative-inf-omat | `orbital-materials`, downloaded by the package |
+| GRACE-1L-OMAT, GRACE-2L-OMAT, GRACE-2L-OAM | HuggingFace `AMS-ICAMS-RUB/grace-foundation-models` |
 
-**Weights are not archived here and were not baked into the container images**: the Meta checkpoint is
-gated and not redistributable, and GRACE is under an academic licence. The freezes plus the sources
-above are sufficient to reconstruct every environment.
+Weights are not archived here or baked into the container images. The table records the model
+sources and identifiers used; **a checkpoint checksum is provided only for MACE-MP-0**. The package
+freezes and sources support reconstruction, but they are not a hash-complete lockfile for all model
+weights, external downloads and container images. Follow the model providers' access and licence
+terms when obtaining weights.
 
 ## Why eSEN and eqV2 are absent
 
@@ -70,15 +64,19 @@ esen-sm-conserving-all-oc25, esen-md-direct-all-oc25,
 esen-sm-filtered-odac25, esen-sm-full-odac25
 ```
 
-Every eSEN checkpoint exposed by that API is trained on **OMol** (molecules), **OC25** (catalysis) or
-**ODAC25** (metal-organic frameworks); there is no materials variant in the registry, and **eqV2 is
-absent entirely**. OMat24 checkpoints do exist as raw `.pt` files under `facebook/OMAT24`, loadable
-through the previous-generation API.
+Every eSEN checkpoint in this particular API listing is associated with **OMol**, **OC25** or
+**ODAC25**, and the listing contains no eqV2 entry. This describes the `fairchem-core 2.20.0`
+registry used by our runner, not the availability of those architectures for bulk materials.
 
-We chose not to pull those raw checkpoints, and the reason is the reference rather than the domain:
-the available eSEN models are trained against ωB97M-V or RPBE, whereas every barrier in this study is
-PBE. The functional difference exceeds any barrier we report, so a comparison would not have measured
-what it appeared to measure.
+**Correction (2026-09-25):** bulk eSEN and EquiformerV2 checkpoints are available in the
+[official OMat24 model repository](https://huggingface.co/facebook/OMAT24), including
+eSEN-30M-OMat, eSEN-30M-OAM and eSEN-30M-MP, with loading instructions through the earlier
+`OCPCalculator` interface. The [official eSEN release](https://huggingface.co/facebook/OMAT24/discussions/7)
+was merged on 14 April 2025. Our previous explanation incorrectly generalized the contents of one
+registry into a lack of bulk checkpoints and incorrectly generalized the reference functionals of
+other domain-specific eSEN models. Those explanations are withdrawn. We did not evaluate bulk eSEN
+or EquiformerV2 in this benchmark, and make no claim about their barrier accuracy or relaxation
+reliability. The nine-model comparison is not an exhaustive evaluation of contemporary models.
 
 ## Container images
 
@@ -87,4 +85,6 @@ what it appeared to measure.
 | `exopoiesis/infra-omat-gpu:latest` | the torch stack |
 | `exopoiesis/infra-grace-gpu:latest` | the TensorFlow stack for GRACE |
 
-Both build from the Dockerfiles in the project's `infra/docker/` with an empty build context.
+These are recorded image names; the `latest` tags do not provide immutable image digests.
+The project used Dockerfiles under `infra/docker/`; those definitions are not part of this
+environment directory.

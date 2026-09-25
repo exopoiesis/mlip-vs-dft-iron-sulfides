@@ -1,0 +1,6 @@
+# Preserve bytes for provenance records and recovered sources with recorded SHA-256.
+data/provenance/*.in -text
+data/provenance/*.out -text
+data/figure_inputs/*.json -text
+scripts/grace_band_multi_historical.py -text
+figures/withdrawn_pentlandite_endpoints.py.txt -text

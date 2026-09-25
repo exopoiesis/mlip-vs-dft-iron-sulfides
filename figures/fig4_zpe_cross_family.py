@@ -1,21 +1,22 @@
 """
-Figure 5 — ZPE cross-family trend (two-panel).
+Figure 4 — ZPE cross-family trend (two-panel).
 Panel (a): scatter — reactant S-H stretch frequency vs |ΔZPE‡|
 Panel (b): grouped bar — E_a electronic vs E_a ZPE-corrected
 
-Data (verified, Paper #1 SI §N.8 and §K.13):
-  Mackinawite: nu=1721 cm-1, |ΔZPE‡|=66 meV,  E_a elec=42.9 meV, E_a ZPE-corr≈0 (-23±15)
-  Marcasite:   nu=2234 cm-1, |ΔZPE‡|=85 meV,  E_a elec=208 meV,  E_a ZPE-corr=123 meV
-  Pyrite:      nu=2248 cm-1, |ΔZPE‡|=94 meV,  E_a elec=268 meV,  E_a ZPE-corr=173 meV
-  Greigite:    nu=2439 cm-1, |ΔZPE‡|=103 meV, E_a elec=236 meV,  E_a ZPE-corr=133 meV
+Data (verified, main-text Table 4; SI §N.8):
+  Mackinawite: nu=1721 cm-1, |ΔZPE‡|=66 meV, E_a elec=42.9 meV, E_a ZPE-corr≈0 (-23±15)
+  Marcasite:   nu=2234 cm-1, |ΔZPE‡|=85 meV, E_a elec=208 meV,  E_a ZPE-corr=123 meV
+  Pyrite:      nu=2248 cm-1, |ΔZPE‡|=94 meV, E_a elec=268 meV,  E_a ZPE-corr=173 meV
+  Greigite:    nu=2439 cm-1, |ΔZPE‡|=103 meV, E_a elec=236 meV, E_a ZPE-corr=133 meV
+               (channel edge; ΔZPE‡ = -103.0 meV, of which -109.8 proton / +6.8 framework)
 
-GREIGITE ADDED 2026-09-22. The submitted version declined this calculation, on the argument that a
-correction of order 0.1 eV would be negligible against a 1.86 eV barrier. Both premises are gone:
-that barrier is retracted (the band ran along a trans axis whose midpoint is the vacant Fe site, a
-special position where the force vanishes by symmetry), and against the corrected 236 meV the
-correction is the second-largest in the series in relative terms, 44 per cent. It also extends the
-trend from three points to four, monotonically, at a near-constant fraction of the bare zero-point
-quantum: |dZPE| / (0.5*h*nu) = 0.62, 0.61, 0.68, 0.68.
+The greigite row was added in 2026-09 with the corrected channel-edge band. The
+generator previously plotted three minerals while the caption already claimed
+four, and wrote its output under the pre-pentlandite-removal figure number.
+
+|ΔZPE‡| as a fraction of the bare zero-point quantum ½hν_S–H:
+  mackinawite 0.62, marcasite 0.61, pyrite 0.67, greigite 0.68 — the 0.61–0.68
+  band quoted in the caption (1 cm-1 = 0.1239842 meV).
 """
 from __future__ import annotations
 from pathlib import Path
@@ -23,7 +24,7 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
 import numpy as np
 
-# --- Verified data (ascending in nu_SH) ---
+# --- Verified data ---
 MINERALS = ["Mackinawite", "Marcasite", "Pyrite", "Greigite"]
 COLORS   = ["#1b9e77", "#d95f02", "#7570b3", "#7b3294"]
 
@@ -31,7 +32,7 @@ NU_SH    = np.array([1721, 2234, 2248, 2439])   # cm-1, reactant S-H stretch
 DZPE     = np.array([66,   85,   94,   103])    # meV, |ΔZPE‡|
 
 EA_ELEC  = np.array([42.9, 208.0, 268.0, 236.0])  # meV, electronic
-EA_ZPE   = np.array([  0.0, 123.0, 173.0, 133.0]) # meV, ZPE-corrected (mack shown as 0)
+EA_ZPE   = np.array([-23.0, 123.0, 173.0, 133.0]) # meV, harmonic estimate; no clipping
 EA_ZPE_ERR = np.array([15.0,  8.0,   0.0,   0.0]) # meV, uncertainty (mack ±15, marc ±8)
 
 
@@ -47,8 +48,7 @@ def make_figure(out_dir: Path) -> None:
         ax_a.scatter(nu, dz, s=90, color=col, edgecolors="black", linewidths=0.6,
                      zorder=5, label=mineral)
         # offset labels to avoid overlap
-        # one per mineral; marcasite and pyrite nearly coincide in nu, so they are pushed apart
-        offsets = [(-80, 5), (-40, -11), (10, 3), (-90, 5)]
+        offsets = [(-80, 5), (10, -8), (10, 4), (-60, 6)]
         ax_a.annotate(
             mineral,
             xy=(nu, dz),
@@ -58,28 +58,22 @@ def make_figure(out_dir: Path) -> None:
             fontweight="bold",
         )
 
-    # linear trend line through all four points
-    coeffs = np.polyfit(NU_SH, DZPE, 1)
-    nu_fit = np.linspace(1600, 2520, 200)
-    ax_a.plot(nu_fit, np.polyval(coeffs, nu_fit),
-              "--", color="grey", linewidth=1.0, alpha=0.7,
-              label=f"Linear fit, n = {len(NU_SH)} (R²={np.corrcoef(NU_SH, DZPE)[0,1]**2:.2f})")
-
     ax_a.set_xlabel(r"Reactant S–H stretch frequency $\nu$ (cm$^{-1}$)", fontsize=10)
     ax_a.set_ylabel(r"|ΔZPE$^{\ddagger}$| (meV)", fontsize=10)
-    ax_a.set_title("(a) Nuclear quantum effect grows\nwith reactant S–H stretch", fontsize=10)
-    ax_a.set_xlim(1550, 2560)          # greigite sits at 2439 and was off-scale before
-    ax_a.set_ylim(50, 115)
+    ax_a.set_title("(a) Harmonic zero-point correction\nand reactant S–H stretch", fontsize=10)
+    ax_a.set_xlim(1550, 2560)
+    ax_a.set_ylim(50, 120)
     ax_a.grid(True, alpha=0.3, linestyle=":")
-    ax_a.legend(fontsize=8.5, framealpha=0.95, loc="lower right")
+    ax_a.legend(fontsize=8.5, framealpha=0.95)
 
-    # The constant-fraction statement is the substantive one: the correction is a near-constant
-    # share of the bare zero-point quantum, not merely correlated with it.
-    frac = DZPE / (NU_SH * 0.0619926)      # |dZPE| / (half h nu), meV per cm-1
-    ax_a.text(
-        1600, 108,
-        f"|ΔZPE‡| is {frac.min():.2f}–{frac.max():.2f} of the bare ½$h\\nu_{{S-H}}$\nacross all four minerals",
-        fontsize=8, color="grey", va="top",
+    # annotation arrow label
+    ax_a.annotate(
+        "|ΔZPE‡| grows with\nreactant S–H stretch",
+        xy=(2234, 85),
+        xytext=(1800, 100),
+        fontsize=8,
+        color="grey",
+        arrowprops=dict(arrowstyle="->", color="grey", lw=0.8),
     )
 
     # ------------------------------------------------------------------ #
@@ -101,7 +95,7 @@ def make_figure(out_dir: Path) -> None:
         x + width / 2,
         EA_ZPE,
         width,
-        label="ZPE-corrected (rate-relevant)",
+        label="Harmonic ZPE-corrected",
         color="#e6ab02",
         edgecolor="black",
         linewidth=0.5,
@@ -125,11 +119,12 @@ def make_figure(out_dir: Path) -> None:
     for i, rect in enumerate(bars_zpe):
         h = rect.get_height()
         label_y = h + 3
-        if i == 0:  # mackinawite special label
-            ax_b.text(rect.get_x() + rect.get_width() / 2, 6,
-                      "effectively\nbarrierless\n(−23±15 meV)",
+        if i == 0:  # mackinawite special label — clear of the ±15 meV error bar
+            ax_b.text(rect.get_x() + rect.get_width() / 2, 70,
+                      "−23±15 meV\n(harmonic estimate)",
                       ha="center", va="bottom", fontsize=7.5,
-                      fontstyle="italic", color="#e6ab02")
+                      fontstyle="italic", color="#705400",
+                      bbox=dict(facecolor="white", edgecolor="none", alpha=0.95, pad=1.5))
         else:
             ax_b.text(rect.get_x() + rect.get_width() / 2, label_y,
                       f"{EA_ZPE[i]:.0f}", ha="center", va="bottom", fontsize=8.5,
@@ -138,33 +133,34 @@ def make_figure(out_dir: Path) -> None:
     ax_b.set_xticks(x)
     ax_b.set_xticklabels(MINERALS, fontsize=10)
     ax_b.set_ylabel("Barrier $E_a$ (meV)", fontsize=10)
-    ax_b.set_title("(b) Nuclear quantum effect lowers barriers:\nelectronic vs ZPE-corrected", fontsize=10)
-    ax_b.set_ylim(0, 360)          # headroom so the legend clears the tallest bar's label
+    ax_b.set_title("(b) Electronic and harmonic\nZPE-corrected barriers", fontsize=10)
+    ax_b.set_ylim(-50, 320)
     ax_b.axhline(0, color="black", linewidth=0.5)
     ax_b.grid(True, axis="y", alpha=0.3, linestyle=":")
     ax_b.legend(loc="upper left", fontsize=9, framealpha=0.95)
 
-    # Caption goes under the axes rather than inside them: in-panel it collided with the legend
-    # and hid the tallest bar's value label.
+    # panel (b) caption box
     caption_b = (
-        "All PBE, $U=0$; harmonic partial-Hessian ZPE, ΔZPE$^{\\ddagger}$ = ZPE$_{saddle}$ − "
-        "ZPE$_{endpoint}$ on identical reactive subsystems so distant modes cancel (SI §N.8, §K.13).  "
-        "Mackinawite ZPE-corrected: effectively barrierless (−23 ± 15 meV).\n"
-        "Greigite is the channel edge of its vacancy octahedron; its imaginary frequency is the only "
-        "one here measured in the full 168 degrees of freedom rather than in a subsystem."
+        "All U=0, PBE; harmonic partial-Hessian ZPE\n"
+        "ΔZPE‡ = ZPE_saddle − ZPE_endpoint (SI §N.8)\n"
+        "Mack: correction exceeds electronic barrier; quantum rate undetermined"
     )
-    fig.text(0.5, -0.03, caption_b, ha="center", va="top", fontsize=7.8)
-
     fig.suptitle(
-        "ZPE cross-family trend: nuclear quantum effects on Fe–S proton-migration barriers",
+        "Harmonic zero-point corrections to Fe–S hydrogen-migration barriers",
         fontsize=11, fontweight="bold", y=1.01,
     )
     fig.tight_layout()
-    fig.savefig(out_dir / "fig5_zpe_cross_family.pdf", bbox_inches="tight")
-    fig.savefig(out_dir / "fig5_zpe_cross_family.png", dpi=200, bbox_inches="tight")
-    fig.savefig(out_dir / "fig5_zpe_cross_family.svg", bbox_inches="tight")
+    fig.text(
+        0.75, -0.02, caption_b, ha="center", va="top", fontsize=7.5,
+        bbox=dict(facecolor="white", edgecolor="grey", alpha=0.88,
+                  boxstyle="round,pad=0.4"),
+    )
+    for ext in ("pdf", "png", "svg"):
+        kw = {"dpi": 600} if ext == "png" else {}
+        fig.savefig(out_dir / f"fig4_zpe_cross_family.{ext}",
+                    bbox_inches="tight", **kw)
     plt.close(fig)
-    print(f"Wrote 3 files (pdf+png+svg) to {out_dir}/")
+    print(f"Wrote fig4_zpe_cross_family.{{pdf,png,svg}} to {out_dir}/")
 
 
 if __name__ == "__main__":

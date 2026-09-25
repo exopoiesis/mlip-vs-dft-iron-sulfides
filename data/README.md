@@ -1,27 +1,32 @@
 # Harvested result data
 
 Each JSON holds the energies/frequencies/magnetizations behind a table or figure in the paper.
-All DFT is PBE, U = 0, ONCV norm-conserving pseudopotentials, Quantum ESPRESSO 7.5. Raw wavefunction /
+The accepted reference bands use PBE, U = 0, ONCV norm-conserving pseudopotentials, Quantum ESPRESSO 7.5.
+Historical +U sensitivity scans are separate calculations; the greigite scans below are withdrawn.
+Raw wavefunction /
 charge-density dumps are **not** archived (multi-GB, regenerable from the `scripts/` inputs).
 
 ## DFT barriers (`data/`)
 
 | File | Paper number | Notes |
 |---|---|---|
-| `marc_VFe_warm_neb_208meV.json` | Marcasite V_Fe + S–H, **208 meV** (Table 1/2, §3.5.2) | endpoint-relaxed warm CI-NEB; nspin=2, `tot_magnetization` 1.1 pin, single magnetic sheet M_abs≈2.5; band + per-image M. |
+| `marc_VFe_warm_neb_208meV.json` | Marcasite V_Fe + S–H, **208 meV** (main Table 2, §3.1) | endpoint-relaxed warm CI-NEB; nspin=2, `tot_magnetization` 1.1 pin, single magnetic sheet M_abs≈2.5; band + per-image M. |
 | `marc_VFe_conv_scan_Q1.json` | Marcasite Q1 convergence (SI §M.4) | k/ecut/smearing single-points on the relaxed endA+saddle: Δk(2,2,3→3,3,4)=+0.4, Δecut(60→80)=−1.7 meV; mv vs gaussian sheet term ≈15 meV. |
 | `greigite_VFe_convergence_Q1.json` | **RETRACTED** | measured on the retracted trans-axial band; flagged `meta_RETRACTED`, kept because it may have been cited. Superseded by `greigite_VFe_bz_scan_2026-09-21.json`. |
 | `greigite_VFe_Uscan_Q2.json` | **RETRACTED** | same band. The U = 1/2/3 eV chain characterises a path that is not a migration path; **no U-sensitivity for greigite is currently available on the corrected geometry**, and we say so rather than reusing this. |
-| `greigite_VFe_saddle_lanczos_2026-09-21.json` | Greigite channel saddle (§3.5.1) | Lanczos on the mass-weighted Hessian over the **full 168 DOF**: one negative eigenvalue, λ = −2.53097 eV Å⁻² amu⁻¹, ν‡ = 829.6i cm⁻¹, μ_eff = 1.054 amu; zero imaginary modes at the endpoint. |
-| `greigite_VFe_bz_scan_2026-09-21.json` | Greigite Brillouin-zone sensitivity (§3.5.1) | on the **production channel geometry**: {2,2,2 / degauss 0.005 Ry} → {3,3,3 / 0.002 Ry} moves the barrier 235.91 → 243.86 meV, +7.95 meV. Mesh and smearing vary together by design; read as a joint BZ-discretisation sensitivity. |
+| `greigite_VFe_saddle_lanczos_2026-09-21.json` | Greigite channel saddle (main §3.2, SI §K.13.3) | Full-space Lanczos over 168 DOF detects a dominant negative mode, λ = −2.53097 eV Å⁻² amu⁻¹, ν‡ = 829.6i cm⁻¹, μ_eff = 1.054 amu. The 25-iteration Ritz spectrum cannot exclude another very soft negative mode and does not certify strict full-space index-1. The cation-edge saddle has not received the same full-space check. |
+| `greigite_VFe_bz_scan_2026-09-21.json` | Greigite Brillouin-zone sensitivity (main §3.2, SI §K.13) | on the **production channel geometry**: {2,2,2 / degauss 0.005 Ry} → {3,3,3 / 0.002 Ry} moves the barrier 235.91 → 243.86 meV, +7.95 meV. Mesh and smearing vary together by design; read as a joint BZ-discretisation sensitivity. |
 | `greigite_VFe_control_2026-09-21.json` | Greigite reproducibility control | the production barrier recomputed from scratch; agrees with the CI-NEB to 0.06 meV. |
-| `pyrite_VFe_dimer_268meV.json` | Pyrite V_Fe + S–H, **268 meV** (Table 1, §3.5.5) | unconstrained ASE-Dimer (the band-NEB fails at the m-3̄ degenerate saddle). |
+| `pyrite_VFe_dimer_268meV.json` | Pyrite V_Fe + S–H, **268 meV** (main Table 2, §3.1) | unconstrained ASE-Dimer following the failed band-NEB attempts (SI §I); the observed failure does not establish a general symmetry theorem. |
 
 ## Foundation-MLIP benchmark (`mlip/r22_2026-09/`, `mlip/environments/`)
 
 Nine checkpoints — CHGNet v0.3.0, MACE-MP-0 (large), SevenNet 7net-0, UMA-s-1p2, Orb-v2,
 Orb-v3-conservative-inf-omat, GRACE-1L-OMAT, GRACE-2L-OMAT, GRACE-2L-OAM — evaluated as **single points
 on the converged DFT geometries** of all five bands, 45 model×band measurements.
+These are five pathways in four minerals, not 45 independent paths; checkpoints also share training
+corpora. These fixed-geometry evaluations do not test model-specific relaxation or provide a
+variational bound relative to barriers with independently relaxed endpoints.
 
 | File | Contents |
 |---|---|
@@ -39,7 +44,7 @@ Partial-Hessian (9–10-atom reactive subsystem) saddle + endpoint frequency run
 | File | Mineral / state |
 |---|---|
 | `pyrite_saddle_freq.json` / `pyrite_endA_freq.json` | Pyrite V_Fe (ΔZPE‡ = −94 meV; 268→173 meV) |
-| `mackinawite_saddle_freq.json` / `mackinawite_endA_freq.json` | Mackinawite V_Fe (ΔZPE‡ = −66 meV; 43→≈0) |
+| `mackinawite_saddle_freq.json` / `mackinawite_endA_freq.json` | Mackinawite V_Fe (ΔZPE‡ = −66 meV; harmonic estimate −23 ± 15 meV). The negative value marks a limitation of harmonic activation-barrier theory, not a measured barrierless quantum rate. |
 | `marcasite_saddle_freq.json` / `marcasite_endA_freq.json` | Marcasite V_Fe (ΔZPE‡ = −85 meV; 208→123 meV; same M_abs≈2.5 sheet as the barrier) |
 
 ## Provenance / omissions
@@ -48,12 +53,19 @@ Partial-Hessian (9–10-atom reactive subsystem) saddle + endpoint frequency run
   in the paper from earlier production runs; their canonical NEB band data are summarised in the SI rather than
   re-archived here as standalone JSON (the `scripts/` drivers regenerate them). The pyrite value was previously
   labelled a "V_S₂ dimer hop"; that cell removes **one** sulfur and the hydrogen is Fe-bound in every image, so
-  the mechanism is a hydride hop between two adjacent Fe sites (corrected in release v1.1, see
+  the mechanism is Fe-bound hydrogen transfer between two adjacent Fe sites (geometry does not assign
+  a formal hydride charge; corrected in release v1.1, see
   `data/structures/README.md`).
 - **Greigite U-sensitivity is an open gap.** The only U scan we have was measured on the retracted band and is
   flagged as such above. We would rather leave the gap visible than carry a sensitivity from a different path.
 - Foundation-MLIP topology-scan / band data (MACE-MP-0, CHGNet) are produced by the `mlip/` drivers; the CHGNet
   magnitude-only magmom control (mackinawite V_Fe, AFM-init vs zero → 0.0-pp shift, §4.1) is reproduced by
   `mlip/compare_chgnet_default_vs_none.py`.
-- Marcasite mv-branch k(3,3,4) transferability single-point (`scripts/marc_mv_k334_sp.py`) result is added on
-  completion.
+- Marcasite mv-branch k(3,3,4) transferability single-point results are in
+  `marc_VFe_mvbranch_kscan_Q1.json`; its driver is `scripts/marc_mv_k334_sp.py`.
+
+Numbers and source-era fields in the result JSON files are retained. A description inherited from a
+driver is not a method verification: for example, the marcasite frequency metadata was corrected
+on 2026-09-25 from a PBE+U/U=2 label to the recorded actual `calc.U = 0`. See each file's note.
+The current main-text locations are DFT references §3.1, greigite §3.2, nine-model comparison §3.4
+and fine-tuning §3.5. Older section numbers in historical records refer to the earlier manuscript.

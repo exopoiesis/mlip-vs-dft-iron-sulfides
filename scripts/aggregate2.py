@@ -42,8 +42,12 @@ if "S0" not in evals:
 S0 = evals["S0"]
 
 # the criterion's self-test must pass
-st = S0.get("P1_selftest", {})
-bad = [b for b, v in st.items() if not (v["saddle_ok"] and v["no_spurious_basin"])]
+expected_bands = {"greigite_channel", "greigite_cation", "mackinawite", "pyrite_VS2", "marcasite"}
+st = S0.get("P1_selftest")
+if not isinstance(st, dict) or set(st) != expected_bands:
+    raise SystemExit("S0 P1_selftest missing or incomplete: all five reference bands are required")
+bad = [b for b, v in st.items() if not isinstance(v, dict)
+       or v.get("saddle_ok") is not True or v.get("no_spurious_basin") is not True]
 print(f"SELF-TEST G1 on DFT: {'PASS' if not bad else 'FAIL ' + str(bad)}")
 if bad:
     raise SystemExit("the criterion fails its own reference — the ladder cannot be interpreted")
@@ -59,12 +63,20 @@ report = {"holdout": HOLD, "E_a_dft_meV": E_DFT,
           "thresholds": {"tol_meV": TOL, "forget_barrier_meV": FORGET_BARRIER,
                          "forget_force_eVA": FORGET_FORCE},
           "rungs": {}}
+gate_path = OUTD / "chosen.json"
+gate = json.loads(gate_path.read_text()) if gate_path.exists() else {}
+report["schedule_gate"] = {"selection_passed": gate.get("gate_passed"),
+                           "run_schedule_verified": False,
+                           "source": "chosen.json" if gate else None,
+                           "note": "A schedule-selection record does not prove which schedule trained these models."}
 
 
 def metric(d, kind):
-    if kind == "neb" and "neb_selfconsistent" in d:
+    if kind == "neb":
         return d["neb_selfconsistent"]
-    return d["bands"][HOLD]
+    if kind == "sp":
+        return d["bands"][HOLD]
+    raise ValueError(f"unknown evaluation convention: {kind}")
 
 
 def drift(d):
@@ -146,6 +158,12 @@ for rung in ("S0",) + RUNGS:
 def paired(a_rung, b_rung, kind):
     A, B = by_rung.get(a_rung, {}), by_rung.get(b_rung, {})
     seeds = sorted(set(A) & set(B))
+    if kind == "neb":
+        excluded = [s for s in seeds if "neb_selfconsistent" not in A[s]
+                    or "neb_selfconsistent" not in B[s]]
+        seeds = [s for s in seeds if s not in excluded]
+        if excluded:
+            print(f"NEB paired analysis: excluded seeds without both NEBs: {excluded}")
     if len(seeds) < 2:
         return None
     da = np.array([abs(metric(A[s], kind)["err_meV"]) for s in seeds])
@@ -166,7 +184,7 @@ def paired(a_rung, b_rung, kind):
             "ci95": [round(mean - half, 2), round(mean + half, 2)],
             "p_exact": round(p, 4), "p_min_attainable": round(2 / 2 ** n, 4),
             "distinguishable": bool((mean - half) * (mean + half) > 0),
-            "equivalent_TOST_25meV": bool(mean - half > -TOL and mean + half < TOL)}
+            "ci95_within_25meV": bool(mean - half > -TOL and mean + half < TOL)}
 
 
 report["discriminator"] = {}
@@ -180,22 +198,14 @@ for kind in ("sp", "neb"):
           f"95% CI [{r['ci95'][0]:+.2f}, {r['ci95'][1]:+.2f}], "
           f"p = {r['p_exact']} (minimum attainable {r['p_min_attainable']})")
 
-    s1 = report["rungs"].get("S1", {}).get(kind) or {}
-    s3 = report["rungs"].get("S3", {}).get(kind) or {}
-    solo = report["rungs"].get("S3solo", {}).get(kind) or {}
-    if s1.get("recovers") and s3.get("recovers"):
-        v = "both recover: the failure is cured even without mineral-specific data"
-    elif s3.get("recovers") and not s1.get("recovers"):
-        v = "S3 recovers, S1 does not: DATA-COVERAGE DEFICIT, not a limit of the approach"
-    elif s1.get("recovers") and not s3.get("recovers"):
-        v = ("S1 recovers, S3 does not — per the preregistration this is a sign of a BROKEN "
-             "HARNESS, not a result; the ladder cannot be interpreted")
-    elif solo and solo.get("recovers"):
-        v = "neither S1 nor S3, but S3solo does: SUPERVISION CONFLICT between minerals, not a capacity limit"
-    else:
-        v = "no rung recovers: LIMIT OF REPRESENTATION/CAPACITY at this budget"
+    v = (f"Paired seed contrast on the selected {HOLD} band; S3 includes the target band "
+         "in training. This comparison does not identify the cause of zero-shot error.")
+    if r["p_min_attainable"] > 0.05:
+        v += " Too few pairs for a two-sided exact p <= 0.05; report descriptively."
     if not r["distinguishable"]:
-        v += "  [95% CI contains zero -> rungs are INDISTINGUISHABLE, state it as such]"
+        v += " The 95% interval includes zero; equivalence is not established."
+    if gate.get("gate_passed") is not True or not report["schedule_gate"]["run_schedule_verified"]:
+        v += " Schedule gate failed or is undocumented here; no capacity/transfer ceiling is inferred."
     report["discriminator"][kind]["verdict"] = v
     print(f"VERDICT: {v}")
 

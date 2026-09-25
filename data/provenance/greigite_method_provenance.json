@@ -1,0 +1,28 @@
+{
+  "purpose": "Verify the corrected greigite production cutoffs and pseudopotential provenance; not a complete production run archive.",
+  "cutoffs_Ry": {
+    "ecutwfc": 80,
+    "ecutrho": 320
+  },
+  "library_label": "ONCV PBE; a universal vendor/version is not inferred from generic filenames.",
+  "sources": [
+    {
+      "file": "greigite_channel_image04.in",
+      "source_workspace_path": "results/dft_datasets/2026-09-21_greigite_two_stream/qe/greig_channel/image_04/espresso.pwi",
+      "sha256": "d490c1b03c9c79a5f48f74f43636537a6c407508b695a59a08bfdfa619a673d8",
+      "bytes": 3871
+    },
+    {
+      "file": "greigite_channel_image04.out",
+      "source_workspace_path": "results/dft_datasets/2026-09-21_greigite_two_stream/qe/greig_channel/image_04/espresso.pwo",
+      "sha256": "cf0d96e5ef52d6d02f34ee3235873071723280c41799c9e4a8176b46136b3945",
+      "bytes": 160317
+    },
+    {
+      "file": "greigite_cation_image04.in",
+      "source_workspace_path": "results/dft_datasets/2026-09-21_greigite_two_stream/qe/greig_cation/image_04/espresso.pwi",
+      "sha256": "d723303c81854cfef9175c4c45126034590bc65485b29bb4cdcee633c0748236",
+      "bytes": 3869
+    }
+  ]
+}

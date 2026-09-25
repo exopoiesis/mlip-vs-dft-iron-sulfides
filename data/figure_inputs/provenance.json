@@ -1,0 +1,32 @@
+[
+  {
+    "file": "pyrite_gpaw.json",
+    "source_workspace_path": "results/q071_dft_neb_pyrite.json",
+    "sha256": "b63f64290f19146b6d327dbf1dd65038f3d94a925834fcb3776729bd8467c007",
+    "bytes": 1254
+  },
+  {
+    "file": "pyrite_qe_small.json",
+    "source_workspace_path": "results/dft_datasets/neb_pyrite_qe_result.json",
+    "sha256": "c5d9ba562edfe07144bf1c9d4bae3ee1eb7b315ccafc88a0a2f4e00b35c0f654",
+    "bytes": 552
+  },
+  {
+    "file": "pyrite_abacus_small.json",
+    "source_workspace_path": "results/dft_datasets/neb_pyrite_abacus_1x1x1_result.json",
+    "sha256": "df508c00e2cbf883761f0c2c687dfe6745e7df45657db03b18965a85ac512376",
+    "bytes": 1137
+  },
+  {
+    "file": "pyrite_qe_production.json",
+    "source_workspace_path": "results/dft_datasets/2026-05-01/pyr_prod_neb_W3/results/neb_canonical_pyr_96at_qe.json",
+    "sha256": "e9b6c8fd030ebe5f6b41178968022589c010527def60934ec6628521185e7dff",
+    "bytes": 3138
+  },
+  {
+    "file": "mackinawite_qe_production.json",
+    "source_workspace_path": "results/dft_datasets/2026-05-03/mack_vfe_w3_aborted_2026-05-03/results/neb_canonical_mack_72at_qe_VFe.json",
+    "sha256": "e9c502ddc78ada5bea0dcd6148ba5ea24a3e30e6a53aa1e1bb1e6b6a93f418ff",
+    "bytes": 4317
+  }
+]

@@ -4,12 +4,12 @@
 Panel (a): V_Fe DFT NEB profile (paper-quotable 0.043 eV) with annotated
            saddle and symmetric endpoints.
 Panel (b): Cross-method E_a comparison bar chart — V_Fe DFT (this work) vs.
-           literature V_Fe surface anchor (Liu 2021) vs. legacy V_S+H DFT and
+           literature V_Fe surface anchor (Liang 2021) vs. legacy V_S+H DFT and
            foundation-MLIP values.
 
-Output: paper/MLIPvsDFT/figures/fig2_mackinawite_vfe.{png,pdf,svg}
+Output: figures/fig2_mackinawite_vfe.{png,pdf,svg}
 
-Run: python paper/MLIPvsDFT/figures/fig2_mackinawite_vfe.py
+Run: python figures/fig2_mackinawite_vfe.py
 """
 import json
 from pathlib import Path
@@ -20,15 +20,9 @@ import numpy as np
 # =============================================================
 # Project root + data paths
 # =============================================================
-ROOT = Path(__file__).resolve().parents[3]
-RESULTS = ROOT / "results"
+ROOT = Path(__file__).resolve().parents[1]
 FIGDIR = Path(__file__).resolve().parent
-
-VFE_JSON = (
-    RESULTS / "dft_datasets" / "2026-05-03"
-    / "mack_vfe_w3_aborted_2026-05-03" / "results"
-    / "neb_canonical_mack_72at_qe_VFe.json"
-)
+VFE_JSON = ROOT / "data" / "figure_inputs" / "mackinawite_qe_production.json"
 
 
 def load_neb(path):
@@ -54,17 +48,17 @@ print(f"  Hop distance = {vfe['hop_distance_A']:.3f} Å")
 # Cross-method bar chart data
 # =============================================================
 # This work (mackinawite V_Fe DFT, paper-quotable)
-# Literature anchor: Liu 2021 ACS Omega L-650 — V_Fe surface 0.26 eV
+# Literature anchor: Liang 2021 ACS Omega L-650 — V_Fe surface 0.26 eV
 # Legacy V_S+H pathway: artifact (~0 effective, see SI forensic)
 # Foundation MLIPs (legacy V_S+H intra-layer pathway from manuscript v1):
 #   MACE intra 0.44 eV; GPAW intra 0.738 eV (legacy DFT cross-check, v1 mscript)
 # QE cross-layer (legacy 2×2×1 supercell, neb_mackinawite_qe_result.json): 2.479 eV
 methods = [
     ("This work\nDFT V_Fe\n(72 at)", 0.0429, "#9467bd"),
-    ("Liu 2021\nDFT V_Fe surface\n(literature)", 0.26, "#1f77b4"),
-    ("Legacy MACE\nintra V_S+H\n(v1)", 0.44, "#ff7f0e"),
-    ("Legacy DFT\nintra V_S+H\n(GPAW)", 0.738, "#d62728"),
-    ("Legacy DFT\ncross-layer\n(QE)", 2.479, "#7f7f7f"),
+    ("Liang 2021\nDFT V_Fe surface\n(literature)", 0.26, "#1f77b4"),
+    ("Invalid V_S path\nintra-layer\n(MACE)", 0.44, "#ff7f0e"),
+    ("Invalid V_S path\nintra-layer\n(GPAW)", 0.738, "#d62728"),
+    ("Invalid V_S path\ncross-layer\n(QE)", 2.479, "#7f7f7f"),
 ]
 
 # =============================================================
@@ -80,7 +74,7 @@ plt.rcParams.update({
     "axes.spines.right": False,
 })
 
-fig, (axA, axB) = plt.subplots(1, 2, figsize=(7.5, 3.2), constrained_layout=True)
+fig, (axA, axB) = plt.subplots(1, 2, figsize=(11.5, 4.4), constrained_layout=True)
 
 # ---- Panel (a): V_Fe DFT NEB profile ----
 rc = np.linspace(0.0, 1.0, n_img)
@@ -93,7 +87,7 @@ axA.plot(rc, energies_meV,
 # Annotate saddle
 axA.annotate(f"Saddle: {energies_meV[saddle_idx]:.1f} meV",
              xy=(rc[saddle_idx], energies_meV[saddle_idx]),
-             xytext=(rc[saddle_idx] + 0.15, energies_meV[saddle_idx] + 5),
+             xytext=(0.58, 33),
              fontsize=8,
              arrowprops=dict(arrowstyle="->", color="grey", lw=0.5))
 
@@ -107,8 +101,8 @@ axA.annotate(f"$\\Delta E_\\mathrm{{endpoints}}$ = {vfe['dE_endpoints_eV']*1e6:.
 axA.axhline(0, color="grey", linewidth=0.5, linestyle=":")
 axA.set_xlabel("Reaction coordinate")
 axA.set_ylabel("Relative energy (meV)")
-axA.set_title(r"(a) Mackinawite 3$\times$3$\times$2 (72 atoms): V$_\mathrm{Fe}$ + S–H hop")
-axA.legend(loc="upper right", frameon=False)
+axA.set_title("(a) Mackinawite: 72 atoms\n" + r"V$_\mathrm{Fe}$ + S–H hop")
+axA.legend(loc="upper left", frameon=False)
 axA.set_xlim(-0.02, 1.02)
 axA.set_ylim(-12, 55)
 
@@ -134,9 +128,9 @@ bars[0].set_edgecolor("#9467bd")
 bars[0].set_linewidth(2.5)
 
 axB.set_xticks(range(len(methods)))
-axB.set_xticklabels(labels, fontsize=7)
+axB.set_xticklabels(labels, fontsize=7, rotation=20, ha="right")
 axB.set_ylabel("$E_a$ (eV)")
-axB.set_title("(b) Mackinawite proton migration: cross-method comparison")
+axB.set_title("(b) Reference, surface comparator\nand invalid V_S paths")
 axB.set_ylim(0, 2.8)
 axB.axhline(Ea_vfe, color="#9467bd", linewidth=0.7, linestyle="--", alpha=0.5)
 

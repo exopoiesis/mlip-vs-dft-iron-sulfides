@@ -9,76 +9,88 @@ Code and data accompanying the manuscript:
 > Igor N. Morozov. Independent Researcher, Ukraine.
 > ORCID: [0009-0007-3863-1747](https://orcid.org/0009-0007-3863-1747) · igor@exopoiesis.space · exopoiesis.space
 
-> ### ⚠️ Corrections in release v1.1 and later — read before using any greigite number
+> ### Corrections to the archived results
 >
-> **The greigite barrier of 1.86 eV published in v1.0 is retracted.** That NEB band ran along a *trans axis*
-> of the vacancy octahedron, and the midpoint of a trans axis is the vacant Fe site itself — a special
-> position where the force vanishes **by symmetry rather than by convergence**. The band therefore satisfied
-> any force criterion it was given, and its midpoint carries **three** imaginary modes, so it is not a
-> first-order saddle. The value is the energy of a proton at the interstitial vacant site, not a migration
-> barrier. It is superseded by **235.97 meV** (`greigite_VFe_channel_band.extxyz`) and **566.83 meV**
-> (`greigite_VFe_cation_band.extxyz`). The retracted band is **kept, not deleted** — it may already have been
-> cited — and every frame carries `meta_RETRACTED`, as do the two JSON files derived from it.
+> **The greigite 1.86 eV value in v1.0 is withdrawn as a migration barrier.** The trans-axis
+> midpoint coincides with the vacant Fe site. Its symmetry-preserving construction can make the
+> migrating H force vanish, but the partial Hessian has three negative modes, excluding an index-1
+> saddle. The replacement paths give **235.97 meV** (`greigite_VFe_channel_band.extxyz`) and
+> **566.83 meV** (`greigite_VFe_cation_band.extxyz`). The old band and its derived scans remain
+> archived with `meta_RETRACTED`; they do not establish Hubbard-U sensitivity of the replacement paths.
 >
-> Two further labels were corrected: the pyrite anchor is **V_S with an Fe-bound hydride hop**, not a
-> "V_S₂ dimer hop" or an S–H transfer (the cell removes one sulfur and the hydrogen is Fe-bound in all nine
-> images); and the marcasite unreliable-energy flag moved from image 2 to **image 1**. Neither correction
-> changes a barrier. Full detail in `data/structures/README.md` and `data/README.md`.
+> The pyrite 94.6 meV reference is **Fe-bound hydrogen transfer in a single V_S pocket**, not a
+> V_S₂ dimer hop or S–H transfer. Host identity does not assign a formal hydride charge. The
+> unreliable marcasite energy belongs to **image 1**, which is excluded from profile statistics;
+> neither endpoint-to-maximum barrier changes with these label corrections. See
+> [structure records](data/structures/README.md) and [result provenance](data/README.md).
 
-We benchmark foundation machine-learning interatomic potentials, zero-shot, against plane-wave DFT (Quantum
-ESPRESSO) for **vacancy-anchored proton (neutral H⁰ proxy) migration** across four iron sulfides spanning the
-natural diagenetic series. The core comparison uses
-**MACE-MP-0 (large)** and **CHGNet-v0.3.0**; a second pass extends it to **nine checkpoints across five DFT
-bands** (45 model×band measurements). We establish a unified PBE (U = 0) DFT reference landscape, report the
-first harmonic zero-point corrections for *bulk* vacancy-anchored proton migration in iron sulfides, and
-document three distinct, diagnosable foundation-MLIP failure modes.
+This repository benchmarks vacancy-anchored hydrogen migration in four iron sulfides against plane-wave
+PBE, U = 0 DFT references, with mineral-specific magnetic treatments. Hydrogen is added to neutral defect
+supercells; these local dry-bulk paths do not predict hydrated proton conductivity.
+
+Two protocols answer different questions. MACE-MP-0 large and CHGNet weights v0.3.0 are tested through
+endpoint relaxation and self-consistent NEB. A separate comparison evaluates **nine checkpoints on five
+fixed DFT bands**, giving 45 dependent model–band cells. The analysis separates energy-profile errors,
+relaxation failures and endpoint-construction effects. Harmonic zero-point corrections and a limited
+fine-tuning ladder accompany the reference calculations.
 
 ## Headline results (DFT, PBE U = 0)
 
-| Mineral | Reaction coordinate | E_a (electronic) | E_a (ZPE-corr.) | Foundation-MLIP outcome |
+| Mineral | Reaction coordinate | E_a (electronic) | Harmonic ZPE-corrected | Foundation-MLIP outcome |
 |---|---|---|---|---|
-| Pyrite (Pa-3̄) | V_S pocket, Fe→Fe hydrogen transfer | 94.6 meV | — | both potentials merge the two Fe minima when endpoints are seeded from sulfur, so no barrier is defined |
+| Pyrite (Pa-3̄) | V_S pocket, Fe→Fe hydrogen transfer | 94.6 meV | — | sulfur-adjacent seeds collapse to one Fe host; DFT-seeded endpoints retain distinct Fe hosts, but no validated self-consistent barrier is reported |
 | Pyrite (Pa-3̄) | V_Fe + S–H | 268 meV | 173 meV | with own-surface endpoints: MACE within ~12 meV, CHGNet +119 meV |
-| Mackinawite (P4/nmm) | V_Fe + S–H | 42.9 meV | ≈ 0 (barrierless) | **all nine** models overestimate the smallest barrier in the series, by 1.75–9.66× |
-| Marcasite (Pnnm) | V_Fe + S–H | 208 meV | 123 meV | MACE reproduces barrier and reaction energy inside the reference's own ±15 meV magnetic-sheet uncertainty |
-| Greigite (Fd-3̄m), **channel** edge | V_Fe + S–H | **236 meV** | 133 meV | pristine cell collapses under relaxation (S–S → 0.072 Å); on DFT geometries the same models evaluate it normally |
+| Mackinawite (P4/nmm) | V_Fe + S–H | 42.9 meV | −23 ± 15 meV | **all nine** models overestimate the smallest barrier in the series, by 1.75–9.66× |
+| Marcasite (Pnnm) | V_Fe + S–H | 208 meV | 123 meV | self-consistent MACE 208 meV and CHGNet 318 meV; the DFT reference has about 15 meV magnetic-sheet uncertainty |
+| Greigite (Fd-3̄m), **channel** edge | V_Fe + S–H | **236 meV** | 133 meV | pristine-cell MACE relaxation collapses (S–S → 0.072 Å); fixed-geometry MACE and CHGNet evaluations remain finite |
 | Greigite (Fd-3̄m), **cation** edge | V_Fe + S–H | **567 meV** | 459 meV | contrast path; **all nine** models rank it above the channel edge |
 
-The two greigite rows are the two symmetry-distinct S–S edge classes of the *same* vacancy octahedron,
-computed from a common endpoint. The **shorter** edge (3.369 Å, shared with an occupied cation) carries the
-**higher** barrier: by Pauling's third rule a shared edge contracts precisely because a cation sits across it,
-and it is expensive for that same reason. Selecting a migration path by hop distance therefore picks the worst
-one systematically in this structure type.
+The negative mackinawite harmonic estimate means that the correction exceeds the electronic barrier;
+it is a limit of harmonic barrier theory, not a measured barrierless quantum rate. The table combines
+the explicitly labelled self-consistent and fixed-geometry observations; the full comparison and
+convergence details are in the manuscript and supporting data.
+
+The greigite rows compare two symmetry-distinct S–S edges of the same vacancy octahedron from a common
+endpoint. The shorter cation edge (3.369 Å) has the higher barrier; the channel edge is 3.493 Å. Edge
+length, neighboring cation occupancy and relaxation change together, so the pair does not isolate a
+unique cause or establish a rule for all spinels. It shows why both local coordination classes should
+be considered. Both paths remain within one vacancy pocket and do not determine inter-pocket escape
+or bulk conductivity.
 
 ## Does limited fine-tuning fix it?
 
-A separate experiment (`mlip/r23_2026-09/`) fine-tunes MACE-MP-0 large on the deposited DFT bands with one
-mineral held out, increasing what the model is told about that mineral rung by rung. With **mackinawite**
-held out (DFT barrier 42.88 meV), error against DFT in meV, 8 seeds:
+The [fine-tuning experiment](mlip/r23_2026-09/README.md) uses MACE-MP-0 large and mackinawite as the
+interpreted holdout (DFT barrier 42.88 meV). The four non-holdout bands supply 26 symmetry-inequivalent
+configurations, split into **22 training and 4 validation configurations**. The table reports signed
+barrier errors on the fixed DFT band, mean ± seed standard deviation over eight seeds; zero-shot is
+one deterministic evaluation.
 
-| what the model was given | barrier error |
+| Training rung | Signed barrier error (meV) |
 |---|---|
-| nothing (zero-shot) | +149.1 |
-| 26 symmetry-inequivalent configurations of the **three other** iron sulfides | +68.3 ± 22.7 |
-| the same, **plus both endpoint basins** of the held-out mineral | +68.6 ± 17.4 |
-| the same, plus the **full band** of the held-out mineral | +9.1 ± 7.1 |
-| **only** the held-out band | +0.5 ± 5.9 |
+| No new data (S0) | +149.1 |
+| Four bands from the three other sulfides (S1) | +68.3 ± 22.7 |
+| S1 plus both mackinawite endpoint basins (S2) | +68.6 ± 17.4 |
+| S1 plus the full mackinawite band (S3, fitting control) | +9.1 ± 7.1 |
+| Mackinawite band alone (S3solo, fitting control) | +0.5 ± 5.9 |
 
-Paired over seeds, |S1| − |S3| = **+59.3 meV**, 95 % CI [+36.7, +81.8], exact p = 0.0078 (the smallest value
-8 pairs can produce). So the zero-shot failure is a **data-coverage** failure and not a limit of the approach:
-the architecture reproduces this barrier to sub-meV once it has seen the reaction coordinate of *that*
-mineral. What does not happen is transfer between iron sulfides — and giving the model both endpoint basins
-changes nothing, because the saddle region is what is missing and that is exactly what cannot be had without
-DFT. Verified not to be an artefact of training length: the same hyperparameters run 20× longer leave the
-held-out error at +51.6 ± 18.8 meV. A second ladder (marcasite held out) is deposited but **not interpreted**
-— it fails the preregistered schedule gate, and the README in that directory explains why.
+S1 demonstrates **partial transfer**, with residual error above the prespecified 25 meV tolerance.
+Adding target endpoints changes little for this fixed-band metric. A 20× longer S1 schedule leaves
+an error of +51.6 ± 18.8 meV, so undertraining alone does not explain the remaining error.
 
-(Pentlandite was part of this benchmark through release v1.3 and is **withdrawn in v1.4**: the cell used
-for it does not reproduce the pentlandite structure. See `mlip/PENTLANDITE_WITHDRAWN.md`.)
+S3 and S3solo evaluate a band included in training. For S3solo, the mean signed error of +0.5 meV
+reflects cancellation: its **MAE is 4.6 meV**, not sub-meV accuracy. Its nine target images are also
+used for evaluation, with no independent validation set. This demonstrates target-profile fitting,
+not generalization or a uniquely identified data-coverage cause. The paired S1−S3 absolute-error
+reduction is 59.3 meV, with reported 95% interval [36.7, 81.8] meV and exact p = 0.0078, conditional
+on eight seeds and this one holdout.
+
+Self-consistent NEB and forgetting tests are reported separately in the experiment README. Target-only
+fitting worsens other bands; the second, marcasite holdout fails its schedule gate and supports no
+transfer conclusion. Active learning was not tested.
 
 ## Withdrawn in v1.4 — pentlandite
 
-Every pentlandite artefact in this repository was computed on a cell that reproduces the
+The withdrawn pentlandite calculations used a cell that reproduces the
 composition of pentlandite but not its structure: the octahedral metal sits at Wyckoff 4a
 instead of 4b, the tetrahedral metal at 32f with x = 0.356 instead of 0.1261, and all sulfur
 on a single 32f orbit instead of the 8c and 24e sites pentlandite actually has. Composition
@@ -95,9 +107,9 @@ renamed to `figures/withdrawn_pentlandite_endpoints.py`. The full account, inclu
 `mlip/pentlandite_structure_verified.py` builds the mineral correctly from the published
 Wyckoff positions and refuses to return a cell whose metal coordination is wrong.
 
-**The four minerals that carry every barrier here are unaffected** and were re-checked against
-published crystallography: pyrite, marcasite, mackinawite and greigite all show the expected
-coordination in their deposited structures. No barrier, benchmark or fine-tuning number changes.
+Pentlandite is excluded from the current four-mineral barrier benchmark and fine-tuning ladder.
+Its withdrawal concerns the structural diagnostic; the retained reference compositions and
+coordination checks are documented in [data/structures/README.md](data/structures/README.md).
 
 ## Repository layout
 
@@ -108,75 +120,86 @@ mlip/      MACE-MP-0 / CHGNet topology-scan, NEB-probe, and band-correlation dri
 mlip/r22_2026-09/    nine-model x five-band benchmark: per-image profiles, forces, barrier matrix
 mlip/r23_2026-09/    few-shot fine-tuning ladder for MACE-MP-0: does limited fine-tuning recover a
                      held-out DFT barrier? ladders, blind schedule selection, convergence control
-mlip/environments/   three pip freezes (the nine models do not fit in one environment) + weight provenance
+mlip/environments/   three environments used for the nine-model runs + available weight provenance
 figures/   figure-generation scripts (Table 1 / ZPE trend / barrier landscape / band correlation)
-data/      harvested result JSON (the numbers behind every table and figure)
+data/      harvested result JSON and supporting numerical records
 data/structures/  complete DFT NEB bands + relaxed endpoints/saddles as extended-XYZ (energy+forces)
-tm-spec/   TM-Spec v0.3 declarative records of each result (machine-readable + format examples)
+tm-spec/   TM-Spec v0.3 declarative calculation records (machine-readable + format examples)
 ```
 
-**Reusable structure data.** `data/structures/` ships the *complete* DFT NEB bands (all images, with energies
-and forces) plus relaxed endpoints and saddle geometries as extended-XYZ — the kind of complete iron-sulfide
-defect-migration reference that is otherwise hard to find. Useful as MLIP training/benchmark reference data,
-NEB-method test cases, or starting geometries for further Fe–S defect studies. See `data/structures/README.md`.
+**Structure data.** [data/structures/](data/structures/README.md) contains DFT bands, endpoints and
+saddles in extended-XYZ format, with energy/force metadata and explicit unreliable-image or withdrawal
+flags. Read those flags before using the structures as training data or migration references.
 
-**Three environments, not one.** The nine checkpoints cannot be installed together: orb-models 0.7.0 removed
-its ASE calculator (we used 0.5.5, which pins its own torch), and GRACE runs on TensorFlow. All three
-`pip freeze` files are deposited verbatim in `mlip/environments/`, with weight provenance and checksums.
+**Software environments.** Three environments were used for the nine-model evaluation. Their complete
+`pip freeze` files, model-source identifiers and the MACE checkpoint checksum are in
+[mlip/environments/](mlip/environments/README.md). Older self-consistent calculations and fine-tuning
+have documented component versions, but no contemporaneous complete package freeze.
 
 **TM-Spec records.** `tm-spec/` holds [TM-Spec v0.3](https://github.com/exopoiesis/tm-spec) declarative records
-of every result (successes *and* failures), both as a validate-able provenance trail and as worked examples of
+for successful and unsuccessful calculations, as a provenance trail and as worked examples of
 the format. See `tm-spec/README.md`.
 
 ## Methods (summary)
 
-- **DFT:** Quantum ESPRESSO PWSCF 7.5 (GPU), ONCV PBE norm-conserving pseudopotentials (Fe, S, H), **U = 0**
-  (a single unified protocol across all minerals). nspin = 1 for diamagnetic pyrite / non-magnetic mackinawite;
-  nspin = 2 (cold/`mv` smearing, `local-TF` mixing, `tot_magnetization` pinned) for the magnetic marcasite and
-  ferrimagnetic greigite V_Fe defect cells. The U = 0 label is verifiable from the deposit rather than taken on
-  trust: no HUBBARD card appears in any production input, and no Hubbard energy term in any output.
-- **NEB:** 9-image CI-NEB, FIRE + DyNEB, with the **ASE IDPP minimum-image-convention prewrap** fix
-  (ASE GitLab issue #1130 → upstream merge request **MR !4091**, commit `8d9b69bf5`). Pyrite V_Fe used an
-  unconstrained ASE-Dimer search (the band-NEB fails at the m-3̄ degenerate saddle).
-- **Saddle verification (greigite):** Lanczos on the mass-weighted Hessian via finite-difference
-  Hessian-vector products over the **full 168 degrees of freedom** — one negative eigenvalue,
-  ν‡ = 829.6i cm⁻¹ at effective mass 1.054 amu, i.e. a purely protonic unstable mode, and zero imaginary
-  modes at the endpoint. Data in `data/greigite_VFe_saddle_lanczos_2026-09-21.json`.
-- **ZPE:** harmonic partial-Hessian on a 9–10-atom reactive subsystem; ΔZPE‡ = ZPE_saddle − ZPE_endpoint on an
-  identical atom set so distant modes cancel; Wigner tunneling correction from the imaginary saddle frequency
-  (for greigite, a numerical symmetric-Eckart correction: κ = 2.02 at 298 K, crossover T_c = 187 K).
-- **MLIP:** the core comparison is MACE-MP-0 (**large** checkpoint, `MACE_MPtrj_2022.9.model`) and
-  CHGNet-v0.3.0, zero-shot (pretrained), via ASE. CHGNet uses a magnitude-only magnetic representation
-  (Jiang/Xu, *PNAS* 2025); initialized magmoms do not enter its energy prediction (verified control included).
-  The nine-model extension adds SevenNet 7net-0, UMA-s-1p2, Orb-v2, Orb-v3-conservative-inf-omat, and
-  GRACE-1L-OMAT / 2L-OMAT / 2L-OAM, evaluated as **single points on the converged DFT geometries**. That
-  protocol removes the optimizer as a confounder but is biased upward by construction, since a barrier along a
-  prescribed path is at least the barrier along the model's own minimum-energy path.
+- **DFT:** Quantum ESPRESSO PWSCF 7.5, PBE and ONCV norm-conserving pseudopotentials, with U = 0
+  for the reference geometries. Pyrite uses nspin = 1. Mackinawite uses a non-spin-polarized surrogate,
+  not a claim of a physically nonmagnetic ground state. The marcasite defect is followed on a weakly
+  magnetic sheet; greigite uses ferrimagnetic initialization. The production inputs and the manuscript
+  specify mineral-dependent smearing, cutoffs and magnetic constraints. Hubbard-U sensitivity of the
+  corrected greigite paths is unmeasured.
+- **Paths:** nine-image CI-NEB with minimum-image prewrapping before ASE IDPP. The interpolation fix
+  was contributed as ASE GitLab MR !4091 against issue #1130. Pyrite V_Fe instead uses an unconstrained
+  ASE dimer saddle, with a constrained NEB as a consistency check.
+- **Greigite saddle diagnostics:** 25-step mass-weighted Lanczos explores the full 168-dimensional
+  space and identifies a dominant H-localized unstable mode at 829.6i cm⁻¹, effective mass 1.054 amu.
+  No negative mode was detected at the endpoint. Finite-iteration Ritz values do not certify that
+  exactly one negative mode exists; the cation edge has not received the same full-space test.
+  See `data/greigite_VFe_saddle_lanczos_2026-09-21.json` and the [result notes](data/README.md).
+- **ZPE:** harmonic partial-Hessian endpoint and saddle calculations use matched reactive atom sets.
+  Distant-mode cancellation is an approximation. Tunneling estimates are conditional model
+  calculations, not measured rates; their assumptions and subsystem checks are documented with
+  the [result notes](data/README.md) and manuscript SI.
+- **MLIP:** MACE-MP-0 large (`MACE_MPtrj_2022.9.model`) and CHGNet weights v0.3.0 are used through ASE.
+  The deposited CHGNet initialization control tests insensitivity to supplied initial magnetic
+  moments; it does not equate the learned surface with nspin = 1 DFT. The nine-model extension adds
+  SevenNet, UMA, Orb and GRACE checkpoints at fixed DFT geometries. With both endpoints and path fixed,
+  there is no general upward variational bound relative to each model's independently optimized
+  barrier. It tests energy profiles, not whether the optimizer would find the same path.
 
 ## Energy convention
 
-Barriers are differences of the free energy F (the `!` line of the Quantum ESPRESSO output). Rebuilding the
+Electronic barriers use differences of the smeared electronic energy F reported on the `!` line
+of Quantum ESPRESSO output; this is not a complete finite-temperature migration free energy. Rebuilding the
 greigite channel barrier from the internal energy E = F + TS, or from the 0 K extrapolation, gives 227.89 and
-231.90 meV instead of 235.91 — the choice moves the number by up to 8 meV. Absolute totals additionally differ
-by ≈ 7 meV between ASE versions through the CODATA value of the Rydberg; this cancels in every difference.
+231.90 meV instead of 235.91 — the choice moves the number by up to 8 meV. Absolute totals also depend
+on the ASE CODATA conversion. Use the same energy convention and
+conversion when regenerating energy differences; provenance and the cross-check are in the result records.
 
 ## Reproducing
 
 ```bash
-pip install -r requirements.txt
+python -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
 ```
+
+On Windows, use `.venv\Scripts\python.exe` in place of `.venv/bin/python`. These are core plotting/geometry dependencies, not a lockfile for all MLIP environments. The [figure instructions](figures/README.md) identify current and historical plots and their deposited inputs.
 
 The DFT drivers expect Quantum ESPRESSO 7.5 (`pw.x`, GPU build) on `PATH` and ONCV PBE pseudopotentials for
 Fe, S, H (standard QE/PseudoDojo distribution; place them where `ESPRESSO_PSEUDO` points and map them as
 `Fe.upf`, `S.upf`, `H.upf`). MLIP drivers require `mace-torch` and `chgnet`; for the nine-model extension use
 the three environment specifications in `mlip/environments/` rather than `requirements.txt`. Figure scripts
-require only `matplotlib` + `numpy` and read from `data/`. Raw DFT wavefunction/charge-density dumps are
+use `matplotlib` and `numpy`; their input records are documented with the scripts. Raw DFT wavefunction/charge-density dumps are
 **not** archived (multi-GB, regenerable from the provided inputs); `data/` holds the harvested
 energies/frequencies behind the paper's tables and figures.
 
+The [offline reproduction checks](scripts/REPRODUCING.md) regenerate the saved profile statistics and test the fine-tuning aggregation without launching MLIP inference or DFT. Selected [primary input/output records](data/provenance/README.md) verify the corrected greigite cutoffs and pseudopotential identifiers.
+
 ## Citing
 
-See `CITATION.cff`. Current archived release: **v1.3**, Zenodo DOI
+See `CITATION.cff`. Release **v1.5** corrects analysis code, method metadata and
+reproducibility documentation; see [CHANGELOG.md](CHANGELOG.md). Its version-specific
+Zenodo DOI will be added once available. The previous archived release is **v1.4**, DOI
 [10.5281/zenodo.22919796](https://doi.org/10.5281/zenodo.22919796).
 
 **Cite the release that matches the numbers you use.** These are version-specific DOIs by choice, not

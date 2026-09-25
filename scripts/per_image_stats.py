@@ -14,8 +14,10 @@ from ase.io import read
 # Paths are taken from the environment so the script runs from a clone without editing:
 #   MLIP_RUN  directory holding the R2.2 run output (band_*.json, grace_*.json)
 #   DEPOSIT   this repository's data/structures directory
-RES = Path(os.environ.get("MLIP_RUN", "results/mlip_r22_2026-09-22"))
-DEP = Path(os.environ.get("DEPOSIT", Path(__file__).resolve().parent.parent / "data/structures"))
+#   MLIP_STATS_OUTPUT output JSON (default tmp/per_image_stats.json in the clone)
+REPO = Path(__file__).resolve().parent.parent
+RES = Path(os.environ.get("MLIP_RUN", REPO / "mlip/r22_2026-09"))
+DEP = Path(os.environ.get("DEPOSIT", REPO / "data/structures"))
 
 # band key in the R2.2 run  ->  deposited DFT band
 DEPOSIT = {
@@ -80,6 +82,8 @@ report = {}
 for band, fn in DEPOSIT.items():
     dft = dft_band(fn)
     models = mlip_bands(band)
+    if len(models) != 9:
+        raise SystemExit(f"Expected nine model profiles for {band}, found {len(models)} in {RES}")
     drop = EXCLUDE.get(band, [])
     keep = [i for i in range(len(dft)) if i not in drop]
     ea_dft = max(dft) - dft[0]
@@ -99,9 +103,10 @@ for band, fn in DEPOSIT.items():
     rows = {}
     for m in sorted(models):
         p = models[m]
-        if len(p) != len(dft):
-            print(f"  {m:<34} length mismatch {len(p)} vs {len(dft)}")
-            continue
+        if not isinstance(p, list) or len(p) != len(dft):
+            raise SystemExit(f"Invalid profile length for {band}/{m}: expected {len(dft)} images")
+        if any(not isinstance(v, (int, float)) or not math.isfinite(v) for v in p):
+            raise SystemExit(f"Non-finite or non-numeric profile for {band}/{m}")
         ea = max(p) - p[0]
         r = pearson(dft, p)
         rm = rmse(dft, p)
@@ -127,6 +132,7 @@ for band, fn in DEPOSIT.items():
                     "excluded_images": drop,
                     "models": rows}
 
-out = RES / "per_image_stats.json"
+out = Path(os.environ.get("MLIP_STATS_OUTPUT", REPO / "tmp/per_image_stats.json"))
+out.parent.mkdir(parents=True, exist_ok=True)
 out.write_text(json.dumps(report, indent=2))
 print(f"\nwritten: {out}")

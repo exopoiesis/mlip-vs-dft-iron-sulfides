@@ -1,7 +1,7 @@
 # DFT NEB Structure Dataset — Iron-Sulfide Defect Diffusion
 
 Extended-XYZ files of converged DFT NEB bands and relaxed endpoint/saddle structures
-for proton/vacancy diffusion in Fe-S minerals. All DFT: PBE functional, U=0 (no Hubbard
+for local neutral-H vacancy-defect paths in Fe-S minerals. All DFT reference structures here: PBE functional, U=0 (no Hubbard
 correction), ONCV pseudopotentials, Quantum ESPRESSO 7.x.
 
 Units: energies in **eV**, forces in **eV/Å**, positions in **Å**.
@@ -58,14 +58,14 @@ print(band[4].info["meta_rc"], band[4].get_potential_energy())
 **`marcasite_VFe_band.extxyz`**
 - Mineral: marcasite (orthorhombic FeS₂, space group Pnnm)
 - Reaction: V_Fe iron-vacancy S→S proton hop, Fe₃₁S₆₄H₁ (96 atoms)
-- Method: PBE U=0, nspin=2, ONCV, kpts 2×2×2, QE 7.x, warm-restart NEB
+- Method: PBE U=0, nspin=2, ONCV, kpts 2×2×3, QE 7.x, warm-restart NEB
 - n_atoms per frame: 96
 - n_frames: 9 (endA, 7 intermediate, endB)
 - Barrier: **208.2 meV** (image index 4 = saddle)
 - Energies+forces: present for all frames (from DFT NEB calculator)
-- Note: image index 2 carries `energy_stale_dyneb_skip=True` — a CRASH file
-  was found in that image directory; the DyNEB optimizer skipped this image
-  and its energy may not be fully converged. Geometry is valid.
+- Note: image index 1 carries the active `meta_energy_unreliable` flag; image 2 retains the
+  history of the earlier misassignment. Exclude image 1 from profile statistics; no replacement
+  energy has been inserted into the deposited band.
 - Source: `results/dft_datasets/2026-06-03/marc_warm_neb_W2/prod_essentials/neb_warm.traj`
 
 **`marcasite_endA.extxyz`** / **`marcasite_endB.extxyz`**
@@ -83,7 +83,8 @@ print(band[4].info["meta_rc"], band[4].get_potential_energy())
 > The path runs along a **trans axis** of the vacancy octahedron, so its midpoint is the vacant Fe
 > site itself: a special position where the force vanishes **by symmetry**. A band therefore
 > "converges" at any criterion, and the proton Hessian there carries **three imaginary modes** —
-> a third-order saddle. The quoted 1860.7 meV is the energy of an interstitial proton, not a
+> excluding an index-1 saddle (the partial Hessian does not determine the full saddle index).
+> The quoted 1860.7 meV is an energy difference for that high-symmetry H configuration, not a
 > migration barrier.
 >
 > The file is **kept, not deleted**, because it may already have been cited; every frame now
@@ -97,14 +98,17 @@ print(band[4].info["meta_rc"], band[4].get_potential_energy())
   Fe₂₃S₃₂H₁ (56 atoms)
 - Method: PBE U=0, nspin=2 (ferrimagnetic A↑↓B), ONCV, kpts 2×2×2, ecutwfc 80 Ry, QE 7.5
 - n_frames: 9 · Barrier: **235.97 meV** · E_rxn ≈ 0 (endpoints symmetry-equivalent)
-- Saddle verified: exactly one imaginary mode, **829.6i cm⁻¹**, μ_eff 1.054 amu, measured in the
-  **full 168 DOF** (Lanczos on the mass-weighted Hessian), zero imaginary modes at the endpoint
+- Full-space Lanczos detects a dominant negative mode, **829.6i cm⁻¹**, μ_eff 1.054 amu, over
+  **168 DOF**. Its 25-iteration Ritz spectrum does not exclude an additional very soft negative
+  mode; strict full-space index-1 is not established. See SI §K.13.3. The endpoint has no detected
+  imaginary mode in the reported check, not a complete full-space spectrum certificate.
 - Energies+forces present for all frames
 - Source: `results/dft_datasets/2026-09-21_greigite_two_stream/greig_channel/final_0*.xyz`
 
 **`greigite_VFe_cation_band.extxyz`**
 - Same cell and method; the octahedron edge **shared with an occupied Fe_oct**
 - Barrier: **566.83 meV** — contrast case, 2.40× the channel edge
+- The cation-edge saddle has not received the channel path's full-space Lanczos check.
 - The two bands start from the **same** endpoint (energies identical), so the 331 meV gap is a
   pure path difference
 
@@ -123,15 +127,17 @@ barrier with the internal energy E = F+TS or the 0 K extrapolation gives 227.89 
 > The filename says `VS2` and the old description said "S₂ dimer hop". **Both are wrong.**
 > The cell is **HFe₃₂S₆₃**: one sulfur removed, not a dimer — so this is **V_S**, not V_S₂.
 > And the hydrogen is **Fe-bound in all nine frames** (Fe71 → Fe37, d(H–Fe) 1.62–1.97 Å); the
-> nearest sulfur is never closer than **2.50 Å**. It is a **hydride hop**, not an S–H transfer.
+> nearest sulfur is never closer than **2.50 Å**. It is **Fe-bound hydrogen transfer**, not S–H
+> transfer. The neutral-H, charge-neutral supercell does not assign a formal hydride charge.
 >
 > This was established in the 2026-09-14 revision audit; the correction had not reached this
 > deposit. **The barrier value is unaffected** — this file reproduces 94.59 meV. The filename is
-> kept for citation stability; `meta_reaction` now reads `V_S_Fe_bound_hydride_hop`.
+> kept for citation stability; the historical `meta_reaction=V_S_Fe_bound_hydride_hop` string is
+> retained as an alias, not a measured oxidation-state assignment.
 
 **`pyrite_VS2_band.extxyz`**
 - Mineral: pyrite (cubic, space group Pa-3)
-- Reaction: **V_S + Fe-bound hydride hop** (previously mislabelled "S₂ dimer hop, V_S2"),
+- Reaction: **V_S + Fe-bound hydrogen transfer** (previously mislabelled "S₂ dimer hop, V_S2"),
   HFe₃₂S₆₃, 96 atoms, nspin=1 (non-magnetic)
 - Method: PBE U=0, nspin=1, ONCV, kpts 2×2×2, QE 7.x
 - n_atoms per frame: 96
@@ -152,7 +158,7 @@ barrier with the internal energy E = F+TS or the 0 K extrapolation gives 227.89 
 
 **`pyrite_VFe_dimer_saddle.extxyz`**
 - Mineral: pyrite (cubic, space group Pa-3)
-- Reaction: V_Fe iron-vacancy S-H transfer, FeS₂ + H (96 atoms), nspin=1
+- Reaction: V_Fe iron-vacancy S-H transfer, Fe₃₁S₆₄H (96 atoms), nspin=1
 - Method: PBE U=0, nspin=1, ONCV, kpts 2×2×2, QE 7.x, unconstrained ASE Dimer method
 - n_atoms: 96
 - n_frames: 1 (saddle geometry only)
@@ -193,8 +199,9 @@ barrier with the internal energy E = F+TS or the 0 K extrapolation gives 227.89 
 
 ### MLIP Reference Bands (pyrite V_Fe)
 
-These files contain geometries produced by MLIP NEB (MACE-MP-0 and CHGNet),
-for direct comparison with DFT NEB bands (pyrite V_Fe reaction coordinate).
+These are **historical frozen-endpoint** MLIP NEB files (MACE-MP-0 and CHGNet), not the
+self-consistent endpoint-relaxed values in current main Table 2. Endpoint relaxation changes the
+energy reference and path. Current self-consistent values are 256/387 meV, not 182/223 meV.
 
 **`pyrite_VFe_band_MACE-MP-0.extxyz`**
 - Method: MACE-MP-0 (universal MLIP, Materials Project 2023)
@@ -202,9 +209,9 @@ for direct comparison with DFT NEB bands (pyrite V_Fe reaction coordinate).
 - n_frames: 9 (MACE NEB band images)
 - Energies: present (MACE-MP-0 total energies, eV); forces present
 - Band (meV relative to endA): 0, -58, -20, +82, +182, +113, 0, -55, 0
-- Max: 181.7 meV (vs DFT ~268 meV for V_Fe; note: different reaction — see note)
+- Frozen-endpoint maximum: 181.7 meV (DFT V_Fe reference ~268 meV, different comparison protocol)
 - Note: `method=MACE-MP-0`; pyrite V_Fe path, same reaction coordinate
-  as DFT dimer saddle. MACE underestimates and shifts the barrier.
+  as the DFT dimer saddle. This file alone does not establish self-consistent underestimation.
 - Source: `results/dft_datasets/2026-05-29/pyr_vfe_mlip_band/pyr_vfe_mlip_band_mace.xyz`
 
 **`pyrite_VFe_band_CHGNet.extxyz`**
@@ -232,7 +239,9 @@ These files can be used as:
 - Transition-state reference structures for benchmarking universal MLIPs (MACE-MP-0,
   CHGNet, M3GNet, SevenNet, etc.) on Fe-S defect diffusion barriers
 - Fine-tuning seed data: the 9-image NEB bands (with energies+forces) can be directly
-  appended to MLIP training sets to improve TS coverage in iron-sulfide chemistry
+  used only after selecting accepted paths, excluding unreliable energy labels, and matching
+  energy/force conventions. Retracted trans-axis and invalid pentlandite structures are historical
+  records, not accepted migration training targets.
 - Evaluation of whether an MLIP reproduces barrier heights vs DFT at the PBE U=0 level
 
 The pyrite VS2 band (94.6 meV) and mackinawite V_Fe band (42.9 meV) are particularly
@@ -241,10 +250,10 @@ useful — clean, symmetric, fully converged, with energies and forces on every 
 ### (b) NEB method developers
 
 Real converged DFT NEB bands to test path optimizers, climbing image algorithms, or
-adaptive NEB schemes. The bands span a 40× range of barrier heights (42.9 meV to
-1860.7 meV), with different symmetries (symmetric / asymmetric) and magnetic complexity
-(nspin=1 / nspin=2 ferrimagnetic). The marcasite band has a stale intermediate image
-(image_02, flagged) that can serve as a test for NEB robustness.
+adaptive NEB schemes. The five accepted fixed DFT bands span 42.9–566.8 meV, with different
+symmetries and magnetic reference treatments. The trans-axis 1860.7 meV record is withdrawn.
+The marcasite band has an unreliable energy at image 1, explicitly flagged; its raw value is
+retained for provenance and excluded from profile statistics.
 
 ### (c) Fe-S defect and diffusion researchers
 
@@ -260,31 +269,34 @@ for constrained relaxations.
 
 ### (d) DFT reproducers
 
-All geometries were produced with Quantum ESPRESSO 7.x, PBE functional, ONCV
-pseudopotentials (SG15 library), kpts 2×2×2 Monkhorst-Pack (Gamma-centered),
-smearing gaussian/Marzari-Vanderbilt, plane-wave cutoffs 60/480 Ry. Geometries
-in extxyz format are readable by ASE and OVITO. The `source_file` info field
-points to the original traj/xyz in the project data archive.
+Reference calculations use Quantum ESPRESSO, PBE and ONCV norm-conserving pseudopotentials,
+with mineral-specific meshes and smearing. Marcasite uses 2×2×3, cold smearing 0.015 Ry and
+60/240 Ry; the corrected greigite edges use 2×2×2, Gaussian 0.005 Ry and **80/320 Ry**;
+pyrite V_Fe uses 60/480 Ry and Gaussian 0.01 Ry. The older pyrite V_S and mackinawite reference
+bands use 60/240 Ry (see their drivers and SI methods). The corrected greigite production
+`image_04/espresso.pwi` and `.pwo` confirm 80/320 Ry; these must not be replaced by a global60/240 default.
+Those outputs identify ONCVPSP pseudopotentials with MD5 Fe `a5f07f5dca5be6cacb81ceb54992e4ae`,
+S `6027e7704d67ae28863b2247926ce6f3`, H `e96aa7e3e4a958db16958554ea960e2a`.
+The `meta_source_file` field points into the original project data archive; that path is provenance,
+not a promise that every original input/output is included in this deposit.
 
 ---
 
 ## Notes on Missing or Flagged Data
 
-- **marcasite image_02**: `energy_stale_dyneb_skip=True` — CRASH file found in
-  image directory; the DyNEB optimizer deprioritized this image. Geometry is from
-  the converged NEB band; energy reflects a partial SCF step.
+- **marcasite image 1**: active `meta_energy_unreliable` flag. The image-2 attribution is
+  historical and superseded; the raw energy values are preserved.
 - **pyrite_VFe_dimer_saddle**: geometry only, no absolute energy in file.
   Barrier (268 meV) is from the dimer calculation result (stored separately as JSON).
 - **pyrite_VFe_band_CHGNet**: geometry only (energies corrupted in source file, identical
   across all frames). Forces from MLIP are stored in arrays but energies should not be used.
 
 
-## Pentlandite (Fe72S64 pure-Fe model, Fm-3m, 136-atom) -- endpoints only
+## WITHDRAWN: incorrectly constructed pentlandite model -- historical endpoints only
 
-`pentlandite_endA.extxyz`, `pentlandite_endB.extxyz` -- DFT-relaxed V_Fe + S-H endpoints
-(Fe71S64H1, nspin=1, PBE U=0). **No NEB band / barrier is provided**: the production
-V_Fe + S-H NEB requires a spin-polarized (nspin=2) protocol and is deferred to a companion
-magnetic-framework study. In Paper #1, pentlandite serves only the two foundation-MLIP
-structural-motif failure diagnostics (V_S+H Fe-cluster collapse; [Fe4S4] cubane 3+3 collapse).
-Earlier V_S+H values (foundation-MLIP 1.43 eV; ABACUS LCAO 0.55 eV) are NOT reliable barriers
-under the corrected methodology. Natural pentlandite is (Fe,Ni)9S8; this is the pure-Fe endmember.
+`pentlandite_endA.extxyz` and `pentlandite_endB.extxyz` contain Fe71S64H, nspin=1, PBE U=0
+geometries from a cell with the intended composition but incorrect crystallographic coordination.
+Both carry `meta_RETRACTED`; they do not establish a pentlandite migration pathway or a model
+failure on the real mineral. The cubane-collapse and V_S breakdown interpretations are withdrawn,
+not deferred barrier estimates. See `../../mlip/PENTLANDITE_WITHDRAWN.md` for the structure audit.
+Files remain for historical traceability and must not be selected as accepted pentlandite data.

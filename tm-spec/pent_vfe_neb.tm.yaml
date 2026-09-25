@@ -1,89 +1,126 @@
-# ⚠️ RETRACTED 2026-09-23 — computed on a cell that is not the pentlandite
-# structure. See mlip/PENTLANDITE_WITHDRAWN.md and manuscript section 3.3.
-# TM-Spec v0.3 artefact: Pentlandite (pure-Fe Fe72S64 model) V_Fe + S-H -- ENDPOINTS ONLY
-# PRELIMINARY: production V_Fe + S-H NEB DEFERRED to a companion magnetic-framework study (nspin=2).
-# Paper #1 uses pentlandite ONLY for two foundation-MLIP STRUCTURAL-MOTIF failures (cubane + V_S
-# collapse), NOT for a DFT barrier. Earlier V_S+H values (MLIP 1.43 eV; ABACUS 0.55 eV) are NOT
-# reliable migration barriers under the corrected V_Fe + S-H methodology.
-
+# TM-Spec v0.3 record; scientific metadata synchronized 2026-09-25.
+# See README.md for reference resolution, historical_interpretation and validation scope.
 spec: tm-spec/0.3
 kind: NEBCalculation
 id: tm.pent.vfe.neb.2026-06-04
 schema_url: https://exopoiesis.github.io/tm-spec/0.3.json
-
-# -- 1. STRUCTURE --
 structure:
-  formula: Fe71S64H1                  # pure-Fe Fe72S64 model, minus 1 V_Fe, plus 1 H = 136 atoms
-  space_group: { number: 225, symbol: "Fm-3m" }
-  cell: { a: 10.07 Angstrom }         # a_conv pure-Fe model (natural (Fe,Ni)9S8 a=10.044)
-  supercell: [2, 2, 2]                # primitive x 2x2x2 = 136 atoms (8 f.u.)
-  pbc: [true, true, true]
+  formula: Fe71S64H1
+  space_group:
+    number: 225
+    symbol: Fm-3m
+  cell:
+    a: 10.07 Angstrom
+  supercell:
+  - 2
+  - 2
+  - 2
+  pbc:
+  - true
+  - true
+  - true
   geometry_origin: dft_relaxed
-
-# -- 3. MAGNETIC --
 magnetic:
-  state: NM                           # nspin=1 paramagnetic surrogate (Paper #1 unified protocol)
+  state: NM
   collinear: true
   magmoms_uB: {}
-  surrogate_warning: "Pentlandite is Pauli-paramagnetic with no long-range order (Knop 1976); nspin=1 used as a paramagnetic surrogate. The V_Fe + S-H migration barrier requires nspin=2 and is developed in a companion magnetic-framework study."
-
-# -- 6. CALCULATION --
+  surrogate_warning: The calculation used nspin=1 on an incorrect structural model; it does not establish
+    the magnetism or required method of real pentlandite.
 calculation:
   method: DFT
   level:
     xc: PBE
-    basis: { kind: plane_waves, cutoff_Ry: 60, rho_cutoff_Ry: 240 }
-    pseudopotential: "ONCV PBE"
-    smearing: { kind: gaussian, width_Ry: 0.01 }    # metallic / itinerant
+    basis:
+      kind: plane_waves
+      cutoff_Ry: 60
+      rho_cutoff_Ry: 240
+    pseudopotential: ONCV PBE
+    smearing:
+      kind: gaussian
+      width_Ry: 0.01
     spin: none
-  k_points: { mesh: [2, 2, 2], shift: [0, 0, 0] }
-  convergence: { scf_Ry: 1.0e-8, fmax_eV_per_A: 0.05 }
-  code: { name: QuantumESPRESSO, version: "7.5" }
-
-# -- 7. WORKFLOW (NEB endpoints prepared; production band deferred) --
+  k_points:
+    mesh:
+    - 2
+    - 2
+    - 2
+    shift:
+    - 0
+    - 0
+    - 0
+  convergence:
+    scf_Ry: 1.0e-08
+    fmax_eV_per_A: 0.05
+  code:
+    name: QuantumESPRESSO
+    version: '7.5'
 workflow:
   kind: NEB
   stage: smoke
-  n_images: null                       # production NEB not run (deferred, nspin=2 companion study)
+  n_images: null
   optimizer: FIRE
   prewrap: idpp
   endpoints:
-    A: { ref: ../data/structures/pentlandite_endA.extxyz, geometry_origin: dft_relaxed }
-    B: { ref: ../data/structures/pentlandite_endB.extxyz, geometry_origin: dft_relaxed }
-
-# -- 8. RESULTS --
+    A:
+      ref: ../data/structures/pentlandite_endA.extxyz
+      geometry_origin: dft_relaxed
+    B:
+      ref: ../data/structures/pentlandite_endB.extxyz
+      geometry_origin: dft_relaxed
 results:
-  Ea_forward_eV: null                  # NO barrier in Paper #1 (deferred to companion nspin=2 study)
-  status: PRELIMINARY
+  Ea_forward_eV: null
+  status: RETRACTED
   paper_quotable: false
-  validated_by: [chemist@opus, physicist@opus]
-  notes: |
-    Production V_Fe + S-H NEB DEFERRED to a companion magnetic-framework study: it requires a
-    spin-polarized (nspin=2) protocol that does not fit Paper #1's unified nspin=1 paramagnetic
-    surrogate. DFT-relaxed endpoints are provided here. Paper #1's pentlandite contributions are
-    TWO foundation-MLIP STRUCTURAL-MOTIF failures, independent of the V_Fe barrier value:
-    (1) V_S + H Fe-cluster collapse -- endpoint A == endpoint B, sub-ueV invalid NEB (same as mackinawite);
-    (2) [Fe4S4] cubane vs octahedral-Fe collapse -- under V_Fe relaxation the 4-coord cubane Fe vacancy
-        collapses to a 3+3 distortion several eV above the symmetric DFT minimum (not flagged by force
-        convergence); the octahedral 4b Fe site does NOT show this failure.
-    Earlier V_S + H values are NOT reliable migration barriers under the corrected methodology:
-    foundation-MLIP 1.43 eV (2x2x2) and ABACUS LCAO 0.55 eV (unpublished) are artifacts of the broken pathway.
-
-# -- 9. SANITY GATES --
+  notes: 'WITHDRAWN: cell has the intended composition but incorrect Wyckoff assignments and coordination.
+    No pentlandite migration barrier or cubane-failure conclusion follows. Earlier 1.43 eV MLIP and 0.55
+    eV ABACUS values remain historical observations on the invalid construction, not migration references.
+    See ../mlip/PENTLANDITE_WITHDRAWN.md. This record is not an outstanding accepted barrier calculation
+    awaiting a different spin protocol.'
+  historical_interpretation:
+    internal_review_labels:
+    - chemist@opus
+    - physicist@opus
+    notes: "Production V_Fe + S-H NEB DEFERRED to a companion magnetic-framework study: it requires a\n\
+      spin-polarized (nspin=2) protocol that does not fit Paper #1's unified nspin=1 paramagnetic\nsurrogate.\
+      \ DFT-relaxed endpoints are provided here. Paper #1's pentlandite contributions are\nTWO foundation-MLIP\
+      \ STRUCTURAL-MOTIF failures, independent of the V_Fe barrier value:\n(1) V_S + H Fe-cluster collapse\
+      \ -- endpoint A == endpoint B, sub-ueV invalid NEB (same as mackinawite);\n(2) [Fe4S4] cubane vs\
+      \ octahedral-Fe collapse -- under V_Fe relaxation the 4-coord cubane Fe vacancy\n    collapses to\
+      \ a 3+3 distortion several eV above the symmetric DFT minimum (not flagged by force\n    convergence);\
+      \ the octahedral 4b Fe site does NOT show this failure.\nEarlier V_S + H values are NOT reliable\
+      \ migration barriers under the corrected methodology:\nfoundation-MLIP 1.43 eV (2x2x2) and ABACUS\
+      \ LCAO 0.55 eV (unpublished) are artifacts of the broken pathway.\n"
+    sanity:
+    - id: G09_geometry_origin
+      rule: endpoints dft_relaxed (energies comparable)
+      observed: both dft_relaxed
+      pass: true
+    - id: G10_vfe_barrier_deferred
+      rule: V_Fe + S-H NEB requires nspin=2 -> deferred to companion study
+      observed: production NEB not run
+      pass: skip
+    - id: G17_cubane_motif_preserved
+      rule: '[Fe4S4] cubane preserved under V_Fe relaxation (MLIP)'
+      observed: MLIP 3+3 collapse several eV above DFT minimum
+      pass: false
+  retracted_on: '2026-09-23'
 sanity:
-  - { id: G09_geometry_origin, rule: "endpoints dft_relaxed (energies comparable)", observed: "both dft_relaxed", pass: true }
-  - { id: G10_vfe_barrier_deferred, rule: "V_Fe + S-H NEB requires nspin=2 -> deferred to companion study", observed: "production NEB not run", pass: "skip" }
-  - { id: G17_cubane_motif_preserved, rule: "[Fe4S4] cubane preserved under V_Fe relaxation (MLIP)", observed: "MLIP 3+3 collapse several eV above DFT minimum", pass: false }
-
-# -- 10. PROVENANCE --
+- id: G01_structure_identity
+  rule: The computed cell must represent the intended mineral
+  observed: Incorrect Wyckoff positions and coordination; composition alone matched
+  pass: false
 provenance:
   date: 2026-06-04
   author: igor@exopoiesis.space
-  literature: [Knop1976, Tsukimura1992, Vaughan2006]
+  literature:
+  - Knop1976
+  - Tsukimura1992
+  - Vaughan2006
   compute:
     host: vast.ai
     gpu: A100
     cost_usd: 0.0
-  hash:
-    inputs: "sha256:placeholder_to_be_computed"
-    outputs: "sha256:placeholder_to_be_computed"
+  hash_status: Run-input/output aggregate hashes were not recorded; placeholder strings removed 2026-09-25.
+    No hash verification is implied.
+  metadata_revision: '2026-09-25: synchronized interpretations with revised manuscript; original numerical
+    observations retained with explicit protocol/withdrawal status.'

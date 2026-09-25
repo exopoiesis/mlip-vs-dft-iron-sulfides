@@ -1,19 +1,7 @@
-"""
-Figure S (SI §O) -- per-image foundation-MLIP vs DFT NEB band correlation.
+"""Historical pyrite degenerate-endpoint profile comparison (not a current figure).
 
-Stanford review Q5: shows WHAT TYPE of failure the foundation MLIPs exhibit
-along the canonical pyrite V_S pocket Fe-to-Fe hydride-hop path (9 images, symmetric, DFT saddle
-img4 = 94.6 meV, QE PBE).
-
-Panels:
-  (a) per-image band overlay: DFT vs MACE-MP-0 large vs CHGNet v0.3.0 (meV)
-  (b) parity inset: MLIP per-image rel-energy vs DFT per-image rel-energy
-
-Data source: tmp/q5_summary.json (produced by tmp/q5_correlation.py from
-results/mlip_canonical/*.json + neb.traj-extracted DFT band). All numbers
-are read from the summary JSON -- no hard-coded band values here.
-
-Output: figS_mlip_dft_band_correlation.{pdf, png, svg}
+This plot records the profiles withdrawn as migration-barrier predictions in SI O.2.
+Input: data/figure_inputs/pyrite_legacy_profiles.json. No external workspace is needed.
 """
 from __future__ import annotations
 
@@ -24,9 +12,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 HERE = Path(__file__).resolve().parent
-# project root = .../project-third-matter ; figures live at paper/MLIPvsDFT/figures
-ROOT = HERE.parents[2]
-SUMMARY = ROOT / "tmp" / "q5_summary.json"
+SUMMARY = HERE.parent / "data" / "figure_inputs" / "pyrite_legacy_profiles.json"
 
 
 def load_pyrite_case():
@@ -35,7 +21,7 @@ def load_pyrite_case():
     for c in summary["cases"]:
         if c["case"] == "pyrite_V_S2":
             return c
-    raise RuntimeError("pyrite_V_S2 case not found in q5_summary.json")
+    raise RuntimeError("Historical pyrite case not found in deposited input")
 
 
 def make_figure(out_dir: Path) -> None:
@@ -67,11 +53,11 @@ def make_figure(out_dir: Path) -> None:
     ax.axvline(c["dft_saddle_index"], color="#5b3a8c", lw=0.8, ls=":", alpha=0.6)
     ax.set_xlabel("NEB image index")
     ax.set_ylabel("Relative energy (meV, ref = endpoint A)")
-    ax.set_title("(a) Pyrite V$_{S_2}$ H-hop band: DFT vs foundation MLIP")
+    ax.set_title("(a) Historical pyrite V$_S$ profiles: unmatched endpoints")
     ax.set_xticks(img)
     ax.legend(frameon=False, fontsize=9, loc="upper right")
     ax.text(0.02, 0.95,
-            "MACE: flat (no barrier)\nCHGNet: false wells mid-path",
+            "Degenerate MLIP endpoints\nNot migration-barrier predictions",
             transform=ax.transAxes, fontsize=8.5, va="top",
             bbox=dict(boxstyle="round", fc="white", ec="gray", alpha=0.8))
 
@@ -91,6 +77,7 @@ def make_figure(out_dir: Path) -> None:
     axp.set_aspect("equal", adjustable="box")
     axp.legend(frameon=False, fontsize=8.5, loc="upper left")
 
+    fig.suptitle("Historical diagnostic; MLIP barrier interpretation withdrawn", fontsize=11)
     fig.tight_layout()
     for ext in ("pdf", "png", "svg"):
         fig.savefig(out_dir / f"figS_mlip_dft_band_correlation.{ext}",

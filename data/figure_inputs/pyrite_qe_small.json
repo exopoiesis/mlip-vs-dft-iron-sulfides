@@ -1,0 +1,24 @@
+{
+  "system": "pyrite_1x1x1",
+  "method": "DFT_QE_PBE_USPP",
+  "n_atoms": 11,
+  "formula": "HFe4S6",
+  "E_a_eV": 0.19036349445013911,
+  "energies_eV": [
+    0.0,
+    0.12689838386177144,
+    0.11901374932858744,
+    0.1527474297945446,
+    0.19036349445013911,
+    0.09443819615989923,
+    -1.3605495041701943e-07
+  ],
+  "converged": true,
+  "neb_steps": 32,
+  "time_total_s": 35072.27108955383,
+  "E_a_GPAW_1x1x1_eV": 0.181,
+  "E_a_ABACUS_2x2x2_eV": 0.075,
+  "E_a_MACE_eV": 0.79,
+  "harvested": "2026-04-02",
+  "source": "GCP-QE n4-standard-8 spot"
+}
