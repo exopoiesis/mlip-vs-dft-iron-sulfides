@@ -1,8 +1,16 @@
 # Changelog
 
+## Metadata update after v1.5 — 2026-09-25
+
+Added a study description, the manuscript abstract in `CITATION.cff`, and the
+Zenodo-assigned v1.5 DOI. The GitHub release description was expanded for readers
+of the paper. These metadata changes do not move tag v1.5 or replace its archived
+files; the Zenodo landing-page description can be edited separately without a new DOI.
+
 ## v1.5 — 2026-09-25
 
-The version-specific Zenodo DOI will be added once available. The previous archive is
+Archived as [Zenodo record 22958549](https://zenodo.org/records/22958549),
+DOI **10.5281/zenodo.22958549**. The previous archive is
 v1.4, DOI [10.5281/zenodo.22919796](https://doi.org/10.5281/zenodo.22919796).
 
 This release corrects analysis code, interpretation, method descriptions and reproducibility
@@ -85,8 +93,7 @@ and unchanged content in all 19 structure files (apart from Git's LF/CRLF checko
   figure-input JSON files and three primary greigite records match their retained source bytes.
 - Structure and existing JSON numerical comparisons against v1.4 passed. Changes to scientific
   descriptions do not silently replace raw observations.
-- The actual version-specific Zenodo DOI will be cited once assigned. Historical releases
-  are not retagged.
+- Historical releases are not retagged.
 
 ## v1.4 — 2026-09-23
 

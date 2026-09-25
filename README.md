@@ -197,9 +197,11 @@ The [offline reproduction checks](scripts/REPRODUCING.md) regenerate the saved p
 
 ## Citing
 
-See `CITATION.cff`. Release **v1.5** corrects analysis code, method metadata and
-reproducibility documentation; see [CHANGELOG.md](CHANGELOG.md). Its version-specific
-Zenodo DOI will be added once available. The previous archived release is **v1.4**, DOI
+See `CITATION.cff` and the [archive description](ARCHIVE_DESCRIPTION.md).
+Release **v1.5** is archived in [Zenodo record 22958549](https://zenodo.org/records/22958549),
+with version-specific DOI **10.5281/zenodo.22958549**. It corrects analysis code, method
+metadata and reproducibility documentation; see [CHANGELOG.md](CHANGELOG.md).
+The previous archived release is **v1.4**, DOI
 [10.5281/zenodo.22919796](https://doi.org/10.5281/zenodo.22919796).
 
 **Cite the release that matches the numbers you use.** These are version-specific DOIs by choice, not

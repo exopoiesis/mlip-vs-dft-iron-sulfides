@@ -1,6 +1,12 @@
 cff-version: 1.2.0
-message: "If you use this code or data, please cite the accompanying paper."
+message: "If you use this code or data, please cite this archived version and the accompanying paper."
 title: "Where Foundation Machine-Learning Potentials Fail for Iron-Sulfide Defect Kinetics: Failure Modes, Pre-Flight Checks, and a DFT Benchmark of Vacancy-Anchored Hydrogen Migration in Pyrite, Marcasite, Mackinawite, and Greigite"
+abstract: |
+  Foundation machine-learning interatomic potentials (MLIPs) offer inexpensive migration-barrier calculations, but their reliability for hydrogen defects in magnetic iron sulfides remains uncertain. We establish plane-wave DFT references at PBE, U = 0 for vacancy-anchored hydrogen migration in pyrite, marcasite, mackinawite and greigite. The electronic barriers for sulfur-to-sulfur transfer around an Fe vacancy are 43, 208, 268 and 236 meV for mackinawite, marcasite, pyrite and the lower-barrier greigite path, respectively. A second greigite edge gives 567 meV: the shorter edge has the higher barrier, showing why path selection requires local coordination rather than distance alone.
+
+  We distinguish self-consistent MLIP pathways from energy evaluations on fixed DFT geometries. Nine foundation potentials evaluated on five DFT bands give barrier errors from −132 to +371 meV. They identify the highest-energy image in 43 of 45 model–band comparisons, yet all nine overestimate the 43 meV mackinawite barrier by factors of 1.75–9.66. No consistent improvement with model generation is resolved in this small benchmark. Separate relaxation tests reveal pristine-greigite instability and endpoint-seeding sensitivity, which fixed-geometry energy tests cannot diagnose.
+
+  Fine-tuning MACE-MP-0 on four bands from the other three sulfides reduces the held-out mackinawite error from 149 to 68 ± 23 meV. Fitting its own band alone permits a 4.6 meV mean absolute error, demonstrating representability without establishing transfer to unseen pathways. Harmonic zero-point corrections lower the four channel-reference barriers by 66–103 meV; mackinawite reaches the limit of harmonic barrier theory. These are local neutral-H defect calculations in dry bulk, not predictions of hydrated proton conductivity. The benchmark supports structure, endpoint and saddle validation before foundation potentials are used quantitatively for defect kinetics.
 authors:
   - family-names: Morozov
     given-names: "Igor N."
@@ -11,6 +17,7 @@ date-released: "2026-09-25"
 repository-code: "https://github.com/exopoiesis/mlip-vs-dft-iron-sulfides"
 url: "https://exopoiesis.space"
 version: "1.5"
+doi: "10.5281/zenodo.22958549"
 license: MIT
 keywords:
   - foundation machine-learning potentials
